@@ -1,13 +1,21 @@
-import { SxProps, Theme } from "@mui/material";
+import { SxProps } from "@mui/material";
 
 const mainSection: SxProps = {
   backgroundColor: '#12141d',
   color: '#fff',
   height: '6rem',
   width: '100%',
-  paddingRight: { xs: '2rem', md: '15rem' },
-  paddingLeft: { xs: '2rem', md: '15rem' },
-  position: 'fixed'
+  paddingRight: '15rem',
+  paddingLeft: '15rem',
+  position: 'fixed',
+  '@media (max-width: 600px)': {
+    paddingRight: '2rem',
+    paddingLeft: '2rem',
+  },
+  '@media (min-width: 601px) and (max-width: 1024px)': {
+    paddingRight: '2rem',
+    paddingLeft: '2rem',
+  },
 }
 
 const menuSection: SxProps = {
@@ -30,8 +38,14 @@ const logoLink: SxProps = {
 }
 
 const routeSectionDesktop: SxProps = {
-  display: { xs: 'none', md: 'flex' },
+  display: 'flex',
   gap: '4rem',
+  '@media (max-width: 600px)': {
+    display: 'none',
+  },
+  '@media (min-width: 601px) and (max-width: 1024px)': {
+    display: 'none',
+  },
 }
 
 const textRoute: SxProps = {
@@ -47,8 +61,14 @@ const textRoute: SxProps = {
 }
 
 const burgerIcon: SxProps = {
-  display: { xs: 'block', md: 'none' },
-};
+  display: 'none',
+  '@media (max-width: 600px)': {
+    display: 'block',
+  },
+  '@media (min-width: 601px) and (max-width: 1024px)': {
+    display: 'block',
+  },
+}
 
 const icon: SxProps = {
   color: 'white',

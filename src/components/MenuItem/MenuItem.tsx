@@ -1,11 +1,15 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import style from './MenuItem.style'
+
 import { Box, IconButton, Link, Typography } from '@mui/material'
+
+import MenuIcon from '@mui/icons-material/Menu'
+import CloseIcon from '@mui/icons-material/Close'
+
 import { dataRoutes } from '@/src/mocks/MenuSection/dataRoutes'
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+
+import style from './MenuItem.style'
 
 const MenuItem = () => {
 
