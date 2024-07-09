@@ -25,7 +25,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   headerContainer: {
     m: "auto",
     maxWidth: "1700px",
-    width: "100%",
+    width: 1,
     backgroundColor: "#12141D",
     backgroundImage:
       'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
