@@ -4,9 +4,9 @@ const style: { [key: string]: SxProps<Theme> } = {
   container: {
     width: 1,
     backgroundColor: "rgb(25,27,38,0.6)",
-    maxWidth: "430px",
+    maxWidth: "330px",
     minWidth: "250px",
-    height: "400px",
+    height: "460px",
     borderRadius: "10px",
     color: "white",
     overflow: "hidden",
@@ -14,7 +14,7 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   contentWrapper: {
     width: 1,
-    height: "200px",
+    height: "250px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
