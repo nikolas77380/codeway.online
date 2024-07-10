@@ -1,5 +1,5 @@
 "use client";
-import { TCourse } from "@/mocks/coursesListBlock/mocks";
+import { TCourse } from "@/src/mocks/mocks";
 import {
   Box,
   Button,
