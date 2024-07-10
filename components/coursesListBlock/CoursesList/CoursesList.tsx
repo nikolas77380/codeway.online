@@ -3,7 +3,7 @@ import CourseItem from "../CoursesItem/CourseItem";
 
 import style from "./CoursesList.style";
 
-import { coursesList } from "@/mocks/coursesListBlock/mocks";
+import { coursesList } from "@/src/mocks/mocks";
 
 const CoursesList = () => {
   return (
