@@ -4,10 +4,10 @@ const mainSection: SxProps = {
   backgroundColor: '#12141d',
   color: '#fff',
   height: '6rem',
-  width: '100%',
+  maxWidth: 1,
   paddingRight: '15rem',
   paddingLeft: '15rem',
-  position: 'fixed',
+  marginBottom: '10rem',
   '@media (max-width: 600px)': {
     paddingRight: '2rem',
     paddingLeft: '2rem',
@@ -22,8 +22,8 @@ const menuSection: SxProps = {
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  height: '100%',
-  width: '100%'
+  height: 1,
+  width: 1
 }
 
 const logo: SxProps = {
@@ -83,7 +83,7 @@ const mobileMenu: SxProps = {
   position: 'absolute',
   top: '8rem',
   left: '0',
-  width: '100%',
+  width: 1,
   backgroundColor: 'white',
   display: 'flex',
   flexDirection: 'column',
