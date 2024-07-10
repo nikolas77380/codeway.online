@@ -23,20 +23,22 @@ const moveFromBottom = keyframes`
 
 const style: { [key: string]: SxProps<Theme> } = {
   headerContainer: {
-    m: "auto",
-    maxWidth: "1700px",
     width: 1,
     backgroundColor: "#12141D",
+    p: "10px",
+  },
+
+  contentWrapper: (theme) => ({
+    m: "auto",
+    p: "10px 10px 0 10px",
+    maxWidth: "1700px",
+    height: "600px",
+    borderRadius: "50px",
     backgroundImage:
       'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-  },
-
-  contentWrapper: (theme) => ({
-    height: "600px",
-    m: "10px 10px 0 10px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -75,6 +77,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   title: (theme) => ({
     mt: "15px",
     fontSize: "3.5rem",
+    color: "white",
     fontWeight: "bold",
     animation: `${moveFromBottom} 1.5s forwards`,
     [theme.breakpoints.down("lg")]: {
@@ -105,6 +108,7 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   rightContainer: {
     position: "relative",
+    right: "50px",
     bottom: 0,
     alignSelf: "flex-end",
   },
