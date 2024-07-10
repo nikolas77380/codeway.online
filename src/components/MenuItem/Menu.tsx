@@ -9,7 +9,7 @@ import CloseIcon from '@mui/icons-material/Close'
 
 import { dataRoutes } from '@/src/mocks/MenuSection/dataRoutes'
 
-import style from './MenuItem.style'
+import style from './Menu.style'
 
 const MenuItem = () => {
 
