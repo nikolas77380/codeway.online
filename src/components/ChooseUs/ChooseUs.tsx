@@ -1,8 +1,10 @@
 import { Box, Typography } from '@mui/material'
 
-import style from './ChooseUs.style'
 import ChooseUsCard from './ChoseUsCard/ChooseUsCard'
+
 import { dataChooseUsCard } from '@/src/mocks/ChooseUsItem/dataChooseUsCard'
+
+import style from './ChooseUs.style'
 
 const ChooseUs = () => {
   return (
@@ -25,8 +27,7 @@ const ChooseUs = () => {
           <ChooseUsCard 
             key={card.id}
             IconComponent={card.icon}
-            title={card.title}
-            description={card.description}
+            {...card}
           />
         ))}
       </Box>

@@ -6,13 +6,19 @@ const mainSection: SxProps = {
   backgroundSize: 'cover',
   backgroundPosition: 'center',
   width: '100%',
-  height: '80vh',
+  height: '100%',
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '15rem',
   paddingRight: '15rem',
-  paddingTop: '5rem',
-  paddingBottom: '7rem'
+  paddingTop: '7rem',
+  paddingBottom: '7rem',
+  '@media (max-width: 600px)': {
+    paddingLeft: '1rem',
+    paddingRight: '1rem',
+    paddingTop: '2rem',
+    paddingBottom: '2rem',
+  },
 }
 
 const textSection: SxProps = {
@@ -27,21 +33,35 @@ const textSection: SxProps = {
     fontWeight: '500',
     letterSpacing: '2px',
     textTransform: 'uppercase',
-    paddingBottom: '0.5rem'
+    paddingBottom: '0.5rem',
+    '@media (max-width: 600px)': {
+      fontSize: '12px',
+      fontWeight: '600',
+      paddingBottom: '0.8rem',
+    },
   },
   '& .title': {
     color: 'white',
     fontSize: '40px',
     fontWeight: '700',
     whiteSpace: 'pre-line',
-    paddingBottom: '0.7rem'
+    paddingBottom: '0.7rem',
+    '@media (max-width: 600px)': {
+      fontSize: '24px',
+    },
   },
   '& .description': {
     color: '#94a3b8',
     fontSize: '16px',
+    width: '100%',
     fontWeight: '400',
     whiteSpace: 'pre-line',
-    paddingBottom: '1.5rem'
+    paddingBottom: '1.5rem',
+    '@media (max-width: 600px)': {
+      fontSize: '14px',
+      padding: '0 10px',
+      paddingBottom: '2.5rem',
+    },
   }
 }
 
@@ -50,7 +70,11 @@ const cardSection: SxProps = {
   justifyContent: 'space-between', 
   width: '100%', 
   height: '100%', 
-  gap: '20px'
+  gap: '20px',
+  '@media (max-width: 600px)': {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
 }
 
 const cardContainer: SxProps = {
@@ -66,6 +90,9 @@ const cardContainer: SxProps = {
   paddingTop: '2.5rem',
   '&:hover': {
     transform: 'scale(1.05)'
+  },
+  '@media (max-width: 600px)': {
+    width: '95%',
   },
 }
 
@@ -88,6 +115,10 @@ const iconWrapper: SxProps = {
   alignItems: 'center',
   '& svg': {
     color: 'white',
+  },
+  '@media (max-width: 600px)': {
+    width: '55px',
+    height: '55px',
   },
 }
 
