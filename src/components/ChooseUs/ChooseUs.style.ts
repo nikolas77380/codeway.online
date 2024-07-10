@@ -13,6 +13,16 @@ const mainSection: SxProps = {
   paddingRight: '15rem',
   paddingTop: '7rem',
   paddingBottom: '7rem',
+  '@keyframes slideDown': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateY(-100%)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateY(0)',
+    },
+  },
   '@media (max-width: 600px)': {
     paddingLeft: '1rem',
     paddingRight: '1rem',
@@ -71,6 +81,16 @@ const cardSection: SxProps = {
   width: 1, 
   height: 1, 
   gap: '20px',
+  '@keyframes slideInRight': {
+    '0%': {
+      opacity: 0,
+      transform: 'translateX(100%)',
+    },
+    '100%': {
+      opacity: 1,
+      transform: 'translateX(0)',
+    },
+  },
   '@media (max-width: 600px)': {
     flexDirection: 'column',
     alignItems: 'center',
