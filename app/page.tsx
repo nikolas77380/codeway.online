@@ -1,9 +1,9 @@
-import VideoItem from "@/src/components/VideoItem/VideoItem";
+import ChooseUs from "@/src/components/ChooseUs/ChooseUs";
 
 export default function Home() {
   return (
     <main>
-      <VideoItem autoplay={true} />
+      <ChooseUs />
     </main>
   );
 }
