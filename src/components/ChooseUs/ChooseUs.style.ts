@@ -5,8 +5,8 @@ const mainSection: SxProps = {
   backgroundImage: 'radial-gradient(circle, #675181 0%, #191b26 35%, #191b26 100%)',
   backgroundSize: 'cover',
   backgroundPosition: 'center',
-  width: '100%',
-  height: '100%',
+  width: 1,
+  height: 1,
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '15rem',
@@ -25,8 +25,8 @@ const textSection: SxProps = {
   display: 'flex',
   flexDirection: 'column',
   textAlign: 'center',
-  width: '100%',
-  height: '100%',
+  width: 1,
+  height: 1,
   '& span': {
     color: '#a855f7',
     fontSize: '15px',
@@ -53,7 +53,7 @@ const textSection: SxProps = {
   '& .description': {
     color: '#94a3b8',
     fontSize: '16px',
-    width: '100%',
+    width: 1,
     fontWeight: '400',
     whiteSpace: 'pre-line',
     paddingBottom: '1.5rem',
@@ -68,8 +68,8 @@ const textSection: SxProps = {
 const cardSection: SxProps = {
   display: 'flex', 
   justifyContent: 'space-between', 
-  width: '100%', 
-  height: '100%', 
+  width: 1, 
+  height: 1, 
   gap: '20px',
   '@media (max-width: 600px)': {
     flexDirection: 'column',
@@ -81,7 +81,7 @@ const cardContainer: SxProps = {
   backgroundColor: '#211e2f',
   display: 'flex', 
   width: '340px', 
-  height: '100%', 
+  height: 1, 
   borderRadius: '15px',
   cursor: 'pointer',
   transition: 'all 0.3s ease-in-out',
@@ -100,8 +100,8 @@ const cardWrapper: SxProps = {
   display: 'flex', 
   flexDirection: 'column', 
   alignItems: 'center', 
-  width: '100%', 
-  height: '100%',
+  width: 1, 
+  height: 1,
   gap: '20px'
 }
 
