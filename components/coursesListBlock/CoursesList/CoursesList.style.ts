@@ -4,17 +4,23 @@ const style: { [key: string]: SxProps<Theme> } = {
   container: {
     p: "50px 25px",
     backgroundColor: "rgb(18,20,29)",
+  },
+
+  contentWrapper: {
+    maxWidth: "1700px",
+    m: "auto",
     backgroundImage: "url('/coursesListBlock/bg_memphis_1_.png')",
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
 
   title: {
     mt: "15px",
-    fontSize: "2rem",
+    fontSize: "2.5rem",
     fontWeight: "bold",
     textAlign: "center",
+    color: "white",
   },
 
   subtitle: {

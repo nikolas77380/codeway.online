@@ -22,7 +22,13 @@ const CourseItem = ({ course }: ICourseItem) => {
   }, []);
 
   return (
-    <Paper sx={style.container} data-aos="fade" data-aos-duration="1000">
+    <Paper
+      sx={style.container}
+      data-aos="fade"
+      data-aos-duration="1000"
+      data-aos-delay="300"
+      data-aos-anchor-placement="top"
+    >
       <CardMedia
         image={course.image}
         title={course.name}
