@@ -1,25 +1,25 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { Box, IconButton, Modal } from '@mui/material'
+import Image from "next/image";
 
-import { PlayIcon } from './PlayIcon/PlayIcon'
+import { Box, IconButton, Modal } from "@mui/material";
 
-import VideoPlayer from './VideoPlayer/VideoPlayer'
-import ImageHeadContent from './ImageHeadContent/ImageHeadContent'
+import { PlayIcon } from "./PlayIcon/PlayIcon";
 
-import { URL_IMG_YOUTUBE } from '@/src/mocks/VideoItem/helper'
+import VideoPlayer from "./VideoPlayer/VideoPlayer";
+import ImageHeadContent from "./ImageHeadContent/ImageHeadContent";
 
-import style from './VideoItem.style'
+import { URL_IMG_YOUTUBE } from "@/src/mocks/VideoItem/helper";
 
+import style from "./Video.style";
 
 interface VideoItemProps {
-  autoplay: boolean;
+  autoplay?: boolean;
 }
 
-const VideoItem = ({ autoplay }: VideoItemProps) => {
-
+const Video = ({ autoplay = false }: VideoItemProps) => {
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
@@ -27,7 +27,7 @@ const VideoItem = ({ autoplay }: VideoItemProps) => {
 
   return (
     <Box sx={style.videoContainer}>
-      <img src={`${URL_IMG_YOUTUBE}`} alt="Video Thumbnail" />
+      <Image src={`${URL_IMG_YOUTUBE}`} alt="Video Thumbnail" />
       <IconButton onClick={handleOpen} sx={style.playButton}>
         <PlayIcon />
       </IconButton>
@@ -43,7 +43,7 @@ const VideoItem = ({ autoplay }: VideoItemProps) => {
         </Box>
       </Modal>
     </Box>
-  )
-}
+  );
+};
 
-export default VideoItem
+export default Video;
