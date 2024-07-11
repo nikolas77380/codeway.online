@@ -7,7 +7,6 @@ const mainSection: SxProps = {
   maxWidth: 1,
   paddingRight: '15rem',
   paddingLeft: '15rem',
-  marginBottom: '10rem',
   '@media (max-width: 600px)': {
     paddingRight: '2rem',
     paddingLeft: '2rem',
