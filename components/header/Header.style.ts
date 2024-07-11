@@ -32,6 +32,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "auto",
     p: "10px 10px 0 10px",
     maxWidth: "1700px",
+    maxHeight: "900px",
     height: `calc(100vh - 8rem)`,
     minHeight: "600px",
     borderRadius: "50px",
