@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import style from "../VideoItem.style";
+import style from "@/components/Video/Video.style";
 
 export const PlayIcon = () => {
   return (

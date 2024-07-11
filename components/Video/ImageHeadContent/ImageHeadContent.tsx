@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 
-import style from "../Video.style";
+import style from "@/components/Video/Video.style";
 
 const ImageHeadContent = () => {
   return (

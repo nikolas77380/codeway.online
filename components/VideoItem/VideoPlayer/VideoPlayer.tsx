@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import { URL_VIDEO_YOUTUBE } from "@/src/mocks/VideoItem/helper";
 
-import style from "../VideoItem.style";
+import style from "@/components/Video/Video.style";
 
 interface VideoPlayerProps {
   onClose: () => void;
