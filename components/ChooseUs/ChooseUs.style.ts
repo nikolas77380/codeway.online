@@ -1,6 +1,8 @@
 import { SxProps } from "@mui/material";
 
 const mainSection: SxProps = {
+  maxWidth: '1700px',
+  m: 'auto',
   backgroundColor: '#191b26',
   backgroundImage: 'radial-gradient(circle, #675181 0%, #191b26 35%, #191b26 100%)',
   backgroundSize: 'cover',

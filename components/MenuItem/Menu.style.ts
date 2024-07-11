@@ -1,13 +1,13 @@
 import { SxProps } from "@mui/material";
 
 const mainSection: SxProps = {
+  maxWidth: '1700px',
+  m: 'auto',
   backgroundColor: '#12141d',
   color: '#fff',
   height: '6rem',
   width: '100%',
-  paddingRight: '15rem',
-  paddingLeft: '15rem',
-  position: 'fixed',
+  p:'0 20px',
   '@media (max-width: 600px)': {
     paddingRight: '2rem',
     paddingLeft: '2rem',

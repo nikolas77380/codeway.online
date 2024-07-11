@@ -32,7 +32,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "auto",
     p: "10px 10px 0 10px",
     maxWidth: "1700px",
-    height: `calc(100vh - 6rem)`,
+    height: `calc(100vh - 8rem)`,
+    minHeight: "600px",
     borderRadius: "50px",
     backgroundImage:
       'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
@@ -141,7 +142,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       height: "155px",
     },
     [theme.breakpoints.down("md")]: {
-      left: "90px",
+      right: "0",
       width: "120px",
       height: "125px",
     },
@@ -158,6 +159,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     [theme.breakpoints.down("lg")]: {
       width: "75px",
       height: "75px",
+    },
+    [theme.breakpoints.down("md")]: {
+      top: "250px",
+      right: "220px",
     },
   }),
 
