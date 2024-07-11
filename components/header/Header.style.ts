@@ -32,7 +32,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "auto",
     p: "10px 10px 0 10px",
     maxWidth: "1700px",
-    height: "600px",
+    height: `calc(100vh - 6rem)`,
     borderRadius: "50px",
     backgroundImage:
       'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
