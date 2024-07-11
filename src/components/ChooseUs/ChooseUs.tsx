@@ -20,7 +20,7 @@ const ChooseUs = () => {
     AOS.init({
       duration: 1200,
       once: true,
-      offset: 500,
+      offset: 200,
       easing: 'ease-out',
     });
   }, []);
@@ -49,15 +49,16 @@ const ChooseUs = () => {
       <Box 
         id="card-section" 
         sx={style.cardSection}
-        data-aos="fade-left"
-        data-aos-delay="300"
-        data-aos-duration="1400"
+        data-aos-anchor-placement="top-top"
       >
         {dataChooseUsCard.map(card => (
           <ChooseUsCard 
             key={card.id}
             IconComponent={card.icon}
             {...card}
+            data-aos="zoom-in"
+            data-aos-delay={400 * (card.id + 1)}
+            data-aos-duration="1400"
           />
         ))}
       </Box>
