@@ -23,20 +23,23 @@ const moveFromBottom = keyframes`
 
 const style: { [key: string]: SxProps<Theme> } = {
   headerContainer: {
-    m: "auto",
-    maxWidth: "1700px",
     width: 1,
     backgroundColor: "#12141D",
+    p: "10px",
+  },
+
+  contentWrapper: (theme) => ({
+    m: "auto",
+    p: "10px 10px 0 10px",
+    maxWidth: "1700px",
+    height: `calc(100vh - 8rem)`,
+    minHeight: "600px",
+    borderRadius: "50px",
     backgroundImage:
       'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
-  },
-
-  contentWrapper: (theme) => ({
-    height: "600px",
-    m: "10px 10px 0 10px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -75,6 +78,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   title: (theme) => ({
     mt: "15px",
     fontSize: "3.5rem",
+    color: "#FFF",
     fontWeight: "bold",
     animation: `${moveFromBottom} 1.5s forwards`,
     [theme.breakpoints.down("lg")]: {
@@ -105,6 +109,7 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   rightContainer: {
     position: "relative",
+    right: "50px",
     bottom: 0,
     alignSelf: "flex-end",
   },
@@ -137,7 +142,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       height: "155px",
     },
     [theme.breakpoints.down("md")]: {
-      left: "90px",
+      right: 0,
       width: "120px",
       height: "125px",
     },
@@ -154,6 +159,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     [theme.breakpoints.down("lg")]: {
       width: "75px",
       height: "75px",
+    },
+    [theme.breakpoints.down("md")]: {
+      top: "250px",
+      right: "220px",
     },
   }),
 
