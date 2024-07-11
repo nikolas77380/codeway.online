@@ -78,7 +78,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   title: (theme) => ({
     mt: "15px",
     fontSize: "3.5rem",
-    color: "white",
+    color: "#FFF",
     fontWeight: "bold",
     animation: `${moveFromBottom} 1.5s forwards`,
     [theme.breakpoints.down("lg")]: {
@@ -142,7 +142,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       height: "155px",
     },
     [theme.breakpoints.down("md")]: {
-      right: "0",
+      right: 0,
       width: "120px",
       height: "125px",
     },
