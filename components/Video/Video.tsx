@@ -27,7 +27,7 @@ const Video = ({ autoplay = false }: VideoItemProps) => {
 
   return (
     <Box sx={style.videoContainer}>
-      <Image src={`${URL_IMG_YOUTUBE}`} alt="Video Thumbnail" />
+      <Image src={`${URL_IMG_YOUTUBE}`} fill alt="Video Thumbnail" />
       <IconButton onClick={handleOpen} sx={style.playButton}>
         <PlayIcon />
       </IconButton>
