@@ -4,17 +4,23 @@ const style: { [key: string]: SxProps<Theme> } = {
   container: {
     p: "50px 25px",
     backgroundColor: "rgb(18,20,29)",
+  },
+
+  contentWrapper: {
+    maxWidth: "1700px",
+    m: "auto",
     backgroundImage: "url('/coursesListBlock/bg_memphis_1_.png')",
-    backgroundSize: "cover",
+    backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   },
 
   title: {
     mt: "15px",
-    fontSize: "2rem",
+    fontSize: "2.5rem",
     fontWeight: "bold",
     textAlign: "center",
+    color: "#FFF",
   },
 
   subtitle: {
@@ -28,12 +34,14 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   listWrapper: {
-    mt: "45px",
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center",
+    maxWidth: "1500px",
+    m: "auto",
+    pt: "40px",
+    display: "grid",
     gap: "20px",
+    "@media (min-width: 600px)": {
+      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,300px), 1fr));",
+    },
   },
 };
 
