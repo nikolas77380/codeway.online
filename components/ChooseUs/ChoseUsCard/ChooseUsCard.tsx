@@ -10,15 +10,16 @@ interface ChooseUsCardProps {
   IconComponent: React.ElementType;
   title: string;
   description: string;
+  [key: string]: any;
 }
 
-const ChooseUsCard = ({ IconComponent, title, description }: ChooseUsCardProps) => {
+const ChooseUsCard = ({ IconComponent, title, description, ...rest }: ChooseUsCardProps) => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
-    <Box sx={style.cardContainer}>
+    <Box sx={style.cardContainer} {...rest}>
       <Box sx={style.cardWrapper}>
         <Box sx={style.iconWrapper}>
         <IconComponent fontSize={isMobile ? 'medium' : 'large'} />

@@ -18,10 +18,8 @@ const ChooseUs = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1200,
+      duration: 1500,
       once: true,
-      offset: 500,
-      easing: 'ease-out',
     });
   }, []);
 
@@ -32,7 +30,8 @@ const ChooseUs = () => {
         sx={style.textSection}
         data-aos="fade-down"
         data-aos-delay="200"
-        data-aos-anchor-placement="top-center"
+        data-aos-duration="1200"
+        data-aos-anchor-placement="top"
       >
         <Typography variant='h6' component='span'>
           Why Choose Us
@@ -49,15 +48,16 @@ const ChooseUs = () => {
       <Box 
         id="card-section" 
         sx={style.cardSection}
-        data-aos="fade-left"
-        data-aos-delay="300"
-        data-aos-duration="1400"
+        data-aos-anchor-placement="top"
       >
         {dataChooseUsCard.map(card => (
           <ChooseUsCard 
             key={card.id}
             IconComponent={card.icon}
             {...card}
+            data-aos="zoom-in"
+            data-aos-delay={100 * (card.id + 1)}
+            data-aos-duration="1200"
           />
         ))}
       </Box>

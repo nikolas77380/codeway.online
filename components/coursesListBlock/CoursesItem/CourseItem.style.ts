@@ -2,10 +2,7 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   container: {
-    width: 1,
     backgroundColor: "rgb(25,27,38,0.6)",
-    maxWidth: "330px",
-    minWidth: "250px",
     height: "460px",
     borderRadius: "10px",
     color: "white",
