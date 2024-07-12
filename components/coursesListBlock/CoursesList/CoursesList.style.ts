@@ -34,12 +34,14 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   listWrapper: {
-    mt: "45px",
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
-    justifyContent: "center",
+    maxWidth: "1500px",
+    m: "auto",
+    pt: "40px",
+    display: "grid",
     gap: "20px",
+    "@media (min-width: 600px)": {
+      gridTemplateColumns: "repeat(auto-fit, minmax(min(100%,300px), 1fr));",
+    },
   },
 };
 
