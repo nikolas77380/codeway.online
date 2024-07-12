@@ -20,7 +20,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontSize: "2.5rem",
     fontWeight: "bold",
     textAlign: "center",
-    color: "white",
+    color: "#FFF",
   },
 
   subtitle: {
