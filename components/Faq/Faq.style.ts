@@ -60,11 +60,11 @@ const style: { [key: string]: SxProps<Theme> } = {
   faqCardContainer: {
     width: 1,
     height: 1,
-    display: 'grid',
-    gridTemplateColumns: 'repeat(2, 1fr)',
-    gap: '2rem',
-    '@media (max-width: 900px)': {
-      gridTemplateColumns: 'repeat(1, 1fr)',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '1rem',
+    '@media (max-width: 600px)': {
+      gap: '0.2rem',
     },
   },
 
@@ -106,6 +106,11 @@ const style: { [key: string]: SxProps<Theme> } = {
         fontSize: '1.2rem',
       },
     },
+  },
+
+  accordionDetails: {
+    overflow: 'hidden',
+    height: 'auto',
     '& p': {
       color: '#94a3b8',
       fontSize: '16px',
