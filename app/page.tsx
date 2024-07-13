@@ -1,9 +1,10 @@
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
+import Video from "@/components/Video/Video";
+import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesList from "@/components/coursesListBlock/CoursesList/CoursesList";
 import Header from "@/components/header/Header";
 import { Box } from "@mui/material";
 import style from "./page.style";
-import Video from "@/components/Video/Video";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <Video />
         <ChooseUs />
       </Box>
+      <CookieDialog />
     </main>
   );
 }
