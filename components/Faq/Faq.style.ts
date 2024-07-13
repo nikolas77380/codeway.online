@@ -91,7 +91,6 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   accordionContainer: {
     width: 1,
-    maxWidth: '1400px',
     height: 'auto',
     display: 'flex',
   },
