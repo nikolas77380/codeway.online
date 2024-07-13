@@ -7,7 +7,7 @@ const CookieDialog = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    if (!localStorage.getItem("shown")) {
+    if (!localStorage.getItem("cookiesAccepted")) {
       const timer = setTimeout(() => {
         setOpen(true);
       }, 1500);
@@ -18,7 +18,7 @@ const CookieDialog = () => {
 
   const handleClose = () => {
     setOpen(false);
-    localStorage.setItem("shown", "true");
+    localStorage.setItem("cookiesAccepted", "true");
   };
 
   return (
@@ -28,7 +28,7 @@ const CookieDialog = () => {
           Ми використовуємо cookie-файли для надання найбільш актуальної
           інформації. Продовжуючи використовувати сайт, Ви погоджуєтесь з
           використанням файлів cookie.{" "}
-          <Link href="" sx={style.link}>
+          <Link href="cookies-policy/" sx={style.link}>
             Політика конфіденційності
           </Link>
         </Typography>
