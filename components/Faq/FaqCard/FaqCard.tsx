@@ -19,7 +19,7 @@ const FaqCard = ({ Icon, title, description, ...rest }: FaqCardProps) => {
   return (
     <Box sx={style.faqCardWrapper} {...rest}>
       <Box sx={style.iconContainer}>
-        <IconButton>
+        <IconButton sx={{ cursor: 'default' }}>
           {Icon && <Icon sx={style.iconSize} />}
         </IconButton>
       </Box>
@@ -35,7 +35,7 @@ const FaqCard = ({ Icon, title, description, ...rest }: FaqCardProps) => {
               {title}
             </Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails sx={style.accordionDetails}>
             <Typography variant='body1' component='p'>
               {description}
             </Typography>
