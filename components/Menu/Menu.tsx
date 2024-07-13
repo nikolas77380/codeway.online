@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 
-import { Box, IconButton, Link, Typography } from '@mui/material'
+import { Box, IconButton, Link, Modal, Typography } from '@mui/material'
 
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
@@ -63,16 +63,20 @@ const MenuItem = () => {
           {menuOpen ? <CloseIcon sx={style.icon} /> : <MenuIcon sx={style.icon} />}
         </IconButton>
       </Box>
-
-      {menuOpen && (
-        <Box sx={style.mobileMenu} ref={menuRef}>
-          {dataRoutes.map(item => (
-            <Link key={item.route} href={item.route} sx={style.mobileMenuItem}>
-              {item.name}
-            </Link>
-          ))}
+      
+      <Modal open={menuOpen} onClose={() => setMenuOpen(false)}>
+        <Box sx={style.modalContainer}>
+          {menuOpen && (
+            <Box sx={style.mobileMenu} ref={menuRef}>
+              {dataRoutes.map(item => (
+                <Link key={item.route} href={item.route} sx={style.mobileMenuItem}>
+                  {item.name}
+                </Link>
+              ))}
+            </Box>
+          )}
         </Box>
-      )}
+      </Modal>
 
     </Box>
   )

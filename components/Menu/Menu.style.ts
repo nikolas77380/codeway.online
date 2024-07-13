@@ -78,12 +78,20 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
   },
 
+  modalContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '100vh',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+
   mobileMenu: {
     position: "absolute",
-    top: "6rem",
+    top: "8rem",
     left: "0",
     width: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: '#fff',
     display: "flex",
     flexDirection: "column",
     alignItems: "start",
@@ -100,7 +108,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontWeight: "500",
     textTransform: "uppercase",
     textDecoration: "none",
-    color: "#fff",
+    color: "#000000",
     cursor: "pointer",
     width: "100%",
     padding: "1rem 1rem",
