@@ -3,7 +3,9 @@ import { SxProps, Theme } from "@mui/material";
 const style: { [key: string]: SxProps<Theme> } = {
   mainSection: {
     width: 1,
-    height: '900px',
+    maxWidth: '1700px',
+    height: '700px',
+    m: 'auto',
     paddingBottom: '7rem',
     '@media (max-width: 600px)': {
       paddingBottom: '5rem',
@@ -47,19 +49,13 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: 1,
     '& .swiperContainer': {
       width: 1,
-      height: 1
+      height: 1,
+      p: '0 10px',
+      display: 'flex'
     },
     '& .sliderContainer': {
       width: 1,
-      height: 1
-    },
-    '& img': {
-      width: 1,
-      height: '900px',
-      '@media (max-width: 600px)': {
-        width: 1,
-        height: '500px'
-      },
+      height: 1,
     },
     '&:hover .custom-prev, &:hover .custom-next': {
       opacity: 1,
@@ -97,6 +93,18 @@ const style: { [key: string]: SxProps<Theme> } = {
         display: 'none',
       },
     },
+    '& iframe': {
+      display: 'block',
+      border: 'none',
+      width: 1,
+      height: '530px',
+    }
+  },
+
+  sliderWrapper: {
+    width: '100%',
+    height: '100%',
+    cursor: 'pointer',
   },
 
   navButtonsContainer: {
