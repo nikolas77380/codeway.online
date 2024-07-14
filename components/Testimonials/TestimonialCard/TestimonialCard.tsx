@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import Image from "next/image";
 
@@ -27,6 +27,8 @@ import style from "../Testimonials.style";
 
 const TestimonialCard = () => {
 
+  const [activeVideo, setActiveVideo] = useState<number | null>(null);
+
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -34,10 +36,15 @@ const TestimonialCard = () => {
     });
   }, []);
 
+  const handleVideoClick = (id: number) => {
+    setActiveVideo(id);
+  };
+
   return (
     <Box sx={style.testimonialCardContainer}>
       <Swiper
-        slidesPerView={1}
+        spaceBetween={30}
+        slidesPerView={3}
         pagination={{ clickable: true }}
         navigation={{ prevEl: '.custom-prev', nextEl: '.custom-next' }}
         loop
@@ -46,17 +53,43 @@ const TestimonialCard = () => {
         data-aos="fade-up"
         data-aos-duration="2000"
         data-aos-anchor-placement="top"
+        breakpoints={{
+          375: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          1280: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1600: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
       >
         {dataTestimonialCard.map(card => (
           <SwiperSlide key={card.id} className="sliderContainer">
-            <Image
-              src={card.img}
-              alt={card.video}
-              width={1200}
-              height={600}
-              objectFit="cover"
-              objectPosition="center"
-            />
+            <Box
+              onClick={() => handleVideoClick(card.id)}
+              sx={style.sliderWrapper}
+            >
+              <Box component="iframe"
+                  width="100%"
+                  height="720px"
+                  src={card.src}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                  onClick={() => handleVideoClick(card.id)}
+                  sx={{ pointerEvents: activeVideo === card.id ? 'auto' : 'none' }}
+              ></Box>
+            </Box>
           </SwiperSlide>
         ))}
       </Swiper>
