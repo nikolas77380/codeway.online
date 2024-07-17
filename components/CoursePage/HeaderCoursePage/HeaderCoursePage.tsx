@@ -8,7 +8,7 @@ interface HeaderCoursePageProps {
 
 const HeaderCoursePage = ( {course}: HeaderCoursePageProps) => {
   return (
-    <Box sx={style.headerMainContainer}>
+    <Box>
       {course?.name}
     </Box>
   )

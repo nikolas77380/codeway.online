@@ -6,11 +6,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: 1,
     paddingTop: '7rem',
   },
-
-  headerMainContainer: {
-    p: '0 1rem',
-    color: 'white'
-  },
 };
 
 export default style;
