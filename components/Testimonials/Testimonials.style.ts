@@ -98,6 +98,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       border: 'none',
       width: 1,
       height: '530px',
+      borderRadius: '15px'
     }
   },
 

@@ -9,7 +9,7 @@ const Testimonials = () => {
     <Box sx={style.mainSection}>
       <Box sx={style.textSection}>
         <Typography variant='h6' component='span'>
-            Why Choose Us
+          Testimonials
         </Typography>
         <Typography variant='h3' component='p' className="title">
           What clients say about us.
