@@ -6,6 +6,7 @@ import Header from "@/components/header/Header";
 import { Box } from "@mui/material";
 import style from "./page.style";
 import Faq from "@/components/Faq/Faq";
+import Testimonials from "@/components/Testimonials/Testimonials";
 
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
       <Box sx={style.chooseUs}>
         <Video />
         <ChooseUs />
+        <Testimonials />
         <Faq />
       </Box>
       <CookieDialog />
