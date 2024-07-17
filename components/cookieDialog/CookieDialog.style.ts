@@ -13,6 +13,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     borderRadius: "10px",
     position: "fixed!important",
     opacity: 0,
+    zIndex: 9,
     "@keyframes fadeIn": {
       from: { opacity: 0 },
       to: { opacity: 1 },
