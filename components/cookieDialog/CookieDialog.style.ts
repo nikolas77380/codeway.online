@@ -9,10 +9,11 @@ const style: { [key: string]: SxProps<Theme> } = {
     top: "unset!important",
     bottom: "30px",
     p: "20px",
-    backgroundColor: "rgb(83,49,122, 0.6)",
+    backgroundColor: "rgb(83,49,122, 0.95)",
     borderRadius: "10px",
     position: "fixed!important",
     opacity: 0,
+    zIndex: 9,
     "@keyframes fadeIn": {
       from: { opacity: 0 },
       to: { opacity: 1 },
@@ -36,8 +37,10 @@ const style: { [key: string]: SxProps<Theme> } = {
   subtitle: {
     p: " 10px 10px",
     color: "#94A3B8",
-    fontSize: "1rem",
-    textAlign: "justify",
+    fontSize: "0.8rem",
+    "@media (min-width: 600px)": {
+      fontSize: "1rem",
+    },
   },
 
   link: {
