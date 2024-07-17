@@ -1,5 +1,5 @@
 import { Box } from '@mui/material'
-import style from './../../app/courses/[id]/CoursePage.style'
+import style from '../../../app/courses/[id]/CoursePage.style'
 import { TCourse } from '@/src/mocks/mocks'
 
 interface HeaderCoursePageProps {
