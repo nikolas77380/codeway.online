@@ -7,7 +7,6 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
   link: {
     p: "3px 3px 3px 0",
-    textDecoration: "none",
     color: "#94A3B8",
     fontSize: "0.8rem",
     lineHeight: "1rem",

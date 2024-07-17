@@ -1,4 +1,5 @@
-import { Link, Stack, Typography } from "@mui/material";
+import { Stack, Typography } from "@mui/material";
+import Link from "next/link";
 import style from "./ListWithTitle.style";
 
 interface IListWithTitle {
@@ -11,8 +12,10 @@ const ListWithTitle = ({ title, items }: IListWithTitle) => {
     <Stack>
       {title ?? <Typography sx={style.title}>{title}</Typography>}
       {items.map((item, i) => (
-        <Link key={i} href={item.href} sx={style.link}>
-          {item.name}
+        <Link key={i} href={item.href} style={{ textDecoration: "none" }}>
+          <Typography component="div" sx={style.link}>
+            {item.name}
+          </Typography>
         </Link>
       ))}
     </Stack>
