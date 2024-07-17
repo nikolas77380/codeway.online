@@ -1,4 +1,5 @@
 export type TCourse = {
+  id: number;
   name: string;
   price: string;
   rating: number;
@@ -8,6 +9,7 @@ export type TCourse = {
 
 export const coursesList: TCourse[] = [
   {
+    id: 0,
     name: "UI/UX Design for Web and Mobile for Kids UI/UX Design for Web and Mobile for Kids",
     price: "$39.99",
     rating: 4.5,
@@ -16,6 +18,7 @@ export const coursesList: TCourse[] = [
       "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/schoolgirl-using-tablet-computer-at-home-learning-having-fun-online-1024x682.jpg",
   },
   {
+    id: 1,
     name: "Introduction to Python Programming",
     price: "$39.99",
     rating: 4.5,

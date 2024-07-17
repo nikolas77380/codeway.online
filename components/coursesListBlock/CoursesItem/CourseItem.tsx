@@ -17,6 +17,7 @@ interface ICourseItem {
   course: TCourse;
 }
 const CourseItem = ({ course }: ICourseItem) => {
+
   useEffect(() => {
     Aos.init({});
   }, []);
@@ -49,7 +50,7 @@ const CourseItem = ({ course }: ICourseItem) => {
           <Button
             variant="contained"
             size="medium"
-            href={course.link}
+            href={`/courses/${course.id}`}
             sx={style.courseButton}
           >
             Enroll now
