@@ -12,11 +12,14 @@ const ListWithTitle = ({ title, items }: IListWithTitle) => {
     <Stack>
       {title ?? <Typography sx={style.title}>{title}</Typography>}
       {items.map((item, i) => (
-        <Link key={i} href={item.href} style={{ textDecoration: "none" }}>
-          <Typography component="div" sx={style.link}>
+        <Typography key={i} component="div" sx={style.link}>
+          <Link
+            href={item.href}
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
             {item.name}
-          </Typography>
-        </Link>
+          </Link>
+        </Typography>
       ))}
     </Stack>
   );
