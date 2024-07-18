@@ -67,11 +67,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontSize: "1.2rem",
     textTransform: "none",
   },
-  arrow: {
-    fontSize: "20px",
-    verticalAlign: "center",
-    mb: "3px",
-  },
 };
 
 export default style;

@@ -3,10 +3,16 @@ import { ArrowForward } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
 import Aos from "aos";
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import style from "./ContactUs.style";
+import ContactUsModal from "./modal/ContactUsModal";
 
 const ContactUs = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleOpenModal = () => setModalOpen(true);
+  const handleCloseModal = () => setModalOpen(false);
+
   useEffect(() => {
     Aos.init({});
   }, []);
@@ -36,11 +42,16 @@ const ContactUs = () => {
             tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
           </Typography>
         </Box>
-        <Button variant="contained" sx={style.button}>
+        <Button
+          variant="contained"
+          endIcon={<ArrowForward />}
+          sx={style.button}
+          onClick={handleOpenModal}
+        >
           Contact us
-          <ArrowForward sx={style.arrow} />
         </Button>
       </Box>
+      <ContactUsModal open={modalOpen} handleClose={handleCloseModal} />
     </Box>
   );
 };
