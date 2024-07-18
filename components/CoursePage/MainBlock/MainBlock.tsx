@@ -1,8 +1,15 @@
-import React from 'react'
+import { Box } from '@mui/material'
+
+import style from './MainBlock.style'
+import DescriptionItem from './DescriptionItem/DescriptionItem'
+import KeyPointsItem from './KeyPointsItem/KeyPointsItem'
 
 const MainBlock = () => {
   return (
-    <div>MainBlock</div>
+    <Box sx={style.mainContainer}>
+      <DescriptionItem />
+      <KeyPointsItem />
+    </Box>
   )
 }
 

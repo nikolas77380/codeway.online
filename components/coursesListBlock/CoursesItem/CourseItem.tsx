@@ -12,6 +12,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import style from "./CourseItem.style";
+import Link from "next/link";
 
 interface ICourseItem {
   course: TCourse;
@@ -50,10 +51,11 @@ const CourseItem = ({ course }: ICourseItem) => {
           <Button
             variant="contained"
             size="medium"
-            href={`/courses/${course.id}`}
             sx={style.courseButton}
           >
-            Enroll now
+            <Link href={`/courses/${course.id}`} className="link-course-page">
+              Enroll now
+            </Link>
           </Button>
         </Box>
       </Box>
