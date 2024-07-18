@@ -40,10 +40,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     borderRadius: "50px",
     backgroundColor: "#A855F7",
     textTransform: "none",
-    '& .link-course-page': {
-      textDecoration: 'none',
-      color: 'inherit'
-    },
   },
 };
 

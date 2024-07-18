@@ -10,15 +10,14 @@ import {
 } from "@mui/material";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import Link from "next/link";
 import { useEffect } from "react";
 import style from "./CourseItem.style";
-import Link from "next/link";
 
 interface ICourseItem {
   course: TCourse;
 }
 const CourseItem = ({ course }: ICourseItem) => {
-
   useEffect(() => {
     Aos.init({});
   }, []);
@@ -48,15 +47,11 @@ const CourseItem = ({ course }: ICourseItem) => {
             readOnly
             sx={style.rating}
           />
-          <Button
-            variant="contained"
-            size="medium"
-            sx={style.courseButton}
-          >
-            <Link href={`/courses/${course.id}`} className="link-course-page">
+          <Link href={`/courses/${course.id}`}>
+            <Button variant="contained" size="medium" sx={style.courseButton}>
               Enroll now
-            </Link>
-          </Button>
+            </Button>
+          </Link>
         </Box>
       </Box>
     </Paper>
