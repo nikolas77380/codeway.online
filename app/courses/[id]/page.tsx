@@ -26,7 +26,7 @@ const CoursePage = ({ params }: CoursePageProps) => {
       <HeaderCoursePage {...coursesInfoList[params.id]} />
       <MainBlock 
         keyPoints={course.keyPoints}
-        shortDescription={course.description}
+        description={course.description}
         lessons={course.lessons}
       />
       <TestimonialsBlock />

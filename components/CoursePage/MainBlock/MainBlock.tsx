@@ -15,7 +15,7 @@ interface MainBlockProps {
 const MainBlock = ({ keyPoints, description, lessons }: MainBlockProps) => {
   return (
     <Box sx={style.mainContainer}>
-      <DescriptionItem shortDescription={description} />
+      <DescriptionItem description={description} />
       <KeyPointsItem keyPoints={keyPoints} />
       <CourseLessons lessons={lessons} />
     </Box>
