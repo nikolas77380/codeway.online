@@ -56,19 +56,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: '2rem 0',
   },
 
-  checkContainer: {
-    width: 1,
-    height: 1,
-    display: 'flex',
-  },
-
-  checkWrapper: {
-    display: 'flex',
-    flexDirection: 'column',
-    flex: 1,
+  gridContainer: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 1fr',
     gap: '15px',
-    width: 1,
-    height: 1
   },
 
   checkTextContainer: {

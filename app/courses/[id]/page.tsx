@@ -14,10 +14,21 @@ interface CoursePageProps {
 }
 
 const CoursePage = ({ params }: CoursePageProps) => {
+
+  const course = coursesInfoList[params.id];
+
+  if(!course) {
+    return <Box>Course Not Found</Box>
+  };
+
   return (
     <Box sx={style.mainPageContainer}>
       <HeaderCoursePage {...coursesInfoList[params.id]} />
-      <MainBlock />
+      <MainBlock 
+        keyPoints={course.keyPoints}
+        shortDescription={course.shortDescription}
+        lessons={course.lessons}
+      />
       <TestimonialsBlock />
       <RelatedCoursesBlock />
     </Box>
