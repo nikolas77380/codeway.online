@@ -1,5 +1,8 @@
+"use client";
 import { Groups, Info } from "@mui/icons-material";
 import { Box, Divider, Rating, Stack, Typography } from "@mui/material";
+import Aos from "aos";
+import { useEffect } from "react";
 import style from "./HeaderCoursePage.style";
 
 interface HeaderCoursePageProps {
@@ -19,14 +22,39 @@ const HeaderCoursePage = ({
   students,
   lastUpdated,
 }: HeaderCoursePageProps) => {
+  useEffect(() => {
+    Aos.init({});
+  }, []);
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <Typography sx={style.topic}>{topic}</Typography>
-        <Typography variant="h3" sx={style.name}>
+        <Typography
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+          data-aos-anchor-placement="top"
+          data-aos-easing=""
+          sx={style.topic}
+        >
+          {topic}
+        </Typography>
+        <Typography
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-anchor-placement="top"
+          variant="h3"
+          sx={style.name}
+        >
           {name}
         </Typography>
-        <Typography variant="subtitle1" sx={style.subtitle}>
+        <Typography
+          data-aos="fade-up"
+          data-aos-duration="800"
+          data-aos-delay="200"
+          data-aos-anchor-placement="top"
+          variant="subtitle1"
+          sx={style.subtitle}
+        >
           {shortDescription}
         </Typography>
         <Rating size="medium" value={rating} readOnly sx={style.rating} />
