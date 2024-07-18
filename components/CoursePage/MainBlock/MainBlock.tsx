@@ -8,14 +8,14 @@ import { TCourseInfo } from '@/src/mocks/mocks';
 
 interface MainBlockProps {
   keyPoints: string[];
-  shortDescription: string;
+  description: string;
   lessons: TCourseInfo['lessons'];
 }
 
-const MainBlock = ({ keyPoints, shortDescription, lessons }: MainBlockProps) => {
+const MainBlock = ({ keyPoints, description, lessons }: MainBlockProps) => {
   return (
     <Box sx={style.mainContainer}>
-      <DescriptionItem shortDescription={shortDescription} />
+      <DescriptionItem shortDescription={description} />
       <KeyPointsItem keyPoints={keyPoints} />
       <CourseLessons lessons={lessons} />
     </Box>

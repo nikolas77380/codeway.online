@@ -3,10 +3,10 @@ import style from './../MainBlock.style'
 import Image from 'next/image'
 
 interface DescriptionItemProps {
-  shortDescription: string;
+  description: string;
 }
 
-const DescriptionItem = ({ shortDescription }:DescriptionItemProps ) => {
+const DescriptionItem = ({ description }:DescriptionItemProps ) => {
   return (
     <Box sx={style.descriptionMainContainer}>
       <Typography variant='h5' component='span'>
@@ -14,7 +14,7 @@ const DescriptionItem = ({ shortDescription }:DescriptionItemProps ) => {
       </Typography>
       <Box sx={style.descriptionTextContainer}>
         <Typography variant='body1' component='p' sx={{ marginBottom: '25px' }}>
-          {shortDescription}
+          {description}
         </Typography>
       </Box>
       <Box sx={style.descriptionImage}>
