@@ -123,10 +123,39 @@ export const coursesInfoList: TCourseInfo[] = [
     ],
     lessons: [
       {
-        id: 1,
-        lessonName: "Cras eu ultricies lorem maximus nulla vitae dapibus duis",
-        lessonDescription:
-          "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
+        lessonTopic: "html",
+        lessonsList: [
+          {
+            id: 1,
+            lessonName:
+              "Cras eu ultricies lorem maximus nulla vitae dapibus duis",
+            lessonDescription:
+              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
+          },
+          {
+            id: 2,
+            lessonName: "Dictum platea eu rutrum congue tortor augue fames vel",
+            lessonDescription:
+              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
+          },
+        ],
+      },
+      {
+        lessonTopic: "css",
+        lessonsList: [
+          {
+            id: 3,
+            lessonName: "Viverra fusce iaculis aenean ultricies",
+            lessonDescription:
+              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
+          },
+          {
+            id: 4,
+            lessonName: "Viverra fusce iaculis aenean ultricies",
+            lessonDescription:
+              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
+          },
+        ],
       },
     ],
     instructor: {
