@@ -75,7 +75,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   mainCourseLessonsContainer: {
-    width: 1,
+    width: '60%',
     height: 1,
     display: 'flex',
     flexDirection: 'column',
