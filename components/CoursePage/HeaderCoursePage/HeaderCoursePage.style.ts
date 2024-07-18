@@ -72,9 +72,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     top: "6px",
   },
   divider: {
-    borderColor: "#474255",
+    borderColor: "#8769A9",
     borderRightWidth: "3px",
-    height: "20px",
+    height: "15px",
     alignSelf: "center",
   },
   extraInfo: {
