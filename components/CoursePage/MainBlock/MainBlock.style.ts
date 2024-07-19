@@ -7,7 +7,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     p: '7rem 18rem',
     width: 1,
     height: 'auto',
-    position: 'relative'
+    position: 'relative',
   },
 
   mainContent: {
@@ -260,7 +260,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: '30%',
     marginLeft: '4rem',
     height: 1,
-    position: 'relative'
+    transition: 'position 0.3s ease',
   },
 
   cardInfoMainContainer: {
@@ -269,8 +269,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     borderRadius: '15px',
     backgroundColor: '#191b26',
     wordWrap: 'break-word',
-    position: 'sticky',
-    top: '100px',
     background: 'linear-gradient(to bottom, rgba(159, 70, 241, 0.3) 0%, rgba(159, 70, 241, 0) 30%, #191b26 100%)',
   },
 
