@@ -170,9 +170,9 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                     !!messageError ||
                     !!emailError ||
                     !!nameError ||
-                    !formData.name ||
-                    !formData.email ||
-                    !formData.message
+                    formData.name.length == 0 ||
+                    formData.email.length == 0 ||
+                    formData.message.length == 0
                   }
                   type="submit"
                 >
