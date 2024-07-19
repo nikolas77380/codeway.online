@@ -2,8 +2,19 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   mainContainer: {
+    display: 'flex',
     backgroundColor: '#12141d',
     p: '7rem 18rem',
+    width: 1,
+    height: 'auto',
+    position: 'relative'
+  },
+
+  mainContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: 1,
+    height: 1,
   },
 
   descriptionMainContainer: {
@@ -20,7 +31,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   descriptionTextContainer: {
-    width: '60%',
+    width: 1,
     height: 1,
     '& p': {
       color: '#94a3b8',
@@ -29,7 +40,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   descriptionImage: {
-    width: '60%',
+    width: 1,
     height: 1,
     '& img': {
       width: 1,
@@ -40,7 +51,7 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   keyPointsContainer: {
     paddingTop: '3rem',
-    width: '60%',
+    width: 1,
     height: 1,
     '& span': {
       color: '#fff',
@@ -75,7 +86,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   mainCourseLessonsContainer: {
-    width: '60%',
+    width: 1,
     height: 1,
     display: 'flex',
     flexDirection: 'column',
@@ -243,6 +254,133 @@ const style: { [key: string]: SxProps<Theme> } = {
     '&.Mui-expanded': {
       color: '#a855f7', 
     },
+  },
+
+  cardInfoBlock: {
+    width: '30%',
+    marginLeft: '4rem',
+    height: 1,
+    position: 'relative'
+  },
+
+  cardInfoMainContainer: {
+    width: '400px',
+    height: '760px',
+    borderRadius: '15px',
+    backgroundColor: '#191b26',
+    wordWrap: 'break-word',
+    position: 'sticky',
+    top: '100px',
+    background: 'linear-gradient(to bottom, rgba(159, 70, 241, 0.3) 0%, rgba(159, 70, 241, 0) 30%, #191b26 100%)',
+  },
+
+  cardInfoContainer: {
+    width: 1, 
+    height: 1,
+    padding: '2rem 2rem',
+    '& label': {
+      color: '#fff'
+    },
+  },
+
+  cardInfoWrapper: {
+    width: 1, 
+    height: '200px', 
+    position: 'relative',
+    marginBottom: '20px',
+    '& iframe': {
+      border: 'none',
+    },
+  },
+
+  playButton: {
+    position: "absolute",
+    width: '120px',
+    height: '120px',
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    color: "white",
+    "&:hover": {
+      backgroundColor: "rgba(0, 0, 0, 0.5)",
+    },
+    "@media (max-width: 600px)": {
+      top: "22%",
+    },
+  },
+
+  avatarMainContainer: {
+    width: 1, 
+    height: '80px', 
+    display: 'flex',
+    alignItems: 'center',
+    marginTop: '10px',
+    gap: '15px',
+    marginBottom: '20px'
+  },
+
+  avatarWrapper: {
+    width: '70px', 
+    height: '70px', 
+    backgroundColor: '#42424d', 
+    borderRadius: '100%', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    '& image': {
+      width: '60px', 
+      height: '60px'
+    },
+  },
+
+  avatarTextContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    '& label': {
+      color: '#fff',
+      fontWeight: '500'
+    },
+    '& span': {
+      color: '#92a1b6',
+      fontSize: '14px'
+    },
+  },
+
+  includesMainContainer: {
+    width: 1, 
+    height: 'screen', 
+    marginTop: '10px', 
+    display: 'flex', 
+    flexDirection: 'column',
+    marginBottom: '40px'
+  },
+
+  includesContainers: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '10px',
+    marginBottom: '10px',
+    '& svg': {
+      color: '#a855f7'
+    },
+    '& span': {
+      color: '#92a1b6'
+    },
+  },
+
+  dashSeparator: {
+    width: 1,
+    borderTop: '1px dashed #ffffff',
+    borderColor: 'rgba(146, 161, 182, 0.4)',
+    marginBottom: '10px'
+  },
+
+  cardInfoButton: {
+    width: 1,
+    height: '40px',
+    borderRadius: '50px',
+    backgroundColor: "#A855F7",
+    textTransform: "none",
   },
 };
 

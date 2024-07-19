@@ -78,6 +78,7 @@ export type TCourseInfo = {
   price: string;
   rating: number;
   link: string;
+  videoLink: string;
   image: string;
   description: string;
   keyPoints: string[];
@@ -108,7 +109,8 @@ export const coursesInfoList: TCourseInfo[] = [
     lastUpdated: "25/7/2024",
     price: "$39.99",
     rating: 4.5,
-    link: "link",
+    link: 'link',
+    videoLink: "https://www.youtube.com/embed/8Kmd4Jx9gb0?si=U_LQs1EwZFz2kyVa&autoplay=0",
     image:
       "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/schoolgirl-using-tablet-computer-at-home-learning-having-fun-online-1024x682.jpg",
     description:
@@ -177,6 +179,7 @@ export const coursesInfoList: TCourseInfo[] = [
     price: "$39.99",
     rating: 4.5,
     link: "link",
+    videoLink: "https://www.youtube.com/embed/8Kmd4Jx9gb0?si=U_LQs1EwZFz2kyVa&autoplay=0",
     image:
       "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/happy-female-student-using-desktop-pc-during-computer-class-and-looking-at-camera--1024x682.jpg",
     description:

@@ -28,6 +28,7 @@ const CoursePage = ({ params }: CoursePageProps) => {
         keyPoints={course.keyPoints}
         description={course.description}
         lessons={course.lessons}
+        course={course}
       />
       <TestimonialsBlock />
       <RelatedCoursesBlock />
