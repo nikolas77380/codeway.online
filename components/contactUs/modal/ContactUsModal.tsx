@@ -1,11 +1,7 @@
 "use client";
 
+import validationSchema from "@/schemas/form.schema";
 import { sendEmail } from "@/utils/send-email";
-import {
-  validateEmail,
-  validateMessage,
-  validateName,
-} from "@/utils/validate-form-data";
 import { ArrowForward } from "@mui/icons-material";
 import {
   Alert,
@@ -18,32 +14,21 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { useFormik } from "formik";
+import { useState } from "react";
 import style from "./ContactUsModal.style";
-
-export type FormData = {
-  name: string;
-  email: string;
-  message: string;
-};
-
 interface IContactUsModal {
   open: boolean;
   handleClose: () => void;
 }
 
+const initialValues = {
+  name: "",
+  email: "",
+  message: "",
+};
+
 export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [nameError, setNameError] = useState("");
-  const [emailError, setEmailError] = useState("");
-  const [messageError, setMessageError] = useState("");
-
-  const [isSending, setIsSending] = useState(false);
-
   const [alert, setAlert] = useState<{
     open: boolean;
     message: string;
@@ -54,42 +39,13 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
     severity: "success",
   });
 
-  const handleNameChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      name: e.target.value,
-    }));
+  const [isSending, setIsSending] = useState(false);
 
-    setNameError(validateName(formData.name));
-  };
-  const handleEmailChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      email: e.target.value,
-    }));
-    setEmailError(validateEmail(formData.email));
-  };
-  const handleMessageChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      message: e.target.value,
-    }));
-    setMessageError(validateMessage(formData.message));
-  };
-
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
+  const onSubmit = async (values: any) => {
     setIsSending(true);
 
     try {
-      const response = await sendEmail(formData);
+      const response = await sendEmail(values);
       setAlert({ open: true, message: response.message, severity: "success" });
       handleClose();
     } catch (error) {
@@ -106,6 +62,12 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
       setIsSending(false);
     }
   };
+
+  const formik = useFormik({
+    initialValues,
+    validationSchema,
+    onSubmit,
+  });
 
   return (
     <>
@@ -130,25 +92,33 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
                 tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
               </Typography>
-              <Box component={"form"} onSubmit={handleSubmit} noValidate>
+              <Box
+                component={"form"}
+                autoComplete="off"
+                onSubmit={formik.handleSubmit}
+              >
                 <Box sx={style.inputWrapper}>
                   <TextField
                     name="name"
                     label="Name"
                     type="text"
                     sx={style.input}
-                    onChange={handleNameChange}
-                    error={formData.name.length > 0 && !!nameError}
-                    helperText={formData.name.length > 0 && nameError}
+                    value={formik.values.name}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.name && Boolean(formik.errors.name)}
+                    helperText={formik.touched.name && formik.errors.name}
                   />
                   <TextField
                     name="email"
                     label="Email"
                     type="email"
                     sx={style.input}
-                    onChange={handleEmailChange}
-                    error={formData.email.length > 0 && !!emailError}
-                    helperText={formData.email.length > 0 && emailError}
+                    value={formik.values.email}
+                    onChange={formik.handleChange}
+                    onBlur={formik.handleBlur}
+                    error={formik.touched.email && Boolean(formik.errors.email)}
+                    helperText={formik.touched.email && formik.errors.email}
                   />
                 </Box>
                 <TextField
@@ -157,26 +127,22 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                   sx={style.input}
                   multiline
                   rows={4}
-                  onChange={handleMessageChange}
-                  error={formData.message.length > 0 && !!messageError}
-                  helperText={formData.message.length > 0 && messageError}
+                  value={formik.values.message}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  error={
+                    formik.touched.message && Boolean(formik.errors.message)
+                  }
+                  helperText={formik.touched.message && formik.errors.message}
                 />
                 <Button
                   variant="contained"
                   endIcon={<ArrowForward />}
                   sx={style.button}
-                  disabled={
-                    isSending ||
-                    !!messageError ||
-                    !!emailError ||
-                    !!nameError ||
-                    formData.name.length == 0 ||
-                    formData.email.length == 0 ||
-                    formData.message.length == 0
-                  }
                   type="submit"
+                  disabled={!formik.isValid || isSending}
                 >
-                  {isSending ? "Sending..." : "Contact us"}
+                  Contact us
                 </Button>
               </Box>
             </Box>
@@ -186,7 +152,7 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
       <Portal>
         <Snackbar
           open={alert.open}
-          autoHideDuration={6000}
+          autoHideDuration={4000}
           anchorOrigin={{ vertical: "top", horizontal: "right" }}
           onClose={() =>
             setAlert({ open: false, message: "", severity: "success" })
