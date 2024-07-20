@@ -7,14 +7,14 @@ import style from "./RelatedCoursesBlock.style";
 const RelatedCoursesBlock = () => {
   return (
     <Box sx={style.container}>
-      <Stack direction={"row"} justifyContent={"space-between"}>
-        <Typography variant="h3">Related Courses</Typography>
+      <Box sx={style.headContainer}>
+        <Typography variant="h4" component='span'>Related Courses</Typography>
         <Link href={""}>
           <Button variant="contained" sx={style.button}>
             All courses
           </Button>
         </Link>
-      </Stack>
+      </Box>
       <CoursesList coursesList={coursesList} />
     </Box>
   );

@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material'
+
 import CheckIcon from '@mui/icons-material/Check';
 
-import style from './../MainBlock.style'
+import style from './KeyPointsItem.style'
 
 interface KeyPointsItemProps {
   keyPoints: string[];
@@ -14,7 +15,6 @@ const KeyPointsItem = ({ keyPoints }: KeyPointsItemProps) => {
         Key Points
       </Typography>
       <Box sx={style.separator} />
-
       <Box sx={style.gridContainer}>
         {keyPoints.map((point, index) => (
           <Box sx={style.checkTextContainer} key={index}>

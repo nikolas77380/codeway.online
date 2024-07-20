@@ -1,11 +1,14 @@
 import { Box, Button, Typography } from "@mui/material"
 
-import style from './../MainBlock.style'
-import { TCourseInfo } from "@/src/mocks/mocks"
+import Link from "next/link";
+
 import CardInfoVideoPlayer from "./CardInfoVideoPlayer";
 import CardInfoAvatar from "./CardInfoAvatar";
 import CardInfoIncludes from "./CardInfoIncludes";
-import Link from "next/link";
+
+import { TCourseInfo } from "@/src/mocks/mocks"
+
+import style from './CardInfoItem.style'
 
 interface CardInfoItemProps {
   course: TCourseInfo;

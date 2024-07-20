@@ -6,8 +6,9 @@ import TapAndPlayIcon from '@mui/icons-material/TapAndPlay';
 import VideoChatIcon from '@mui/icons-material/VideoChat';
 import CardMembershipIcon from '@mui/icons-material/CardMembership';
 
-import style from './../MainBlock.style'
 import { TCourseInfo } from "@/src/mocks/mocks";
+
+import style from './CardInfoItem.style'
 
 interface CardInfoIncludesProps {
   course: TCourseInfo;

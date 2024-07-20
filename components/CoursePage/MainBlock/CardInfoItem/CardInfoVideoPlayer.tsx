@@ -1,12 +1,16 @@
 'use client'
 
 import { Box, IconButton } from "@mui/material"
+
 import { useState } from "react";
 
-import style from './../MainBlock.style'
-import { TCourseInfo } from "@/src/mocks/mocks";
 import Image from "next/image";
+
 import { PlayIcon } from "@/components/Video/PlayIcon/PlayIcon";
+
+import { TCourseInfo } from "@/src/mocks/mocks";
+
+import style from './CardInfoItem.style'
 
 interface CardInfoVideoPlayerProps {
   course: TCourseInfo;

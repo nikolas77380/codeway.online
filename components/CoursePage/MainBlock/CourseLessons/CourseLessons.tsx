@@ -1,11 +1,14 @@
 'use client';
 
-import { TCourseInfo } from '@/src/mocks/mocks';
 import { Accordion, AccordionDetails, AccordionSummary, Box, Typography } from '@mui/material';
+
+import { useState } from 'react';
+
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-import style from './../MainBlock.style'
-import { useState } from 'react';
+import { TCourseInfo } from '@/src/mocks/mocks';
+
+import style from './CourseLessons.style'
 
 interface CourseLessonsProps {
   lessons: TCourseInfo['lessons'];

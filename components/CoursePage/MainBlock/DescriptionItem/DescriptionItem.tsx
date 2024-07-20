@@ -1,6 +1,8 @@
 import { Box, Typography } from '@mui/material'
-import style from './../MainBlock.style'
+
 import Image from 'next/image'
+
+import style from './DescriptionItem.style'
 
 interface DescriptionItemProps {
   description: string;
