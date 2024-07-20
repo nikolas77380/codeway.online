@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Typography } from "@mui/material"
 
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
@@ -6,15 +8,18 @@ import TapAndPlayIcon from '@mui/icons-material/TapAndPlay';
 import VideoChatIcon from '@mui/icons-material/VideoChat';
 import CardMembershipIcon from '@mui/icons-material/CardMembership';
 
-import { TCourseInfo } from "@/src/mocks/mocks";
+import { useCourse } from "@/src/context/CourseContext";
 
 import style from './CardInfoItem.style'
 
-interface CardInfoIncludesProps {
-  course: TCourseInfo;
-}
+// interface CardInfoIncludesProps {
+//   course: TCourseInfo;
+// }
 
-const CardInfoIncludes = ({ course }: CardInfoIncludesProps) => {
+const CardInfoIncludes = () => {
+
+  const { course } = useCourse();
+
   return (
     <Box sx={style.includesMainContainer}>
       <Box sx={style.includesContainers}>

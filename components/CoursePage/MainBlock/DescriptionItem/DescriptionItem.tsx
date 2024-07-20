@@ -1,14 +1,21 @@
+'use client';
+
 import { Box, Typography } from '@mui/material'
 
 import Image from 'next/image'
 
+import { useCourse } from '@/src/context/CourseContext';
+
 import style from './DescriptionItem.style'
 
-interface DescriptionItemProps {
-  description: string;
-}
+// interface DescriptionItemProps {
+//   description: string;
+// }
 
-const DescriptionItem = ({ description }:DescriptionItemProps ) => {
+const DescriptionItem = () => {
+
+  const { course } = useCourse();
+
   return (
     <Box sx={style.descriptionMainContainer}>
       <Typography variant='h5' component='span'>
@@ -16,7 +23,7 @@ const DescriptionItem = ({ description }:DescriptionItemProps ) => {
       </Typography>
       <Box sx={style.descriptionTextContainer}>
         <Typography variant='body1' component='p' sx={{ marginBottom: '25px' }}>
-          {description}
+          {course.description}
         </Typography>
       </Box>
       <Box sx={style.descriptionImage}>

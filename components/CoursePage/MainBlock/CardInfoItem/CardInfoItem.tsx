@@ -1,37 +1,30 @@
-import { Box, Button, Typography } from "@mui/material"
-
-import Link from "next/link";
+import { Box, Typography } from "@mui/material"
 
 import CardInfoVideoPlayer from "./CardInfoVideoPlayer";
 import CardInfoAvatar from "./CardInfoAvatar";
 import CardInfoIncludes from "./CardInfoIncludes";
-
-import { TCourseInfo } from "@/src/mocks/mocks"
+import CardInfoLinkButton from "./CardInfoLinkButton";
 
 import style from './CardInfoItem.style'
 
-interface CardInfoItemProps {
-  course: TCourseInfo;
-}
+// interface CardInfoItemProps {
+//   course: TCourseInfo;
+// }
 
-const CardInfoItem = ({ course }: CardInfoItemProps) => {
+const CardInfoItem = () => {
   return (
     <Box sx={style.cardInfoMainContainer}>
       <Box sx={style.cardInfoContainer}>
-        <CardInfoVideoPlayer course={course} />
+        <CardInfoVideoPlayer />
         <Typography variant="h6" component='label'>
           Instructor
         </Typography>
-        <CardInfoAvatar course={course} />
+        <CardInfoAvatar />
         <Typography variant="h6" component='label'>
           This course includes:
         </Typography>
-        <CardInfoIncludes course={course} />
-        <Link href={course.link}>
-          <Button variant='contained' sx={style.cardInfoButton}>
-            Enroll Now
-          </Button>
-        </Link>
+        <CardInfoIncludes />
+        <CardInfoLinkButton />
       </Box>
     </Box>
   )

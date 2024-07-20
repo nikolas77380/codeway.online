@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Box, useMediaQuery, useTheme } from '@mui/material'
 
@@ -9,16 +9,18 @@ import CardInfoItem from './CardInfoItem/CardInfoItem';
 
 import { TCourseInfo } from '@/src/mocks/mocks';
 
+import { useCourse } from '@/src/context/CourseContext';
+
 import style from './MainBlock.style'
 
-interface MainBlockProps {
-  keyPoints: string[];
-  description: string;
-  lessons: TCourseInfo['lessons'];
-  course: TCourseInfo;
-}
+// interface MainBlockProps {
+//   keyPoints: string[];
+//   description: string;
+//   lessons: TCourseInfo['lessons'];
+//   course: TCourseInfo;
+// }
 
-const MainBlock = ({ keyPoints, description, lessons, course }: MainBlockProps) => {
+const MainBlock = () => {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
@@ -27,17 +29,17 @@ const MainBlock = ({ keyPoints, description, lessons, course }: MainBlockProps) 
     <Box sx={style.mainContainer}>
       {isMobile && (
         <Box sx={style.mobileCardInfoBlock}>
-          <CardInfoItem course={course} />
+          <CardInfoItem />
         </Box>
       )}
       <Box sx={style.mainContent}>
-        <DescriptionItem description={description} />
-        <KeyPointsItem keyPoints={keyPoints} />
-        <CourseLessons lessons={lessons} />
+        <DescriptionItem />
+        <KeyPointsItem />
+        <CourseLessons />
       </Box>
       {!isMobile && (
         <Box sx={style.cardInfoBlock}>
-          <CardInfoItem course={course} />
+          <CardInfoItem />
         </Box>
       )}
     </Box>

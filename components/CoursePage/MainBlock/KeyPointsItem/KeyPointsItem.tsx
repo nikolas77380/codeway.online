@@ -1,14 +1,21 @@
+'use client';
+
 import { Box, Typography } from '@mui/material'
 
 import CheckIcon from '@mui/icons-material/Check';
 
+import { useCourse } from '@/src/context/CourseContext';
+
 import style from './KeyPointsItem.style'
 
-interface KeyPointsItemProps {
-  keyPoints: string[];
-}
+// interface KeyPointsItemProps {
+//   keyPoints: string[];
+// }
 
-const KeyPointsItem = ({ keyPoints }: KeyPointsItemProps) => {
+const KeyPointsItem = () => {
+
+  const { course } = useCourse();
+
   return (
     <Box sx={style.keyPointsContainer}>
       <Typography variant='h5' component='span'>
@@ -16,7 +23,7 @@ const KeyPointsItem = ({ keyPoints }: KeyPointsItemProps) => {
       </Typography>
       <Box sx={style.separator} />
       <Box sx={style.gridContainer}>
-        {keyPoints.map((point, index) => (
+        {course.keyPoints.map((point, index) => (
           <Box sx={style.checkTextContainer} key={index}>
             <CheckIcon fontSize='medium' />
             <Typography component='p'>

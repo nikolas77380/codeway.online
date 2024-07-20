@@ -10,14 +10,18 @@ import { PlayIcon } from "@/components/Video/PlayIcon/PlayIcon";
 
 import { TCourseInfo } from "@/src/mocks/mocks";
 
+import { useCourse } from "@/src/context/CourseContext";
+
 import style from './CardInfoItem.style'
 
-interface CardInfoVideoPlayerProps {
-  course: TCourseInfo;
-}
+// interface CardInfoVideoPlayerProps {
+//   course: TCourseInfo;
+// }
 
 
-const CardInfoVideoPlayer = ({ course }: CardInfoVideoPlayerProps) => {
+const CardInfoVideoPlayer = () => {
+
+  const { course } = useCourse();
 
   const [isPlaying, setIsPlaying] = useState(false);
 

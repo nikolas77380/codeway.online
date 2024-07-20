@@ -22,6 +22,16 @@ const style: { [key: string]: SxProps<Theme> } = {
       fontSize: '18px'
     },
   },
+
+  descriptionImage: {
+    width: 1,
+    height: 1,
+    '& img': {
+      width: 1,
+      height: 1,
+      borderRadius: '10px'
+    },
+  },
 };
 
 export default style;

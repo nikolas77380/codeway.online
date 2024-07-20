@@ -7,6 +7,8 @@ import Testimonials from "@/components/Testimonials/Testimonials";
 
 import { coursesInfoList } from "@/src/mocks/mocks";
 
+import { CourseProvider } from "@/src/context/CourseContext";
+
 import style from "./CoursePage.style";
 
 interface CoursePageProps {
@@ -24,17 +26,19 @@ const CoursePage = ({ params }: CoursePageProps) => {
   };
 
   return (
-    <Box sx={style.mainPageContainer}>
-      <HeaderCoursePage {...coursesInfoList[params.id]} />
-      <MainBlock 
-        keyPoints={course.keyPoints}
-        description={course.description}
-        lessons={course.lessons}
-        course={course}
-      />
-      <Testimonials />
-      <RelatedCoursesBlock />
-    </Box>
+    <CourseProvider course={course}>
+      <Box sx={style.mainPageContainer}>
+        <HeaderCoursePage />
+        <MainBlock 
+          // keyPoints={course.keyPoints}
+          // description={course.description}
+          // lessons={course.lessons}
+          // course={course}
+        />
+        <Testimonials />
+        <RelatedCoursesBlock />
+      </Box>
+    </CourseProvider>
   );
 };
 

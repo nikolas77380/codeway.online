@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from "react";
 
-import Image from "next/image";
-
 import { dataTestimonialCard } from "@/src/mocks/TestimonialSection/dataTestimonialCard";
 
 import { Box, IconButton } from "@mui/material";

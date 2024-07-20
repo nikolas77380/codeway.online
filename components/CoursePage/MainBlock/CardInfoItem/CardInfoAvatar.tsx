@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Typography } from '@mui/material'
 
 import Avatar from '@mui/material/Avatar';
@@ -5,12 +7,16 @@ import Avatar from '@mui/material/Avatar';
 import { TCourseInfo } from '@/src/mocks/mocks';
 
 import style from './/CardInfoItem.style'
+import { useCourse } from '@/src/context/CourseContext';
 
-interface CardInfoAvatarProps {
-  course: TCourseInfo;
-}
+// interface CardInfoAvatarProps {
+//   course: TCourseInfo;
+// }
 
-const CardInfoAvatar = ({ course }: CardInfoAvatarProps) => {
+const CardInfoAvatar = () => {
+
+  const { course } = useCourse();
+
   return (
     <Box sx={style.avatarMainContainer}>
       <Box sx={style.avatarWrapper}>

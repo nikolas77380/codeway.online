@@ -1,30 +1,24 @@
 "use client";
-import { Groups, Info } from "@mui/icons-material";
+
 import { Box, Divider, Rating, Stack, Typography } from "@mui/material";
-import Aos from "aos";
+import { Groups, Info } from "@mui/icons-material";
+
 import { useEffect } from "react";
+
+import { useCourse } from "@/src/context/CourseContext";
+
+import Aos from "aos";
+
 import style from "./HeaderCoursePage.style";
 
-interface HeaderCoursePageProps {
-  topic: string;
-  name: string;
-  shortDescription: string;
-  rating: number;
-  students: number;
-  lastUpdated: string;
-}
+const HeaderCoursePage = () => {
 
-const HeaderCoursePage = ({
-  topic,
-  name,
-  shortDescription,
-  rating,
-  students,
-  lastUpdated,
-}: HeaderCoursePageProps) => {
+  const { course } = useCourse();
+
   useEffect(() => {
     Aos.init({});
   }, []);
+
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
@@ -36,7 +30,7 @@ const HeaderCoursePage = ({
           data-aos-easing=""
           sx={style.topic}
         >
-          {topic}
+          {course.topic}
         </Typography>
         <Typography
           data-aos="fade-up"
@@ -45,7 +39,7 @@ const HeaderCoursePage = ({
           variant="h3"
           sx={style.name}
         >
-          {name}
+          {course.name}
         </Typography>
         <Typography
           data-aos="fade-up"
@@ -55,20 +49,20 @@ const HeaderCoursePage = ({
           variant="subtitle1"
           sx={style.subtitle}
         >
-          {shortDescription}
+          {course.shortDescription}
         </Typography>
-        <Rating size="medium" value={rating} readOnly sx={style.rating} />
+        <Rating size="medium" value={course.rating} readOnly sx={style.rating} />
         <Stack
           direction={"row"}
           spacing={2}
           divider={<Divider orientation="vertical" sx={style.divider} />}
         >
           <Typography sx={style.extraInfo}>
-            <Groups sx={style.icon} /> {`${students} students`}
+            <Groups sx={style.icon} /> {`${course.students} students`}
           </Typography>
           <Typography sx={style.extraInfo}>
             <Info sx={style.icon} />
-            {` Last updated ${lastUpdated}`}
+            {` Last updated ${course.lastUpdated}`}
           </Typography>
         </Stack>
       </Box>
