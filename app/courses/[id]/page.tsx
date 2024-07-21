@@ -29,12 +29,7 @@ const CoursePage = ({ params }: CoursePageProps) => {
     <CourseProvider course={course}>
       <Box sx={style.mainPageContainer}>
         <HeaderCoursePage />
-        <MainBlock 
-          // keyPoints={course.keyPoints}
-          // description={course.description}
-          // lessons={course.lessons}
-          // course={course}
-        />
+        <MainBlock />
         <Testimonials />
         <RelatedCoursesBlock />
       </Box>

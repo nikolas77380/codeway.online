@@ -8,10 +8,6 @@ import { useCourse } from '@/src/context/CourseContext';
 
 import style from './KeyPointsItem.style'
 
-// interface KeyPointsItemProps {
-//   keyPoints: string[];
-// }
-
 const KeyPointsItem = () => {
 
   const { course } = useCourse();

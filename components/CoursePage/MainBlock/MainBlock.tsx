@@ -11,13 +11,6 @@ import CardInfoItem from './CardInfoItem/CardInfoItem';
 
 import style from './MainBlock.style'
 
-// interface MainBlockProps {
-//   keyPoints: string[];
-//   description: string;
-//   lessons: TCourseInfo['lessons'];
-//   course: TCourseInfo;
-// }
-
 const MainBlock = () => {
 
   const theme = useTheme();

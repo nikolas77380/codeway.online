@@ -8,16 +8,9 @@ import Image from "next/image";
 
 import { PlayIcon } from "@/components/Video/PlayIcon/PlayIcon";
 
-import { TCourseInfo } from "@/src/mocks/mocks";
-
 import { useCourse } from "@/src/context/CourseContext";
 
 import style from './CardInfoItem.style'
-
-// interface CardInfoVideoPlayerProps {
-//   course: TCourseInfo;
-// }
-
 
 const CardInfoVideoPlayer = () => {
 

@@ -10,10 +10,6 @@ import { useCourse } from '@/src/context/CourseContext';
 
 import style from './CourseLessons.style'
 
-// interface CourseLessonsProps {
-//   lessons: TCourseInfo['lessons'];
-// };
-
 const CourseLessons = () => {
 
   const { course } = useCourse();

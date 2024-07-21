@@ -12,10 +12,6 @@ import { useCourse } from "@/src/context/CourseContext";
 
 import style from './CardInfoItem.style'
 
-// interface CardInfoIncludesProps {
-//   course: TCourseInfo;
-// }
-
 const CardInfoIncludes = () => {
 
   const { course } = useCourse();

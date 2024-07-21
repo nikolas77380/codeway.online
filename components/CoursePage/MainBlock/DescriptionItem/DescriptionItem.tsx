@@ -8,10 +8,6 @@ import { useCourse } from '@/src/context/CourseContext';
 
 import style from './DescriptionItem.style'
 
-// interface DescriptionItemProps {
-//   description: string;
-// }
-
 const DescriptionItem = () => {
 
   const { course } = useCourse();

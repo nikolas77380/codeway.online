@@ -4,14 +4,8 @@ import { Box, Typography } from '@mui/material'
 
 import Avatar from '@mui/material/Avatar';
 
-import { TCourseInfo } from '@/src/mocks/mocks';
-
 import style from './/CardInfoItem.style'
 import { useCourse } from '@/src/context/CourseContext';
-
-// interface CardInfoAvatarProps {
-//   course: TCourseInfo;
-// }
 
 const CardInfoAvatar = () => {
 
