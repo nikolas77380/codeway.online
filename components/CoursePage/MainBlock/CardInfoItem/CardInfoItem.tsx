@@ -11,9 +11,13 @@ import style from './CardInfoItem.style'
 //   course: TCourseInfo;
 // }
 
-const CardInfoItem = () => {
+interface CardInfoItemProps {
+  isFixed?: boolean;
+}
+
+const CardInfoItem = ({ isFixed = false }: CardInfoItemProps) => {
   return (
-    <Box sx={style.cardInfoMainContainer}>
+    <Box sx={{ ...style.cardInfoMainContainer, position: isFixed ? 'fixed' : 'static', top: isFixed ? '100px' : 'auto' }}>
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayer />
         <Typography variant="h6" component='label'>

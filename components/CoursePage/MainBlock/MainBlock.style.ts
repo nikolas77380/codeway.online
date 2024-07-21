@@ -19,6 +19,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     flexDirection: 'column',
     width: 1,
     height: 1,
+    flex: 1,
   },
 
   cardInfoBlock: {
@@ -31,8 +32,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: '100%',
     marginBottom: '1rem',
   },
-
-  
 };
 
 export default style;
