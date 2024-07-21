@@ -24,6 +24,7 @@ const MainBlock = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [isFixed, setIsFixed] = useState(false);
+  const [bottom, setIsBottom] = useState(false);
 
   const mainBlockRef = useRef<HTMLDivElement | null>(null);
   const cardInfoRef = useRef<HTMLDivElement | null>(null);
@@ -33,12 +34,15 @@ const MainBlock = () => {
       if (mainBlockRef.current && cardInfoRef.current) {
         const mainBlockTop = mainBlockRef.current.getBoundingClientRect().top;
         const mainBlockBottom = mainBlockRef.current.getBoundingClientRect().bottom;
+        const cardInfoBottom = cardInfoRef.current.getBoundingClientRect().bottom;
         const viewportHeight = window.innerHeight;
 
         if (mainBlockTop <= 0 && mainBlockBottom > viewportHeight) {
           setIsFixed(true);
+          setIsBottom(cardInfoBottom > mainBlockBottom);
         } else {
           setIsFixed(false);
+          setIsBottom(false);
         }
       }
     };
@@ -48,6 +52,7 @@ const MainBlock = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
 
   return (
     <Box sx={style.mainContainer} ref={mainBlockRef}>
@@ -62,7 +67,7 @@ const MainBlock = () => {
         <CourseLessons />
       </Box>
       {!isMobile && (
-        <Box sx={style.cardInfoBlock} ref={cardInfoRef}>
+        <Box sx={style.cardInfoBlock} ref={cardInfoRef} >
           <CardInfoItem isFixed={isFixed} />
         </Box>
       )}
