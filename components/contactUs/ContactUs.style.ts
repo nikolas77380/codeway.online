@@ -5,7 +5,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     position: "relative",
     width: "min(95%, 1280px)",
     maxWidth: "1280px",
-    m: "auto",
+    m: "0 auto 70px auto",
     p: "20px",
     bgcolor: "#1C1E2A",
   },
@@ -66,11 +66,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     whiteSpace: "nowrap",
     fontSize: "1.2rem",
     textTransform: "none",
-  },
-  arrow: {
-    fontSize: "20px",
-    verticalAlign: "center",
-    mb: "3px",
   },
 };
 
