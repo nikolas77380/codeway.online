@@ -11,6 +11,10 @@ const roboto = Roboto({
 const theme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
+    subtitle2: {
+      color: "#94A3B8",
+      fontSize: "1rem",
+    },
   },
   palette: {
     primary: {
