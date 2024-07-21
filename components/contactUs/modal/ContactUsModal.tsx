@@ -22,6 +22,12 @@ interface IContactUsModal {
   handleClose: () => void;
 }
 
+export interface IInitialValues {
+  name: string;
+  email: string;
+  message: string;
+}
+
 const initialValues = {
   name: "",
   email: "",
@@ -41,7 +47,7 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
 
   const [isSending, setIsSending] = useState(false);
 
-  const onSubmit = async (values: any) => {
+  const onSubmit = async (values: IInitialValues) => {
     setIsSending(true);
 
     try {

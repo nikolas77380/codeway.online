@@ -1,6 +1,6 @@
-import { FormData } from "@/components/contactUs/modal/ContactUsModal";
+import { IInitialValues } from "@/components/contactUs/modal/ContactUsModal";
 
-export async function sendEmail(data: FormData) {
+export async function sendEmail(data: IInitialValues) {
   const apiEndpoint = "/api/email";
 
   try {
