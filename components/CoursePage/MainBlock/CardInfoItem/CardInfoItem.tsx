@@ -7,10 +7,6 @@ import CardInfoLinkButton from "./CardInfoLinkButton";
 
 import style from './CardInfoItem.style'
 
-// interface CardInfoItemProps {
-//   course: TCourseInfo;
-// }
-
 interface CardInfoItemProps {
   isFixed?: boolean;
 }
