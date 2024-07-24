@@ -1,21 +1,22 @@
 "use client";
-import { ArrowForward } from "@mui/icons-material";
+
 import { Box, Button, Typography } from "@mui/material";
-import Aos from "aos";
+
+import { useState } from "react";
+
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import style from "./ContactUs.style";
+
+import { ArrowForward } from "@mui/icons-material";
+
 import ContactUsModal from "./modal/ContactUsModal";
+
+import style from "./ContactUs.style";
 
 const ContactUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
-
-  useEffect(() => {
-    Aos.init({});
-  }, []);
 
   return (
     <Box

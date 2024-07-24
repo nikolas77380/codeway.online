@@ -1,28 +1,12 @@
-'use client'
-
-import { useEffect } from 'react'
-
 import { Box, Typography } from '@mui/material'
 
 import ChooseUsCard from './ChoseUsCard/ChooseUsCard'
 
 import { dataChooseUsCard } from '@/src/mocks/ChooseUsItem/dataChooseUsCard'
 
-import AOS from 'aos';
-
-import 'aos/dist/aos.css';
-
 import style from './ChooseUs.style'
 
 const ChooseUs = () => {
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
-
   return (
     <Box sx={style.mainSection}>
       <Box 

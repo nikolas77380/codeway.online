@@ -1,7 +1,3 @@
-'use client'
-
-import { useEffect } from 'react';
-
 import { Box, Typography } from '@mui/material'
 
 import FaqCard from './FaqCard/FaqCard'
@@ -10,21 +6,9 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 
 import { dataFaqCard } from '@/src/mocks/FaqSection/dataFaqCard';
 
-import AOS from 'aos';
-
-import 'aos/dist/aos.css';
-
 import style from './Faq.style'
 
 const Faq = () => {
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-    });
-  }, []);
-
   return (
     <Box sx={style.mainSection}>
       <Box 

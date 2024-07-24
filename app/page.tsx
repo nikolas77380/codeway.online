@@ -1,3 +1,7 @@
+'use client';
+
+import { Box } from "@mui/material";
+
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import Faq from "@/components/Faq/Faq";
 import Testimonials from "@/components/Testimonials/Testimonials";
@@ -6,10 +10,13 @@ import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesList from "@/components/coursesListBlock/CoursesList/CoursesList";
 import Header from "@/components/header/Header";
-import { Box } from "@mui/material";
+
+import useAosInit from '@/src/hooks/useAosInit';
+
 import style from "./page.style";
 
 export default function Home() {
+  useAosInit();
   return (
     <main>
       <Box sx={style.mainSection}>
