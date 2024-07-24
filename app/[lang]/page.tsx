@@ -9,11 +9,17 @@ import Header from "@/components/header/Header";
 import { Box } from "@mui/material";
 import style from "./page.style";
 
-export default function Home() {
+interface IHome {
+  params: {
+    lang: string;
+  };
+}
+
+export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
       <Box sx={style.mainSection}>
-        <Header />
+        <Header lang={lang} />
         <CoursesList />
       </Box>
       <Box sx={style.chooseUs}>
