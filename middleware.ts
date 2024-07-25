@@ -1,4 +1,5 @@
 import { match } from "@formatjs/intl-localematcher";
+import Negotiator from "negotiator";
 import { NextRequest, NextResponse } from "next/server";
 import { cookieName, fallbackLang, languages } from "./app/i18n/settings";
 
@@ -9,14 +10,22 @@ export const config = {
 };
 
 const getLocale = (req: NextRequest): string | undefined => {
-  let langUserPref;
   if (req.cookies.has(cookieName)) {
-    langUserPref = req.cookies.get(cookieName)?.value;
+    return req.cookies.get(cookieName)?.value;
   } else {
-    langUserPref = req.headers.get("Accept-Language");
+    const plainHeaders = headersToPlainObject(req.headers);
+    let langUserPref = new Negotiator({ headers: plainHeaders }).languages();
+    return match(languages, langUserPref, fallbackLang);
   }
-  return match(languages, [langUserPref ?? ""], fallbackLang);
 };
+
+function headersToPlainObject(headers: Headers) {
+  const result: Record<string, string> = {};
+  headers.forEach((value, key) => {
+    result[key] = value;
+  });
+  return result;
+}
 
 export function middleware(req: NextRequest) {
   const lang = getLocale(req);
