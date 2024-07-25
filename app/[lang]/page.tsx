@@ -29,7 +29,7 @@ export default function Home({ params: { lang } }: IHome) {
         <Testimonials />
         <Faq />
       </Box>
-      <CookieDialog />
+      <CookieDialog lang={lang} />
     </main>
   );
 }

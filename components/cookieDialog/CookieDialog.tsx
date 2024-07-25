@@ -1,10 +1,17 @@
 "use client";
+import { useTranslation } from "@/app/i18n/client";
 import { Box, Button, Link, Popper, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import style from "./CookieDialog.style";
 
-const CookieDialog = () => {
+interface ICookieDialog {
+  lang: string;
+}
+
+const CookieDialog = ({ lang }: ICookieDialog) => {
   const [open, setOpen] = useState(false);
+
+  const { t } = useTranslation(lang, "CookieDialog");
 
   useEffect(() => {
     if (!localStorage.getItem("cookiesAccepted")) {
@@ -25,11 +32,9 @@ const CookieDialog = () => {
     <Popper open={open} sx={style.popup} transition placement="bottom-start">
       <Box sx={style.container}>
         <Typography sx={style.subtitle}>
-          Ми використовуємо cookie-файли для надання найбільш актуальної
-          інформації. Продовжуючи використовувати сайт, Ви погоджуєтесь з
-          використанням файлів cookie.{" "}
+          {t("text")}{" "}
           <Link href="cookies-policy/" sx={style.link}>
-            Політика конфіденційності
+            {t("link")}
           </Link>
         </Typography>
         <Button
@@ -38,7 +43,7 @@ const CookieDialog = () => {
           sx={style.accButton}
           onClick={handleClose}
         >
-          Погоджуюсь
+          {t("button")}
         </Button>
       </Box>
     </Popper>
