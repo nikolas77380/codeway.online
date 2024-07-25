@@ -4,6 +4,7 @@ import HeaderAboutUs from "@/components/AboutUsPage/HeaderAboutUs/HeaderAboutUs"
 import WhoWeAre from "@/components/AboutUsPage/WhoWeAre/WhoWeAre"
 import OurValueSection from "@/components/AboutUsPage/OurValueSection/OurValueSection"
 import OurPopularClasses from "@/components/AboutUsPage/OurPopularClasses/OurPopularClasses"
+import MeetOurTeam from "@/components/AboutUsPage/MeetOurTeam/MeetOurTeam"
 
 import style from './AboutUs.style'
 
@@ -14,6 +15,7 @@ const page = () => {
       <WhoWeAre />
       <OurValueSection />
       <OurPopularClasses />
+      <MeetOurTeam />
     </Box>
   )
 }

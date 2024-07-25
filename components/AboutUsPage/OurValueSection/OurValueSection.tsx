@@ -11,8 +11,9 @@ import AdsClickIcon from '@mui/icons-material/AdsClick';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 
-import style from './OurValueSection.style'
 import OurValueVideoPlayer from './OurValueVideoPlayer/OurValueVideoPlayer';
+
+import style from './OurValueSection.style'
 
 interface OurValueSectionProps {
   autoplay?: boolean;
