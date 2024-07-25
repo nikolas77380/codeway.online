@@ -25,7 +25,7 @@ export default function Home({ params: { lang } }: IHome) {
       <Box sx={style.chooseUs}>
         <Video />
         <ChooseUs lang={lang} />
-        <ContactUs />
+        <ContactUs lang={lang} />
         <Testimonials />
         <Faq />
       </Box>
