@@ -20,7 +20,7 @@ export default function Home({ params: { lang } }: IHome) {
     <main>
       <Box sx={style.mainSection}>
         <Header lang={lang} />
-        <CoursesList />
+        <CoursesList lang={lang} />
       </Box>
       <Box sx={style.chooseUs}>
         <Video />
