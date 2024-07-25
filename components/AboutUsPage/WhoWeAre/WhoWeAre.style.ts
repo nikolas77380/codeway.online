@@ -110,8 +110,8 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   mainContent2: {
-    width: '100%', 
-    height: '100%', 
+    width: 1, 
+    height: 1, 
     flex: 1, 
     m: 'auto'
   },
