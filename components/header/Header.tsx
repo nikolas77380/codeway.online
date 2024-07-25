@@ -29,16 +29,37 @@ const Header = ({ lang }: IHeader) => {
 
         <Box sx={style.rightContainer}>
           <Box sx={style.mainImage}>
-            <Image src={"/header/img_2.png"} alt="person" fill={true} />
+            <Image
+              priority
+              src={"/assets/header/img_2.png"}
+              alt="person"
+              fill={true}
+              sizes="(max-width:1200px) 480px, 580px"
+            />
           </Box>
           <Box sx={style.imageSkills}>
-            <Image src={"/header/img_3.png"} alt="skills" fill={true} />
+            <Image
+              src={"/assets/header/img_3.png"}
+              alt="skills"
+              fill={true}
+              sizes="(max-width:900px) 120px, (max-width:1200px) 150px, 210px"
+            />
           </Box>
           <Box sx={style.imageCodeIcon}>
-            <Image src={"/header/img_4.png"} alt="codeIcon" fill={true} />
+            <Image
+              src={"/assets/header/img_4.png"}
+              alt="codeIcon"
+              fill={true}
+              sizes="(max-width:900px) 250px, (max-width:1200px) 75px, 108px"
+            />
           </Box>
           <Box sx={style.imageVideoIcon}>
-            <Image src={"/header/img_5.png"} alt="videoIcon" fill={true} />
+            <Image
+              src={"/assets/header/img_5.png"}
+              alt="videoIcon"
+              fill={true}
+              sizes="(max-width:1200px) 75px, 108px"
+            />
           </Box>
         </Box>
       </Box>

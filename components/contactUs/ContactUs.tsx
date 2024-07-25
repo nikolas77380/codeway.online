@@ -29,7 +29,7 @@ const ContactUs = () => {
       <Box sx={style.contentWrapper}>
         <Box>
           <Image
-            src={"/contactUs/img_avatars.png"}
+            src={"/assets/contactUs/img_avatars.png"}
             alt="avatars"
             width={235}
             height={70}

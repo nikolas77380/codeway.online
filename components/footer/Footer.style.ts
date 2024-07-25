@@ -7,7 +7,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     color: "#fff",
     pt: "20px",
     backgroundColor: "#12141D",
-    backgroundImage: "url('/footer/bg_footer.png')",
+    backgroundImage: "url('/assets/footer/bg_footer.png')",
     backgroundPosition: "top center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",

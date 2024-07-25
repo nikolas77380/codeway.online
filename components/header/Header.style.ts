@@ -37,7 +37,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     minHeight: "600px",
     borderRadius: "50px",
     backgroundImage:
-      'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
+      'url("/assets/header/bg_header_2_.png"), url("/assets/header/bg_header_3_.png")',
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
@@ -116,9 +116,10 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   mainImage: (theme) => ({
+    position: "relative",
     width: "580px",
     height: "600px",
-    backgroundImage: "url('/header/bg_header_1_.png')",
+    backgroundImage: "url('/assets/header/bg_header_1_.png')",
     backgroundPosition: "center",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",

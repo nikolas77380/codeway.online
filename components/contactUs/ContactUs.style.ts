@@ -12,7 +12,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   backgroundOverlay: {
     width: 1,
     height: 1,
-    backgroundImage: "url('/header/bg_header_2_.png')",
+    backgroundImage: "url('/assets/header/bg_header_2_.png')",
     backgroundPosition: "bottom right",
     backgroundRepeat: "no-repeat",
     backgroundSize: "300%",
