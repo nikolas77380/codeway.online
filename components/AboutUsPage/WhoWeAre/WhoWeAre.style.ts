@@ -9,7 +9,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     gap: '20px',
     height: 'auto',
     position: 'relative',
-    '@media (max-width: 900px)': {
+    '@media (max-width: 600px)': {
       p: '0 2rem',
       flexDirection: 'column',
     },
@@ -28,7 +28,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       color: '#a855f7',
       fontSize: '1rem',
       fontWeight: '500',
-      '@media (max-width: 900px)': {
+      '@media (max-width: 600px)': {
         fontSize: '0.8rem',
       },
     },

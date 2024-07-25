@@ -5,6 +5,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     height: 1,
     backgroundColor: '#161821',
+    borderBottom: '1px solid rgba(66, 68, 78, 0.2)'
   },
 
   popularClassesContainer: {

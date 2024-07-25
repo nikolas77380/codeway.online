@@ -19,6 +19,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     "@media (max-width: 600px)": {
       height: "200px",
       borderRadius: "20px",
+      width: 1
     },
   },
 

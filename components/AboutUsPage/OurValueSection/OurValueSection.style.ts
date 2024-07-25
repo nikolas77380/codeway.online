@@ -38,7 +38,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: 1,
     flex: 1,
     p: '5rem 0',
-    '@media (max-width: 900px)': {
+    '@media (max-width: 600px)': {
       p: '2rem 0',
     },
     '& label': {
@@ -46,7 +46,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       color: '#a855f7',
       fontSize: '1rem',
       fontWeight: '500',
-      '@media (max-width: 900px)': {
+      '@media (max-width: 600px)': {
         fontSize: '0.8rem',
       },
     },
