@@ -26,7 +26,7 @@ export default function Home({ params: { lang } }: IHome) {
         <Video />
         <ChooseUs lang={lang} />
         <ContactUs lang={lang} />
-        <Testimonials />
+        <Testimonials lang={lang} />
         <Faq lang={lang} />
       </Box>
       <CookieDialog lang={lang} />
