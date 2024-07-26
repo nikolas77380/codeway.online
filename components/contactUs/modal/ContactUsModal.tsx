@@ -1,19 +1,10 @@
 "use client";
 
+import { useSnackbar } from "@/context/SnackbarContext";
 import validationSchema from "@/schemas/form.schema";
 import { sendEmail } from "@/utils/send-email";
 import { ArrowForward } from "@mui/icons-material";
-import {
-  Alert,
-  Box,
-  Button,
-  Fade,
-  Modal,
-  Portal,
-  Snackbar,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Fade, Modal, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useState } from "react";
 import style from "./ContactUsModal.style";
@@ -35,31 +26,22 @@ const initialValues = {
 };
 
 export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
-  const [alert, setAlert] = useState<{
-    open: boolean;
-    message: string;
-    severity: "success" | "error";
-  }>({
-    open: false,
-    message: "",
-    severity: "success",
-  });
+  const { showSnackbar } = useSnackbar();
 
   const [isSending, setIsSending] = useState(false);
 
   const onSubmit = async (values: IInitialValues) => {
     setIsSending(true);
-
+    showSnackbar({ message: "Sending...", severity: "info", duration: 10000 });
     try {
       const response = await sendEmail(values);
-      setAlert({ open: true, message: response.message, severity: "success" });
+      showSnackbar({ message: response.message, severity: "success" });
       handleClose();
     } catch (error) {
       if (error instanceof Error) {
-        setAlert({ open: true, message: error.message, severity: "error" });
+        showSnackbar({ message: error.message, severity: "error" });
       } else {
-        setAlert({
-          open: true,
+        showSnackbar({
           message: "An unknown error occurred",
           severity: "error",
         });
@@ -155,26 +137,6 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
           </Fade>
         </Modal>
       </Box>
-      <Portal>
-        <Snackbar
-          open={alert.open}
-          autoHideDuration={4000}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          onClose={() =>
-            setAlert({ open: false, message: "", severity: "success" })
-          }
-        >
-          <Alert
-            onClose={() =>
-              setAlert({ open: false, message: "", severity: "success" })
-            }
-            severity={alert.severity}
-            sx={{ width: "100%" }}
-          >
-            {alert.message}
-          </Alert>
-        </Snackbar>
-      </Portal>
     </>
   );
 }
