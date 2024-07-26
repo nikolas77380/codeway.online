@@ -27,7 +27,7 @@ export default function Home({ params: { lang } }: IHome) {
         <ChooseUs lang={lang} />
         <ContactUs lang={lang} />
         <Testimonials />
-        <Faq />
+        <Faq lang={lang} />
       </Box>
       <CookieDialog lang={lang} />
     </main>

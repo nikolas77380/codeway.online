@@ -1,23 +1,31 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react';
+import { useEffect } from "react";
 
-import { Box, Typography } from '@mui/material'
+import { Box, Typography } from "@mui/material";
 
-import FaqCard from './FaqCard/FaqCard'
+import FaqCard from "./FaqCard/FaqCard";
 
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
-import { dataFaqCard } from '@/src/mocks/FaqSection/dataFaqCard';
+import AOS from "aos";
 
-import AOS from 'aos';
+import "aos/dist/aos.css";
 
-import 'aos/dist/aos.css';
+import { useTranslation } from "@/app/i18n/client";
+import style from "./Faq.style";
 
-import style from './Faq.style'
+interface FaqCardData {
+  id: number;
+  question: string;
+  answer: string;
+}
 
-const Faq = () => {
+interface IFaq {
+  lang: string;
+}
 
+const Faq = ({ lang }: IFaq) => {
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -25,31 +33,35 @@ const Faq = () => {
     });
   }, []);
 
+  const { t } = useTranslation(lang, "Faq");
+
+  const dataFaqCard = t("questions", { returnObjects: true }) as FaqCardData[];
+
   return (
     <Box sx={style.mainSection}>
-      <Box 
+      <Box
         sx={style.textSection}
         data-aos="fade-down"
         data-aos-delay="200"
         data-aos-anchor-placement="top"
-        data-aos-duration='1200'
+        data-aos-duration="1200"
       >
-        <Typography variant='h6' component='span'>
-          Common Questions
+        <Typography variant="h6" component="span">
+          {t("slogan")}
         </Typography>
-        <Typography variant='h3' component='p' className="title">
-          Most Popular Questions
+        <Typography variant="h3" component="p" className="title">
+          {t("title")}
         </Typography>
-        <Typography variant='body1' component='p' className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec{"\n"}
-          ullamcorper mattis, pulvinar dapibus leo.
+        <Typography variant="body1" component="p" className="description">
+          {t("subtitle")}
         </Typography>
       </Box>
       <Box sx={style.faqCardContainer} data-aos-anchor-placement="top">
-        {dataFaqCard.map(card =>(
-          <FaqCard 
+        {dataFaqCard.map((card) => (
+          <FaqCard
             key={card.id}
-            {...card}
+            title={card.question}
+            description={card.answer}
             Icon={HelpOutlineIcon}
             data-aos="zoom-in"
             data-aos-delay={100 * (card.id + 1)}
@@ -58,7 +70,7 @@ const Faq = () => {
         ))}
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default Faq
+export default Faq;
