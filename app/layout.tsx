@@ -1,5 +1,6 @@
 import Footer from "@/components/footer/Footer";
 import Menu from "@/components/Menu/Menu";
+import { SnackbarProvider } from "@/context/SnackbarContext";
 import theme from "@/src/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
@@ -24,9 +25,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppRouterCacheProvider options={{ key: "cw" }}>
           <ThemeProvider theme={theme}>
-            <Menu />
-            {children}
-            <Footer />
+            <SnackbarProvider>
+              <Menu />
+              {children}
+              <Footer />
+            </SnackbarProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
