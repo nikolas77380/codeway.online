@@ -38,7 +38,7 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <Menu lang={lang} />
             {children}
-            <Footer />
+            <Footer lang={lang} />
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
