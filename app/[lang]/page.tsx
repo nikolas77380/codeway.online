@@ -9,21 +9,27 @@ import Header from "@/components/header/Header";
 import { Box } from "@mui/material";
 import style from "./page.style";
 
-export default function Home() {
+interface IHome {
+  params: {
+    lang: string;
+  };
+}
+
+export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
       <Box sx={style.mainSection}>
-        <Header />
-        <CoursesList />
+        <Header lang={lang} />
+        <CoursesList lang={lang} />
       </Box>
       <Box sx={style.chooseUs}>
         <Video />
-        <ChooseUs />
-        <ContactUs />
-        <Testimonials />
-        <Faq />
+        <ChooseUs lang={lang} />
+        <ContactUs lang={lang} />
+        <Testimonials lang={lang} />
+        <Faq lang={lang} />
       </Box>
-      <CookieDialog />
+      <CookieDialog lang={lang} />
     </main>
   );
 }

@@ -15,11 +15,14 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
+import { TFunction } from "i18next";
 import { useState } from "react";
 import style from "./ContactUsModal.style";
+
 interface IContactUsModal {
   open: boolean;
   handleClose: () => void;
+  t: TFunction<string, undefined>;
 }
 
 export interface IInitialValues {
@@ -28,13 +31,17 @@ export interface IInitialValues {
   message: string;
 }
 
-const initialValues = {
+const initialValues: IInitialValues = {
   name: "",
   email: "",
   message: "",
 };
 
-export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
+export default function ContactUsModal({
+  open,
+  handleClose,
+  t,
+}: IContactUsModal) {
   const [alert, setAlert] = useState<{
     open: boolean;
     message: string;
@@ -92,11 +99,10 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
           <Fade in={open}>
             <Box sx={style.container}>
               <Typography variant="h5" sx={style.title}>
-                Send us a message
+                {t("modal.title")}
               </Typography>
               <Typography variant="subtitle2" sx={style.subtitle}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                {t("modal.subtitle")}
               </Typography>
               <Box
                 component={"form"}
@@ -106,8 +112,9 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                 <Box sx={style.inputWrapper}>
                   <TextField
                     name="name"
-                    label="Name"
+                    label={t("modal.nameInputLabel")}
                     type="text"
+                    variant="outlined"
                     sx={style.input}
                     value={formik.values.name}
                     onChange={formik.handleChange}
@@ -117,8 +124,9 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                   />
                   <TextField
                     name="email"
-                    label="Email"
+                    label={t("modal.emailInputLabel")}
                     type="email"
+                    variant="outlined"
                     sx={style.input}
                     value={formik.values.email}
                     onChange={formik.handleChange}
@@ -129,7 +137,8 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                 </Box>
                 <TextField
                   name="message"
-                  label="Message"
+                  label={t("modal.messageInputLabel")}
+                  variant="outlined"
                   sx={style.input}
                   multiline
                   rows={4}
@@ -148,7 +157,7 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                   type="submit"
                   disabled={!formik.isValid || isSending}
                 >
-                  Contact us
+                  {t("modal.button")}
                 </Button>
               </Box>
             </Box>
