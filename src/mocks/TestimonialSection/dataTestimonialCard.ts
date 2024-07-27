@@ -23,7 +23,8 @@ export const dataTestimonialCard = [
     id: 5,
     type: 'video',
     src: 'https://www.youtube.com/embed/W1xwTqgzQ_g?si=ks1HLZA-DPAZtDP1',
-  },{
+  },
+  {
     id: 6,
     type: 'video',
     src: 'https://www.youtube.com/embed/W1xwTqgzQ_g?si=ks1HLZA-DPAZtDP1',
