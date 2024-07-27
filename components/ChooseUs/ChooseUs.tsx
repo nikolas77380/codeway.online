@@ -1,21 +1,31 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
-import { Box, Typography } from '@mui/material'
+import {
+  CardMembership,
+  Difference,
+  Groups,
+  LaptopChromebook,
+} from "@mui/icons-material/";
 
-import ChooseUsCard from './ChoseUsCard/ChooseUsCard'
+import { Box, Typography } from "@mui/material";
 
-import { dataChooseUsCard } from '@/src/mocks/ChooseUsItem/dataChooseUsCard'
+import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
 
-import AOS from 'aos';
+import AOS from "aos";
 
-import 'aos/dist/aos.css';
+import "aos/dist/aos.css";
 
-import style from './ChooseUs.style'
+import { useTranslation } from "@/app/i18n/client";
+import style from "./ChooseUs.style";
 
-const ChooseUs = () => {
+interface IChooseUs {
+  lang: string;
+}
 
+const ChooseUs = ({ lang }: IChooseUs) => {
+  const { t } = useTranslation(lang, "ChooseUs");
   useEffect(() => {
     AOS.init({
       duration: 1500,
@@ -25,44 +35,64 @@ const ChooseUs = () => {
 
   return (
     <Box sx={style.mainSection}>
-      <Box 
-        id="text-section" 
+      <Box
+        id="text-section"
         sx={style.textSection}
         data-aos="fade-down"
         data-aos-delay="200"
         data-aos-duration="1200"
         data-aos-anchor-placement="top"
       >
-        <Typography variant='h6' component='span'>
-          Why Choose Us
+        <Typography variant="h6" component="span">
+          {t("title")}
         </Typography>
-        <Typography variant='h3' component='p' className="title">
-          It{"'s"} the bright one, it{"'s"} the right one, {"\n"}
-          that{"'s"} education.
+        <Typography variant="h3" component="p" className="title">
+          {t("subtitle")}
         </Typography>
-        <Typography variant='body1' component='p' className="description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec{"\n"}
-          ullamcorper mattis, pulvinar dapibus leo.
+        <Typography variant="body1" component="p" className="description">
+          {t("text")}
         </Typography>
       </Box>
-      <Box 
-        id="card-section" 
+      <Box
+        id="card-section"
         sx={style.cardSection}
         data-aos-anchor-placement="top"
       >
-        {dataChooseUsCard.map(card => (
-          <ChooseUsCard 
-            key={card.id}
-            IconComponent={card.icon}
-            {...card}
-            data-aos="zoom-in"
-            data-aos-delay={100 * (card.id + 1)}
-            data-aos-duration="1200"
-          />
-        ))}
+        <ChooseUsCard
+          IconComponent={Difference}
+          title={t("cards.0.title")}
+          description={t("cards.0.description")}
+          data-aos="zoom-in"
+          data-aos-delay={200}
+          data-aos-duration="1200"
+        />
+        <ChooseUsCard
+          IconComponent={Groups}
+          title={t("cards.1.title")}
+          description={t("cards.1.description")}
+          data-aos="zoom-in"
+          data-aos-delay={300}
+          data-aos-duration="1200"
+        />
+        <ChooseUsCard
+          IconComponent={LaptopChromebook}
+          title={t("cards.2.title")}
+          description={t("cards.2.description")}
+          data-aos="zoom-in"
+          data-aos-delay={400}
+          data-aos-duration="1200"
+        />
+        <ChooseUsCard
+          IconComponent={CardMembership}
+          title={t("cards.3.title")}
+          description={t("cards.3.description")}
+          data-aos="zoom-in"
+          data-aos-delay={500}
+          data-aos-duration="1200"
+        />
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default ChooseUs
+export default ChooseUs;
