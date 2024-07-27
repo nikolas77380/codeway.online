@@ -39,6 +39,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   routeSectionDesktop: {
     display: "flex",
     gap: "4rem",
+    alignItems: "center",
     "@media (max-width: 600px)": {
       display: "none",
     },
@@ -79,11 +80,11 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   modalContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100vh',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "100vh",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
 
   mobileMenu: {
@@ -91,7 +92,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     top: "8rem",
     left: "0",
     width: 1,
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     display: "flex",
     flexDirection: "column",
     alignItems: "start",
