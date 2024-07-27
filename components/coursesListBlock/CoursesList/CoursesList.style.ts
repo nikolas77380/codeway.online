@@ -9,7 +9,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   contentWrapper: {
     maxWidth: "1700px",
     m: "auto",
-    backgroundImage: "url('/coursesListBlock/bg_memphis_1_.png')",
+    backgroundImage: "url('/assets/coursesListBlock/bg_memphis_1_.png')",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",

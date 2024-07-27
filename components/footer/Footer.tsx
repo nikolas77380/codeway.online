@@ -1,5 +1,5 @@
 "use client";
-import { COMPANY, SERVICES } from "@/constants/constants";
+import { useTranslation } from "@/app/i18n/client";
 import {
   EmailOutlined,
   Facebook,
@@ -24,8 +24,19 @@ import { useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
 
-const Footer = () => {
+interface IFooter {
+  lang: string;
+}
+
+interface IListLinkItem {
+  name: string;
+  href: string;
+}
+
+const Footer = ({ lang }: IFooter) => {
   const [email, setEmail] = useState("");
+
+  const { t } = useTranslation(lang, "Footer");
 
   const handleClick = () => {
     // join email to subscribtion
@@ -40,7 +51,7 @@ const Footer = () => {
             <Grid item xs={12} sm={4} md={4}>
               <Typography fontSize={"1.5rem"}>[CodeWay]</Typography>
               <Typography variant="subtitle2" sx={style.address}>
-                Jln Cempaka Wangi No 22 Jakarta - Indonesia{" "}
+                {t("address")}{" "}
               </Typography>
               <Typography variant="subtitle2" sx={style.email}>
                 test@mail.com
@@ -51,20 +62,31 @@ const Footer = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4} md={2}>
-              <ListWithTitle title="Services" items={SERVICES} />
+              <ListWithTitle
+                title={t("services.title")}
+                items={
+                  t("services.list", { returnObjects: true }) as IListLinkItem[]
+                }
+              />
             </Grid>
             <Grid item xs={6} sm={4} md={2}>
-              <ListWithTitle title="Company" items={COMPANY} />
+              <ListWithTitle
+                title={t("companies.title")}
+                items={
+                  t("companies.list", {
+                    returnObjects: true,
+                  }) as IListLinkItem[]
+                }
+              />
             </Grid>
             <Grid item sm={12} md={4}>
-              <Typography variant="h5">Newsletter</Typography>
+              <Typography variant="h5">{t("newsletter")}</Typography>
               <Typography variant="subtitle2" sx={style.signUpText}>
-                Sign up our newsletter to get update information, news and free
-                insight.
+                {t("newsletter-sub")}
               </Typography>
               <Box sx={style.form}>
                 <TextField
-                  label="Email"
+                  label={t("newsletter-email-label")}
                   type="email"
                   size="small"
                   sx={style.input}
@@ -76,7 +98,7 @@ const Footer = () => {
                   endIcon={<EmailOutlined />}
                   onClick={handleClick}
                 >
-                  Sign up
+                  {t("newsletter-button")}
                 </Button>
               </Box>
             </Grid>
@@ -84,8 +106,7 @@ const Footer = () => {
           <Grid container spacing={2} sx={style.appLinks}>
             <Grid item xs={12} sm={8}>
               <Typography variant={"h5"} sx={style.appLinksTitle} p={"10px"}>
-                Ready to learn on-the-go? Download our mobile app ecourse and
-                start learning anytime, anywhere!
+                {t("app-links-title")}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={4} sx={style.storeImg}>
@@ -128,10 +149,7 @@ const Footer = () => {
               </Stack>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography sx={style.copyright}>
-                Copyright© 2023 ByteSkill, All rights reserved. Powered by
-                MoxCreativ.
-              </Typography>
+              <Typography sx={style.copyright}>{t("copyright")}</Typography>
             </Grid>
           </Grid>
         </Stack>

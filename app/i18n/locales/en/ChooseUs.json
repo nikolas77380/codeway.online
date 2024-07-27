@@ -1,0 +1,23 @@
+{
+  "title": "Why Choose Us",
+  "subtitle": "It's the bright one, it's the right one, that's education.",
+  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit  tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+  "cards": [
+    {
+      "title": "Comprehensive Course",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    },
+    {
+      "title": "Expert Instructors",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    },
+    {
+      "title": "Flexible Learning",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    },
+    {
+      "title": "Valid Certifications",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    }
+  ]
+}
