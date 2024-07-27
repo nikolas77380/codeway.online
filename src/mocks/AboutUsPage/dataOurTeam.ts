@@ -14,7 +14,7 @@ export const teamData: TeamMember[] = [
   {
     name: "Everett Sandoval",
     role: "Founder",
-    imageSrc: "/meetOurTeam/1.jpg",
+    imageSrc: "/assets/meetOurTeam/1.jpg",
     icons: [
       FacebookIcon,
       LinkedInIcon,

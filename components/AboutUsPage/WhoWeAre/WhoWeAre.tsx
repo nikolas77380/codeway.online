@@ -72,7 +72,7 @@ const WhoWeAre = () => {
       <Box sx={style.mainContent2}>
       <Box sx={style.mainWrapper}>
         <Box sx={style.imageMainContainer}>
-          <Image src='/aboutUs/hero.jpg' alt="hero" fill />
+          <Image src='/assets/aboutUs/hero.jpg' alt="hero" fill />
         </Box>
         <Box sx={style.memberContainer}>
           <Box sx={style.memberWrapper}>

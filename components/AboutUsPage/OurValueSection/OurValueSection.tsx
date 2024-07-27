@@ -90,16 +90,16 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             </IconButton>
           </Box>
           <Box sx={style.imgContainer}>
-            <Image src='/aboutUs/team-of-innovators.jpg' alt='' width={300} height={300} />
+            <Image src='/assets/aboutUs/team-of-innovators.jpg' alt='' width={300} height={300} />
           </Box>
           <Box sx={style.imgContainer2}>
-            <Image src='/aboutUs/creative-team.jpg' alt='' width={600} height={600} />
+            <Image src='/assets/aboutUs/creative-team.jpg' alt='' width={600} height={600} />
           </Box>
           <Box sx={style.imgContainer3}>
-            <Image src='/aboutUs/business-team.jpg' alt='' width={300} height={300} />
+            <Image src='/assets/aboutUs/business-team.jpg' alt='' width={300} height={300} />
           </Box>
           <Box sx={style.imgContainer4}>
-            <Image src='/aboutUs/unity-and-teamwork.jpg' alt='' width={600} height={600} />
+            <Image src='/assets/aboutUs/unity-and-teamwork.jpg' alt='' width={600} height={600} />
           </Box>
           <Modal
             open={open}
