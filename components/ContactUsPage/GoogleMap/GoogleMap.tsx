@@ -7,6 +7,7 @@ import { useRef, MutableRefObject } from 'react';
 import { MapContainer, TileLayer, Marker, useMapEvent, Popup, Tooltip } from 'react-leaflet';
 
 import L from 'leaflet';
+
 import 'leaflet/dist/leaflet.css';
 
 import style from './GoogleMap.style';
