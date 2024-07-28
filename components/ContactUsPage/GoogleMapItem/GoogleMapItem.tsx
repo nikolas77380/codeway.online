@@ -10,7 +10,7 @@ import L from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
-import style from './GoogleMap.style';
+import style from './GoogleMapItem.style';
 
 const redIcon = new L.Icon({
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
@@ -19,7 +19,7 @@ const redIcon = new L.Icon({
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
 });
 
-const GoogleMap = () => { 
+const GoogleMapItem = () => { 
 
   const animateRef = useRef(false);
 
@@ -62,4 +62,4 @@ const GoogleMap = () => {
   )
 }
 
-export default GoogleMap;
+export default GoogleMapItem;
