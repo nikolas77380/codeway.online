@@ -8,7 +8,7 @@ import GetInTouch from '@/components/ContactUsPage/GetInTouch/GetInTouch';
 import style from './ContactUsPage.style';
 
 const GoogleMapItemWithNoSSR = dynamic(
-  () => import('./../../../components/ContactUsPage/GoogleMapItem/GoogleMapItem'),
+  () => import('@/components/ContactUsPage/GoogleMapItem/GoogleMapItem'),
   { ssr: false }
 );
 

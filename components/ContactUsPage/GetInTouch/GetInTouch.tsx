@@ -16,8 +16,7 @@ const GetInTouch = () => {
           Get in touch and let us know how we can help.
         </Typography>
         <Typography variant="body1" component='p'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec 
-          ullamcorper mattis, pulvinar dapibus leo.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
         </Typography>
         <Box sx={style.separator} />
         <Box sx={style.servicesContainer}>
@@ -62,7 +61,7 @@ const GetInTouch = () => {
             </IconButton>
             <Box sx={style.serviceTextSection}>
               <Typography component='span'>
-                Let's Talk
+                Let{"'"}s Talk
               </Typography>
               <Typography component='p'>
                 Phone : +6221.2002.2012

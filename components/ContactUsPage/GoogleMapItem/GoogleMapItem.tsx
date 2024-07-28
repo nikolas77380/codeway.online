@@ -10,14 +10,10 @@ import L from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
 
-import style from './GoogleMapItem.style';
+import RoomIcon from '@mui/icons-material/Room';
 
-const redIcon = new L.Icon({
-  iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-});
+import style from './GoogleMapItem.style';
+import { renderToStaticMarkup } from 'react-dom/server';
 
 const GoogleMapItem = () => { 
 
@@ -26,6 +22,14 @@ const GoogleMapItem = () => {
   const lat = 50.4501;
   const lng = 30.5234;
   const address = "Beresteysky prospect, 9/47";
+
+  const roomIconHtml = renderToStaticMarkup(<RoomIcon style={{ color: 'red', fontSize: '32px' }} />);
+  const customIcon = L.divIcon({
+    html: roomIconHtml,
+    iconSize: [45, 41],
+    iconAnchor: [12, 41],
+    className: 'custom-icon',
+  });
 
   function SetViewOnClick({ animateRef }: { animateRef: MutableRefObject<boolean> }) {
     const map = useMapEvent('click', (e) => {
@@ -48,7 +52,7 @@ const GoogleMapItem = () => {
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Marker position={[lat, lng]} icon={redIcon}>
+        <Marker position={[lat, lng]} icon={customIcon}>
           <Popup>
             {address}
           </Popup>
