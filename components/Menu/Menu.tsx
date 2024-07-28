@@ -1,19 +1,36 @@
-'use client'
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react";
 
-import { Box, IconButton, Link, Modal, Typography } from '@mui/material'
+import {
+  Box,
+  IconButton,
+  Link,
+  MenuItem,
+  Modal,
+  Select,
+  SelectChangeEvent,
+  Typography,
+} from "@mui/material";
 
-import MenuIcon from '@mui/icons-material/Menu'
-import CloseIcon from '@mui/icons-material/Close'
+import CloseIcon from "@mui/icons-material/Close";
+import MenuIcon from "@mui/icons-material/Menu";
 
-import { dataRoutes } from '@/src/mocks/MenuSection/dataRoutes'
+import { useTranslation } from "@/app/i18n/client";
+import { languages } from "@/app/i18n/settings";
+import { usePathname, useRouter } from "next/navigation";
+import style from "./Menu.style";
 
-import style from './Menu.style'
+interface IMenu {
+  lang: string;
+}
 
-const MenuItem = () => {
-
+const Menu = ({ lang }: IMenu) => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const pathname = usePathname();
+  const router = useRouter();
+  const { t } = useTranslation(lang, "Menu");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
@@ -29,57 +46,85 @@ const MenuItem = () => {
 
   useEffect(() => {
     if (menuOpen) {
-      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener("mousedown", handleClickOutside);
     } else {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     }
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [menuOpen]);
+
+  const handleLanguageChange = (e: SelectChangeEvent) => {
+    router.push(`/${e.target.value}${pathname.slice(3)}`);
+  };
 
   return (
     <Box sx={style.mainSection}>
       <Box sx={style.menuSection}>
         <Box>
-          <Link href='/' sx={style.logoLink}>
-            <Typography sx={style.logo}>
-              Codeway
-            </Typography>
+          <Link href="/" sx={style.logoLink}>
+            <Typography sx={style.logo}>Codeway</Typography>
+          </Link>
+        </Box>
+        <Box sx={style.routeSectionDesktop}>
+          <Select
+            defaultValue={lang}
+            displayEmpty
+            onChange={handleLanguageChange}
+            inputProps={{ MenuProps: { disableScrollLock: true } }}
+            sx={{
+              color: "#fff",
+              "& .MuiSelect-icon": {
+                color: "white",
+              },
+            }}
+          >
+            {languages.map((lng) => (
+              <MenuItem key={lng} value={lng}>
+                {lng}
+              </MenuItem>
+            ))}
+          </Select>
+          <Link href={""} sx={style.logoLink}>
+            <Typography sx={style.textRoute}>{t("course")}</Typography>
+          </Link>
+          <Link href={""} sx={style.logoLink}>
+            <Typography sx={style.textRoute}>{t("contact")}</Typography>
+          </Link>
+          <Link href={""} sx={style.logoLink}>
+            <Typography sx={style.textRoute}>{t("about")}</Typography>
           </Link>
         </Box>
 
-        <Box sx={style.routeSectionDesktop}>
-          {dataRoutes.map(item => (
-            <Link key={item.route} href={item.route} sx={style.logoLink}>
-              <Typography sx={style.textRoute}>
-                {item.name}
-              </Typography>
-            </Link>
-          ))}
-        </Box>
-
         <IconButton onClick={toggleMenu} sx={style.burgerIcon}>
-          {menuOpen ? <CloseIcon sx={style.icon} /> : <MenuIcon sx={style.icon} />}
+          {menuOpen ? (
+            <CloseIcon sx={style.icon} />
+          ) : (
+            <MenuIcon sx={style.icon} />
+          )}
         </IconButton>
       </Box>
-      
+
       <Modal open={menuOpen} onClose={() => setMenuOpen(false)}>
         <Box sx={style.modalContainer}>
           {menuOpen && (
             <Box sx={style.mobileMenu} ref={menuRef}>
-              {dataRoutes.map(item => (
-                <Link key={item.route} href={item.route} sx={style.mobileMenuItem}>
-                  {item.name}
-                </Link>
-              ))}
+              <Link href={""} sx={style.mobileMenuItem}>
+                {t("course")}
+              </Link>
+              <Link href={""} sx={style.mobileMenuItem}>
+                {t("contact")}
+              </Link>
+              <Link href={""} sx={style.mobileMenuItem}>
+                {t("about")}
+              </Link>
             </Box>
           )}
         </Box>
       </Modal>
-
     </Box>
-  )
-}
+  );
+};
 
-export default MenuItem
+export default Menu;

@@ -1,7 +1,3 @@
-'use client';
-
-import { Box } from "@mui/material";
-
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import Faq from "@/components/Faq/Faq";
 import Testimonials from "@/components/Testimonials/Testimonials";
@@ -10,27 +6,31 @@ import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesList from "@/components/coursesListBlock/CoursesList/CoursesList";
 import Header from "@/components/header/Header";
-
-import useAosInit from '@/src/hooks/useAosInit';
-
+import { Box } from "@mui/material";
 import style from "./page.style";
 
-export default function Home() {
-  useAosInit();
+interface IHome {
+  params: {
+    lang: string;
+  };
+}
+
+export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
       <Box sx={style.mainSection}>
-        <Header />
-        <CoursesList />
+        <Header lang={lang} />
+        <CoursesList lang={lang} />
       </Box>
       <Box sx={style.chooseUs}>
         <Video />
-        <ChooseUs />
-        <ContactUs />
-        <Testimonials />
-        <Faq />
+        <ChooseUs lang={lang} />
+        <ContactUs lang={lang} />
+        <Testimonials lang={lang} />
+        <Faq lang={lang} />
       </Box>
-      <CookieDialog />
+      <CookieDialog lang={lang} />
     </main>
   );
 }
+

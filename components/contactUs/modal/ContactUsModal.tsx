@@ -1,25 +1,19 @@
 "use client";
 
+import { useSnackbar } from "@/context/SnackbarContext";
 import validationSchema from "@/schemas/form.schema";
 import { sendEmail } from "@/utils/send-email";
 import { ArrowForward } from "@mui/icons-material";
-import {
-  Alert,
-  Box,
-  Button,
-  Fade,
-  Modal,
-  Portal,
-  Snackbar,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Fade, Modal, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
+import { TFunction } from "i18next";
 import { useState } from "react";
 import style from "./ContactUsModal.style";
+
 interface IContactUsModal {
   open: boolean;
   handleClose: () => void;
+  t: TFunction<string, undefined>;
 }
 
 export interface IInitialValues {
@@ -28,38 +22,33 @@ export interface IInitialValues {
   message: string;
 }
 
-const initialValues = {
+const initialValues: IInitialValues = {
   name: "",
   email: "",
   message: "",
 };
 
-export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
-  const [alert, setAlert] = useState<{
-    open: boolean;
-    message: string;
-    severity: "success" | "error";
-  }>({
-    open: false,
-    message: "",
-    severity: "success",
-  });
+export default function ContactUsModal({
+  open,
+  handleClose,
+  t,
+}: IContactUsModal) {
+  const { showSnackbar } = useSnackbar();
 
   const [isSending, setIsSending] = useState(false);
 
   const onSubmit = async (values: IInitialValues) => {
     setIsSending(true);
-
+    showSnackbar({ message: "Sending...", severity: "info", duration: 10000 });
     try {
       const response = await sendEmail(values);
-      setAlert({ open: true, message: response.message, severity: "success" });
+      showSnackbar({ message: response.message, severity: "success" });
       handleClose();
     } catch (error) {
       if (error instanceof Error) {
-        setAlert({ open: true, message: error.message, severity: "error" });
+        showSnackbar({ message: error.message, severity: "error" });
       } else {
-        setAlert({
-          open: true,
+        showSnackbar({
           message: "An unknown error occurred",
           severity: "error",
         });
@@ -92,11 +81,10 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
           <Fade in={open}>
             <Box sx={style.container}>
               <Typography variant="h5" sx={style.title}>
-                Send us a message
+                {t("modal.title")}
               </Typography>
               <Typography variant="subtitle2" sx={style.subtitle}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
-                tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+                {t("modal.subtitle")}
               </Typography>
               <Box
                 component={"form"}
@@ -106,8 +94,9 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                 <Box sx={style.inputWrapper}>
                   <TextField
                     name="name"
-                    label="Name"
+                    label={t("modal.nameInputLabel")}
                     type="text"
+                    variant="outlined"
                     sx={style.input}
                     value={formik.values.name}
                     onChange={formik.handleChange}
@@ -117,8 +106,9 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                   />
                   <TextField
                     name="email"
-                    label="Email"
+                    label={t("modal.emailInputLabel")}
                     type="email"
+                    variant="outlined"
                     sx={style.input}
                     value={formik.values.email}
                     onChange={formik.handleChange}
@@ -129,7 +119,8 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                 </Box>
                 <TextField
                   name="message"
-                  label="Message"
+                  label={t("modal.messageInputLabel")}
+                  variant="outlined"
                   sx={style.input}
                   multiline
                   rows={4}
@@ -148,33 +139,13 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
                   type="submit"
                   disabled={!formik.isValid || isSending}
                 >
-                  Contact us
+                  {t("modal.button")}
                 </Button>
               </Box>
             </Box>
           </Fade>
         </Modal>
       </Box>
-      <Portal>
-        <Snackbar
-          open={alert.open}
-          autoHideDuration={4000}
-          anchorOrigin={{ vertical: "top", horizontal: "right" }}
-          onClose={() =>
-            setAlert({ open: false, message: "", severity: "success" })
-          }
-        >
-          <Alert
-            onClose={() =>
-              setAlert({ open: false, message: "", severity: "success" })
-            }
-            severity={alert.severity}
-            sx={{ width: "100%" }}
-          >
-            {alert.message}
-          </Alert>
-        </Snackbar>
-      </Portal>
     </>
   );
 }
