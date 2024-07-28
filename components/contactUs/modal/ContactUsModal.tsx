@@ -28,7 +28,11 @@ const initialValues: IInitialValues = {
   message: "",
 };
 
-export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
+export default function ContactUsModal({
+  open,
+  handleClose,
+  t,
+}: IContactUsModal) {
   const { showSnackbar } = useSnackbar();
 
   const [isSending, setIsSending] = useState(false);
