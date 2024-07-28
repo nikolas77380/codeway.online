@@ -1,17 +1,23 @@
 import { Box } from '@mui/material';
 
-import style from './ContactUsPage.style';
+import dynamic from 'next/dynamic';
+
 import ContactUsHeader from '@/components/ContactUsPage/ContactUsHeader/ContactUsHeader';
 import GetInTouch from '@/components/ContactUsPage/GetInTouch/GetInTouch';
-import GoogleMapItem from '@/components/ContactUsPage/GoogleMapItem/GoogleMapItem';
 
+import style from './ContactUsPage.style';
+
+const GoogleMapItemWithNoSSR = dynamic(
+  () => import('./../../../components/ContactUsPage/GoogleMapItem/GoogleMapItem'),
+  { ssr: false }
+);
 
 const ContactUsPage = () => {
   return (
     <Box sx={style.mainPageContainer}>
       <ContactUsHeader />
       <GetInTouch />
-      <GoogleMapItem />
+      <GoogleMapItemWithNoSSR />
     </Box>
   )
 }

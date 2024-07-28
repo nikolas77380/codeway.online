@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'img.youtube.com'
       },
+      {
+        protocol: 'https',
+        hostname: 'cdnjs.cloudflare.com'
+      },
     ],
   }
 };
