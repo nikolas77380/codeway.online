@@ -1,19 +1,11 @@
-"use client";
-
-import { useEffect } from "react";
-
 import { Box, Typography } from "@mui/material";
-import { Box, Typography } from '@mui/material'
 
 import FaqCard from "./FaqCard/FaqCard";
 
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 
-import AOS from "aos";
+import { useTranslation } from "@/app/i18n";
 
-import "aos/dist/aos.css";
-
-import { useTranslation } from "@/app/i18n/client";
 import style from "./Faq.style";
 
 interface FaqCardData {
@@ -26,25 +18,12 @@ interface IFaq {
   lang: string;
 }
 
-const Faq = ({ lang }: IFaq) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-    });
-  }, []);
+const Faq = async ({ lang }: IFaq) => {
 
-  const { t } = useTranslation(lang, "Faq");
+  const { t } = await useTranslation(lang, "Faq");
 
   const dataFaqCard = t("questions", { returnObjects: true }) as FaqCardData[];
 
-import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-
-import { dataFaqCard } from '@/src/mocks/FaqSection/dataFaqCard';
-
-import style from './Faq.style'
-
-const Faq = () => {
   return (
     <Box sx={style.mainSection}>
       <Box

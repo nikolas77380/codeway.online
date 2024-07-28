@@ -9,6 +9,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { languages } from "../i18n/settings";
 import "./globals.css";
+import AosProvider from "@/context/AosProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,7 +40,9 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <SnackbarProvider>
               <Menu lang={lang} />
-              {children}
+                <AosProvider>
+                  {children}
+                </AosProvider>
               <Footer lang={lang} />
             </SnackbarProvider>
           </ThemeProvider>

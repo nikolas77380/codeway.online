@@ -1,6 +1,4 @@
-"use client";
-
-import { useEffect } from "react";
+'use client'
 
 import {
   CardMembership,
@@ -8,17 +6,13 @@ import {
   Groups,
   LaptopChromebook,
 } from "@mui/icons-material/";
-import { Box, Typography } from '@mui/material'
 
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from '@mui/material'
 
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
 
-import AOS from "aos";
-
-import "aos/dist/aos.css";
-
 import { useTranslation } from "@/app/i18n/client";
+
 import style from "./ChooseUs.style";
 
 interface IChooseUs {
@@ -26,19 +20,9 @@ interface IChooseUs {
 }
 
 const ChooseUs = ({ lang }: IChooseUs) => {
+  
   const { t } = useTranslation(lang, "ChooseUs");
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
 
-import { dataChooseUsCard } from '@/src/mocks/ChooseUsItem/dataChooseUsCard'
-
-import style from './ChooseUs.style'
-
-const ChooseUs = () => {
   return (
     <Box sx={style.mainSection}>
       <Box

@@ -8,8 +8,6 @@ import { useState } from "react";
 
 import Image from "next/image";
 
-import { ArrowForward } from "@mui/icons-material";
-
 import ContactUsModal from "./modal/ContactUsModal";
 
 import style from "./ContactUs.style";
@@ -23,10 +21,6 @@ const ContactUs = ({ lang }: IContactUs) => {
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
-
-  useEffect(() => {
-    Aos.init({});
-  }, []);
 
   const { t } = useTranslation(lang, "ContactUs");
 
