@@ -8,7 +8,7 @@ import MeetOurTeam from "@/components/AboutUsPage/MeetOurTeam/MeetOurTeam"
 
 import style from './AboutUs.style'
 
-const page = () => {
+const AboutUsPage = () => {
   return (
     <Box sx={style.mainPageContainer}>
       <HeaderAboutUs />
@@ -20,4 +20,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AboutUsPage
