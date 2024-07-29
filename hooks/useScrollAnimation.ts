@@ -5,6 +5,8 @@ import { useAnimation } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
 
 interface UseScrollAnimationProps {
+  x?: number;
+  y?: number;
   threshold?: number;
   delay?: number;
   duration?: number;
@@ -13,6 +15,8 @@ interface UseScrollAnimationProps {
 }
 
 export function useScrollAnimation({
+  x = 0,
+  y = 0,
   threshold = 0.5,
   delay = 0,
   duration = 1,
@@ -37,7 +41,7 @@ export function useScrollAnimation({
         transition: { delay, duration },
       });
     }
-  }, [inView, controls, delay, duration, animateValues, exit]);
+  }, [inView, controls, delay, duration, x, y, animateValues, exit]);
 
   return { ref, controls };
 };

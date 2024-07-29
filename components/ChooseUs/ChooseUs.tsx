@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 
 import { useTranslation } from "@/app/i18n/client";
 
-import { scrollDown, scrollRightToLeft } from "@/utils/motion";
+import { scrollDown, scrollRightToLeft } from "@/utils/motionVariants";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import style from "./ChooseUs.style";
