@@ -20,6 +20,7 @@ const OurValueVideoPlayer = ({ onClose, autoplay }: VideoPlayerProps) => (
       src={`${URL_VIDEO_YOUTUBE_OUR_VALUE}&autoplay=${Number(autoplay)}`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
+      loading="lazy"
     ></iframe>
   </Box>
 );

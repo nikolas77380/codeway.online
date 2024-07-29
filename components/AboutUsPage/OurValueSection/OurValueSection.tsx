@@ -14,12 +14,15 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import OurValueVideoPlayer from './OurValueVideoPlayer/OurValueVideoPlayer';
 
 import style from './OurValueSection.style'
+import dynamic from 'next/dynamic';
 
 interface OurValueSectionProps {
   autoplay?: boolean;
 }
 
 const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
+
+  const OurValueVideoPlayer = dynamic(() => import('@/components/AboutUsPage/OurValueSection/OurValueVideoPlayer/OurValueVideoPlayer'), { ssr: false });
 
   const [open, setOpen] = useState(false);
 

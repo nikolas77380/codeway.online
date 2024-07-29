@@ -14,12 +14,16 @@ import ImageHeadContent from "./ImageHeadContent/ImageHeadContent";
 import { URL_IMG_YOUTUBE } from "@/src/mocks/VideoItem/helper";
 
 import style from "./Video.style";
+import dynamic from "next/dynamic";
 
 interface VideoItemProps {
   autoplay?: boolean;
 }
 
 const Video = ({ autoplay = false }: VideoItemProps) => {
+
+  const VideoPlayer = dynamic(() => import('@/components/Video/VideoPlayer/VideoPlayer'), { ssr: false });
+
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);

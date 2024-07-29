@@ -1,8 +1,7 @@
 import { Box, Typography } from "@mui/material";
 
-import TestimonialCard from "./TestimonialCard/TestimonialCard";
-
 import { useTranslation } from "@/app/i18n";
+import dynamic from 'next/dynamic';
 import style from "./Testimonials.style";
 
 interface ITestimonials {
@@ -11,7 +10,7 @@ interface ITestimonials {
 
 const Testimonials = async ({ lang }: ITestimonials) => {
   const { t } = await useTranslation(lang, "Testimonials");
-
+  const TestimonialCard = dynamic(() => import('@/components/Testimonials/TestimonialCard/TestimonialCard'), { ssr: false });
   return (
     <Box sx={style.mainSection}>
       <Box sx={style.textSection}>
