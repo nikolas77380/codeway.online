@@ -1,10 +1,10 @@
 "use client";
+
 import { useTranslation } from "@/app/i18n/client";
 import { ArrowForward } from "@mui/icons-material";
 import { Box, Button, Typography } from "@mui/material";
-import Aos from "aos";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import style from "./ContactUs.style";
 import ContactUsModal from "./modal/ContactUsModal";
 
@@ -18,19 +18,11 @@ const ContactUs = ({ lang }: IContactUs) => {
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
 
-  useEffect(() => {
-    Aos.init({});
-  }, []);
-
   const { t } = useTranslation(lang, "ContactUs");
 
   return (
     <Box
       sx={style.container}
-      data-aos="fade"
-      data-aos-duration="1400"
-      data-aos-delay="500"
-      data-aos-anchor-placement="top"
     >
       <Box sx={style.backgroundOverlay}></Box>
       <Box sx={style.contentWrapper}>
