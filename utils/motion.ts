@@ -24,4 +24,4 @@ export function scrollRightToLeft(delay: number, duration: number) {
       },
     },
   };
-}
+};
