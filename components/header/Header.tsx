@@ -5,12 +5,8 @@ import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./Header.style";
 
-interface IHeader {
-  lang: string;
-}
-
-const Header = ({ lang }: IHeader) => {
-  const { t } = useTranslation(lang, "Header");
+const Header = () => {
+  const { t } = useTranslation("Header");
   return (
     <Box sx={style.headerContainer}>
       <Box sx={style.contentWrapper}>

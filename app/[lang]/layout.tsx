@@ -40,7 +40,7 @@ export default function RootLayout({
             <SnackbarProvider>
               <Menu lang={lang} />
               {children}
-              <Footer lang={lang} />
+              <Footer />
             </SnackbarProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>

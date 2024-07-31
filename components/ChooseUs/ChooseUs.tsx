@@ -20,12 +20,8 @@ import "aos/dist/aos.css";
 import { useTranslation } from "@/app/i18n/client";
 import style from "./ChooseUs.style";
 
-interface IChooseUs {
-  lang: string;
-}
-
-const ChooseUs = ({ lang }: IChooseUs) => {
-  const { t } = useTranslation(lang, "ChooseUs");
+const ChooseUs = () => {
+  const { t } = useTranslation("ChooseUs");
   useEffect(() => {
     AOS.init({
       duration: 1500,

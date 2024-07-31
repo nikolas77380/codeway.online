@@ -24,19 +24,15 @@ import { useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
 
-interface IFooter {
-  lang: string;
-}
-
 interface IListLinkItem {
   name: string;
   href: string;
 }
 
-const Footer = ({ lang }: IFooter) => {
+const Footer = () => {
   const [email, setEmail] = useState("");
 
-  const { t } = useTranslation(lang, "Footer");
+  const { t } = useTranslation("Footer");
 
   const handleClick = () => {
     // join email to subscribtion

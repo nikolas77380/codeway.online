@@ -8,11 +8,7 @@ import { useEffect, useState } from "react";
 import style from "./ContactUs.style";
 import ContactUsModal from "./modal/ContactUsModal";
 
-interface IContactUs {
-  lang: string;
-}
-
-const ContactUs = ({ lang }: IContactUs) => {
+const ContactUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const handleOpenModal = () => setModalOpen(true);
@@ -22,7 +18,7 @@ const ContactUs = ({ lang }: IContactUs) => {
     Aos.init({});
   }, []);
 
-  const { t } = useTranslation(lang, "ContactUs");
+  const { t } = useTranslation("ContactUs");
 
   return (
     <Box
