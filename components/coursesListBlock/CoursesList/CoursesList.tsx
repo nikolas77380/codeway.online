@@ -3,15 +3,15 @@ import CourseItem from "../CoursesItem/CourseItem";
 
 import style from "./CoursesList.style";
 
-import { useTranslation } from "@/app/i18n";
+import { getTranslation } from "@/app/i18n";
 import { coursesList } from "@/src/mocks/mocks";
 
-interface ICoursesList {
+interface ICourseList {
   lang: string;
 }
 
-const CoursesList = async ({ lang }: ICoursesList) => {
-  const { t } = await useTranslation(lang, "CoursesList");
+const CoursesList = async ({ lang }: ICourseList) => {
+  const { t } = await getTranslation(lang, "CoursesList");
 
   return (
     <Box sx={style.container}>
