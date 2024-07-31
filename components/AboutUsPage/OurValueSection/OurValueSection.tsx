@@ -1,85 +1,84 @@
-'use client'
+"use client";
 
-import { Box, IconButton, Modal, Typography } from '@mui/material'
+import { Box, IconButton, Modal, Typography } from "@mui/material";
 
-import { useState } from 'react';
+import { useState } from "react";
 
-import Image from 'next/image';
+import Image from "next/image";
 
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import AdsClickIcon from '@mui/icons-material/AdsClick';
-import FileCopyIcon from '@mui/icons-material/FileCopy';
-import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import AdsClickIcon from "@mui/icons-material/AdsClick";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
-import OurValueVideoPlayer from './OurValueVideoPlayer/OurValueVideoPlayer';
+import OurValueVideoPlayer from "./OurValueVideoPlayer/OurValueVideoPlayer";
 
-import style from './OurValueSection.style'
+import { useTranslation } from "@/app/i18n/client";
+import style from "./OurValueSection.style";
 
 interface OurValueSectionProps {
   autoplay?: boolean;
 }
 
 const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
-
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const { t } = useTranslation("AboutUsPage");
+
   return (
     <Box sx={style.mainContainer}>
       <Box sx={style.valueContainer}>
         <Box sx={style.mainContent}>
-          <Typography component='label'>
-            Our Value
-          </Typography>
-          <Typography variant="h3" component='span'>
-            We talk a lot about hope helping and teamwork.
+          <Typography component="label">{t("our-value.slogan")}</Typography>
+          <Typography variant="h3" component="span">
+            {t("our-value.title")}
           </Typography>
           <Box sx={style.separator} />
           <Box sx={style.valueSection}>
             <Box sx={style.valueWrapper}>
               <IconButton sx={style.icon}>
-                <VisibilityIcon fontSize='large' />
+                <VisibilityIcon fontSize="large" />
               </IconButton>
               <Box sx={style.valueTextSection}>
-                <Typography component='span'>
-                  Our vision
+                <Typography component="span">
+                  {t("our-value.item1-title")}
                 </Typography>
-                <Typography component='p'>
-                  Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non
+                <Typography component="p">
+                  {t("our-value.item1-desc")}
                 </Typography>
               </Box>
             </Box>
 
             <Box sx={style.valueWrapper}>
               <IconButton sx={style.icon}>
-                <AdsClickIcon fontSize='large' />
+                <AdsClickIcon fontSize="large" />
               </IconButton>
               <Box sx={style.valueTextSection}>
-                <Typography component='span'>
-                  Our Mission
+                <Typography component="span">
+                  {t("our-value.item2-title")}
                 </Typography>
-                <Typography component='p'>
-                  Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non
+                <Typography component="p">
+                  {t("our-value.item2-desc")}
                 </Typography>
               </Box>
             </Box>
 
             <Box sx={style.valueWrapper}>
               <IconButton sx={style.icon}>
-                <FileCopyIcon fontSize='large' />
+                <FileCopyIcon fontSize="large" />
               </IconButton>
               <Box sx={style.valueTextSection}>
-                <Typography component='span'>
-                  Our Motto
+                <Typography component="span">
+                  {t("our-value.item3-title")}
                 </Typography>
-                <Typography component='p'>
-                  Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non
+                <Typography component="p">
+                  {t("our-value.item3-desc")}
                 </Typography>
               </Box>
             </Box>
-
           </Box>
         </Box>
 
@@ -90,16 +89,36 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             </IconButton>
           </Box>
           <Box sx={style.imgContainer}>
-            <Image src='/assets/aboutUs/team-of-innovators.jpg' alt='' width={300} height={300} />
+            <Image
+              src="/assets/aboutUs/team-of-innovators.jpg"
+              alt=""
+              width={300}
+              height={300}
+            />
           </Box>
           <Box sx={style.imgContainer2}>
-            <Image src='/assets/aboutUs/creative-team.jpg' alt='' width={600} height={600} />
+            <Image
+              src="/assets/aboutUs/creative-team.jpg"
+              alt=""
+              width={600}
+              height={600}
+            />
           </Box>
           <Box sx={style.imgContainer3}>
-            <Image src='/assets/aboutUs/business-team.jpg' alt='' width={300} height={300} />
+            <Image
+              src="/assets/aboutUs/business-team.jpg"
+              alt=""
+              width={300}
+              height={300}
+            />
           </Box>
           <Box sx={style.imgContainer4}>
-            <Image src='/assets/aboutUs/unity-and-teamwork.jpg' alt='' width={600} height={600} />
+            <Image
+              src="/assets/aboutUs/unity-and-teamwork.jpg"
+              alt=""
+              width={600}
+              height={600}
+            />
           </Box>
           <Modal
             open={open}
@@ -114,7 +133,7 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
         </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default OurValueSection
+export default OurValueSection;
