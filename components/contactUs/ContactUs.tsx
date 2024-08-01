@@ -51,7 +51,7 @@ const ContactUs = () => {
           {t("button")}
         </Button>
       </Box>
-      <ContactUsModal open={modalOpen} handleClose={handleCloseModal} t={t} />
+      <ContactUsModal open={modalOpen} handleClose={handleCloseModal} />
     </Box>
   );
 };

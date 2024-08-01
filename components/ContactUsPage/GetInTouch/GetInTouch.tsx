@@ -1,81 +1,84 @@
-import { Box, IconButton, Typography } from '@mui/material'
-import style from './GetInTouch.style'
-import LocationOnIcon from '@mui/icons-material/LocationOn';
-import MarkEmailReadIcon from '@mui/icons-material/MarkEmailRead';
-import PhoneIcon from '@mui/icons-material/Phone';
-import GetInTouchForm from './GetInTouchForm/GetInTouchForm';
+import ContactUsForm from "@/components/contactUs/form/ContactUsForm";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
+import PhoneIcon from "@mui/icons-material/Phone";
+import { Box, IconButton, Typography } from "@mui/material";
+import { TFunction } from "i18next";
+import style from "./GetInTouch.style";
 
-const GetInTouch = () => {
+interface IGetInTouch {
+  t: TFunction;
+}
+
+const GetInTouch = ({ t }: IGetInTouch) => {
   return (
     <Box sx={style.mainContainer}>
       <Box sx={style.mainContent}>
-        <Typography component='label'>
-          Get in Touch
+        <Typography component="label">{t("get-in-touch.slogan")}</Typography>
+        <Typography variant="h3" component="span">
+          {t("get-in-touch.title")}
         </Typography>
-        <Typography variant="h3" component='span'>
-          Get in touch and let us know how we can help.
-        </Typography>
-        <Typography variant="body1" component='p'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+        <Typography variant="body1" component="p">
+          {t("get-in-touch.subtitle")}
         </Typography>
         <Box sx={style.separator} />
         <Box sx={style.servicesContainer}>
-          
           <Box sx={style.serviceSection}>
             <IconButton sx={style.icon}>
-              <LocationOnIcon fontSize='large' />
+              <LocationOnIcon fontSize="large" />
             </IconButton>
             <Box sx={style.serviceTextSection}>
-              <Typography component='span'>
-                Head Office
+              <Typography component="span">
+                {t("get-in-touch.address.name")}
               </Typography>
-              <Typography component='p'>
-                Jln Cempaka Wangi No 22
+              <Typography component="p">
+                {t("get-in-touch.address.street")}
               </Typography>
-              <Typography component='p'>
-                Jakarta - Indonesia
+              <Typography component="p">
+                {t("get-in-touch.address.country")}
               </Typography>
             </Box>
           </Box>
 
           <Box sx={style.serviceSection}>
             <IconButton sx={style.icon}>
-              <MarkEmailReadIcon fontSize='large' />
+              <MarkEmailReadIcon fontSize="large" />
             </IconButton>
             <Box sx={style.serviceTextSection}>
-              <Typography component='span'>
-                Email us
+              <Typography component="span">
+                {t("get-in-touch.email.name")}
               </Typography>
-              <Typography component='p'>
-                support@yourdomain.tld
+              <Typography component="p">
+                {t("get-in-touch.email.support1")}
               </Typography>
-              <Typography component='p'>
-                hello@yourdomain.tld
+              <Typography component="p">
+                {t("get-in-touch.email.support2")}
               </Typography>
             </Box>
           </Box>
 
           <Box sx={style.serviceSection}>
             <IconButton sx={style.icon}>
-              <PhoneIcon fontSize='large' />
+              <PhoneIcon fontSize="large" />
             </IconButton>
             <Box sx={style.serviceTextSection}>
-              <Typography component='span'>
-                Let{"'"}s Talk
+              <Typography component="span">
+                {t("get-in-touch.phone.name")}
               </Typography>
-              <Typography component='p'>
-                Phone : +6221.2002.2012
+              <Typography component="p">
+                {t("get-in-touch.phone.number")}
               </Typography>
             </Box>
           </Box>
-
         </Box>
       </Box>
       <Box sx={style.mainContent2}>
-        <GetInTouchForm />
+        <Box sx={style.container}>
+          <ContactUsForm />
+        </Box>
       </Box>
     </Box>
-  )
-}
+  );
+};
 
-export default GetInTouch
+export default GetInTouch;
