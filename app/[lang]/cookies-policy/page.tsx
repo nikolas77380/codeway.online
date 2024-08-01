@@ -8,6 +8,14 @@ interface ICookiesPolicy {
   };
 }
 
+export async function generateMetadata({ params: { lang } }: ICookiesPolicy) {
+  const { t } = await getTranslation(lang, "CookiesPolicyPage");
+
+  return {
+    title: t("meta.title"),
+  };
+}
+
 export default async function CookiesPolicyPage({
   params: { lang },
 }: ICookiesPolicy) {
