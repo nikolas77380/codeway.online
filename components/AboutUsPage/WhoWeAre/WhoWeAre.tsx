@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, IconButton, Typography } from "@mui/material"
 
 import Image from "next/image";
@@ -6,12 +8,23 @@ import VideoCameraFrontIcon from '@mui/icons-material/VideoCameraFront';
 import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
 import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlined';
 
+import { motion } from "framer-motion";
+
 import style from './WhoWeAre.style'
+import { aboutUsPageImageZoom, aboutUsPageScroLeftToRight } from "@/utils/motionVariants";
 
 const WhoWeAre = () => {
+
+  const MotionBox = motion(Box);
+
   return (
     <Box sx={style.mainContainer}>
-      <Box sx={style.mainContent}>
+      <MotionBox 
+        sx={style.mainContent}
+        initial="hidden"
+        animate="visible"
+        variants={aboutUsPageScroLeftToRight(0, 1)}
+      >
         <Typography component='label'>
           Who We Are
         </Typography>
@@ -68,12 +81,17 @@ const WhoWeAre = () => {
           </Box>
 
         </Box>
-      </Box>
+      </MotionBox>
       <Box sx={style.mainContent2}>
       <Box sx={style.mainWrapper}>
-        <Box sx={style.imageMainContainer}>
+        <MotionBox 
+          sx={style.imageMainContainer}
+          initial="hidden"
+          animate="visible"
+          variants={aboutUsPageImageZoom()}
+        >
           <Image src='/assets/aboutUs/hero.jpg' alt="hero" fill />
-        </Box>
+        </MotionBox>
         <Box sx={style.memberContainer}>
           <Box sx={style.memberWrapper}>
             <Typography component='label'>

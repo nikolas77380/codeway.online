@@ -14,6 +14,9 @@ import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import OurValueVideoPlayer from './OurValueVideoPlayer/OurValueVideoPlayer';
 
 import style from './OurValueSection.style'
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { ourValuescrollDown } from '@/utils/motionVariants';
 
 interface OurValueSectionProps {
   autoplay?: boolean;
@@ -26,8 +29,16 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const MotionBox = motion(Box);
+
+  const { ref } = useScrollAnimation({
+    delay: 0,
+    duration: 1,
+    threshold: 0,
+  });
+
   return (
-    <Box sx={style.mainContainer}>
+    <Box sx={style.mainContainer} ref={ref}>
       <Box sx={style.valueContainer}>
         <Box sx={style.mainContent}>
           <Typography component='label'>
@@ -98,9 +109,14 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
           <Box sx={style.imgContainer3}>
             <Image src='/assets/aboutUs/business-team.jpg' alt='' width={300} height={300} />
           </Box>
-          <Box sx={style.imgContainer4}>
+          <MotionBox 
+            sx={style.imgContainer4}
+            initial="hidden"
+            animate="visible"
+            variants={ourValuescrollDown()}
+          >
             <Image src='/assets/aboutUs/unity-and-teamwork.jpg' alt='' width={600} height={600} />
-          </Box>
+          </MotionBox>
           <Modal
             open={open}
             onClose={handleClose}

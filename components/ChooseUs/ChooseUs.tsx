@@ -32,7 +32,8 @@ const ChooseUs = ({ lang }: IChooseUs) => {
 
   const { ref, controls } = useScrollAnimation({
     delay: 0,
-    duration: 1,
+    duration: 2,
+    threshold: 0.5,
   });
 
   return (
@@ -64,7 +65,7 @@ const ChooseUs = ({ lang }: IChooseUs) => {
         component='div'
         initial='hidden'
         animate={controls}
-        variants={scrollRightToLeft(0.5,3)}
+        variants={scrollRightToLeft(0.3,2)}
       >
         <ChooseUsCard
           IconComponent={Difference}
