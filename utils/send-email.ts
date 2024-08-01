@@ -1,4 +1,4 @@
-import { IInitialValues } from "@/components/contactUs/modal/ContactUsModal";
+import { IInitialValues } from "@/components/contactUs/form/ContactUsForm";
 
 export async function sendEmail(data: IInitialValues) {
   const apiEndpoint = "/api/email";
