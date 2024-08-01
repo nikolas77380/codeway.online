@@ -1,6 +1,8 @@
 {
-  "title": "About us",
-  "description": "Learn more about our team, values, and popular classes at our company. Meet the people behind our success.",
+  "meta": {
+    "title": "About us",
+    "description": "Learn more about our team, values, and popular classes at our company. Meet the people behind our success."
+  },
   "header": {
     "title": "About us",
     "subtitle": "Join our community of learners and start your journey towards success."

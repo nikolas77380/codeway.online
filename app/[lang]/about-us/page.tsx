@@ -15,6 +15,14 @@ interface IAboutUs {
   };
 }
 
+export async function generateMetadata({ params: { lang } }: IAboutUs) {
+  const { t } = await getTranslation(lang, "AboutUsPage");
+
+  return {
+    title: t("meta.title"),
+  };
+}
+
 const AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
   const { t } = await getTranslation(lang, "AboutUsPage");
 
