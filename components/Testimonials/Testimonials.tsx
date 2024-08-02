@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 import TestimonialCard from "./TestimonialCard/TestimonialCard";
 
-import { useTranslation } from "@/app/i18n";
+import { getTranslation } from "@/app/i18n";
 import style from "./Testimonials.style";
 
 interface ITestimonials {
@@ -10,7 +10,7 @@ interface ITestimonials {
 }
 
 const Testimonials = async ({ lang }: ITestimonials) => {
-  const { t } = await useTranslation(lang, "Testimonials");
+  const { t } = await getTranslation(lang, "Testimonials");
 
   return (
     <Box sx={style.mainSection}>

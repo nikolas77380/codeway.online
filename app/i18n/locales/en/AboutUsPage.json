@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "title": "About us",
+    "description": "Learn more about our team, values, and popular classes at our company. Meet the people behind our success."
+  },
+  "header": {
+    "title": "About us",
+    "subtitle": "Join our community of learners and start your journey towards success."
+  },
+  "who-we-are": {
+    "slogan": "Who we are",
+    "title": "Primary Instruction, Higher Department Of Education.",
+    "subtitle": "Leo phasellus platea pede dictum nisl felis enim. Potenti platea ultrices sed efficitur luctus per sagittis aptent netus non himenaeos. Aenean rutrum tempor aptent sociosqu nam vivamus id.",
+    "service1-title": "Online Course & Webinar",
+    "service1-desc": "Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non",
+    "service2-title": "Bootcamp Programs",
+    "service2-desc": "Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non",
+    "service3-title": "Certifications & Career Mentorship",
+    "service3-desc": "Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non",
+    "badge": "Member Active"
+  },
+  "our-value": {
+    "slogan": "Our value",
+    "title": "We talk a lot about hope helping and teamwork.",
+    "item1-title": "Our vision",
+    "item1-desc": "Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non",
+    "item2-title": "Our mission",
+    "item2-desc": "Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non",
+    "item3-title": "Our motto",
+    "item3-desc": "Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non"
+  },
+  "popular-classes": {
+    "title": "Our popular Classes"
+  },
+  "our-team": {
+    "title": "Meet our team",
+    "desc": "Alone we can do so little, together we can do so much."
+  }
+}

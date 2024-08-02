@@ -19,17 +19,17 @@ export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
       <Box sx={style.mainSection}>
-        <Header lang={lang} />
+        <Header />
         <CoursesList lang={lang} />
       </Box>
       <Box sx={style.chooseUs}>
         <Video />
-        <ChooseUs lang={lang} />
-        <ContactUs lang={lang} />
+        <ChooseUs />
+        <ContactUs />
         <Testimonials lang={lang} />
-        <Faq lang={lang} />
+        <Faq />
       </Box>
-      <CookieDialog lang={lang} />
+      <CookieDialog />
     </main>
   );
 }

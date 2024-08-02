@@ -1,20 +1,23 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Typography } from "@mui/material";
 
-import style from './HeaderAboutUs.style'
+import { TFunction } from "i18next";
+import style from "./HeaderAboutUs.style";
 
-const HeaderAboutUs = () => {
+interface IHeaderAboutUs {
+  t: TFunction;
+}
+
+const HeaderAboutUs = ({ t }: IHeaderAboutUs) => {
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <Typography sx={style.name}>
-          About Us
-        </Typography>
-        <Typography  variant="h5" sx={style.subtitle}>
-          Join our community of learners and start your journey towards success.
+        <Typography sx={style.name}>{t("header.title")}</Typography>
+        <Typography variant="h5" sx={style.subtitle}>
+          {t("header.subtitle")}
         </Typography>
       </Box>
     </Box>
   );
-}
+};
 
-export default HeaderAboutUs
+export default HeaderAboutUs;

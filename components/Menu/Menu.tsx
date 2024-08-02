@@ -30,7 +30,7 @@ const Menu = ({ lang }: IMenu) => {
 
   const pathname = usePathname();
   const router = useRouter();
-  const { t } = useTranslation(lang, "Menu");
+  const { t } = useTranslation("Menu");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
 
