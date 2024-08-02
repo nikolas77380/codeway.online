@@ -4,7 +4,7 @@ import Testimonials from "@/components/Testimonials/Testimonials";
 import Video from "@/components/Video/Video";
 import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
-import CoursesList from "@/components/coursesListBlock/CoursesList/CoursesList";
+import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
 import { Box } from "@mui/material";
 import style from "./page.style";
@@ -20,7 +20,7 @@ export default function Home({ params: { lang } }: IHome) {
     <main>
       <Box sx={style.mainSection}>
         <Header lang={lang} />
-        <CoursesList lang={lang} />
+        <CoursesListBlock lang={lang} />
       </Box>
       <Box sx={style.chooseUs}>
         <Video />
