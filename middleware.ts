@@ -9,13 +9,13 @@ export const config = {
   ],
 };
 
-const getLocale = (req: NextRequest): string | undefined => {
+const getLocale = (req: NextRequest): string => {
   if (req.cookies.has(cookieName)) {
-    return req.cookies.get(cookieName)?.value;
+    return req.cookies.get(cookieName)?.value ?? fallbackLang;
   } else {
     const plainHeaders = headersToPlainObject(req.headers);
     let langUserPref = new Negotiator({ headers: plainHeaders }).languages();
-    return match(languages, langUserPref, fallbackLang);
+    return match(langUserPref, languages, fallbackLang);
   }
 };
 
@@ -28,11 +28,11 @@ function headersToPlainObject(headers: Headers) {
 }
 
 export function middleware(req: NextRequest) {
-  const lang = getLocale(req);
   if (
     !languages.some((lng) => req.nextUrl.pathname.startsWith(`/${lng}`)) &&
     !req.nextUrl.pathname.startsWith("/_next")
   ) {
+    const lang = getLocale(req);
     return NextResponse.redirect(
       new URL(`/${lang}${req.nextUrl.pathname}`, req.url)
     );

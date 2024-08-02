@@ -15,21 +15,21 @@
     };
   }
 
-  export default function Home({ params: { lang } }: IHome) {
-    return (
-      <main>
-        <Box sx={style.mainSection}>
-          <Header lang={lang} />
-          <CoursesList lang={lang} />
-        </Box>
-        <Box sx={style.chooseUs}>
-          <Video />
-          <ChooseUs lang={lang} />
-          <ContactUs lang={lang} />
-          <Testimonials lang={lang} />
-          <Faq lang={lang} />
-        </Box>
-        <CookieDialog lang={lang} />
-      </main>
-    );
-  }
+export default function Home({ params: { lang } }: IHome) {
+  return (
+    <main>
+      <Box sx={style.mainSection}>
+        <Header />
+        <CoursesList lang={lang} />
+      </Box>
+      <Box sx={style.chooseUs}>
+        <Video />
+        <ChooseUs />
+        <ContactUs />
+        <Testimonials lang={lang} />
+        <Faq />
+      </Box>
+      <CookieDialog />
+    </main>
+  );
+}

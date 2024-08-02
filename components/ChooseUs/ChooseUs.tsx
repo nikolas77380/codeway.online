@@ -20,34 +20,18 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import style from "./ChooseUs.style";
 
-interface IChooseUs {
-  lang: string;
-}
+const ChooseUs = () => {
+  const { t } = useTranslation("ChooseUs");
 
-const ChooseUs = ({ lang }: IChooseUs) => {
-
-  const { t } = useTranslation(lang, "ChooseUs");
-
-  const MotionBox = motion(Box);
-
-  const { ref, controls } = useScrollAnimation({
-    delay: 0,
-    duration: 2,
-    threshold: 0.5,
-  });
 
   return (
     <Box 
       sx={style.mainSection}
-      ref={ref}
     >
-      <MotionBox
+      <Box
         id="text-section"
         sx={style.textSection}
         component='div'
-        initial='hidden'
-        animate={controls}
-        variants={scrollDown(0,1)}
       >
         <Typography variant="h6" component="span">
           {t("title")}
@@ -58,14 +42,11 @@ const ChooseUs = ({ lang }: IChooseUs) => {
         <Typography variant="body1" component="p" className="description">
           {t("text")}
         </Typography>
-      </MotionBox>
-      <MotionBox
+      </Box>
+      <Box
         id="card-section"
         sx={style.cardSection}
         component='div'
-        initial='hidden'
-        animate={controls}
-        variants={scrollRightToLeft(0.3,2)}
       >
         <ChooseUsCard
           IconComponent={Difference}
@@ -87,7 +68,7 @@ const ChooseUs = ({ lang }: IChooseUs) => {
           title={t("cards.3.title")}
           description={t("cards.3.description")}
         />
-      </MotionBox>
+      </Box>
     </Box>
   );
 };

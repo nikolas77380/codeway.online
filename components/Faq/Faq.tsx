@@ -21,13 +21,9 @@ interface FaqCardData {
   answer: string;
 }
 
-interface IFaq {
-  lang: string;
-}
+const Faq = () => {
 
-const Faq =  ({ lang }: IFaq) => {
-
-  const { t } = useTranslation(lang, "Faq");
+  const { t } = useTranslation("Faq");
 
   const dataFaqCard = t("questions", { returnObjects: true }) as FaqCardData[];
 

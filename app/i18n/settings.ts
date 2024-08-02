@@ -1,5 +1,5 @@
 export const fallbackLang = "en";
-export const languages = [fallbackLang, "uk"];
+export const languages = [fallbackLang, "ua"];
 export const defaultNS = "translation";
 export const cookieName = "i18next";
 

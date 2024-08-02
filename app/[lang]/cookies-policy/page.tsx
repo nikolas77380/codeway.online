@@ -1,18 +1,25 @@
-import { useTranslation } from "@/app/i18n";
+import { getTranslation } from "@/app/i18n";
 import { Box, Typography } from "@mui/material";
 import style from "./page.style";
 
-interface ICookiesPolicyPage {
+interface ICookiesPolicy {
   params: {
     lang: string;
   };
 }
 
+export async function generateMetadata({ params: { lang } }: ICookiesPolicy) {
+  const { t } = await getTranslation(lang, "CookiesPolicyPage");
+
+  return {
+    title: t("meta.title"),
+  };
+}
+
 export default async function CookiesPolicyPage({
   params: { lang },
-}: ICookiesPolicyPage) {
-  const { t } = await useTranslation(lang, "CookiesPolicyPage");
-
+}: ICookiesPolicy) {
+  const { t } = await getTranslation(lang, "CookiesPolicyPage");
   return (
     <Box sx={style.container}>
       <Typography variant="h1" sx={style.title}>

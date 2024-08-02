@@ -4,14 +4,10 @@ import { Box, Button, Link, Popper, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import style from "./CookieDialog.style";
 
-interface ICookieDialog {
-  lang: string;
-}
-
-const CookieDialog = ({ lang }: ICookieDialog) => {
+const CookieDialog = () => {
   const [open, setOpen] = useState(false);
 
-  const { t } = useTranslation(lang, "CookieDialog");
+  const { t } = useTranslation("CookieDialog");
 
   useEffect(() => {
     if (!localStorage.getItem("cookiesAccepted")) {
