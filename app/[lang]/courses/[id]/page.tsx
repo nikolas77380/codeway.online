@@ -14,23 +14,23 @@ import style from "./CoursePage.style";
 interface CoursePageProps {
   params: {
     id: number;
+    lang: string;
   };
 }
 
 const CoursePage = ({ params }: CoursePageProps) => {
-
   const course = coursesInfoList[params.id];
 
-  if(!course) {
-    return <Box>Course Not Found</Box>
-  };
+  if (!course) {
+    return <Box>Course Not Found</Box>;
+  }
 
   return (
     <CourseProvider course={course}>
       <Box sx={style.mainPageContainer}>
         <HeaderCoursePage />
         <MainBlock />
-        <Testimonials />
+        <Testimonials lang={params.lang} />
         <RelatedCoursesBlock />
       </Box>
     </CourseProvider>
