@@ -23,15 +23,26 @@ import style from "./ChooseUs.style";
 const ChooseUs = () => {
   const { t } = useTranslation("ChooseUs");
 
+  const MotionBox = motion(Box);
+
+  const { ref, controls } = useScrollAnimation({
+    delay: 0,
+    duration: 2,
+    threshold: 0.3,
+  });
 
   return (
     <Box 
       sx={style.mainSection}
+      ref={ref}
     >
-      <Box
+      <MotionBox
         id="text-section"
         sx={style.textSection}
         component='div'
+        initial='hidden'
+        animate={controls}
+        variants={scrollDown(0,1)}
       >
         <Typography variant="h6" component="span">
           {t("title")}
@@ -42,11 +53,14 @@ const ChooseUs = () => {
         <Typography variant="body1" component="p" className="description">
           {t("text")}
         </Typography>
-      </Box>
-      <Box
+      </MotionBox>
+      <MotionBox
         id="card-section"
         sx={style.cardSection}
         component='div'
+        initial='hidden'
+        animate={controls}
+        variants={scrollRightToLeft(0.3,2)}
       >
         <ChooseUsCard
           IconComponent={Difference}
@@ -68,7 +82,7 @@ const ChooseUs = () => {
           title={t("cards.3.title")}
           description={t("cards.3.description")}
         />
-      </Box>
+      </MotionBox>
     </Box>
   );
 };

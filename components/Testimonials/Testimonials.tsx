@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Typography } from "@mui/material";
 
 import TestimonialCard from "./TestimonialCard/TestimonialCard";
@@ -9,7 +11,8 @@ interface ITestimonials {
   lang: string;
 }
 
-const Testimonials = async ({ lang }: ITestimonials) => {
+const Testimonials = async({ lang }: ITestimonials) => {
+
   const { t } = await getTranslation(lang, "Testimonials");
 
   return (
