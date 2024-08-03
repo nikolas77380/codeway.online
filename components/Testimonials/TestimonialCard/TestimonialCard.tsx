@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { dataTestimonialCard } from "@/src/mocks/TestimonialSection/dataTestimonialCard";
 
