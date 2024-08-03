@@ -1,0 +1,23 @@
+{
+  "title": "Чому обирають нас",
+  "subtitle": "Це світле, це правильне, це освіта.",
+  "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit  tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+  "cards": [
+    {
+      "title": "Комплексний курс",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    },
+    {
+      "title": "Експертні інструктори",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    },
+    {
+      "title": "Гнучке навчання",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    },
+    {
+      "title": "Цінні сертифікати",
+      "description": "Fames pede tortor amet a finibus quam laoreet bibendum cras tellus pulvinar"
+    }
+  ]
+}

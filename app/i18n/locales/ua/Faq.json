@@ -1,0 +1,47 @@
+{
+  "slogan": "Поширені запитання",
+  "title": "Найпопулярніші запитання",
+  "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+  "questions": [
+    {
+      "id": 1,
+      "question": "Що таке ByteSkill?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 2,
+      "question": "Як зареєструватися на ByteSkill?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 3,
+      "question": "Чи видаються сертифікати після закінчення курсів ByteSkill?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 4,
+      "question": "Чи можу я отримати доступ до курсів ByteSkill у будь-який час?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 5,
+      "question": "Чи є на ByteSkill підтримка репетитора?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 6,
+      "question": "Чи підходять курси ByteSkill для початківців?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 7,
+      "question": "Як я можу здійснити оплату за курси ByteSkill?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    },
+    {
+      "id": 8,
+      "question": "Чи пропонує ByteSkill безкоштовну пробну версію?",
+      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+    }
+  ]
+}

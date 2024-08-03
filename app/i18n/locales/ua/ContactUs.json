@@ -1,0 +1,13 @@
+{
+  "title": "Потрібна допомога?",
+  "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+  "button": "Зв'яжіться з нами",
+  "modal": {
+    "title": "Зв'яжіться з нами",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    "nameInputLabel": "Ім'я",
+    "emailInputLabel": "Email",
+    "messageInputLabel": "Повідомлення",
+    "button": "Зв'яжіться з нами"
+  }
+}
