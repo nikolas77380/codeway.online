@@ -26,5 +26,6 @@
     ]
   },
   "app-links-title": "Ready to learn on-the-go? Download our mobile app ecourse and start learning anytime, anywhere!",
-  "copyright": "Copyright© 2023 ByteSkill, All rights reserved. Powered by MoxCreativ."
+  "copyright-start": "Copyright©",
+  "copyright-end": "CodeWay, All rights reserved."
 }
