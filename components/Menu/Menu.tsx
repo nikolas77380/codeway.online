@@ -67,13 +67,14 @@ const Menu = ({ lang }: IMenu) => {
             <Typography sx={style.logo}>Codeway</Typography>
           </Link>
         </Box>
-        <Box sx={style.routeSectionDesktop}>
+        <Box sx={{ display: "flex", gap: "20px" }}>
           <Select
             defaultValue={lang}
             displayEmpty
             onChange={handleLanguageChange}
             inputProps={{ MenuProps: { disableScrollLock: true } }}
             sx={{
+              alignSelf: "flex-end",
               color: "#fff",
               "& .MuiSelect-icon": {
                 color: "white",
@@ -86,24 +87,26 @@ const Menu = ({ lang }: IMenu) => {
               </MenuItem>
             ))}
           </Select>
-          <Link href={""} sx={style.logoLink}>
-            <Typography sx={style.textRoute}>{t("course")}</Typography>
-          </Link>
-          <Link href={""} sx={style.logoLink}>
-            <Typography sx={style.textRoute}>{t("contact")}</Typography>
-          </Link>
-          <Link href={""} sx={style.logoLink}>
-            <Typography sx={style.textRoute}>{t("about")}</Typography>
-          </Link>
-        </Box>
+          <Box sx={style.routeSectionDesktop}>
+            <Link href={""} sx={style.logoLink}>
+              <Typography sx={style.textRoute}>{t("course")}</Typography>
+            </Link>
+            <Link href={"/contact-us"} sx={style.logoLink}>
+              <Typography sx={style.textRoute}>{t("contact")}</Typography>
+            </Link>
+            <Link href={"/about-us"} sx={style.logoLink}>
+              <Typography sx={style.textRoute}>{t("about")}</Typography>
+            </Link>
+          </Box>
 
-        <IconButton onClick={toggleMenu} sx={style.burgerIcon}>
-          {menuOpen ? (
-            <CloseIcon sx={style.icon} />
-          ) : (
-            <MenuIcon sx={style.icon} />
-          )}
-        </IconButton>
+          <IconButton onClick={toggleMenu} sx={style.burgerIcon}>
+            {menuOpen ? (
+              <CloseIcon sx={style.icon} />
+            ) : (
+              <MenuIcon sx={style.icon} />
+            )}
+          </IconButton>
+        </Box>
       </Box>
 
       <Modal open={menuOpen} onClose={() => setMenuOpen(false)}>
@@ -113,10 +116,10 @@ const Menu = ({ lang }: IMenu) => {
               <Link href={""} sx={style.mobileMenuItem}>
                 {t("course")}
               </Link>
-              <Link href={""} sx={style.mobileMenuItem}>
+              <Link href={"/contact-us"} sx={style.mobileMenuItem}>
                 {t("contact")}
               </Link>
-              <Link href={""} sx={style.mobileMenuItem}>
+              <Link href={"/about-us"} sx={style.mobileMenuItem}>
                 {t("about")}
               </Link>
             </Box>

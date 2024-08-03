@@ -11,7 +11,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     minHeight: "600px",
     borderRadius: "50px",
     backgroundImage:
-      'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
+      'url("/assets/header/bg_header_2_.png"), url("/assets/header/bg_header_3_.png")',
     backgroundPosition: "bottom",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",

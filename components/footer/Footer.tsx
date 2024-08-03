@@ -18,9 +18,8 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
 
@@ -33,6 +32,8 @@ const Footer = () => {
   const [email, setEmail] = useState("");
 
   const { t } = useTranslation("Footer");
+
+  const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   const handleClick = () => {
     // join email to subscribtion
@@ -99,32 +100,13 @@ const Footer = () => {
               </Box>
             </Grid>
           </Grid>
-          <Grid container spacing={2} sx={style.appLinks}>
-            <Grid item xs={12} sm={8}>
-              <Typography variant={"h5"} sx={style.appLinksTitle} p={"10px"}>
-                {t("app-links-title")}
-              </Typography>
-            </Grid>
-            <Grid item xs={12} sm={4} sx={style.storeImg}>
-              <Link href={""}>
-                <Image
-                  src={"/footer/googlePlay.png"}
-                  alt="Google Play link"
-                  width={160}
-                  height={50}
-                />
-              </Link>
-              <Link href={""}>
-                <Image
-                  src={"/footer/appStore.png"}
-                  alt="App Store link"
-                  width={160}
-                  height={50}
-                />
-              </Link>
-            </Grid>
-          </Grid>
-          <Grid container spacing={2} justifyContent={"space-between"}>
+
+          <Grid
+            container
+            spacing={2}
+            justifyContent={"space-between"}
+            sx={{ mt: "20px" }}
+          >
             <Grid item xs={12} sm={3}>
               <Stack direction={"row"}>
                 <Link href="">
@@ -145,7 +127,9 @@ const Footer = () => {
               </Stack>
             </Grid>
             <Grid item xs={12} sm={6}>
-              <Typography sx={style.copyright}>{t("copyright")}</Typography>
+              <Typography sx={style.copyright}>{`${t(
+                "copyright-start"
+              )} ${currentYear} ${t("copyright-end")}`}</Typography>
             </Grid>
           </Grid>
         </Stack>
