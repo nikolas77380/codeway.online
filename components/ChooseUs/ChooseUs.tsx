@@ -41,7 +41,7 @@ const ChooseUs = () => {
         sx={style.textSection}
         component='div'
         initial='hidden'
-        animate={controls}
+        animate='visible'
         variants={scrollDown(0,1)}
       >
         <Typography variant="h6" component="span">

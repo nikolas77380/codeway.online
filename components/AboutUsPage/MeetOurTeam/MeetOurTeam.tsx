@@ -6,6 +6,7 @@ import { teamData } from "@/src/mocks/AboutUsPage/dataOurTeam";
 
 import { TFunction } from "i18next";
 import style from "./MeetOurTeam.style";
+import { useTranslation } from "@/app/i18n/client";
 
 interface IMeetOurTeam {
   t: TFunction;

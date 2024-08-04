@@ -1,4 +1,4 @@
-'use client';
+'use client'
 
 import { Box, Typography } from "@mui/material";
 
@@ -6,14 +6,11 @@ import TestimonialCard from "./TestimonialCard/TestimonialCard";
 
 import { getTranslation } from "@/app/i18n";
 import style from "./Testimonials.style";
+import { useTranslation } from "@/app/i18n/client";
 
-interface ITestimonials {
-  lang: string;
-}
+const Testimonials = () => {
 
-const Testimonials = async({ lang }: ITestimonials) => {
-
-  const { t } = await getTranslation(lang, "Testimonials");
+  const { t } =  useTranslation("Testimonials");
 
   return (
     <Box sx={style.mainSection}>

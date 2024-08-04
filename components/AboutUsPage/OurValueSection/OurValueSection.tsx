@@ -14,6 +14,10 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import OurValueVideoPlayer from "./OurValueVideoPlayer/OurValueVideoPlayer";
 
 import { useTranslation } from "@/app/i18n/client";
+
+import { MotionBox } from "@/utils/motionElements";
+import { aboutUsPageScroLeftToRight, ourValuescrollDown } from "@/utils/motionVariants";
+
 import style from "./OurValueSection.style";
 
 interface OurValueSectionProps {
@@ -31,7 +35,12 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
   return (
     <Box sx={style.mainContainer}>
       <Box sx={style.valueContainer}>
-        <Box sx={style.mainContent}>
+        <MotionBox 
+          sx={style.mainContent}
+          initial='hidden'
+          animate='visible'
+          variants={aboutUsPageScroLeftToRight(0,1)}
+        >
           <Typography component="label">{t("our-value.slogan")}</Typography>
           <Typography variant="h3" component="span">
             {t("our-value.title")}
@@ -80,7 +89,7 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
               </Box>
             </Box>
           </Box>
-        </Box>
+        </MotionBox>
 
         <Box sx={style.mainContent2}>
           <Box sx={style.iconWrapper}>
@@ -112,14 +121,19 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
               height={300}
             />
           </Box>
-          <Box sx={style.imgContainer4}>
+          <MotionBox 
+            sx={style.imgContainer4}
+            initial='hidden'
+            animate='visible'
+            variants={ourValuescrollDown()}
+          >
             <Image
               src="/assets/aboutUs/unity-and-teamwork.jpg"
               alt=""
               width={600}
               height={600}
             />
-          </Box>
+          </MotionBox>
           <Modal
             open={open}
             onClose={handleClose}

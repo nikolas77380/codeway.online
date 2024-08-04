@@ -79,14 +79,17 @@ export function aboutUsPageImageZoom() {
       whileHover: { scale: 1.2 },
       transition: {
         opacity: {
+          delay: 0.5,
           duration: 1,
           ease: 'ease',
         },
         scale: {
+          delay: 0.5,
           duration: 1,
           ease: 'easeIn',
         },
         x: {
+          delay: 0.5,
           duration: 1,
           ease: 'easeInOut',
         },

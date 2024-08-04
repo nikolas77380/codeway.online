@@ -23,15 +23,16 @@ export async function generateMetadata({ params: { lang } }: IAboutUs) {
   };
 }
 
-const AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
+const  AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
+
   const { t } = await getTranslation(lang, "AboutUsPage");
 
   return (
     <Box sx={style.mainPageContainer}>
-      <HeaderAboutUs t={t} />
-      <WhoWeAre t={t} />
-      <OurValueSection />
-      <OurPopularClasses t={t} />
+        <HeaderAboutUs t={t} />
+        <WhoWeAre t={t} />
+        <OurValueSection />
+        <OurPopularClasses t={t} />
       <MeetOurTeam t={t} />
     </Box>
   );

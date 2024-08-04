@@ -8,6 +8,8 @@ import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 
 import { TFunction } from "i18next";
 import style from "./WhoWeAre.style";
+import { MotionBox } from "@/utils/motionElements";
+import { aboutUsPageImageZoom, aboutUsPageScroLeftToRight } from "@/utils/motionVariants";
 
 interface IHeaderAboutUs {
   t: TFunction;
@@ -16,7 +18,12 @@ interface IHeaderAboutUs {
 const WhoWeAre = ({ t }: IHeaderAboutUs) => {
   return (
     <Box sx={style.mainContainer}>
-      <Box sx={style.mainContent}>
+      <MotionBox 
+        sx={style.mainContent}
+        initial='hidden'
+        animate='visible'
+        variants={aboutUsPageScroLeftToRight(0.4, 1.1)}
+      >
         <Typography component="label">{t("who-we-are.slogan")}</Typography>
         <Typography variant="h3" component="span">
           {t("who-we-are.title")}
@@ -67,12 +74,17 @@ const WhoWeAre = ({ t }: IHeaderAboutUs) => {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </MotionBox>
       <Box sx={style.mainContent2}>
         <Box sx={style.mainWrapper}>
-          <Box sx={style.imageMainContainer}>
+          <MotionBox 
+            sx={style.imageMainContainer}
+            initial='hidden'
+            animate='visible'
+            variants={aboutUsPageImageZoom()}
+          >
             <Image src="/assets/aboutUs/hero.jpg" alt="hero" fill />
-          </Box>
+          </MotionBox>
           <Box sx={style.memberContainer}>
             <Box sx={style.memberWrapper}>
               <Typography component="label">52k+</Typography>

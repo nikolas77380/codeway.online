@@ -1,4 +1,4 @@
-"use client";
+
 import { TCourse } from "@/src/mocks/mocks";
 import {
   Box,
@@ -8,27 +8,17 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import Aos from "aos";
 import "aos/dist/aos.css";
 import Link from "next/link";
-import { useEffect } from "react";
 import style from "./CourseItem.style";
 
 interface ICourseItem {
   course: TCourse;
 }
 const CourseItem = ({ course }: ICourseItem) => {
-  useEffect(() => {
-    Aos.init({});
-  }, []);
-
   return (
     <Paper
       sx={style.container}
-      data-aos="fade"
-      data-aos-duration="1000"
-      data-aos-delay="300"
-      data-aos-anchor-placement="top"
     >
       <CardMedia
         image={course.image}
