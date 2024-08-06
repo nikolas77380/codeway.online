@@ -2,13 +2,13 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   container: {
-    p: "50px 25px",
+    p: "25px",
     backgroundColor: "rgb(18,20,29)",
   },
 
   contentWrapper: {
     maxWidth: "1700px",
-    m: "auto",
+    m: "25px auto",
     backgroundImage: "url('/assets/coursesListBlock/bg_memphis_1_.png')",
     backgroundSize: "contain",
     backgroundRepeat: "no-repeat",
@@ -16,21 +16,16 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   title: {
-    mt: "15px",
-    fontSize: "2.5rem",
-    fontWeight: "bold",
+    mt: "25px",
     textAlign: "center",
-    color: "#FFF",
   },
 
   subtitle: {
     m: "auto",
-    mt: "15px",
+    mt: "25px",
     pl: "20px",
-    color: "#94A3B8",
-    fontSize: "1rem",
     textAlign: "center",
-    maxWidth: "650px",
+    maxWidth: "1280px",
   },
 };
 

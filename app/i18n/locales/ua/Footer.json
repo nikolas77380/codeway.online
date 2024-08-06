@@ -1,9 +1,9 @@
 {
   "address": "Jln Cempaka Wangi No 22 Джакарта - Індонезія",
-  "newsletter": "Інформаційний бюлетень",
+  "newsletter": "Розсилка новин",
   "newsletter-sub": "Підпишіться на нашу розсилку, щоб отримувати актуальну інформацію, новини та безкоштовні інсайти.",
   "newsletter-email-label": "Email",
-  "newsletter-button": "Зареєструватися",
+  "newsletter-button": "Підписатися",
   "services": {
     "title": "Послуги",
     "list": [

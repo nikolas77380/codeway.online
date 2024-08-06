@@ -1,47 +1,47 @@
 {
   "slogan": "Поширені запитання",
   "title": "Найпопулярніші запитання",
-  "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+  "subtitle": "Ми зібрали найпопулярніші питання задля вашої зручності. У разі виникнення додаткових питань, залишайте своє повідомлення у віконці. Будемо раді відповісти!",
   "questions": [
     {
       "id": 1,
-      "question": "Що таке ByteSkill?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Мені підійде навчання, якщо я взагалі нічого не знаю про IT?",
+      "answer": "Звичайно, якщо ти знаєш, як вмикати компʼютер. Наше навчання побудовано з самого нуля та підійде як новачкам, так і IT-спеціалістам , які хочуть покращити свої навички."
     },
     {
       "id": 2,
-      "question": "Як зареєструватися на ByteSkill?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Який розклад у занять? ",
+      "answer": "Ти можеш самостійно планувати заняття у комфортний час. Всі уроки будуть відкриватися послідовно, у тебе буде час поставити питання та виконати завдання. Єдиний розклад, який ти отримаєш - це для онлайн розборів."
     },
     {
       "id": 3,
-      "question": "Чи видаються сертифікати після закінчення курсів ByteSkill?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Чи можна купити курс у розстрочку?",
+      "answer": "Так, ми можемо розбити оплату на певну кількість платежів. Для цього залиш заявку і з тобою звʼяжеться менеджер, щоб розповісти всі деталі."
     },
     {
       "id": 4,
-      "question": "Чи можу я отримати доступ до курсів ByteSkill у будь-який час?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Чи можу я оплатити курс, якщо я закордоном?",
+      "answer": "Так. Наш менеджер проконсультує тебе у цьому питанні та при необхідності надасть інструкцію."
     },
     {
       "id": 5,
-      "question": "Чи є на ByteSkill підтримка репетитора?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Ви допоможете з працевлаштуванням?",
+      "answer": "Так. Ми допомагаємо з працевлаштуванням, перевіряємо резюме та даємо важливі поради для твого професійного розвитку."
     },
     {
       "id": 6,
-      "question": "Чи підходять курси ByteSkill для початківців?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Чи видається сертифікат після навчання?",
+      "answer": "Так, наприкінці навчання ми обовʼязково видаємо диплом, який видається в цифровому форматі англійською та українською мовою."
     },
     {
       "id": 7,
-      "question": "Як я можу здійснити оплату за курси ByteSkill?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Який мені потрібен ноутбук для занять?",
+      "answer": "Для навчання та початку роботи потрібен ноутбук чи ПК базової комплектації, середньої потужності та комфортної швидкості."
     },
     {
       "id": 8,
-      "question": "Чи пропонує ByteSkill безкоштовну пробну версію?",
-      "answer": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam."
+      "question": "Боюсь, що не знайду роботу в IT без досвіду",
+      "answer": "На ресурсах пошуку роботи викладені сотні вакансій, кількість інноваційних проектів у світі тільки зростає. Ти ніколи не залишишся безроботи."
     }
   ]
 }

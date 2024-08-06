@@ -1,13 +1,13 @@
 {
-  "title": "Потрібна допомога?",
-  "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+  "title": "Залишились питання?",
+  "subtitle": "Якщо залишились будь які питання, або стались якісь технічні проблеми, пишіть нам!",
   "button": "Зв'яжіться з нами",
   "modal": {
     "title": "Зв'яжіться з нами",
-    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    "subtitle": "Якщо залишились будь які питання, або стались якісь технічні проблеми, пишіть нам!",
     "nameInputLabel": "Ім'я",
     "emailInputLabel": "Email",
     "messageInputLabel": "Повідомлення",
-    "button": "Зв'яжіться з нами"
+    "button": "Звернутись"
   }
 }
