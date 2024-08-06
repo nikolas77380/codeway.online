@@ -223,3 +223,17 @@ export function contactUPagesscrollRightToLeft(delay?: number, duration?: number
     },
   };
 }
+
+export function courseIdHeaderScrollUp(y?: number, delay?: number, duration?: number) {
+  return {
+    hidden: { y: y, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: delay,
+        duration: duration,
+      },
+    },
+  };
+}

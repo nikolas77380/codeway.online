@@ -57,7 +57,7 @@ const TestimonialCard = () => {
         }}
       >
         {dataTestimonialCard.map(card => (
-          <SwiperSlide key={card.id} className="sliderContainer">
+          <SwiperSlide className="sliderContainer" key={card.id}>
             <Box
               onClick={() => handleVideoClick(card.id)}
               sx={style.sliderWrapper}

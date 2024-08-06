@@ -6,7 +6,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundColor: '#12141d',
     p: '7rem 18rem',
     width: 1,
-    height: 'auto',
+    height: 1,
     position: 'relative',
     '@media (max-width: 900px)': {
       p: '2rem 1rem',
@@ -26,6 +26,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: '30%',
     marginLeft: '4rem',
     height: 1,
+    position: 'relative'
   },
 
   mobileCardInfoBlock: {

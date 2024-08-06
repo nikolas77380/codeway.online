@@ -12,10 +12,11 @@ import Image from "next/image";
 
 import ContactUsModal from "./modal/ContactUsModal";
 
-import style from './ContactUs.style'
 import { motion } from "framer-motion";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { contactUsZoomIn } from "@/utils/motionVariants";
+
+import style from './ContactUs.style'
 
 const ContactUs = () => {
   const [modalOpen, setModalOpen] = useState(false);

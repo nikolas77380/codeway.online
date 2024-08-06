@@ -23,7 +23,7 @@ const DescriptionItem = () => {
       </Box>
       <Box sx={style.descriptionImage}>
         <Image
-          src="/assets/coursePage/descriptionImg.jpg"
+          src="/coursePage/descriptionImg.jpg"
           alt="descImg"
           width={400}
           height={400}
