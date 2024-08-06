@@ -19,16 +19,14 @@ export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
       <Box sx={style.mainSection}>
-        <Header />
+        <Header lang={lang} />
         <CoursesListBlock lang={lang} />
       </Box>
-      <Box sx={style.chooseUs}>
-        <Video />
-        <ChooseUs />
-        <ContactUs />
-        <Testimonials />
-        <Faq />
-      </Box>
+      <Video />
+      <ChooseUs />
+      <Testimonials lang={lang} />
+      <Faq />
+      <ContactUs />
       <CookieDialog />
     </main>
   );

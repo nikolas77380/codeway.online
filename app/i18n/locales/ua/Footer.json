@@ -1,0 +1,30 @@
+{
+  "address": "Jln Cempaka Wangi No 22 Джакарта - Індонезія",
+  "newsletter": "Розсилка новин",
+  "newsletter-sub": "Підпишіться на нашу розсилку, щоб отримувати актуальну інформацію, новини та безкоштовні інсайти.",
+  "newsletter-email-label": "Email",
+  "newsletter-button": "Підписатися",
+  "services": {
+    "title": "Послуги",
+    "list": [
+      { "name": "Електронне навчання", "href": "" },
+      { "name": "Вишкільний табір", "href": "" },
+      { "name": "Вебінар", "href": "" },
+      { "name": "Сертифікати", "href": "" },
+      { "name": "Наставництво", "href": "" },
+      { "name": "Корпоративні послуги", "href": "" }
+    ]
+  },
+  "companies": {
+    "title": "Компанії",
+    "list": [
+      { "name": "Про нас", "href": "" },
+      { "name": "Лідерство", "href": "" },
+      { "name": "Кар'єра", "href": "" },
+      { "name": "Статті та новини", "href": "" },
+      { "name": "Юридичні поняття", "href": "" }
+    ]
+  },
+  "copyright-start": "Copyright©",
+  "copyright-end": "CodeWay, All rights reserved."
+}

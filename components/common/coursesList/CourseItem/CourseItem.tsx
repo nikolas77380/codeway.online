@@ -1,3 +1,4 @@
+'use client'
 
 import { TCourse } from "@/src/mocks/mocks";
 import {
@@ -11,11 +12,15 @@ import {
 import "aos/dist/aos.css";
 import Link from "next/link";
 import style from "./CourseItem.style";
+import { useTranslation } from "@/app/i18n/client";
 
 interface ICourseItem {
   course: TCourse;
 }
 const CourseItem = ({ course }: ICourseItem) => {
+
+  const { t } = useTranslation("CoursesList");
+  
   return (
     <Paper
       sx={style.container}
@@ -39,7 +44,7 @@ const CourseItem = ({ course }: ICourseItem) => {
           />
           <Link href={`/courses/${course.id}`}>
             <Button variant="contained" size="medium" sx={style.courseButton}>
-              Enroll now
+              {t("button")}
             </Button>
           </Link>
         </Box>

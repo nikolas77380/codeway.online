@@ -20,6 +20,10 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import style from "./ChooseUs.style";
 
+import Image from "next/image";
+
+import bgImage from "/public/assets/header/bg_header_1_.png";
+
 const ChooseUs = () => {
   const { t } = useTranslation("ChooseUs");
 
@@ -36,6 +40,9 @@ const ChooseUs = () => {
       sx={style.mainSection}
       ref={ref}
     >
+      <Box sx={style.backgroundImage}>
+        <Image src={bgImage} fill alt="Background Image 1" />
+      </Box>
       <MotionBox
         id="text-section"
         sx={style.textSection}
@@ -44,13 +51,13 @@ const ChooseUs = () => {
         animate='visible'
         variants={scrollDown(0,1)}
       >
-        <Typography variant="h6" component="span">
+        <Typography variant="body2" component="span">
           {t("title")}
         </Typography>
-        <Typography variant="h3" component="p" className="title">
+        <Typography variant="h2" component="p" className="title">
           {t("subtitle")}
         </Typography>
-        <Typography variant="body1" component="p" className="description">
+        <Typography variant="h6" component="p" className="description">
           {t("text")}
         </Typography>
       </MotionBox>

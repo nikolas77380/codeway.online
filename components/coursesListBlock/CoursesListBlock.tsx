@@ -18,8 +18,12 @@ const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <Typography sx={style.title}>{t("title")}</Typography>
-        <Typography sx={style.subtitle}>{t("subtitle")}</Typography>
+        <Typography variant="h2" sx={style.title}>
+          {t("title")}
+        </Typography>
+        <Typography variant="h6" sx={style.subtitle}>
+          {t("subtitle")}
+        </Typography>
         <CoursesList coursesList={coursesList} />
       </Box>
     </Box>
