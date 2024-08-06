@@ -2,14 +2,14 @@
 
 import { Box } from "@mui/material";
 
-import { cloneElement, ReactElement, useEffect } from "react";
+import React, { Children, cloneElement, isValidElement, ReactNode, useEffect } from "react";
 
-import { useAnimation } from "framer-motion";
+import { AnimationControls, MotionProps, useAnimation } from "framer-motion";
 
 import { useInView } from "react-intersection-observer";
 
 interface ScrollAnimationWrapperProps {
-  children: ReactElement;
+  children?: ReactNode;
   threshold?: number;
 }
 
@@ -23,7 +23,7 @@ export const ScrollAnimationWrapper = ({
     threshold,
   });
 
-  const controls = useAnimation();
+  const controls: AnimationControls = useAnimation();
 
   useEffect(() => {
     if (inView) {
@@ -33,9 +33,18 @@ export const ScrollAnimationWrapper = ({
     }
   }, [inView, controls]);
 
+  const childWithProps = Children.map(children, (child) =>
+    isValidElement(child)
+      ? cloneElement(child, {
+          animate: controls,
+          initial: 'hidden',
+        } as MotionProps)
+      : child
+  );
+
   return (
     <Box ref={ref}>
-      {cloneElement(children as ReactElement, { animate: controls })}
+      {childWithProps}
     </Box>
   );
 };

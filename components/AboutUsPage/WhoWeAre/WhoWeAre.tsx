@@ -7,9 +7,11 @@ import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 
 import { TFunction } from "i18next";
-import style from "./WhoWeAre.style";
+
 import { MotionBox } from "@/utils/motionElements";
 import { aboutUsPageImageZoom, aboutUsPageScroLeftToRight } from "@/utils/motionVariants";
+
+import style from "./WhoWeAre.style";
 
 interface IHeaderAboutUs {
   t: TFunction;

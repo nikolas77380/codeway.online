@@ -15,8 +15,19 @@ import OurValueVideoPlayer from "./OurValueVideoPlayer/OurValueVideoPlayer";
 
 import { useTranslation } from "@/app/i18n/client";
 
-import { MotionBox } from "@/utils/motionElements";
-import { aboutUsPageScroLeftToRight, ourValuescrollDown } from "@/utils/motionVariants";
+import { 
+  aboutUsPageScroLeftToRight, 
+  ourValueMobileScrollRightToLeft, 
+  ourValuescrollDown, 
+  ourValueScrollLeftToRight, 
+  ourValueScrollRightToLeft, 
+  ourValuescrollUp 
+} from "@/utils/motionVariants";
+
+import { useWindowSize } from "@/hooks/useWindowSize";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
+import { motion } from "framer-motion";
 
 import style from "./OurValueSection.style";
 
@@ -25,17 +36,29 @@ interface OurValueSectionProps {
 }
 
 const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
+
   const [open, setOpen] = useState(false);
+
+  const size = useWindowSize();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const { t } = useTranslation("AboutUsPage");
 
+  const MotionBox = motion(Box);
+
+  const { ref } = useScrollAnimation({
+    delay: 0,
+    duration: 2,
+    threshold: 0,
+  });
+  
   return (
-    <Box sx={style.mainContainer}>
+    <Box sx={style.mainContainer} ref={ref}>
       <Box sx={style.valueContainer}>
-        <MotionBox 
+        <MotionBox
+          data-testid="main-content"
           sx={style.mainContent}
           initial='hidden'
           animate='visible'
@@ -97,43 +120,63 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
               <PlayArrowIcon />
             </IconButton>
           </Box>
-          <Box sx={style.imgContainer}>
-            <Image
-              src="/assets/aboutUs/team-of-innovators.jpg"
-              alt=""
-              width={300}
-              height={300}
-            />
-          </Box>
-          <Box sx={style.imgContainer2}>
-            <Image
-              src="/assets/aboutUs/creative-team.jpg"
-              alt=""
-              width={600}
-              height={600}
-            />
-          </Box>
-          <Box sx={style.imgContainer3}>
-            <Image
-              src="/assets/aboutUs/business-team.jpg"
-              alt=""
-              width={300}
-              height={300}
-            />
-          </Box>
-          <MotionBox 
-            sx={style.imgContainer4}
-            initial='hidden'
-            animate='visible'
-            variants={ourValuescrollDown()}
-          >
-            <Image
-              src="/assets/aboutUs/unity-and-teamwork.jpg"
-              alt=""
-              width={600}
-              height={600}
-            />
-          </MotionBox>
+            <MotionBox 
+              sx={style.imgContainer}
+              initial={size.width !== undefined && size.width < 600 ? 'hidden' : 'visible'}
+              animate={size.width !== undefined && size.width < 600 ? 'visible' : 'hidden'}
+              variants={
+                size.width !== undefined 
+                && size.width < 600 
+                ? ourValueScrollRightToLeft(300, 0, 0.4, 1) 
+                : ourValueMobileScrollRightToLeft(500, 0, 0.5, 4)
+              }
+            >
+              <Image
+                src="/assets/aboutUs/team-of-innovators.jpg"
+                alt=""
+                width={300}
+                height={300}
+              />
+            </MotionBox>
+            <MotionBox 
+              sx={style.imgContainer2}
+              initial='hidden'
+              animate='visible'
+              variants={ourValuescrollUp()}
+            >
+              <Image
+                src="/assets/aboutUs/creative-team.jpg"
+                alt=""
+                width={600}
+                height={600}
+              />
+            </MotionBox>
+            <MotionBox 
+              sx={style.imgContainer3}
+              initial='hidden'
+              animate='visible'
+              variants={ourValueScrollLeftToRight(-810, 0, 0.4, 1)}
+            >
+              <Image
+                src="/assets/aboutUs/business-team.jpg"
+                alt=""
+                width={300}
+                height={300}
+              />
+            </MotionBox>
+            <MotionBox 
+              sx={style.imgContainer4}
+              initial='hidden'
+              animate='visible'
+              variants={ourValuescrollDown()}
+            >
+              <Image
+                src="/assets/aboutUs/unity-and-teamwork.jpg"
+                alt=""
+                width={600}
+                height={600}
+              />
+            </MotionBox>
           <Modal
             open={open}
             onClose={handleClose}

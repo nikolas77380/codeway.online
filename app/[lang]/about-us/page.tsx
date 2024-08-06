@@ -7,6 +7,7 @@ import OurValueSection from "@/components/AboutUsPage/OurValueSection/OurValueSe
 import WhoWeAre from "@/components/AboutUsPage/WhoWeAre/WhoWeAre";
 
 import { getTranslation } from "@/app/i18n";
+
 import style from "./AboutUs.style";
 
 interface IAboutUs {
@@ -29,10 +30,10 @@ const  AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
 
   return (
     <Box sx={style.mainPageContainer}>
-        <HeaderAboutUs t={t} />
-        <WhoWeAre t={t} />
-        <OurValueSection />
-        <OurPopularClasses t={t} />
+      <HeaderAboutUs t={t} />
+      <WhoWeAre t={t} />
+      <OurValueSection />
+      <OurPopularClasses t={t} />
       <MeetOurTeam t={t} />
     </Box>
   );

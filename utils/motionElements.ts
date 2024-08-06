@@ -1,9 +1,9 @@
 'use client'
 
-import { Box, Typography } from "@mui/material"
-import { motion } from "framer-motion"
+import { Box, Typography, TypographyProps  } from "@mui/material"
+import { motion, MotionProps  } from "framer-motion"
 
 const MotionBox = motion(Box);
-const MotionTypography = motion(Typography);
+const MotionTypography = motion<TypographyProps & MotionProps>(Typography);
 
 export { MotionBox, MotionTypography }

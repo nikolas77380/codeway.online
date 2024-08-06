@@ -46,6 +46,20 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
   },
 
+  title: {
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    textAlign: 'center',
+  },
+
+  desc: {
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center', 
+    textAlign: 'center',
+  },
+
   teamCardContainer: {
     width: 1,
     height: 1,
