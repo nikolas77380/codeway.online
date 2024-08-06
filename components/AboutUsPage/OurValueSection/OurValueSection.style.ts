@@ -173,7 +173,6 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   imgContainer: {
-    height: 1,
     "& img": {
       objectFit: "cover",
       position: "absolute",

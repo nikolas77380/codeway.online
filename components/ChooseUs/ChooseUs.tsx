@@ -40,7 +40,7 @@ const ChooseUs = () => {
       sx={style.mainSection}
       ref={ref}
     >
-      <Box sx={style.backgroundImage}>
+      <Box sx={style.backgroundImageCenter}>
         <Image src={bgImage} fill alt="Background Image 1" />
       </Box>
       <MotionBox

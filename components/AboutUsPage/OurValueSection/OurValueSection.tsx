@@ -17,14 +17,12 @@ import { useTranslation } from "@/app/i18n/client";
 
 import { 
   aboutUsPageScroLeftToRight, 
-  ourValueMobileScrollRightToLeft, 
   ourValuescrollDown, 
   ourValueScrollLeftToRight, 
   ourValueScrollRightToLeft, 
   ourValuescrollUp 
 } from "@/utils/motionVariants";
 
-import { useWindowSize } from "@/hooks/useWindowSize";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import { motion } from "framer-motion";
@@ -38,8 +36,6 @@ interface OurValueSectionProps {
 const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
 
   const [open, setOpen] = useState(false);
-
-  const size = useWindowSize();
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -122,14 +118,9 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
           </Box>
             <MotionBox 
               sx={style.imgContainer}
-              initial={size.width !== undefined && size.width < 600 ? 'hidden' : 'visible'}
-              animate={size.width !== undefined && size.width < 600 ? 'visible' : 'hidden'}
-              variants={
-                size.width !== undefined 
-                && size.width < 600 
-                ? ourValueScrollRightToLeft(300, 0, 0.4, 1) 
-                : ourValueMobileScrollRightToLeft(500, 0, 0.5, 4)
-              }
+              initial='hidden'
+              animate='visible'
+              variants={ourValueScrollRightToLeft(300, 0, 0.4, 1)}
             >
               <Image
                 src="/assets/aboutUs/team-of-innovators.jpg"

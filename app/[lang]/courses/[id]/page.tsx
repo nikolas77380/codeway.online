@@ -30,7 +30,7 @@ const CoursePage = ({ params }: CoursePageProps) => {
       <Box sx={style.mainPageContainer}>
         <HeaderCoursePage />
         <MainBlock />
-        <Testimonials />
+        <Testimonials lang={params.lang} />
         <RelatedCoursesBlock />
       </Box>
     </CourseProvider>

@@ -13,10 +13,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     height: 1,
     position: "absolute",
-    top: 0,
-    right: 20,
+    top: '20%',
+    right: '10%',
     bottom: 0,
-    zIndex: -1,
+    zIndex: 0,
   },
 
   textSection: {
