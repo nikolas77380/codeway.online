@@ -83,7 +83,7 @@ const Menu = ({ lang }: IMenu) => {
           >
             {languages.map((lng) => (
               <MenuItem key={lng} value={lng}>
-                {lng}
+                {lng.toUpperCase()}
               </MenuItem>
             ))}
           </Select>

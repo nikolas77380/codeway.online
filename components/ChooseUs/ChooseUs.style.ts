@@ -3,99 +3,54 @@ import { SxProps, Theme } from "@mui/material";
 const style: { [key: string]: SxProps<Theme> } = {
   mainSection: {
     maxWidth: "1700px",
-    m: "auto",
-    backgroundColor: "#191b26",
-    backgroundImage:
-      "radial-gradient(circle, #675181 0%, #191b26 35%, #191b26 100%)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+    width: 1,
+    m: "25px auto",
+    p: "25px 25px",
+    position: "relative",
+  },
+
+  backgroundImageCenter: {
     width: 1,
     height: 1,
-    display: "flex",
-    flexDirection: "column",
-    paddingLeft: "15rem",
-    paddingRight: "15rem",
-    paddingTop: "7rem",
-    paddingBottom: "7rem",
-    "@media (max-width: 600px)": {
-      paddingLeft: "1rem",
-      paddingRight: "1rem",
-      paddingTop: "2rem",
-      paddingBottom: "2rem",
-    },
+    position: "absolute",
+    top: 0,
+    right: 20,
+    bottom: 0,
+    zIndex: -1,
   },
+
   textSection: {
+    m: "25px 0",
     display: "flex",
     flexDirection: "column",
+    gap: "25px",
     textAlign: "center",
     width: 1,
-    height: 1,
-    "& span": {
-      color: "#a855f7",
-      fontSize: "15px",
-      fontWeight: "500",
-      letterSpacing: "2px",
-      textTransform: "uppercase",
-      paddingBottom: "0.5rem",
-      "@media (max-width: 600px)": {
-        fontSize: "12px",
-        fontWeight: "600",
-        paddingBottom: "0.8rem",
-      },
-    },
-    "& .title": {
-      color: "white",
-      fontSize: "40px",
-      fontWeight: "700",
-      whiteSpace: "pre-line",
-      paddingBottom: "0.7rem",
-      "@media (max-width: 600px)": {
-        fontSize: "24px",
-      },
-    },
-    "& .description": {
-      color: "#94a3b8",
-      fontSize: "16px",
-      width: 1,
-      fontWeight: "400",
-      whiteSpace: "pre-line",
-      paddingBottom: "1.5rem",
-      "@media (max-width: 600px)": {
-        fontSize: "14px",
-        padding: "0 10px",
-        paddingBottom: "2.5rem",
-      },
-    },
   },
   cardSection: {
-    display: "flex",
-    justifyContent: "space-between",
+    m: "50px 0",
     width: 1,
-    height: 1,
+    display: "grid",
     gap: "20px",
-    "@media (max-width: 600px)": {
-      flexDirection: "column",
-      alignItems: "center",
+    justifyContent: "center",
+    "@media (min-width: 600px)": {
+      gridTemplateColumns: "repeat(1, 1fr)",
+    },
+    "@media (min-width: 900px)": {
+      gridTemplateColumns: "repeat(2, 1fr)",
+    },
+    "@media (min-width: 1200px)": {
+      gridTemplateColumns: "repeat(4, 1fr)",
     },
   },
   cardContainer: {
-    backgroundColor: "#211e2f",
+    backgroundColor: "rgb(25,27,38,0.6)",
     display: "flex",
-    width: "340px",
     height: 1,
     borderRadius: "15px",
-    cursor: "pointer",
-    transition: "all 0.3s ease-in-out",
-    transform: "scale(1)",
-    paddingBottom: "1rem",
-    paddingTop: "2.5rem",
-    "&:hover": {
-      transform: "scale(1.05)",
-    },
-    "@media (max-width: 600px)": {
-      width: "95%",
-    },
+    p: "25px",
   },
+
   cardWrapper: {
     display: "flex",
     flexDirection: "column",

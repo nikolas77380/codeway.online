@@ -14,10 +14,12 @@ import { Box, Typography } from "@mui/material";
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
 
 import AOS from "aos";
+import bgImage from "/public/assets/header/bg_header_1_.png";
 
 import "aos/dist/aos.css";
 
 import { useTranslation } from "@/app/i18n/client";
+import Image from "next/image";
 import style from "./ChooseUs.style";
 
 const ChooseUs = () => {
@@ -31,6 +33,9 @@ const ChooseUs = () => {
 
   return (
     <Box sx={style.mainSection}>
+      <Box sx={style.backgroundImage}>
+        <Image src={bgImage} fill alt="Background Image 1" />
+      </Box>
       <Box
         id="text-section"
         sx={style.textSection}
@@ -39,15 +44,9 @@ const ChooseUs = () => {
         data-aos-duration="1200"
         data-aos-anchor-placement="top"
       >
-        <Typography variant="h6" component="span">
-          {t("title")}
-        </Typography>
-        <Typography variant="h3" component="p" className="title">
-          {t("subtitle")}
-        </Typography>
-        <Typography variant="body1" component="p" className="description">
-          {t("text")}
-        </Typography>
+        <Typography variant="body2">{t("title")}</Typography>
+        <Typography variant="h2">{t("subtitle")}</Typography>
+        <Typography variant="h6">{t("text")}</Typography>
       </Box>
       <Box
         id="card-section"

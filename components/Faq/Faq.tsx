@@ -42,15 +42,9 @@ const Faq = () => {
         data-aos-anchor-placement="top"
         data-aos-duration="1200"
       >
-        <Typography variant="h6" component="span">
-          {t("slogan")}
-        </Typography>
-        <Typography variant="h3" component="p" className="title">
-          {t("title")}
-        </Typography>
-        <Typography variant="body1" component="p" className="description">
-          {t("subtitle")}
-        </Typography>
+        <Typography variant="body2">{t("slogan")}</Typography>
+        <Typography variant="h2">{t("title")}</Typography>
+        <Typography variant="h6">{t("subtitle")}</Typography>
       </Box>
       <Box sx={style.faqCardContainer} data-aos-anchor-placement="top">
         {dataFaqCard.map((card) => (

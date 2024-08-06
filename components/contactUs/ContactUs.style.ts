@@ -8,6 +8,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "0 auto 70px auto",
     p: "20px",
     bgcolor: "#1C1E2A",
+    borderRadius: "15px",
   },
   backgroundOverlay: {
     width: 1,
@@ -20,7 +21,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     position: "absolute",
     top: 0,
     left: 0,
-    borderRadius: "10px",
+    borderRadius: "15px",
   },
   contentWrapper: {
     width: 1,
@@ -64,7 +65,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: "300px",
     borderRadius: "30px",
     whiteSpace: "nowrap",
-    fontSize: "1.2rem",
+    fontSize: "1rem",
     textTransform: "none",
   },
 };
