@@ -1,7 +1,11 @@
 import { getTranslation } from "@/app/i18n";
+
 import { coursesList } from "@/src/mocks/mocks";
+
 import { Box, Typography } from "@mui/material";
+
 import CoursesList from "../common/coursesList/CoursesList";
+
 import style from "./CoursesListBlock.style";
 
 interface ICoursesListBlock {

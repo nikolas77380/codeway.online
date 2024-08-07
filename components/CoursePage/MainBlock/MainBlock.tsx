@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, useMediaQuery, useTheme } from '@mui/material'
+import { Box, Typography } from '@mui/material'
 
 import { useEffect, useRef, useState } from 'react';
 
@@ -9,43 +9,35 @@ import KeyPointsItem from './KeyPointsItem/KeyPointsItem'
 import CourseLessons from './CourseLessons/CourseLessons';
 import CardInfoItem from './CardInfoItem/CardInfoItem';
 
+import { useWindowSize } from '@/hooks/useWindowSize';
+
 import style from './MainBlock.style'
+import useScrollPosition from '@/hooks/useScrollFixed';
+import { motion } from 'framer-motion';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { aboutUsPageScroLeftToRight } from '@/utils/motionVariants';
+
 
 const MainBlock = () => {
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const { width } = useWindowSize();
 
-  const [isFixed, setIsFixed] = useState(false);
-  const [bottom, setIsBottom] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const mainBlockRef = useRef<HTMLDivElement | null>(null);
   const cardInfoRef = useRef<HTMLDivElement | null>(null);
 
+  const { isFixed, bottom  } = useScrollPosition(mainBlockRef, cardInfoRef);
+
   useEffect(() => {
-    const handleScroll = () => {
-      if (mainBlockRef.current && cardInfoRef.current) {
-        const mainBlockTop = mainBlockRef.current.getBoundingClientRect().top;
-        const mainBlockBottom = mainBlockRef.current.getBoundingClientRect().bottom;
-        const cardInfoBottom = cardInfoRef.current.getBoundingClientRect().bottom;
-        const viewportHeight = window.innerHeight;
+    setIsMobile(width !== undefined && width < 600);
+    setIsMounted(true);
+  }, [width]);
 
-        if (mainBlockTop <= 0 && mainBlockBottom > viewportHeight) {
-          setIsFixed(true);
-          setIsBottom(cardInfoBottom > mainBlockBottom);
-        } else {
-          setIsFixed(false);
-          setIsBottom(false);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
+  if (!isMounted) {
+    return null; 
+  };
 
   return (
     <Box sx={style.mainContainer} ref={mainBlockRef}>
@@ -61,7 +53,7 @@ const MainBlock = () => {
       </Box>
       {!isMobile && (
         <Box sx={style.cardInfoBlock} ref={cardInfoRef} >
-          <CardInfoItem isFixed={isFixed} />
+          <CardInfoItem isFixed={isFixed} isBottom={bottom} />
         </Box>
       )}
     </Box>

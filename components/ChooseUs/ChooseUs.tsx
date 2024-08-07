@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-
 import {
   CardMembership,
   Difference,
@@ -13,79 +11,85 @@ import { Box, Typography } from "@mui/material";
 
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
 
-import AOS from "aos";
-import bgImage from "/public/assets/header/bg_header_1_.png";
-
-import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
 import { useTranslation } from "@/app/i18n/client";
-import Image from "next/image";
+
+import { scrollDown, scrollRightToLeft } from "@/utils/motionVariants";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 import style from "./ChooseUs.style";
+
+import Image from "next/image";
+
+import bgImage from "/public/assets/header/bg_header_1_.png";
 
 const ChooseUs = () => {
   const { t } = useTranslation("ChooseUs");
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
+
+  const MotionBox = motion(Box);
+
+  const { ref, controls } = useScrollAnimation({
+    delay: 0,
+    duration: 2,
+    threshold: 0.3,
+  });
 
   return (
-    <Box sx={style.mainSection}>
-      <Box sx={style.backgroundImage}>
+    <Box 
+      sx={style.mainSection}
+      ref={ref}
+    >
+      <Box sx={style.backgroundImageCenter}>
         <Image src={bgImage} fill alt="Background Image 1" />
       </Box>
-      <Box
+      <MotionBox
         id="text-section"
         sx={style.textSection}
-        data-aos="fade-down"
-        data-aos-delay="200"
-        data-aos-duration="1200"
-        data-aos-anchor-placement="top"
+        component='div'
+        initial='hidden'
+        animate='visible'
+        variants={scrollDown(0,1)}
       >
-        <Typography variant="body2">{t("title")}</Typography>
-        <Typography variant="h2">{t("subtitle")}</Typography>
-        <Typography variant="h6">{t("text")}</Typography>
-      </Box>
-      <Box
+        <Typography variant="body2" component="span">
+          {t("title")}
+        </Typography>
+        <Typography variant="h2" component="p" className="title">
+          {t("subtitle")}
+        </Typography>
+        <Typography variant="h6" component="p" className="description">
+          {t("text")}
+        </Typography>
+      </MotionBox>
+      <MotionBox
         id="card-section"
         sx={style.cardSection}
-        data-aos-anchor-placement="top"
+        component='div'
+        initial='hidden'
+        animate={controls}
+        variants={scrollRightToLeft(0.3,2)}
       >
         <ChooseUsCard
           IconComponent={Difference}
           title={t("cards.0.title")}
           description={t("cards.0.description")}
-          data-aos="zoom-in"
-          data-aos-delay={200}
-          data-aos-duration="1200"
         />
         <ChooseUsCard
           IconComponent={Groups}
           title={t("cards.1.title")}
           description={t("cards.1.description")}
-          data-aos="zoom-in"
-          data-aos-delay={300}
-          data-aos-duration="1200"
         />
         <ChooseUsCard
           IconComponent={LaptopChromebook}
           title={t("cards.2.title")}
           description={t("cards.2.description")}
-          data-aos="zoom-in"
-          data-aos-delay={400}
-          data-aos-duration="1200"
         />
         <ChooseUsCard
           IconComponent={CardMembership}
           title={t("cards.3.title")}
           description={t("cards.3.description")}
-          data-aos="zoom-in"
-          data-aos-delay={500}
-          data-aos-duration="1200"
         />
-      </Box>
+      </MotionBox>
     </Box>
   );
 };

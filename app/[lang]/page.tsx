@@ -7,11 +7,11 @@ import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
 
-interface IHome {
-  params: {
-    lang: string;
-  };
-}
+  interface IHome {
+    params: {
+      lang: string;
+    };
+  }
 
 export default function Home({ params: { lang } }: IHome) {
   return (

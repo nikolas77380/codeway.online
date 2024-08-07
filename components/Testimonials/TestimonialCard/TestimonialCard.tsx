@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { dataTestimonialCard } from "@/src/mocks/TestimonialSection/dataTestimonialCard";
 
@@ -14,10 +14,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import AOS from "aos";
-
-import "aos/dist/aos.css";
-
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
@@ -25,13 +21,6 @@ import style from "../Testimonials.style";
 
 const TestimonialCard = () => {
   const [activeVideo, setActiveVideo] = useState<number | null>(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
 
   const handleVideoClick = (id: number) => {
     setActiveVideo(id);
@@ -47,9 +36,6 @@ const TestimonialCard = () => {
         loop
         modules={[Pagination, Navigation]}
         className="swiperContainer"
-        data-aos="fade-up"
-        data-aos-duration="2000"
-        data-aos-anchor-placement="top"
         breakpoints={{
           375: {
             slidesPerView: 1,
@@ -70,7 +56,7 @@ const TestimonialCard = () => {
         }}
       >
         {dataTestimonialCard.map((card) => (
-          <SwiperSlide key={card.id} className="sliderContainer">
+          <SwiperSlide className="sliderContainer" key={card.id}>
             <Box
               onClick={() => handleVideoClick(card.id)}
               sx={style.sliderWrapper}

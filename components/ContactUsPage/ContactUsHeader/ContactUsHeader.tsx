@@ -1,6 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { TFunction } from "i18next";
+
+import { MotionTypography } from "@/utils/motionElements";
+import { aboutUsPageScrollUp } from "@/utils/motionVariants";
+
 import style from "./ContactUsHeader.style";
 
 interface IContactUsHeader {
@@ -11,10 +15,23 @@ const ContactUsHeader = ({ t }: IContactUsHeader) => {
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <Typography sx={style.name}>{t("header.title")}</Typography>
-        <Typography variant="h5" sx={style.subtitle}>
+        <MotionTypography 
+          sx={style.name}
+          initial='hidden'
+          animate='visible'
+          variants={aboutUsPageScrollUp(0, 1)}
+        >
+          {t("header.title")}
+        </MotionTypography>
+        <MotionTypography 
+          variant="h5" 
+          sx={style.subtitle}
+          initial='hidden'
+          animate='visible'
+          variants={aboutUsPageScrollUp(0.3, 1)}
+        >
           {t("header.subtitle")}
-        </Typography>
+        </MotionTypography>
       </Box>
     </Box>
   );
