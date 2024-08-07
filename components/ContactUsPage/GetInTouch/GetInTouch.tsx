@@ -5,6 +5,8 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import { Box, IconButton, Typography } from "@mui/material";
 import { TFunction } from "i18next";
 import style from "./GetInTouch.style";
+import { MotionBox } from "@/utils/motionElements";
+import { aboutUsPageScroLeftToRight, contactUPagesscrollRightToLeft } from "@/utils/motionVariants";
 
 interface IGetInTouch {
   t: TFunction;
@@ -13,7 +15,12 @@ interface IGetInTouch {
 const GetInTouch = ({ t }: IGetInTouch) => {
   return (
     <Box sx={style.mainContainer}>
-      <Box sx={style.mainContent}>
+      <MotionBox 
+        sx={style.mainContent}
+        initial='hidden'
+        animate='visible'
+        variants={aboutUsPageScroLeftToRight(0.4, 1.2)}
+      >
         <Typography component="label">{t("get-in-touch.slogan")}</Typography>
         <Typography variant="h3" component="span">
           {t("get-in-touch.title")}
@@ -71,11 +78,16 @@ const GetInTouch = ({ t }: IGetInTouch) => {
             </Box>
           </Box>
         </Box>
-      </Box>
+      </MotionBox>
       <Box sx={style.mainContent2}>
-        <Box sx={style.container}>
+        <MotionBox 
+          sx={style.container}
+          initial='hidden'
+          animate='visible'
+          variants={contactUPagesscrollRightToLeft(0.4, 1.2)}
+        >
           <ContactUsForm />
-        </Box>
+        </MotionBox>
       </Box>
     </Box>
   );

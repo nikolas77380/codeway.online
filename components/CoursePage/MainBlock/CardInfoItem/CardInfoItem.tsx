@@ -9,11 +9,19 @@ import style from './CardInfoItem.style'
 
 interface CardInfoItemProps {
   isFixed?: boolean;
+  isBottom?: boolean;
 }
 
-const CardInfoItem = ({ isFixed = false }: CardInfoItemProps) => {
+const CardInfoItem = ({ isFixed = false, isBottom = false }: CardInfoItemProps) => {
   return (
-    <Box sx={{ ...style.cardInfoMainContainer, position: isFixed ? 'fixed' : 'static', top: isFixed ? '100px' : 'auto' }}>
+    <Box sx={{ 
+      ...style.cardInfoMainContainer, 
+      position: isFixed ? 'fixed' : 'static', 
+      top: isFixed && !isBottom ? '100px' : 'auto',
+      bottom: isBottom ? '0px' : 'auto',
+      transition: 'top 0.5s ease, bottom 0.5s ease',
+      }}
+    >
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayer />
         <Typography variant="h6" component='label'>
