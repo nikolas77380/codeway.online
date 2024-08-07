@@ -7,6 +7,7 @@ import OurValueSection from "@/components/AboutUsPage/OurValueSection/OurValueSe
 import WhoWeAre from "@/components/AboutUsPage/WhoWeAre/WhoWeAre";
 
 import { getTranslation } from "@/app/i18n";
+
 import style from "./AboutUs.style";
 import ContactInfo from "@/components/AboutUsPage/ContactInfo/ContactInfo";
 
@@ -24,7 +25,8 @@ export async function generateMetadata({ params: { lang } }: IAboutUs) {
   };
 }
 
-const AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
+const  AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
+
   const { t } = await getTranslation(lang, "AboutUsPage");
 
   return (

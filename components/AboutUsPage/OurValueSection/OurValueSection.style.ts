@@ -132,9 +132,11 @@ const style: { [key: string]: SxProps<Theme> } = {
     ml: "100px",
     "@media (max-width: 600px)": {
       ml: "0px",
-      mt: "160px",
-      mb: "220px",
+      mr: '0px',
+      mt: "260px",
+      mb: "20px",
       flexDirection: "column",
+      height: '400px'
     },
   },
 
@@ -144,7 +146,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    zIndex: 100,
+    zIndex: 9999,
   },
 
   iconPlay: {
@@ -181,11 +183,14 @@ const style: { [key: string]: SxProps<Theme> } = {
       width: "300px",
       height: "250px",
       "@media (max-width: 600px)": {
-        top: "-190px",
-        right: "-65px",
-        width: "200px",
-        height: "190px",
+        width: '700px',
+        height: "400px",
+        display: 'block !important',
+        position: 'relative',
       },
+    },
+    "@media (max-width: 600px)": {
+      height: '150px',
     },
   },
 
@@ -204,6 +209,7 @@ const style: { [key: string]: SxProps<Theme> } = {
         right: "-65px",
         width: "200px",
         height: "190px",
+        display: 'none'
       },
     },
   },
@@ -223,6 +229,7 @@ const style: { [key: string]: SxProps<Theme> } = {
         left: "-20px",
         width: "200px",
         height: "190px",
+        display: 'none'
       },
     },
   },
@@ -242,6 +249,7 @@ const style: { [key: string]: SxProps<Theme> } = {
         left: "-20px",
         width: "200px",
         height: "190px",
+        display: 'none'
       },
     },
   },

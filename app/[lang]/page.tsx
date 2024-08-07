@@ -9,11 +9,11 @@ import Header from "@/components/header/Header";
 import { Box } from "@mui/material";
 import style from "./page.style";
 
-interface IHome {
-  params: {
-    lang: string;
-  };
-}
+  interface IHome {
+    params: {
+      lang: string;
+    };
+  }
 
 export default function Home({ params: { lang } }: IHome) {
   return (
