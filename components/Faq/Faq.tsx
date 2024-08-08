@@ -10,7 +10,6 @@ import { useTranslation } from "@/app/i18n/client";
 
 import { motion } from 'framer-motion';
 
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { scrollDown } from "@/utils/motionVariants";
 
 import style from "./Faq.style";
@@ -29,18 +28,14 @@ const Faq = () => {
 
   const MotionBox = motion(Box);
 
-  const { ref, controls } = useScrollAnimation({
-    delay: 0,
-    duration: 1,
-  });
-
   return (
-    <Box sx={style.mainSection} ref={ref}>
+    <Box sx={style.mainSection}>
       <MotionBox
         sx={style.textSection}
         component='div'
         initial='hidden'
-        animate={controls}
+        whileInView='visible'
+        viewport={{once:true}}
         variants={scrollDown(0,1)}
       >
         <Typography variant="h6" component="span">

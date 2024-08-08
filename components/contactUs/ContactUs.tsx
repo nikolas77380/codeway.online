@@ -13,13 +13,14 @@ import Image from "next/image";
 import ContactUsModal from "./modal/ContactUsModal";
 
 import { motion } from "framer-motion";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+
 import { contactUsZoomIn } from "@/utils/motionVariants";
 
 import style from './ContactUs.style'
 
 const ContactUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   const handleOpenModal = () => setModalOpen(true);
   const handleCloseModal = () => setModalOpen(false);
@@ -28,18 +29,17 @@ const ContactUs = () => {
 
   const MotionBox = motion(Box);
 
-  const { ref } = useScrollAnimation({
-    delay: 0.1,
-    duration: 2,
-    threshold: 0,
-  });
+  const handleAnimationComplete = () => {
+    setHasAnimated(true);
+  };
 
   return (
-    <Box ref={ref}>
       <MotionBox
         sx={style.container}
-        initial='hidden'
-        animate='visible'
+        initial={hasAnimated ? false : "hidden"}
+        whileInView={!hasAnimated ? "visible" : undefined}
+        viewport={{once:true}}
+        onAnimationComplete={handleAnimationComplete}
         variants={contactUsZoomIn(0.3,1,[0, 0.5, 0.75, 1])}
       >
         <Box sx={style.backgroundOverlay}></Box>
@@ -67,7 +67,6 @@ const ContactUs = () => {
         </Box>
         <ContactUsModal open={modalOpen} handleClose={handleCloseModal} />
       </MotionBox>
-    </Box>
   );
 };
 

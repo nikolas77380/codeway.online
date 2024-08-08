@@ -2,9 +2,7 @@ import { TCourse } from "@/src/mocks/mocks";
 import { Box } from "@mui/material";
 import CourseItem from "./CourseItem/CourseItem";
 import style from "./CoursesList.style";
-import { ScrollAnimationWrapper } from "@/hooks/useScrollAnimationWrapper";
 import { MotionBox } from "@/utils/motionElements";
-import { ourValueScrollRightToLeft } from "@/utils/motionVariants";
 
 interface ICoursesList {
   coursesList: TCourse[];
@@ -12,18 +10,19 @@ interface ICoursesList {
 
 const CoursesList = ({ coursesList }: ICoursesList) => {
   return (
-    <ScrollAnimationWrapper threshold={0.1}>
-    <MotionBox 
-      sx={style.listWrapper}
-      initial='hidden'
-      animate='visible'
-      variants={ourValueScrollRightToLeft(1000, 0, 0.1, 1.7)}
-    >
+    <Box sx={style.listWrapper}>
       {coursesList.map((item, i) => (
-        <CourseItem key={i} course={item} />
+        <MotionBox 
+        initial={{opacity:0, scale:0.5}}
+        whileInView={{opacity:1, scale:1}}
+        transition={{duration:1}}
+        viewport={{once:true}}
+        key={i}
+      >
+        <CourseItem course={item} />
+        </MotionBox>
       ))}
-    </MotionBox>
-    </ScrollAnimationWrapper>
+    </Box>
   );
 };
 
