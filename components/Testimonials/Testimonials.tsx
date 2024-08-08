@@ -1,9 +1,15 @@
 import { Box, Typography } from "@mui/material";
 
-import TestimonialCard from "./TestimonialCard/TestimonialCard";
+import dynamic from "next/dynamic";
 
 import { getTranslation } from "@/app/i18n";
+
 import style from "./Testimonials.style";
+
+const TestimonialCardWithNoSSR = dynamic(
+  () => import("@/components/Testimonials/TestimonialCard/TestimonialCard"),
+  { ssr: false }
+);
 
 interface ITestimonials {
   lang: string;
@@ -22,7 +28,7 @@ const Testimonials = async ({ lang }: ITestimonials) => {
           {t("subtitle")}
         </Typography>
       </Box>
-      <TestimonialCard />
+      <TestimonialCardWithNoSSR />
     </Box>
   );
 };
