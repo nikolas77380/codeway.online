@@ -16,7 +16,6 @@ import { motion } from "framer-motion";
 import { useTranslation } from "@/app/i18n/client";
 
 import { scrollDown, scrollRightToLeft } from "@/utils/motionVariants";
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import style from "./ChooseUs.style";
 
@@ -29,17 +28,8 @@ const ChooseUs = () => {
 
   const MotionBox = motion(Box);
 
-  const { ref, controls } = useScrollAnimation({
-    delay: 0,
-    duration: 2,
-    threshold: 0.3,
-  });
-
   return (
-    <Box 
-      sx={style.mainSection}
-      ref={ref}
-    >
+    <Box sx={style.mainSection}>
       <Box sx={style.backgroundImageCenter}>
         <Image src={bgImage} fill alt="Background Image 1" />
       </Box>
@@ -48,7 +38,8 @@ const ChooseUs = () => {
         sx={style.textSection}
         component='div'
         initial='hidden'
-        animate='visible'
+        whileInView='visible'
+        viewport={{once:true}}
         variants={scrollDown(0,1)}
       >
         <Typography variant="body2" component="span">
@@ -66,7 +57,8 @@ const ChooseUs = () => {
         sx={style.cardSection}
         component='div'
         initial='hidden'
-        animate={controls}
+        whileInView='visible'
+        viewport={{once:true}}
         variants={scrollRightToLeft(0.3,2)}
       >
         <ChooseUsCard

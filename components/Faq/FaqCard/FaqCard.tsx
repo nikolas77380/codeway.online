@@ -8,8 +8,6 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import { motion } from 'framer-motion';
 
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-
 import style from '../Faq.style'
 
 interface FaqCardProps {
@@ -24,18 +22,15 @@ const FaqCard = ({ Icon, title, delay, description, ...rest }: FaqCardProps) => 
 
   const MotionBox = motion(Box);
 
-  const { ref, controls } = useScrollAnimation({
-    delay: 1,
-    threshold: 0.1,
-  });
-
   return (
-    <Box ref={ref}>
+    <Box>
       <MotionBox 
         sx={style.faqCardWrapper} 
         {...rest} 
         initial={{ y: 50, opacity: 0 }}
-        animate={controls}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1 }}
+        viewport={{once:true}}
       >
         {Icon && <Icon sx={style.iconSize} />}
         <Accordion sx={style.accordion}>
