@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 
 import { useEffect, useRef, useState } from 'react';
 
@@ -9,14 +9,11 @@ import KeyPointsItem from './KeyPointsItem/KeyPointsItem'
 import CourseLessons from './CourseLessons/CourseLessons';
 import CardInfoItem from './CardInfoItem/CardInfoItem';
 
+import { motion } from 'framer-motion';
+
 import { useWindowSize } from '@/hooks/useWindowSize';
 
 import style from './MainBlock.style'
-import useScrollPosition from '@/hooks/useScrollFixed';
-import { motion } from 'framer-motion';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { aboutUsPageScroLeftToRight } from '@/utils/motionVariants';
-
 
 const MainBlock = () => {
 
@@ -25,10 +22,9 @@ const MainBlock = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
 
-  const mainBlockRef = useRef<HTMLDivElement | null>(null);
-  const cardInfoRef = useRef<HTMLDivElement | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const { isFixed, bottom  } = useScrollPosition(mainBlockRef, cardInfoRef);
+  const MotionBox = motion(Box);
 
   useEffect(() => {
     setIsMobile(width !== undefined && width < 600);
@@ -40,11 +36,17 @@ const MainBlock = () => {
   };
 
   return (
-    <Box sx={style.mainContainer} ref={mainBlockRef}>
+    <Box sx={style.mainContainer} ref={scrollRef}>
       {isMobile && (
-        <Box sx={style.mobileCardInfoBlock}>
-          <CardInfoItem />
-        </Box>
+        <MotionBox 
+          sx={style.mobileCardInfoBlock}
+          initial={{ opacity: 0, y: 300 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: true }}
+        >
+          <CardInfoItem isMobile={isMobile} />
+        </MotionBox>
       )}
       <Box sx={style.mainContent}>
         <DescriptionItem />
@@ -52,8 +54,8 @@ const MainBlock = () => {
         <CourseLessons />
       </Box>
       {!isMobile && (
-        <Box sx={style.cardInfoBlock} ref={cardInfoRef} >
-          <CardInfoItem isFixed={isFixed} isBottom={bottom} />
+        <Box sx={style.cardInfoBlock}>
+          <CardInfoItem scrollRef={scrollRef} />
         </Box>
       )}
     </Box>
