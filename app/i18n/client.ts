@@ -55,9 +55,9 @@ export function useTranslation(ns: string, options?: {}) {
     }, [lang, i18n]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (cookies.i18next === lang) return;
+      if (cookies.i18nextLang === lang) return;
       setCookie(cookieName, lang, { path: "/" });
-    }, [lang, cookies.i18next, setCookie]);
+    }, [lang, cookies.i18nextLang, setCookie]);
   }
   return ret;
 }

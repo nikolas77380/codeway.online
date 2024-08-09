@@ -27,9 +27,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     flexDirection: "column",
     mt: "25px",
     gap: "15px",
-    "@media (max-width: 600px)": {
-      gap: "0.2rem",
-    },
   },
 
   faqCardWrapper: {
