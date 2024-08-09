@@ -1,5 +1,3 @@
-import { duration } from "@mui/material";
-
 export function scrollDown(delay?: number, duration?: number) {
   return {
     hidden: { y: -100, opacity: 0 },
@@ -314,6 +312,37 @@ export function contactInfoContainer() {
       opacity: 1,
       transition: {
         duration: 2,
+      },
+    },
+  };
+}
+
+export function textContainer() {
+  return {
+    visible: {
+      transition:{
+        staggerChildren:0.025
+    }
+    },
+  };
+}
+
+export function textAnimationItem() {
+  return {
+    hidden: {
+      y: '200%',
+      opacity: 0,
+      transition: {
+        ease: [0.455, 0.03, 0.515, 0.955],
+        duration: 0.55,
+      },
+    },
+    visible: {
+      y: '0',
+      opacity: 1,
+      transition: {
+        ease: [0.455, 0.03, 0.515, 0.955],
+        duration: 0.45,
       },
     },
   };
