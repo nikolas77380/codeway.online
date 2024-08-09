@@ -8,7 +8,7 @@ import style from "./TestimonialList.style";
 
 const TestimonialsList = () => {
   return (
-    <Swiper>
+    <Swiper slidesPerView={3} slidesPerGroupAuto>
       {[...Array(7)].map((_, index) => (
         <SwiperSlide key={index}>
           <Paper sx={style.item}>
