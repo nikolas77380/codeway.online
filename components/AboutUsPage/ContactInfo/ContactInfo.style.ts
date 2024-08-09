@@ -7,7 +7,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundColor: '#12141d',
     borderBottom: '1px solid rgba(66, 68, 78, 0.8)',
     '@media (max-width: 600px)': {
-      borderBottom: 'none'
+      borderBottom: 'none',
     },
   },
 
@@ -29,6 +29,9 @@ const style: { [key: string]: SxProps<Theme> } = {
         fontSize: '0.8rem',
       },
     },
+    '@media (max-width: 600px)': {
+      p: '1rem 1rem',
+    },
   },
 
   cardContainer: {
@@ -43,7 +46,11 @@ const style: { [key: string]: SxProps<Theme> } = {
     cursor: 'default',
     transformOrigin: 'right bottom',
     transition: 'all 0.6s cubic-bezier(0.23, 1, 0.320, 1)',
-    gap: '10px'
+    gap: '10px',
+    '@media (max-width: 600px)': {
+      width: '100%',
+      padding: '10px',
+    },
   },
 
   textSection: {
@@ -54,12 +61,19 @@ const style: { [key: string]: SxProps<Theme> } = {
     '& .title': {
       color: '#94a3b8',
       fontSize: '16px',
-      width: '150px'
+      width: '150px',
+      '@media (max-width: 600px)': {
+        fontSize: '14px',
+        width: '120px',
+      },
     },
     '& .subtitle': {
       color: '#fff',
       fontSize: '18px',
-      flexGrow: 1
+      flexGrow: 1,
+      '@media (max-width: 600px)': {
+        fontSize: '16px',
+      },
     },
   },
 
@@ -67,7 +81,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     height: '1px',
     backgroundColor: '#2c2e36',
-    margin: '10px 0'
+    margin: '10px 0',
+    '@media (max-width: 600px)': {
+      margin: '8px 0',
+    },
   },
 };
 
