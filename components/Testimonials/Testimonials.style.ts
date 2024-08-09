@@ -26,7 +26,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
   backgroundImage2: {
     position: "absolute",
-    bottom: 205,
+    top: -50,
     left: 0,
     right: 0,
     height: "350px",

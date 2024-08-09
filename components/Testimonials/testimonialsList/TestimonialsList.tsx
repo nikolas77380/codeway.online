@@ -13,14 +13,16 @@ const TestimonialsList = () => {
   return (
     <Swiper
       initialSlide={2}
-      style={{
-        padding: "20px",
-        "--swiper-pagination-color": "#a855f7",
-        "--swiper-pagination-bullet-inactive-color": "#FFF",
-        "--swiper-pagination-bullet-size": "10px",
-        maskImage:
-          "linear-gradient( to right, transparent, #000 10% 90%, transparent)",
-      }}
+      style={
+        {
+          padding: "20px",
+          "--swiper-pagination-color": "#a855f7",
+          "--swiper-pagination-bullet-inactive-color": "#FFF",
+          "--swiper-pagination-bullet-size": "10px",
+          maskImage:
+            "linear-gradient( to right, transparent, #000 10% 90%, transparent)",
+        } as React.CSSProperties
+      }
       speed={600}
       parallax={true}
       slidesPerView={"auto"}

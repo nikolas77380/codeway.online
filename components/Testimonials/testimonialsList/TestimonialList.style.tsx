@@ -6,6 +6,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: "320px",
     p: "15px",
     m: "auto",
+    mb: "25px",
     alignContent: "center",
     backgroundColor: "rgb(25,27,38,0.6)",
     maxWidth: "420px",
