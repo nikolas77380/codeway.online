@@ -1,20 +1,14 @@
 "use client";
 
-import { useState } from "react";
-
-import Image from "next/image";
-
-import { Box, IconButton } from "@mui/material";
-
-import { PlayIcon } from "./PlayIcon/PlayIcon";
-
-import ImageHeadContent from "./ImageHeadContent/ImageHeadContent";
-import VideoPlayer from "./VideoPlayer/VideoPlayer";
-
 import { URL_IMG_YOUTUBE } from "@/src/mocks/VideoItem/helper";
-
+import { Box, IconButton } from "@mui/material";
 import dynamic from "next/dynamic";
+import Image from "next/image";
+import { useState } from "react";
+import ImageHeadContent from "./ImageHeadContent/ImageHeadContent";
+import { PlayIcon } from "./PlayIcon/PlayIcon";
 import style from "./Video.style";
+import VideoPlayer from "./VideoPlayer/VideoPlayer";
 
 interface VideoItemProps {
   autoplay?: boolean;

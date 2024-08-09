@@ -30,6 +30,7 @@ const CardInfoVideoPlayer = () => {
           height="100%"
           src={course.videoLink}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          loading="lazy"
           allowFullScreen
         ></iframe>
       ) : (

@@ -1,6 +1,5 @@
-import { Box, Typography } from "@mui/material";
-
 import { getTranslation } from "@/app/i18n";
+import { Box, Typography } from "@mui/material";
 import style from "./Testimonials.style";
 import TestimonialsList from "./testimonialsList/TestimonialsList";
 
