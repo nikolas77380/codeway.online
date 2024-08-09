@@ -5,6 +5,7 @@ import theme from "@/src/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import { dir } from "i18next";
+import { RedHatText } from "../fonts";
 import { getTranslation } from "../i18n";
 import { languages } from "../i18n/settings";
 import "./globals.css";
@@ -34,7 +35,7 @@ export default function RootLayout({
   params: { lang },
 }: IRootLayout) {
   return (
-    <html lang={lang} dir={dir(lang)}>
+    <html lang={lang} dir={dir(lang)} className={RedHatText.className}>
       <body>
         <AppRouterCacheProvider options={{ key: "cw" }}>
           <ThemeProvider theme={theme}>

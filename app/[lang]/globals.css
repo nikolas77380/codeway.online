@@ -10,3 +10,8 @@ body {
   overflow-x: hidden;
   background-color: rgb(18, 20, 29);
 }
+
+main {
+  max-width: 1700;
+  margin: auto;
+}

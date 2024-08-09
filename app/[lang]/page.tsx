@@ -6,22 +6,18 @@ import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
-import { Box } from "@mui/material";
-import style from "./page.style";
 
-  interface IHome {
-    params: {
-      lang: string;
-    };
-  }
+interface IHome {
+  params: {
+    lang: string;
+  };
+}
 
 export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
-      <Box sx={style.mainSection}>
-        <Header lang={lang} />
-        <CoursesListBlock lang={lang} />
-      </Box>
+      <Header lang={lang} />
+      <CoursesListBlock lang={lang} />
       <Video />
       <ChooseUs />
       <Testimonials lang={lang} />
