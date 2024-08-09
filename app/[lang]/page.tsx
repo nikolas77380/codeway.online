@@ -7,15 +7,15 @@ import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
 
-  interface IHome {
-    params: {
-      lang: string;
-    };
-  }
+interface IHome {
+  params: {
+    lang: string;
+  };
+}
 
 export default function Home({ params: { lang } }: IHome) {
   return (
-    <main style={{ maxWidth: 1700, margin: "auto" }}>
+    <main style={{ maxWidth: "1700px", margin: "auto", padding: "15px" }}>
       <Header lang={lang} />
       <CoursesListBlock lang={lang} />
       <Video />

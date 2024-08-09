@@ -1,11 +1,9 @@
 import { getTranslation } from "@/app/i18n";
 
-import { coursesList } from "@/src/mocks/mocks";
-
 import { Box, Typography } from "@mui/material";
 
+import { coursesList } from "@/src/mocks/mocks";
 import CoursesList from "../common/coursesList/CoursesList";
-
 import style from "./CoursesListBlock.style";
 
 interface ICoursesListBlock {
@@ -24,7 +22,7 @@ const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
         <Typography variant="h6" sx={style.subtitle}>
           {t("subtitle")}
         </Typography>
-        <CoursesList coursesList={coursesList} />
+        <CoursesList coursesList={coursesList} lang={lang} />
       </Box>
     </Box>
   );

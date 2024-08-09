@@ -11,6 +11,19 @@ export function scrollDown(delay?: number, duration?: number) {
     },
   };
 }
+export function scrollUp(delay?: number, duration?: number) {
+  return {
+    hidden: { y: 100, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: delay,
+        duration: duration,
+      },
+    },
+  };
+}
 
 export function scrollRightToLeft(delay: number, duration: number) {
   return {
@@ -24,9 +37,26 @@ export function scrollRightToLeft(delay: number, duration: number) {
       },
     },
   };
-};
+}
+export function scrollLeftToRight(delay: number, duration: number) {
+  return {
+    hidden: { x: -500, opacity: 0 },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: delay,
+        duration: duration,
+      },
+    },
+  };
+}
 
-export function contactUsZoomIn(delay: number, duration: number, ease: Array<number>) {
+export function contactUsZoomIn(
+  delay: number,
+  duration: number,
+  ease: Array<number>
+) {
   return {
     hidden: { scale: 0, opacity: 0 },
     visible: {
@@ -39,7 +69,7 @@ export function contactUsZoomIn(delay: number, duration: number, ease: Array<num
       },
     },
   };
-};
+}
 
 export function aboutUsPageScrollUp(delay?: number, duration?: number) {
   return {
@@ -81,17 +111,17 @@ export function aboutUsPageImageZoom() {
         opacity: {
           delay: 0.5,
           duration: 1,
-          ease: 'ease',
+          ease: "ease",
         },
         scale: {
           delay: 0.5,
           duration: 1,
-          ease: 'easeIn',
+          ease: "easeIn",
         },
         x: {
           delay: 0.5,
           duration: 1,
-          ease: 'easeInOut',
+          ease: "easeInOut",
         },
       },
     },
@@ -108,10 +138,10 @@ export function ourValuescrollDown() {
       transition: {
         delay: 0,
         duration: 1,
-        ease: [0.42, 0, 0.58, 1]
+        ease: [0.42, 0, 0.58, 1],
       },
       active: {
-        position: 'absolute',
+        position: "absolute",
       },
     },
   };
@@ -126,13 +156,18 @@ export function ourValuescrollUp() {
       transition: {
         delay: 0.4,
         duration: 1,
-        ease: [0.42, 0, 0.58, 1]
+        ease: [0.42, 0, 0.58, 1],
       },
     },
   };
 }
 
-export function ourValueScrollRightToLeft(x?: number, opacity?: number, delay?: number, duration?: number) {
+export function ourValueScrollRightToLeft(
+  x?: number,
+  opacity?: number,
+  delay?: number,
+  duration?: number
+) {
   return {
     hidden: { x: x, opacity: opacity },
     visible: {
@@ -146,7 +181,12 @@ export function ourValueScrollRightToLeft(x?: number, opacity?: number, delay?: 
   };
 }
 
-export function ourValueMobileScrollRightToLeft(x?: number, opacity?: number, delay?: number, duration?: number) {
+export function ourValueMobileScrollRightToLeft(
+  x?: number,
+  opacity?: number,
+  delay?: number,
+  duration?: number
+) {
   return {
     hidden: { x: x, opacity: opacity },
     visible: {
@@ -160,7 +200,12 @@ export function ourValueMobileScrollRightToLeft(x?: number, opacity?: number, de
   };
 }
 
-export function ourValueScrollLeftToRight(x?: number, opacity?: number, delay?: number, duration?: number) {
+export function ourValueScrollLeftToRight(
+  x?: number,
+  opacity?: number,
+  delay?: number,
+  duration?: number
+) {
   return {
     hidden: { x: x, opacity: opacity },
     visible: {
@@ -171,7 +216,7 @@ export function ourValueScrollLeftToRight(x?: number, opacity?: number, delay?: 
         duration: duration,
       },
       active: {
-        position: 'absolute',
+        position: "absolute",
       },
     },
   };
@@ -189,7 +234,7 @@ export function teamScrollDown(delay?: number, duration?: number) {
       },
     },
   };
-};
+}
 
 export function teamCardsZoomIn() {
   return {
@@ -208,9 +253,12 @@ export function teamCardsZoomIn() {
       },
     },
   };
-};
+}
 
-export function contactUPagesscrollRightToLeft(delay?: number, duration?: number) {
+export function contactUPagesscrollRightToLeft(
+  delay?: number,
+  duration?: number
+) {
   return {
     hidden: { x: 1000, opacity: 0 },
     visible: {
@@ -224,7 +272,11 @@ export function contactUPagesscrollRightToLeft(delay?: number, duration?: number
   };
 }
 
-export function courseIdHeaderScrollUp(y?: number, delay?: number, duration?: number) {
+export function courseIdHeaderScrollUp(
+  y?: number,
+  delay?: number,
+  duration?: number
+) {
   return {
     hidden: { y: y, opacity: 0 },
     visible: {
