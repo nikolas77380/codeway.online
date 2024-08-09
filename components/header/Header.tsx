@@ -1,6 +1,6 @@
+import { permanent } from "@/app/fonts";
 import { getTranslation } from "@/app/i18n";
 import { Box, Button, Typography } from "@mui/material";
-import { Permanent_Marker } from "next/font/google";
 import Image from "next/image";
 import style from "./Header.style";
 import bgImage from "/public/assets/header/bg_header_1_.png";
@@ -8,11 +8,6 @@ import bgImage1 from "/public/assets/header/bg_header_3_.png";
 import Person from "/public/assets/header/img_2.png";
 import CodeIcon from "/public/assets/header/img_4.png";
 import VideoIcon from "/public/assets/header/img_5.png";
-
-const permanent = Permanent_Marker({
-  weight: ["400"],
-  subsets: ["latin"],
-});
 
 interface IHeader {
   lang: string;

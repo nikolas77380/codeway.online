@@ -13,16 +13,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundSize: "contain",
   },
 
-  backgroundImageCenter: {
-    width: 1,
-    height: 1,
-    position: "absolute",
-    top: "20%",
-    right: "10%",
-    bottom: 0,
-    zIndex: 0,
-  },
-
   textSection: {
     m: "25px 0",
     display: "flex",

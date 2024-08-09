@@ -27,7 +27,7 @@ export function scrollUp(delay?: number, duration?: number) {
 
 export function scrollRightToLeft(delay: number, duration: number) {
   return {
-    hidden: { x: 500, opacity: 0 },
+    hidden: { x: 300, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,
@@ -40,7 +40,7 @@ export function scrollRightToLeft(delay: number, duration: number) {
 }
 export function scrollLeftToRight(delay: number, duration: number) {
   return {
-    hidden: { x: -500, opacity: 0 },
+    hidden: { x: -300, opacity: 0 },
     visible: {
       x: 0,
       opacity: 1,

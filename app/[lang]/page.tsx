@@ -1,11 +1,11 @@
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import Faq from "@/components/Faq/Faq";
-import Testimonials from "@/components/Testimonials/Testimonials";
 import Video from "@/components/Video/Video";
 import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
+import TestimonialsBlock from "@/components/testimonialsBlock/TestimonialsBlock";
 
 interface IHome {
   params: {
@@ -15,12 +15,12 @@ interface IHome {
 
 export default function Home({ params: { lang } }: IHome) {
   return (
-    <main style={{ maxWidth: "1700px", margin: "auto", padding: "15px" }}>
+    <main>
       <Header lang={lang} />
       <CoursesListBlock lang={lang} />
       <Video />
       <ChooseUs />
-      <Testimonials lang={lang} />
+      <TestimonialsBlock lang={lang} />
       <Faq />
       <ContactUs />
       <CookieDialog />
