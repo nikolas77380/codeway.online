@@ -20,7 +20,8 @@ import {
   ourValuescrollDown, 
   ourValueScrollLeftToRight, 
   ourValueScrollRightToLeft, 
-  ourValuescrollUp 
+  ourValuescrollUp, 
+  ourValuescrollUpv2
 } from "@/utils/motionVariants";
 
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -119,7 +120,8 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             <MotionBox 
               sx={style.imgContainer}
               initial='hidden'
-              animate='visible'
+              whileInView='visible'
+              viewport={{ once: true }}
               variants={ourValueScrollRightToLeft(300, 0, 0.4, 1)}
             >
               <Image
@@ -132,8 +134,9 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             <MotionBox 
               sx={style.imgContainer2}
               initial='hidden'
-              animate='visible'
-              variants={ourValuescrollUp()}
+              whileInView='visible'
+              viewport={{ once: true }}
+              variants={ourValuescrollUpv2()}
             >
               <Image
                 src="/assets/aboutUs/creative-team.jpg"
@@ -145,7 +148,8 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             <MotionBox 
               sx={style.imgContainer3}
               initial='hidden'
-              animate='visible'
+              whileInView='visible'
+              viewport={{ once: true }}
               variants={ourValueScrollLeftToRight(-810, 0, 0.4, 1)}
             >
               <Image
@@ -158,7 +162,8 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             <MotionBox 
               sx={style.imgContainer4}
               initial='hidden'
-              animate='visible'
+              whileInView='visible'
+              viewport={{ once: true }}
               variants={ourValuescrollDown()}
             >
               <Image

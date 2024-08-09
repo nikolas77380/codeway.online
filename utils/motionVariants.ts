@@ -1,3 +1,5 @@
+import { duration } from "@mui/material";
+
 export function scrollDown(delay?: number, duration?: number) {
   return {
     hidden: { y: -100, opacity: 0 },
@@ -162,6 +164,20 @@ export function ourValuescrollUp() {
   };
 }
 
+export function ourValuescrollUpv2() {
+  return {
+    hidden: { y: 300, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 1,
+      },
+    },
+  };
+}
+
 export function ourValueScrollRightToLeft(
   x?: number,
   opacity?: number,
@@ -285,6 +301,19 @@ export function courseIdHeaderScrollUp(
       transition: {
         delay: delay,
         duration: duration,
+      },
+    },
+  };
+}
+
+export function contactInfoContainer() {
+  return {
+    hidden: { opacity: 0, x: "-25vw" },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 2,
       },
     },
   };
