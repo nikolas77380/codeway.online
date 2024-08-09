@@ -9,6 +9,7 @@ import WhoWeAre from "@/components/AboutUsPage/WhoWeAre/WhoWeAre";
 import { getTranslation } from "@/app/i18n";
 
 import style from "./AboutUs.style";
+import ContactInfo from "@/components/AboutUsPage/ContactInfo/ContactInfo";
 
 interface IAboutUs {
   params: {
@@ -35,6 +36,7 @@ const  AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
       <OurValueSection />
       <OurPopularClasses t={t} />
       <MeetOurTeam t={t} />
+      <ContactInfo />
     </Box>
   );
 };
