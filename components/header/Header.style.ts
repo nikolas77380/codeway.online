@@ -4,7 +4,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   headerContainer: {
     width: 1,
     backgroundColor: "#12141D",
-    m: "10px",
+    p: "10px",
   },
 
   contentWrapper: {
@@ -16,6 +16,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: `calc(100vh - 8rem)`,
     minHeight: "600px",
     borderRadius: "50px",
+    background: "linear-gradient(to bottom right, transparent, 90% , #A853F6)",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -36,7 +37,11 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: "100%",
     overflow: "hidden",
     zIndex: 0,
+    "@media (max-width: 1050px)": {
+      display: "none",
+    },
   },
+
   leftContainer: {
     pr: "15px",
     pl: "5px",

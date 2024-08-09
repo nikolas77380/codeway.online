@@ -1,5 +1,4 @@
-'use client'
-
+import { getTranslation } from "@/app/i18n";
 import { TCourse } from "@/src/mocks/mocks";
 import {
   Box,
@@ -9,22 +8,18 @@ import {
   Rating,
   Typography,
 } from "@mui/material";
-import "aos/dist/aos.css";
 import Link from "next/link";
 import style from "./CourseItem.style";
-import { useTranslation } from "@/app/i18n/client";
 
 interface ICourseItem {
   course: TCourse;
+  lang: string;
 }
-const CourseItem = ({ course }: ICourseItem) => {
+const CourseItem = async ({ course, lang }: ICourseItem) => {
+  const { t } = await getTranslation(lang, "CoursesList");
 
-  const { t } = useTranslation("CoursesList");
-  
   return (
-    <Paper
-      sx={style.container}
-    >
+    <Paper sx={style.container}>
       <CardMedia
         image={course.image}
         title={course.name}

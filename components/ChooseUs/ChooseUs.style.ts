@@ -7,16 +7,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "25px auto",
     p: "25px 25px",
     position: "relative",
-  },
-
-  backgroundImageCenter: {
-    width: 1,
-    height: 1,
-    position: "absolute",
-    top: '20%',
-    right: '10%',
-    bottom: 0,
-    zIndex: 0,
+    backgroundImage: "url(/assets/header/bg_header_1_.png)",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundSize: "contain",
   },
 
   textSection: {
