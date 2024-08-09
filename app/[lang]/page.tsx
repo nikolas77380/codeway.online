@@ -5,7 +5,7 @@ import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
-import TestimonialsBlock from "@/components/testimonialsBlock/TestimonialsBlock";
+import Testimonials from "@/components/testimonialsBlock/Testimonials";
 
 interface IHome {
   params: {
@@ -20,7 +20,7 @@ export default function Home({ params: { lang } }: IHome) {
       <CoursesListBlock lang={lang} />
       <Video />
       <ChooseUs />
-      <TestimonialsBlock lang={lang} />
+      <Testimonials lang={lang} />
       <Faq />
       <ContactUs />
       <CookieDialog />

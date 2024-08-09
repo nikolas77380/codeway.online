@@ -1,14 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
 import { getTranslation } from "@/app/i18n";
-import style from "./TestimonialsBlock.style";
+import style from "./Testimonials.style";
 import TestimonialsList from "./testimonialsList/TestimonialsList";
 
 interface ITestimonials {
   lang: string;
 }
 
-const TestimonialsBlock = async ({ lang }: ITestimonials) => {
+const Testimonials = async ({ lang }: ITestimonials) => {
   const { t } = await getTranslation(lang, "Testimonials");
 
   return (
@@ -24,4 +24,4 @@ const TestimonialsBlock = async ({ lang }: ITestimonials) => {
   );
 };
 
-export default TestimonialsBlock;
+export default Testimonials;
