@@ -1,11 +1,17 @@
 import { Box, Typography } from "@mui/material"
 
-import CardInfoVideoPlayer from "./CardInfoVideoPlayer";
+import dynamic from "next/dynamic";
+
 import CardInfoAvatar from "./CardInfoAvatar";
 import CardInfoIncludes from "./CardInfoIncludes";
 import CardInfoLinkButton from "./CardInfoLinkButton";
 
 import style from './CardInfoItem.style'
+
+const CardInfoVideoPlayerWithNoSSR = dynamic(
+  () => import("@/components/CoursePage/MainBlock/CardInfoItem/CardInfoVideoPlayer"),
+  { ssr: false }
+);
 
 interface CardInfoItemProps {
   isFixed?: boolean;
@@ -23,7 +29,7 @@ const CardInfoItem = ({ isFixed = false, isBottom = false }: CardInfoItemProps) 
       }}
     >
       <Box sx={style.cardInfoContainer}>
-        <CardInfoVideoPlayer />
+        <CardInfoVideoPlayerWithNoSSR />
         <Typography variant="h6" component='label'>
           Instructor
         </Typography>
