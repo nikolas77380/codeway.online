@@ -6,10 +6,11 @@ import { classesData } from "@/src/mocks/AboutUsPage/dataPopularClasses";
 
 import { TFunction } from "i18next";
 
-import { MotionBox } from "@/utils/motionElements";
-import { scrollRightToLeft } from "@/utils/motionVariants";
+import { MotionBox, MotionTypography } from "@/utils/motionElements";
+import { scrollRightToLeft, textContainer } from "@/utils/motionVariants";
 
 import style from "./OurPopularClasses.style";
+import TextAnimation from "./TextAnimation";
 
 const ScrollAnimationWrapper = dynamic(
   () => import("@/hooks/useScrollAnimationWrapper").then((mod) => mod.ScrollAnimationWrapper),
@@ -23,14 +24,20 @@ interface IPopularClasses {
 const OurPopularClasses = ({ t }: IPopularClasses) => {
 
   const numRows = Math.ceil(classesData.length / 3);
-  const rows = Array(Math.ceil(classesData.length / 3)).fill(null);
+  const rows = Array(Math.ceil(classesData.length / 3)).fill(null);  
 
   return (
     <Box sx={style.mainContainer}>
       <Box sx={style.popularClassesContainer}>
-        <Typography variant="h3" component="span">
-          {t("popular-classes.title")}
-        </Typography>
+      <ScrollAnimationWrapper threshold={0.2}>
+        <MotionBox
+          initial="hidden"
+          animate="visible"
+          variants={textContainer()}
+        >
+          <TextAnimation text={t('popular-classes.title')} />
+        </MotionBox>
+        </ScrollAnimationWrapper>
         <Box sx={style.separatorShort} />
         {rows.map((_, rowIndex) => (
           <ScrollAnimationWrapper

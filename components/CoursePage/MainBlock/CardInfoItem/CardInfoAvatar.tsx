@@ -4,7 +4,7 @@ import { Box, Typography } from '@mui/material'
 
 import Avatar from '@mui/material/Avatar';
 
-import style from './/CardInfoItem.style'
+import style from './CardInfoItem.style'
 import { useCourse } from '@/src/context/CourseContext';
 
 const CardInfoAvatar = () => {

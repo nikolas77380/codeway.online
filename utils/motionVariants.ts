@@ -162,6 +162,20 @@ export function ourValuescrollUp() {
   };
 }
 
+export function ourValuescrollUpv2() {
+  return {
+    hidden: { y: 300, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.2,
+        duration: 1,
+      },
+    },
+  };
+}
+
 export function ourValueScrollRightToLeft(
   x?: number,
   opacity?: number,
@@ -285,6 +299,50 @@ export function courseIdHeaderScrollUp(
       transition: {
         delay: delay,
         duration: duration,
+      },
+    },
+  };
+}
+
+export function contactInfoContainer() {
+  return {
+    hidden: { opacity: 0, x: "-25vw" },
+    visible: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 2,
+      },
+    },
+  };
+}
+
+export function textContainer() {
+  return {
+    visible: {
+      transition:{
+        staggerChildren:0.025
+    }
+    },
+  };
+}
+
+export function textAnimationItem() {
+  return {
+    hidden: {
+      y: '200%',
+      opacity: 0,
+      transition: {
+        ease: [0.455, 0.03, 0.515, 0.955],
+        duration: 0.55,
+      },
+    },
+    visible: {
+      y: '0',
+      opacity: 1,
+      transition: {
+        ease: [0.455, 0.03, 0.515, 0.955],
+        duration: 0.45,
       },
     },
   };

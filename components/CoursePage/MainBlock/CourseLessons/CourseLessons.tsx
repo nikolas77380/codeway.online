@@ -8,6 +8,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import { useCourse } from '@/src/context/CourseContext';
 
+import { MotionBox, MotionTypography } from '@/utils/motionElements';
+import { scrollLeftToRight, scrollUp } from '@/utils/motionVariants';
+
 import style from './CourseLessons.style'
 
 const CourseLessons = () => {
@@ -22,11 +25,25 @@ const CourseLessons = () => {
 
   return (
     <Box sx={style.mainCourseLessonsContainer}>
-      <Typography variant='h5' component='span'>  
+      <MotionTypography 
+        variant='h5' 
+        component='span'
+        initial='hidden'
+        whileInView='visible'
+        variants={scrollLeftToRight(0.6, 1.4)}
+        viewport={{once: true}}
+      >  
         Course Lessons
-      </Typography>
+      </MotionTypography>
       {course.lessons.map((lesson, index) => (
-        <Box key={index} sx={style.accordionMainContainer}>
+        <MotionBox 
+          key={index} 
+          sx={style.accordionMainContainer}
+          initial='hidden'
+          whileInView='visible'
+          viewport={{once: true}}
+          variants={scrollUp(index*0.4, 1.2)}
+        >
           <Accordion 
             sx={style.accordion}
             expanded={expanded === `panel${index}`}
@@ -88,7 +105,7 @@ const CourseLessons = () => {
               </Typography>
             </AccordionDetails>
           </Accordion>
-        </Box>
+        </MotionBox>
       ))}
     </Box>
   )

@@ -4,6 +4,8 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./Testimonials.style";
 import TestimonialsList from "./testimonialsList/TestimonialsList";
+import { MotionTypography } from "@/utils/motionElements";
+import { courseIdHeaderScrollUp } from "@/utils/motionVariants";
 
 interface ITestimonials {
   lang: string;
@@ -20,12 +22,26 @@ const Testimonials = async ({ lang }: ITestimonials) => {
       <Box sx={style.backgroundImage2}>
         <Image src={bgImage1} fill alt="Background Image 1" priority />
       </Box>
-      <Typography variant="body2" component={"p"}>
+      <MotionTypography 
+        variant="body2" 
+        component={"p"}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{once: true}}
+        variants={courseIdHeaderScrollUp(50, 0.2, 0.7)}
+      >
         {t("title")}
-      </Typography>
-      <Typography variant="h2" component={"p"}>
+      </MotionTypography>
+      <MotionTypography 
+        variant="h2" 
+        component={"p"}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{once: true}}
+        variants={courseIdHeaderScrollUp(80, 0, 1)}
+      >
         {t("subtitle")}
-      </Typography>
+      </MotionTypography>
       <TestimonialsList />
     </Box>
   );

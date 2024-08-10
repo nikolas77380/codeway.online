@@ -6,7 +6,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundColor: '#12141d',
     p: '3rem 18rem',
     width: 1,
-    gap: '20px',
+    gap: '80px',
     height: 'auto',
     position: 'relative',
     '@media (max-width: 600px)': {
