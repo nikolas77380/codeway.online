@@ -88,7 +88,7 @@ const Menu = ({ lang }: IMenu) => {
             ))}
           </Select>
           <Box sx={style.routeSectionDesktop}>
-            <Link href={""} sx={style.logoLink}>
+            <Link href={"/courses"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("course")}</Typography>
             </Link>
             <Link href={"/contact-us"} sx={style.logoLink}>
@@ -113,7 +113,7 @@ const Menu = ({ lang }: IMenu) => {
         <Box sx={style.modalContainer}>
           {menuOpen && (
             <Box sx={style.mobileMenu} ref={menuRef}>
-              <Link href={""} sx={style.mobileMenuItem}>
+              <Link href={"/courses"} sx={style.mobileMenuItem}>
                 {t("course")}
               </Link>
               <Link href={"/contact-us"} sx={style.mobileMenuItem}>
