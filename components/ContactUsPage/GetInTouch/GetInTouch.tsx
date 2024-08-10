@@ -19,7 +19,7 @@ const GetInTouch = ({ t }: IGetInTouch) => {
         sx={style.mainContent}
         initial='hidden'
         animate='visible'
-        variants={aboutUsPageScroLeftToRight(0.4, 1.2)}
+        variants={aboutUsPageScroLeftToRight(0.7, 1.2)}
       >
         <Typography component="label">{t("get-in-touch.slogan")}</Typography>
         <Typography variant="h3" component="span">
@@ -84,7 +84,7 @@ const GetInTouch = ({ t }: IGetInTouch) => {
           sx={style.container}
           initial='hidden'
           animate='visible'
-          variants={contactUPagesscrollRightToLeft(0.4, 1.2)}
+          variants={contactUPagesscrollRightToLeft(0.7, 1.2)}
         >
           <ContactUsForm />
         </MotionBox>
