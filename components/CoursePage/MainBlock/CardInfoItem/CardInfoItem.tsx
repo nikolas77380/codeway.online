@@ -13,6 +13,7 @@ import CardInfoIncludes from "./CardInfoIncludes";
 import CardInfoLinkButton from "./CardInfoLinkButton";
 
 import style from './CardInfoItem.style'
+import { scrollRightToLeft } from "@/utils/motionVariants";
 
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () => import("@/components/CoursePage/MainBlock/CardInfoItem/CardInfoVideoPlayer"),
@@ -36,7 +37,14 @@ const CardInfoItem = ({ scrollRef, isMobile }: MotionCardInfoItemProps) => {
   const translateY = useTransform(scrollYProgress, [0, 1.5], ['0%', '150%']);
 
   return (
-    <MotionBox sx={style.cardInfoMainContainer} style={isMobile ? {} : { translateY }}>
+    <MotionBox 
+      sx={style.cardInfoMainContainer} 
+      style={isMobile ? {} : { translateY }}
+      initial='hidden'
+      whileInView='visible'
+      viewport={{once: true}}
+      variants={scrollRightToLeft(0.4, 1.4)}
+    >
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayerWithNoSSR />
         <Typography variant="h6" component='label'>

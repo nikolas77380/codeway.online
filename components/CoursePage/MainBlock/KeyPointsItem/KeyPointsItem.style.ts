@@ -5,6 +5,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     paddingTop: '3rem',
     width: 1,
     height: 1,
+    display: 'flex',
+    flexDirection: 'column',
     '& span': {
       color: '#fff',
       fontSize: '1.3rem',
