@@ -7,6 +7,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     p: '7rem 18rem',
     width: 1,
     height: 1,
+    minHeight: '100vh',
     position: 'relative',
     '@media (max-width: 900px)': {
       p: '2rem 1rem',

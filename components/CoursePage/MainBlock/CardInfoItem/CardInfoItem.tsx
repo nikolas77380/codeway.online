@@ -34,7 +34,7 @@ const CardInfoItem = ({ scrollRef, isMobile }: MotionCardInfoItemProps) => {
     offset: ['start start', 'end end'],
   });
 
-  const translateY = useTransform(scrollYProgress, [0, 1.5], ['0%', '150%']);
+  const translateY = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
 
   return (
     <MotionBox 
