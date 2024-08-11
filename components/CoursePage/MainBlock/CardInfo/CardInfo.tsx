@@ -9,7 +9,6 @@ import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
-import VideoChatIcon from "@mui/icons-material/VideoChat";
 import { Avatar, Box, Button, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Link from "next/link";
@@ -74,14 +73,10 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
           <Box sx={style.includesContainers}>
-            <VideoChatIcon />
+            <CardMembershipIcon />
             <Typography component="span">{t("cardInfo.includes4")}</Typography>
           </Box>
           <Box sx={style.dashSeparator} />
-          <Box sx={style.includesContainers}>
-            <CardMembershipIcon />
-            <Typography component="span">{t("cardInfo.includes5")}</Typography>
-          </Box>
         </Box>
         <Link href={course.link}>
           <Button variant="contained" sx={style.cardInfoButton}>

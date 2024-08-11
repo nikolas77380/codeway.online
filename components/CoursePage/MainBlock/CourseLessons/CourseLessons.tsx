@@ -51,7 +51,7 @@ const CourseLessons = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={scrollUp(index * 0.4, 1.2)}
+          variants={scrollUp(index * 0.2, 1.2)}
         >
           <Accordion
             sx={style.accordion}
