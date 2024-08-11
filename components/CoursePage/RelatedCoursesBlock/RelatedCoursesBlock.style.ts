@@ -8,7 +8,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundPosition: "center",
     m: "auto",
     marginTop: "40px",
-    width: "min(90%, 1280px)",
+    mb: "50px",
+    maxWidth: "1500px",
+    width: 1,
     color: "#fff",
     "& span": {
       fontWeight: "600",
@@ -22,9 +24,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   headContainer: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    ml: "25px",
   },
 
   button: {

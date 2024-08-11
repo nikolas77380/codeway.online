@@ -1,43 +1,42 @@
 import { getTranslation } from "@/app/i18n";
-import { TCourse } from "@/src/mocks/mocks";
-import {
-  Box,
-  Button,
-  CardMedia,
-  Paper,
-  Rating,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Paper, Rating, Typography } from "@mui/material";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import style from "./CourseItem.style";
 
 interface ICourseItem {
-  course: TCourse;
+  id: number;
+  image: StaticImageData;
+  name: string;
+  price: string;
+  rating: number;
   lang: string;
 }
-const CourseItem = async ({ course, lang }: ICourseItem) => {
+const CourseItem = async ({
+  id,
+  image,
+  name,
+  price,
+  rating,
+  lang,
+}: ICourseItem) => {
   const { t } = await getTranslation(lang, "CoursesList");
 
   return (
     <Paper sx={style.container}>
-      <CardMedia
-        image={course.image}
-        title={course.name}
-        sx={{ height: 200 }}
+      <Image
+        src={image}
+        alt={name}
+        style={{ width: "100%", height: "200px" }}
       />
       <Box sx={style.contentWrapper}>
         <Typography variant="h6" sx={style.name}>
-          {course.name}
+          {name}
         </Typography>
         <Box>
-          <Typography sx={style.price}>{course.price}</Typography>
-          <Rating
-            size="small"
-            value={course.rating}
-            readOnly
-            sx={style.rating}
-          />
-          <Link href={`/courses/${course.id}`}>
+          <Typography sx={style.price}>{price}</Typography>
+          <Rating size="small" value={rating} readOnly sx={style.rating} />
+          <Link href={`/courses/${id}`}>
             <Button variant="contained" size="medium" sx={style.courseButton}>
               {t("button")}
             </Button>

@@ -2,7 +2,7 @@ import { getTranslation } from "@/app/i18n";
 
 import { Box, Typography } from "@mui/material";
 
-import { coursesList } from "@/src/mocks/mocks";
+import { coursesInfoList } from "@/src/mocks/mocks";
 import CoursesList from "../common/coursesList/CoursesList";
 import style from "./CoursesListBlock.style";
 
@@ -22,7 +22,7 @@ const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
         <Typography variant="h6" sx={style.subtitle}>
           {t("subtitle")}
         </Typography>
-        <CoursesList coursesList={coursesList} lang={lang} />
+        <CoursesList coursesList={coursesInfoList} lang={lang} />
       </Box>
     </Box>
   );

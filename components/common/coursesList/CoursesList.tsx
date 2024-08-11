@@ -1,11 +1,11 @@
-import { TCourse } from "@/src/mocks/mocks";
+import { TCourseInfo } from "@/src/mocks/mocks";
 import { MotionBox } from "@/utils/motionElements";
 import { Box } from "@mui/material";
 import CourseItem from "./CourseItem/CourseItem";
 import style from "./CoursesList.style";
 
 interface ICoursesList {
-  coursesList: TCourse[];
+  coursesList: TCourseInfo[];
   lang: string;
 }
 
@@ -20,7 +20,7 @@ const CoursesList = ({ coursesList, lang }: ICoursesList) => {
           viewport={{ once: true }}
           key={i}
         >
-          <CourseItem course={item} lang={lang} />
+          <CourseItem {...item} lang={lang} />
         </MotionBox>
       ))}
     </Box>

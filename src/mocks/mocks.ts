@@ -1,72 +1,12 @@
-export type TCourse = {
-  id: number;
-  name: string;
-  price: string;
-  rating: number;
-  link: string;
-  image: string;
-};
+import Html_Css from "@/public/assets/coursesListBlock/html_css.png";
+import ReactLogo from "@/public/assets/coursesListBlock/Reactjs.png";
+import { StaticImageData } from "next/image";
 
-export const coursesList: TCourse[] = [
-  {
-    id: 0,
-    name: "UI/UX Design for Web and Mobile for Kids UI/UX Design for Web and Mobile for Kids",
-    price: "$39.99",
-    rating: 4.5,
-    link: "link",
-    image:
-      "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/schoolgirl-using-tablet-computer-at-home-learning-having-fun-online-1024x682.jpg",
-  },
-  {
-    id: 1,
-    name: "Introduction to Python Programming",
-    price: "$39.99",
-    rating: 4.5,
-    link: "link",
-    image:
-      "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/happy-female-student-using-desktop-pc-during-computer-class-and-looking-at-camera--1024x682.jpg",
-  },
-  // {
-  //   name: "Data Science and Machine Learning Essentials",
-  //   price: "$39.99",
-  //   rating: 4.5,
-  //   link: "link",
-  //   image:
-  //     "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/team-of-innovators--1024x691.jpg",
-  // },
-  // {
-  //   name: "Ethical Hacking and Penetration Testing",
-  //   price: "$39.99",
-  //   rating: 4.5,
-  //   link: "link",
-  //   image:
-  //     "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/happy-black-student-using-laptop-while-learning-with-her-friends-in-a-cafe--1024x682.jpg",
-  // },
-  // {
-  //   name: "UI/UX Design for Web and Mobile for Kids",
-  //   price: "$39.99",
-  //   rating: 4.5,
-  //   link: "link",
-  //   image:
-  //     "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/schoolgirl-using-tablet-computer-at-home-learning-having-fun-online-1024x682.jpg",
-  // },
-  // {
-  //   name: "Introduction to Python Programming",
-  //   price: "$39.99",
-  //   rating: 4.5,
-  //   link: "link",
-  //   image:
-  //     "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/happy-female-student-using-desktop-pc-during-computer-class-and-looking-at-camera--1024x682.jpg",
-  // },
-  // {
-  //   name: "Data Science and Machine Learning Essentials",
-  //   price: "$39.99",
-  //   rating: 4.5,
-  //   link: "link",
-  //   image:
-  //     "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/team-of-innovators--1024x691.jpg",
-  // },
-];
+export type TInstructor = {
+  name: string;
+  image: string;
+  rank: string;
+};
 
 export type TCourseInfo = {
   id: number;
@@ -79,162 +19,341 @@ export type TCourseInfo = {
   rating: number;
   link: string;
   videoLink: string;
-  image: string;
+  image: StaticImageData;
   description: string;
   keyPoints: string[];
   lessons: {
     lessonTopic: string;
-    lessonsList: {
-      id: number;
-      lessonName: string;
-      lessonDescription: string;
-    }[];
+    lessonsList: string[];
   }[];
-  instructor: {
-    name: string;
-    image: string;
-    rank: string;
-  };
   courseDuration: number;
+};
+
+export const courseInstructor: TInstructor = {
+  name: "Nik",
+  rank: "senior",
+  image: "/assets/header/img_2.png",
 };
 
 export const coursesInfoList: TCourseInfo[] = [
   {
     id: 0,
-    topic: "DATA SCIENCE AND AI",
-    name: "UI/UX Design for Web and Mobile for Kids UI/UX Design for Web and Mobile for Kids",
+    link: "/",
+    videoLink: "",
+    image: Html_Css,
+    topic: "Front-end",
+    name: "Легкий старт 1.0",
     shortDescription:
-      "Ultricies cubilia fermentum nascetur metus torquent finibus semper curae conubia sociosqu tempus molestie viverra",
-    students: 4721,
-    lastUpdated: "25/7/2024",
-    price: "$39.99",
-    rating: 4.5,
-    link: 'link',
-    videoLink: "https://www.youtube.com/embed/8Kmd4Jx9gb0?si=U_LQs1EwZFz2kyVa&autoplay=0",
-    image:
-      "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/schoolgirl-using-tablet-computer-at-home-learning-having-fun-online-1024x682.jpg",
+      "Зробіть свій перший крок у світ веб-розробки та дізнайтесь, чи це ваше покликання.",
+    students: 378,
+    lastUpdated: "10/08/24",
+    rating: 5,
+    price: "555.55",
+    courseDuration: 60,
     description:
-      "Si est arcu litora cursus magnis. Dictum curae primis nascetur arcu dictumst vel eleifend. Dis cursus massa morbi parturient dictumst rhoncus dictum est ornare sed ultricies. Tristique libero pretium platea maecenas fermentum dolor eros montes diam si. \t Si est arcu litora cursus magnis. Dictum curae primis nascetur arcu dictumst vel eleifend. Dis cursus massa morbi parturient dictumst rhoncus dictum est ornare sed ultricies. Tristique libero pretium platea maecenas fermentum dolor eros montes diam si.",
+      "«ЛЕГКИЙ СТАРТ 1.0» — це базовий курс для тих, хто хоче зробити перші кроки у веб-розробці та зрозуміти, чи підходить їм ця сфера. Курс допоможе освоїти основи HTML і CSS, створити свій перший простий веб-сайт, і визначити, чи є у вас здібності та інтерес до розробки. Ви отримаєте базові знання про те, як працює інтернет, веб-сайти, а також як правильно структуризувати та стилізувати контент. Курс розділений на чотири модулі, кожен з яких поступово занурює вас у різні аспекти веб-розробки, від основ до більш просунутих тем. Цей курс є ідеальним вибором для початківців, які бажають отримати уявлення про веб-розробку та зробити перший крок у цій захоплюючій сфері.",
     keyPoints: [
-      "Fusce himenaeos imperdiet sodales aptent dictum ex volutpat",
-      "Consequat elementum ornare ligula viverra libero",
-      "Ullamcorper nam habitant blandit finibus dis tempus gravida",
-      "Fusce himenaeos imperdiet sodales aptent dictum ex volutpat",
-      "Consequat elementum ornare ligula viverra libero",
-      "Ullamcorper nam habitant blandit finibus dis tempus gravida",
+      "Знайомство з основами веб-розробки: Вивчення принципів роботи інтернету, веб-сайтів та ролі HTML, CSS у створенні веб-сторінок",
+      "Освоєння базових HTML тегів: Розуміння структури HTML-документа, робота з основними тегами для створення контенту, включаючи списки, зображення, посилання та таблиці",
+      "Основи стилізації за допомогою CSS: Навчання застосування CSS для покращення зовнішнього вигляду веб-сторінок за допомогою вбудованих, внутрішніх та зовнішніх стилів",
+      "Поглиблене використання CSS для стилізації: Робота з бокс-моделлю, позиціонуванням елементів, налаштуванням шрифтів і адаптивним дизайном за допомогою медіа-запитів",
+      "Опанування FlexBox та Grid: Вивчення сучасних методів верстання для створення гнучких та адаптивних макетів веб-сторінок",
+      "Перевірка схильності до розробки: Курс допоможе зрозуміти, чи підходить вам веб-розробка, і чи варто продовжувати вивчати цю сферу на більш глибокому рівні.",
     ],
     lessons: [
       {
-        lessonTopic: "html",
+        lessonTopic: "HTML",
         lessonsList: [
-          {
-            id: 1,
-            lessonName:
-              "Cras eu ultricies lorem maximus nulla vitae dapibus duis",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
-          {
-            id: 2,
-            lessonName: "Dictum platea eu rutrum congue tortor augue fames vel",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
+          "Що таке інтернет і як він працює",
+          "Як працюють веб сайти і для чого потрібні HTML, CSS, JavaScript",
+          "Інструменти для веб розробки",
+          "HTML теги",
+          "Семантика в HTML",
+          "Структура HTML",
+          "Списки HTML",
+          "Додавання зображень в HTML",
+          "Додавання посилань в HTML",
+          "HTML таблиці",
+          "HTML форми",
+          "​​IFrame",
         ],
       },
       {
-        lessonTopic: "css",
+        lessonTopic: "Базовий CSS",
         lessonsList: [
-          {
-            id: 3,
-            lessonName: "Viverra fusce iaculis aenean ultricies",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
-          {
-            id: 4,
-            lessonName: "Viverra fusce iaculis aenean ultricies",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
+          "Вступ до CSS",
+          "Вбудований CSS",
+          "Внутрішній CSS",
+          "Зовнішній CSS",
+          "Class селектор",
+          "ID селектор",
+          "Псевдо-класи та псевдо-елементи",
+        ],
+      },
+      {
+        lessonTopic: "Просунутий CSS",
+        lessonsList: [
+          "Стилізація CV веб сайту",
+          "Що таке favicons",
+          "HTML div",
+          "Стилізація за допомогою бокс моделі",
+          "Властивість CSS - display",
+          "CSS float and clear",
+          "Статичне і відносне позиціонування",
+          " Абсолютне позиціонування",
+          " Розташування елементів по центру",
+          " Шрифти для веб сайту",
+          " CSS Sizing",
+          " Media queries",
+        ],
+      },
+      {
+        lessonTopic: "FlexBox & Grid",
+        lessonsList: [
+          "Flex",
+          "Flex direction",
+          "Flex layout",
+          "Flex sizing",
+          "Grid",
+          "Grid sizing",
+          "Grid placement",
         ],
       },
     ],
-    instructor: {
-      name: "Joshua Hamilton",
-      image:
-        "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/3.jpg",
-      rank: "Data Science Expert",
-    },
-    courseDuration: 62,
   },
+
   {
     id: 1,
-    topic: "Python for begginers",
-    name: "Introduction to Python Programming",
+    link: "/",
+    videoLink: "",
+    image: ReactLogo,
+    topic: "Front-end",
+    name: "Повний Курс 2.0",
     shortDescription:
-      "Ultricies cubilia fermentum nascetur metus torquent finibus semper curae conubia sociosqu tempus molestie viverra",
-    students: 4721,
-    lastUpdated: "25/7/2024",
-    price: "$39.99",
-    rating: 4.5,
-    link: "link",
-    videoLink: "https://www.youtube.com/embed/8Kmd4Jx9gb0?si=U_LQs1EwZFz2kyVa&autoplay=0",
-    image:
-      "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/happy-female-student-using-desktop-pc-during-computer-class-and-looking-at-camera--1024x682.jpg",
+      "Отримайте всі необхідні навички для створення сучасних веб-сайтів і станьте професійним фронтенд-розробником.",
+    students: 1378,
+    lastUpdated: "10/09/24",
+    rating: 5,
+    price: "5555.55",
+    courseDuration: 60,
     description:
-      "Si est arcu litora cursus magnis. Dictum curae primis nascetur arcu dictumst vel eleifend. Dis cursus massa morbi parturient dictumst rhoncus dictum est ornare sed ultricies. Tristique libero pretium platea maecenas fermentum dolor eros montes diam si. \t Si est arcu litora cursus magnis. Dictum curae primis nascetur arcu dictumst vel eleifend. Dis cursus massa morbi parturient dictumst rhoncus dictum est ornare sed ultricies. Tristique libero pretium platea maecenas fermentum dolor eros montes diam si.",
+      "«Повний Курс» — це комплексна програма, що охоплює всі аспекти фронтенд-розробки, починаючи з системи контролю версій і закінчуючи основами React. Курс призначений для тих, хто хоче отримати глибокі знання у веб-розробці та навички, необхідні для створення сучасних веб-сайтів. Ви дізнаєтеся про основи JavaScript, обробку подій, асинхронне програмування, об’єктно-орієнтоване програмування та багато іншого.",
     keyPoints: [
-      "Fusce himenaeos imperdiet sodales aptent dictum ex volutpat",
-      "Consequat elementum ornare ligula viverra libero",
-      "Ullamcorper nam habitant blandit finibus dis tempus gravida",
-      "Fusce himenaeos imperdiet sodales aptent dictum ex volutpat",
-      "Consequat elementum ornare ligula viverra libero",
-      "Ullamcorper nam habitant blandit finibus dis tempus gravida",
+      "Основи JavaScript: вивчення базових концепцій JavaScript, включаючи змінні, типи даних, умови, цикли та функції.",
+      "Області видимості та функції: глибоке розуміння функцій, їх аргументів, області видимості, а також використання функцій вищого порядку.",
+      "Робота з масивами та об'єктами: навчання створення та маніпуляції масивами та об'єктами, а також використання методів для їх обробки.",
+      "Обробка подій: навчання реагуванню на події, такі як кліки, введення тексту та інші взаємодії з користувачем.",
+      "Асинхронне програмування: освоєння основ асинхронного JavaScript, включаючи проміси, async/await та AJAX-запити.",
+      "Об’єктно-орієнтоване програмування: вивчення принципів ООП, створення класів та наслідування в JavaScript.",
+      "Основи React: введення в React, включаючи JSX, компоненти, управління станом та обробку подій.",
+      "Просунуті концепції React: освоєння хуків, навігації за допомогою React Router та створення кастомних хуків.",
+      "DOM-маніпуляції: освоєння роботи з елементами DOM, їх стилізацією та маніпуляцією через JavaScript.",
+      "Система контролю версій: освоєння Git та GitHub для управління кодом та співпраці в командах.",
     ],
     lessons: [
       {
-        lessonTopic: "html",
+        lessonTopic: "Система контролю версій git, GitHub",
         lessonsList: [
-          {
-            id: 1,
-            lessonName:
-              "Cras eu ultricies lorem maximus nulla vitae dapibus duis",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
-          {
-            id: 2,
-            lessonName: "Dictum platea eu rutrum congue tortor augue fames vel",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
+          "Командна строка",
+          "Навігація у консолі",
+          "Створення та видалення файлів",
+          "Система контролю версій",
+          "GitHub repo",
+          "Branches, Merge",
+          "Developer flow example",
+          "Deploy website GitHub pages",
         ],
       },
       {
-        lessonTopic: "css",
+        lessonTopic: "JavaScript Basic",
         lessonsList: [
-          {
-            id: 3,
-            lessonName: "Viverra fusce iaculis aenean ultricies",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
-          {
-            id: 4,
-            lessonName: "Viverra fusce iaculis aenean ultricies",
-            lessonDescription:
-              "Torquent placerat sagittis platea a morbi dapibus est nunc libero. Ante facilisi duis purus inceptos natoque massa per nunc. Accumsan euismod lorem justo sem egestas facilisi aptent feugiat pharetra class.",
-          },
+          "Вступ до JavaScript",
+          "numbers | NaN | infinity",
+          "Змінні у JavaScript",
+          "boolean | string",
+          "String методи",
+          "Eкранування в середині string",
+          "Шаблонні строки",
+          "null | undefined",
+          "Math object",
+          "Методи для Number",
+          "Boolean логіка | оператори порівняння",
+          "Запуск коду JS",
+          "Умова if else",
+          "Логічні оператори",
+          "Switch case умова",
+          "Тернарний оператор",
         ],
       },
+      {
+        lessonTopic: "JavaScript - масиви, методи, цикли",
+        lessonsList: [
+          "Створення | редагування масивів",
+          "Методи масивів ( push, pop, shift, unshift )",
+          "Методи масивів ( concat, indexOf, includes )",
+          "Методи масивів ( reverse, join )",
+          "Метод масиву splice",
+          "Метод масиву sort",
+          "Типи даних посилання",
+          "Const із масивами",
+          "Об'єкти",
+          "Доступ до властивостей об'єкту",
+          "Додавання, редагування об'єктів",
+          "Вкладені Об'єкти",
+          "Порівняння масив та об'єктів",
+          "Цикли в JavaScript",
+          "Цикл For",
+          "Нескінчений цикл",
+          "Вкладені цикли",
+          "Цикл While",
+          "Ключове слово Break",
+          "Цикл for...of",
+          "for...of об'єктів",
+          "Цикл for...in",
+        ],
+      },
+      {
+        lessonTopic: "JavaScript - області видимості",
+        lessonsList: [
+          "Що таке функції",
+          "Гра у кубік",
+          "Аргументи функцій",
+          "Множина аргументів функції",
+          "Return",
+          "Область видимості функції",
+          "Блочна область видимості",
+          "Лексична область видимості",
+          "Функціональний вираз",
+          "Функції вищого порядку",
+          "Функції як аргументи",
+          "Функції як return value",
+          "Callback",
+          "Hoisting",
+          "ForEach",
+          "Map",
+          "Arrow functions",
+          "Find | Filter",
+          "Every | Some",
+          "Sort із функцією",
+          "Reduce",
+        ],
+      },
+      {
+        lessonTopic: "JavaScript - нові методи. This",
+        lessonsList: [
+          "Параметри функції за замовченням",
+          "Spread аргументів функції",
+          "Spread масивів",
+          "Spread об'єктів",
+          "Об'єкт Arguments",
+          "Rest аргументів функції",
+          "Деструктуризація масивів",
+          "Деструктуризація об'єктів",
+          "Деструктуризація параметрів функції",
+          "Скорочений запис властивостей об'єкта",
+          "Обчислювальні властивості об'єкта",
+          "Додавання методів у об'єкт",
+          "Об'єкт This",
+          "This у методах",
+          "Контекст This",
+          "Motivation App",
+        ],
+      },
+      {
+        lessonTopic: "DOM - вибір і маніпуляція елементами",
+        lessonsList: [
+          "Dom intro",
+          "Document object",
+          "Get by ID",
+          "GetElementsByTagName",
+          "Get by class name",
+          "QuerySelector",
+          "InnerText, textContent",
+          "InnerHTML",
+          "Атрибути eлементів",
+          "GetAttribute, setAttribute",
+          "Доступ до елементів навколо",
+          "Стилізація елементів",
+          "Обчислювальні стилі",
+          "ClassList",
+          "Створення елементів у JavaScript",
+          "Додавання елементів у DOM",
+          "Видалення елементів з DOM",
+          "Додаток Statistics",
+        ],
+      },
+      {
+        lessonTopic: "JavaScript Events",
+        lessonsList: [
+          "Events вступ",
+          "Event властивість",
+          "AddEventListener",
+          "Додавання подій до кількох елементів",
+          "Об'єкт події",
+          "Keypress, keyup, keydown",
+          "Події форми, PreventDefault",
+          "Події input, change",
+        ],
+      },
+      {
+        lessonTopic: "Асинхронний JavaScript",
+        lessonsList: [
+          "CallStack",
+          "Однопоточний JavaScript",
+          "Callback hell",
+          "Promises",
+          "Значення Resolve, Reject",
+          "Ajax, JSON, XML",
+          "XMLHttpRequest",
+          "Fetch API",
+          "Бібліотека Axios",
+          "Асинхронні функції",
+          "Ключове слово Await",
+          "Multiple Awaits",
+        ],
+      },
+      {
+        lessonTopic: "Об’єктно орієнтовний JavaScript",
+        lessonsList: [
+          "Що таке прототипи",
+          "Вступ до ООП",
+          "Функція Фабрика",
+          "Патерн Конструктор",
+          "JavaScript класи",
+          "Ще трохи JavaScript класів",
+          "Підклас, наслідування, метод Super",
+        ],
+      },
+      {
+        lessonTopic: "Basic React",
+        lessonsList: [
+          "Що таке React?",
+          "React JSX",
+          "npm, yarn",
+          "Import, export, MUI",
+          "React props",
+          "Умови в React",
+          "Списки в React, react dev tools",
+          "Стилізація в React",
+          "Події в React",
+          "Стан у React",
+        ],
+      },
+      {
+        lessonTopic: "Intermediate React",
+        lessonsList: [
+          "useEffect hook",
+          "useMemo, useCallback, useRef",
+          "Custom hooks",
+          "Навігація в react, React Router",
+          "Додаємо навігацію до проекту",
+          "React Context API",
+        ],
+      },
+      {
+        lessonTopic: "Advanced React",
+        lessonsList: ["tbd…"],
+      },
     ],
-    instructor: {
-      name: "Joshua Hamilton",
-      image:
-        "https://kitdemo.moxcreative.com/byteskill/wp-content/uploads/sites/9/2023/07/3.jpg",
-      rank: "Data Science Expert",
-    },
-    courseDuration: 62,
   },
 ];
