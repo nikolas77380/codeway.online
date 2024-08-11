@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { Box, IconButton } from "@mui/material"
+import { Box, IconButton } from "@mui/material";
 
 import { useState } from "react";
 
@@ -10,10 +10,9 @@ import { PlayIcon } from "@/components/Video/PlayIcon/PlayIcon";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import style from './CardInfoItem.style'
+import style from "./CardInfoItem.style";
 
 const CardInfoVideoPlayer = () => {
-
   const { course } = useCourse();
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -35,14 +34,18 @@ const CardInfoVideoPlayer = () => {
         ></iframe>
       ) : (
         <>
-          <Image src={course.image} alt="imgLesson" layout="fill" objectFit="cover" />
+          <Image
+            src={course.image}
+            alt="imgLesson"
+            style={{ width: "100%", height: "auto", borderRadius: "15px" }}
+          />
           <IconButton sx={style.playButton} onClick={handlePlayClick}>
             <PlayIcon />
           </IconButton>
         </>
       )}
     </Box>
-  )
-}
+  );
+};
 
-export default CardInfoVideoPlayer
+export default CardInfoVideoPlayer;

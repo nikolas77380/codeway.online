@@ -1,5 +1,5 @@
 import Html_Css from "@/public/assets/coursesListBlock/html_css.png";
-import ReactLogo from "@/public/assets/coursesListBlock/Reactjs.png";
+import ReactLogo from "@/public/assets/coursesListBlock/Reactjs.webp";
 import { StaticImageData } from "next/image";
 
 export type TInstructor = {
@@ -349,10 +349,6 @@ export const coursesInfoList: TCourseInfo[] = [
           "Додаємо навігацію до проекту",
           "React Context API",
         ],
-      },
-      {
-        lessonTopic: "Advanced React",
-        lessonsList: ["tbd…"],
       },
     ],
   },
