@@ -1,22 +1,20 @@
-'use client';
+"use client";
 
-import { Box } from '@mui/material'
+import { Box } from "@mui/material";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-import DescriptionItem from './DescriptionItem/DescriptionItem'
-import KeyPointsItem from './KeyPointsItem/KeyPointsItem'
-import CourseLessons from './CourseLessons/CourseLessons';
-import CardInfoItem from './CardInfoItem/CardInfoItem';
+import CardInfo from "./CardInfo/CardInfo";
+import CourseLessons from "./CourseLessons/CourseLessons";
+import DescriptionItem from "./DescriptionItem/DescriptionItem";
+import KeyPointsItem from "./KeyPointsItem/KeyPointsItem";
 
-import { motion } from 'framer-motion';
+import { useWindowSize } from "@/hooks/useWindowSize";
 
-import { useWindowSize } from '@/hooks/useWindowSize';
-
-import style from './MainBlock.style'
+import { MotionBox } from "@/utils/motionElements";
+import style from "./MainBlock.style";
 
 const MainBlock = () => {
-
   const { width } = useWindowSize();
 
   const [isMobile, setIsMobile] = useState(false);
@@ -24,42 +22,33 @@ const MainBlock = () => {
 
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const MotionBox = motion(Box);
-
   useEffect(() => {
-    setIsMobile(width !== undefined && width < 600);
+    setIsMobile(width !== undefined && width < 900);
     setIsMounted(true);
   }, [width]);
 
   if (!isMounted) {
-    return null; 
-  };
+    return null;
+  }
 
   return (
-    <Box sx={style.mainContainer} ref={scrollRef}>
-      {isMobile && (
-        <MotionBox 
-          sx={style.mobileCardInfoBlock}
-          initial={{ opacity: 0, y: 300 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true }}
-        >
-          <CardInfoItem isMobile={isMobile} />
-        </MotionBox>
-      )}
+    <Box sx={style.mainContainer}>
+      <MotionBox
+        sx={style.mobileCardInfoBlock}
+        initial={{ opacity: 0, y: 300 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        viewport={{ once: true }}
+      >
+        <CardInfo />
+      </MotionBox>
       <Box sx={style.mainContent}>
         <DescriptionItem />
         <KeyPointsItem />
         <CourseLessons />
       </Box>
-      {!isMobile && (
-        <Box sx={style.cardInfoBlock}>
-          <CardInfoItem scrollRef={scrollRef} />
-        </Box>
-      )}
     </Box>
-  )
-}
+  );
+};
 
-export default MainBlock
+export default MainBlock;

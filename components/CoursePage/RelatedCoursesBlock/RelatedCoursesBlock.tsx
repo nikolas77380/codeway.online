@@ -1,7 +1,6 @@
 import CoursesList from "@/components/common/coursesList/CoursesList";
-import { coursesList } from "@/src/mocks/mocks";
-import { Box, Button, Typography } from "@mui/material";
-import Link from "next/link";
+import { coursesInfoList } from "@/src/mocks/mocks";
+import { Box, Typography } from "@mui/material";
 import style from "./RelatedCoursesBlock.style";
 
 interface IRelatedCoursesBlock {
@@ -15,13 +14,13 @@ const RelatedCoursesBlock = ({ lang }: IRelatedCoursesBlock) => {
         <Typography variant="h4" component="span">
           Related Courses
         </Typography>
-        <Link href={""}>
+        {/* <Link href={""}>
           <Button variant="contained" sx={style.button}>
             All courses
           </Button>
-        </Link>
+        </Link> */}
       </Box>
-      <CoursesList coursesList={coursesList} lang={lang} />
+      <CoursesList coursesList={coursesInfoList} lang={lang} />
     </Box>
   );
 };

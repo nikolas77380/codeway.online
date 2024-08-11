@@ -2,37 +2,39 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   mainContainer: {
-    display: 'flex',
-    backgroundColor: '#12141d',
-    p: '7rem 18rem',
+    display: "flex",
+    flexDirection: "row-reverse",
+    justifyContent: "flex-start",
+    backgroundColor: "#12141d",
+    m: "auto",
+    p: "25px",
+    maxWidth: "1500px",
     width: 1,
     height: 1,
-    minHeight: '100vh',
-    position: 'relative',
-    '@media (max-width: 900px)': {
-      p: '2rem 1rem',
-      flexDirection: 'column',
+    minHeight: "100vh",
+    position: "relative",
+    "@media (max-width: 900px)": {
+      flexDirection: "column",
     },
   },
 
   mainContent: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     width: 1,
     height: 1,
     flex: 1,
   },
 
-  cardInfoBlock: {
-    width: '30%',
-    marginLeft: '4rem',
-    height: 1,
-    position: 'relative'
-  },
-
   mobileCardInfoBlock: {
-    width: '100%',
-    marginBottom: '1rem',
+    mt: "25px",
+    ml: "25px",
+    mb: "50px",
+    position: "sticky",
+    top: "0",
+    "@media (max-width: 900px)": {
+      position: "relative",
+    },
   },
 };
 

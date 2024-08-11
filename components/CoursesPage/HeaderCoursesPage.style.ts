@@ -4,7 +4,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   container: {
     color: "#fff",
     height: "400px",
-    display: 'flex',
+    display: "flex",
     alignItems: "center",
     justifyContent: "center",
     m: "auto",
@@ -19,7 +19,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     "@media (max-width: 600px)": {
       height: "200px",
       borderRadius: "20px",
-      width: 1
+      width: 1,
     },
   },
 
@@ -36,27 +36,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     textAlign: "center",
     "@media (max-width: 600px)": {
       p: "10px",
-    },
-  },
-
-  name: {
-    mt: "15px",
-    fontSize: "4rem",
-    color: "#FFF",
-    fontWeight: "600",
-    "@media (max-width: 600px)": {
-      fontSize: "2rem",
-    },
-  },
-
-  subtitle: {
-    mt: "15px",
-    color: '#fff',
-    fontWeight: '500',
-    width: '600px',
-    "@media (max-width: 600px)": {
-      fontSize: "1.1rem",
-      width: '300px',
     },
   },
 };

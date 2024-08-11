@@ -1,0 +1,20 @@
+{
+  "header": {
+    "students": "students",
+    "lastUpdated": "Last updated"
+  },
+  "main": {
+    "desc": "Description",
+    "keyPoints": "Key Points",
+    "courseLessons": "Course Lessons"
+  },
+  "cardInfo": {
+    "title": "Instructor",
+    "title2": "This course includes",
+    "includes1": " on-demand video",
+    "includes2": "Full lifetime access",
+    "includes3": "Access on mobile and TV",
+    "includes4": "Certificate of completion",
+    "button": "Enroll now"
+  }
+}
