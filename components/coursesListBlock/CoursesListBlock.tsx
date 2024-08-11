@@ -14,7 +14,7 @@ const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
   const { t } = await getTranslation(lang, "CoursesList");
 
   return (
-    <Box sx={style.container}>
+    <Box id="courses" sx={style.container}>
       <Box sx={style.contentWrapper}>
         <Typography variant="h2" sx={style.title}>
           {t("title")}

@@ -33,7 +33,7 @@ const Header = async ({ lang }: IHeader) => {
           <Typography variant="h6" sx={style.subtitle}>
             {t("subtitle")}
           </Typography>
-          <Button variant="outlined" sx={style.button}>
+          <Button variant="outlined" href="#courses" sx={style.button}>
             {t("button")}
           </Button>
         </Box>
