@@ -16,6 +16,8 @@ export type TCourseInfo = {
   students: number;
   lastUpdated: string;
   price: string;
+  invoiceUrl: string;
+  offerId: number;
   rating: number;
   link: string;
   videoLink: string;
@@ -38,8 +40,10 @@ export const courseInstructor: TInstructor = {
 export const coursesInfoList: TCourseInfo[] = [
   {
     id: 0,
-    link: "/",
+    link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-start",
+    invoiceUrl: "https://secure.wayforpay.com/button/b0a9d2b9ac6f5",
     videoLink: "",
+    offerId: 116480,
     image: Html_Css,
     topic: "Front-end",
     name: "Легкий старт 1.0",
@@ -48,7 +52,7 @@ export const coursesInfoList: TCourseInfo[] = [
     students: 378,
     lastUpdated: "10/08/24",
     rating: 5,
-    price: "555.55",
+    price: "5",
     courseDuration: 38,
     description:
       "«ЛЕГКИЙ СТАРТ 1.0» — це базовий курс для тих, хто хоче зробити перші кроки у веб-розробці та зрозуміти, чи підходить їм ця сфера. Курс допоможе освоїти основи HTML і CSS, створити свій перший простий веб-сайт, і визначити, чи є у вас здібності та інтерес до розробки. Ви отримаєте базові знання про те, як працює інтернет, веб-сайти, а також як правильно структуризувати та стилізувати контент. Курс розділений на чотири модулі, кожен з яких поступово занурює вас у різні аспекти веб-розробки, від основ до більш просунутих тем. Цей курс є ідеальним вибором для початківців, які бажають отримати уявлення про веб-розробку та зробити перший крок у цій захоплюючій сфері.",
@@ -124,8 +128,10 @@ export const coursesInfoList: TCourseInfo[] = [
 
   {
     id: 1,
-    link: "/",
+    link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-pro",
+    invoiceUrl: "https://secure.wayforpay.com/button/b1e10642d077f",
     videoLink: "",
+    offerId: 116481,
     image: ReactLogo,
     topic: "Front-end",
     name: "Повний Курс 2.0",
@@ -134,7 +140,7 @@ export const coursesInfoList: TCourseInfo[] = [
     students: 1378,
     lastUpdated: "10/09/24",
     rating: 5,
-    price: "5555.55",
+    price: "5.55",
     courseDuration: 144,
     description:
       "«Повний Курс» — це комплексна програма, що охоплює всі аспекти фронтенд-розробки, починаючи з системи контролю версій і закінчуючи основами React. Курс призначений для тих, хто хоче отримати глибокі знання у веб-розробці та навички, необхідні для створення сучасних веб-сайтів. Ви дізнаєтеся про основи JavaScript, обробку подій, асинхронне програмування, об’єктно-орієнтоване програмування та багато іншого.",

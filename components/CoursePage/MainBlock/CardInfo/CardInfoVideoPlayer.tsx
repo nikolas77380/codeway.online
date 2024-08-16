@@ -37,7 +37,12 @@ const CardInfoVideoPlayer = () => {
           <Image
             src={course.image}
             alt="imgLesson"
-            style={{ width: "100%", height: "auto", borderRadius: "15px" }}
+            style={{
+              width: "100%",
+              maxWidth: "380px",
+              height: "auto",
+              borderRadius: "15px",
+            }}
           />
           <IconButton sx={style.playButton} onClick={handlePlayClick}>
             <PlayIcon />

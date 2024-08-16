@@ -25,17 +25,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: 1,
     flex: 1,
   },
-
-  mobileCardInfoBlock: {
-    mt: "25px",
-    ml: "25px",
-    mb: "50px",
-    position: "sticky",
-    top: "0",
-    "@media (max-width: 900px)": {
-      position: "relative",
-    },
-  },
 };
 
 export default style;

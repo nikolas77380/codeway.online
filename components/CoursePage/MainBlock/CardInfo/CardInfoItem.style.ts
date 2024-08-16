@@ -2,8 +2,11 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   cardInfoMainContainer: {
+    mt: "25px",
+    ml: "25px",
+    mb: "50px",
     position: "sticky",
-    top: 0,
+    top: "25px",
     width: "400px",
     height: "760px",
     borderRadius: "15px",
@@ -18,6 +21,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       width: "100%",
       height: "auto",
       marginBottom: "1rem",
+      position: "relative",
     },
   },
 
@@ -40,6 +44,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     height: "200px",
     position: "relative",
+    display: "flex",
+    justifyContent: "center",
     marginBottom: "20px",
     "& iframe": {
       border: "none",

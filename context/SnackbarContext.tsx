@@ -53,6 +53,7 @@ const SnackbarProvider = ({ children }: ISnackbarContextProvider) => {
         autoHideDuration={data.duration}
         TransitionComponent={SlideTransition}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        sx={{ zIndex: 11 }}
         onClose={handleClose}
       >
         <Alert onClose={handleClose} severity={`${data.severity}`}>

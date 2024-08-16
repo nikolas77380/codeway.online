@@ -4,14 +4,14 @@ import { Box } from "@mui/material";
 
 import { useEffect, useRef, useState } from "react";
 
-import CardInfo from "./CardInfo/CardInfo";
 import CourseLessons from "./CourseLessons/CourseLessons";
-import DescriptionItem from "./DescriptionItem/DescriptionItem";
 import KeyPointsItem from "./KeyPointsItem/KeyPointsItem";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
 
 import { MotionBox } from "@/utils/motionElements";
+import CardInfo from "./CardInfo/CardInfo";
+import DescriptionItem from "./DescriptionItem/DescriptionItem";
 import style from "./MainBlock.style";
 
 const MainBlock = () => {

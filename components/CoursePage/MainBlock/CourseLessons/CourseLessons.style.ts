@@ -131,7 +131,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     borderBottom: "1px solid ",
     borderColor: "rgba(168,85,247, 0.4)",
-    p: "10px",
+    p: "10px 25px",
   },
 
   accordionList: {
