@@ -1,7 +1,9 @@
 "use client";
+import { useTranslation } from "@/app/i18n/client";
 import { useSnackbar } from "@/context/SnackbarContext";
 import { Button, SxProps, Theme } from "@mui/material";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import OfferModal from "./OfferModal";
 
 interface IWidgetProps {
   text: string;
@@ -11,6 +13,10 @@ interface IWidgetProps {
 
 const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
   const { showSnackbar } = useSnackbar();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [isApproved, setIsApproved] = useState(false);
+
+  const { t } = useTranslation("messages");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -22,34 +28,43 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
 
     const handleWidgetEvent = (event: MessageEvent) => {
       if (event.data === "WfpWidgetEventApproved") {
-        showSnackbar({
-          message:
-            "Payment Approved! We sand an invitation for course to your email. Please check it",
-          severity: "success",
-        });
+        setIsApproved(true);
+      } else if (event.data === "WfpWidgetEventClose") {
+        if (isApproved) {
+          setModalOpen(true);
+        }
       }
     };
 
     window.addEventListener("message", handleWidgetEvent);
 
     return () => {
-      // const existingScript = document.getElementById("widget-wfp-script");
-      // if (existingScript) {
-      //   document.body.removeChild(existingScript);
-      // }
       window.removeEventListener("message", handleWidgetEvent);
     };
-  }, [showSnackbar]);
+  }, [showSnackbar, isApproved]);
+
+  const closeModal = () => {
+    setModalOpen(false);
+  };
 
   const handleClick = async () => {
-    const wayforpay = new (window as any).Wayforpay();
-    wayforpay.invoice(invoiceUrl);
+    const widgetRef = new (window as any).Wayforpay();
+    widgetRef.invoice(invoiceUrl);
   };
 
   return (
-    <Button variant="outlined" onClick={handleClick} sx={sx}>
-      {text}
-    </Button>
+    <>
+      <Button variant="outlined" onClick={handleClick} sx={sx}>
+        {text}
+      </Button>
+      <OfferModal
+        title={t("successful_payment.title")}
+        message={t("successful_payment.message")}
+        button={t("successful_payment.button")}
+        open={modalOpen}
+        handleClose={closeModal}
+      />
+    </>
   );
 };
 export default WayForPayWidget;

@@ -1,12 +1,10 @@
 "use client";
 
-import { Box, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 
 import { useState } from "react";
 
 import Image from "next/image";
-
-import { PlayIcon } from "@/components/Video/PlayIcon/PlayIcon";
 
 import { useCourse } from "@/src/context/CourseContext";
 
@@ -44,9 +42,9 @@ const CardInfoVideoPlayer = () => {
               borderRadius: "15px",
             }}
           />
-          <IconButton sx={style.playButton} onClick={handlePlayClick}>
+          {/* <IconButton sx={style.playButton} onClick={handlePlayClick}>
             <PlayIcon />
-          </IconButton>
+          </IconButton> */}
         </>
       )}
     </Box>
