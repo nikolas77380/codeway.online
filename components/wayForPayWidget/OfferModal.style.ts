@@ -30,6 +30,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     top: 8,
   },
   button: {
+    fontSize: "1rem",
     width: "100px",
     margin: "auto",
     fontWeight: "bold",

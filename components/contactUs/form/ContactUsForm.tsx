@@ -37,7 +37,12 @@ const ContactUsForm = ({ handleClose }: IContactUsForm) => {
     setIsSending(true);
     showSnackbar({ message: "Sending...", severity: "info", duration: 10000 });
     try {
-      const response = await sendEmail(values);
+      const response = await sendEmail({
+        email: values.email,
+        subject: `Message from ${values.name} (${values.email})`,
+        message: values.message,
+        recipient: "corp_email",
+      });
       showSnackbar({ message: response.message, severity: "success" });
       if (handleClose) {
         handleClose();

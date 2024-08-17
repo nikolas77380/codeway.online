@@ -1,4 +1,6 @@
-import crypto from "crypto";
+import { getTranslation } from "@/app/i18n";
+import { generateSignature } from "@/utils/generateSignature";
+import { sendEmail } from "@/utils/send-email";
 import { NextResponse } from "next/server";
 
 const SECRET_KEY = process.env.SECRET_KEY;
@@ -26,10 +28,6 @@ interface WayForPayRequest {
   reasonCode: string;
   fee: number;
   paymentSystem: string;
-}
-
-function generateSignature(data: string, secretKey: string): string {
-  return crypto.createHmac("md5", secretKey).update(data).digest("hex");
 }
 
 export async function POST(request: Request) {
@@ -62,14 +60,14 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
 
-  if (body.transactionStatus == "Approved") {
-    const kwigaParams = {
-      email,
-      phone: body.phone,
-      send_activation_email: true,
-      offer_id,
-    };
-    try {
+  try {
+    if (body.transactionStatus == "Approved") {
+      const kwigaParams = {
+        email,
+        phone: body.phone,
+        send_activation_email: true,
+        offer_id,
+      };
       // Process the payment (e.g., send a request to kwiga API)
       const kwigaResponse = await fetch(
         "https://api.kwiga.com/contacts/purchases",
@@ -86,54 +84,59 @@ export async function POST(request: Request) {
 
       const responseText = await kwigaResponse.text();
       const responseData = JSON.parse(responseText);
-      // TODO add several tries
       if (!kwigaResponse.ok) {
         throw new Error(responseData);
       }
-    } catch (error) {
-      const refundParams = {
-        transactionType: "REFUND",
-        merchantAccount: body.merchantAccount,
-        orderReference: body.orderReference,
-        amount: body.amount,
-        currency: body.currency,
-        comment: "Refund due to transaction issue",
-        merchantSignature: generateSignature(
-          `${body.merchantAccount};${body.orderReference};${body.amount};${body.currency}`,
-          SECRET_KEY
-        ),
-        apiVersion: 1,
-      };
-
-      const refundResponse = await fetch("https://api.wayforpay.com/api", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(refundParams),
-      });
-
-      const refundResponseText = await refundResponse.text();
-      console.log("Refund Response:", refundResponseText);
-      if (refundResponse.ok) {
-        // TODO edd email sender
-      } else {
-        // TODO edd email sender
-      }
     }
+  } catch (error) {
+    const refundParams = {
+      transactionType: "REFUND",
+      merchantAccount: body.merchantAccount,
+      orderReference: body.orderReference,
+      amount: body.amount,
+      currency: body.currency,
+      comment: "Refund due to transaction issue",
+      merchantSignature: generateSignature(
+        `${body.merchantAccount};${body.orderReference};${body.amount};${body.currency}`,
+        SECRET_KEY
+      ),
+      apiVersion: 1,
+    };
+
+    const refundResponse = await fetch("https://api.wayforpay.com/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(refundParams),
+    });
+
+    const refundResponseText = await refundResponse.text();
+    console.log("Refunded: ", refundResponseText);
+
+    const { t } = await getTranslation("ua", "messages");
+
+    const response = await sendEmail({
+      email: email,
+      subject: `Message from CODEWAY`,
+      message: t("integration_error.message"),
+      recipient: "client",
+    });
+
+    console.log("Email send: ", response);
+  } finally {
+    let status = "accept";
+    const time = new Date().getTime();
+    const response = {
+      orderReference: body.orderReference,
+      status,
+      time,
+      signature: generateSignature(
+        `${body.orderReference};${status};${time}`,
+        SECRET_KEY
+      ),
+    };
+
+    return NextResponse.json(response, { status: 200 });
   }
-
-  let status = "accept";
-  const time = new Date().getTime();
-  const response = {
-    orderReference: body.orderReference,
-    status,
-    time,
-    signature: generateSignature(
-      `${body.orderReference};${status};${time}`,
-      SECRET_KEY
-    ),
-  };
-
-  return NextResponse.json(response, { status: 200 });
 }

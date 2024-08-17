@@ -37,7 +37,7 @@ export default function ContactUsModal({
             <Fade in={open}>
               <Box sx={style.container}>
                 <Box sx={{ textAlign: "center" }}>
-                  <Typography variant="h2" sx={style.title}>
+                  <Typography variant="h3" sx={style.title}>
                     {title}
                   </Typography>
                   <IconButton
@@ -49,7 +49,10 @@ export default function ContactUsModal({
                   </IconButton>
                 </Box>
 
-                <Typography variant="h6" sx={{ textIndent: "2rem" }}>
+                <Typography
+                  variant="body1"
+                  sx={{ color: "#94A3B8", textIndent: "2rem", mb: "25px" }}
+                >
                   {message}
                 </Typography>
                 <Button onClick={handleClose} sx={style.button}>

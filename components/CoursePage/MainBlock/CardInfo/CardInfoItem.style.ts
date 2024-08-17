@@ -20,7 +20,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     "@media (max-width: 900px)": {
       width: "100%",
       height: "auto",
-      marginBottom: "1rem",
+      ml: 0,
       position: "relative",
     },
   },

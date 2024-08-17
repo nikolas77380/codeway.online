@@ -15,7 +15,6 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
   const { showSnackbar } = useSnackbar();
   const [modalOpen, setModalOpen] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
-
   const { t } = useTranslation("messages");
 
   useEffect(() => {
@@ -30,18 +29,34 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
       if (event.data === "WfpWidgetEventApproved") {
         setIsApproved(true);
       } else if (event.data === "WfpWidgetEventClose") {
+        handleWidgetClose();
         if (isApproved) {
+          console.log("event close and isApproved");
           setModalOpen(true);
         }
+
+        const widgetContainer = document.getElementById("wfp-container");
+        widgetContainer?.remove();
       }
     };
 
     window.addEventListener("message", handleWidgetEvent);
 
     return () => {
+      const existingScript = document.getElementById("widget-wfp-script");
+      if (existingScript) {
+        document.body.removeChild(existingScript);
+      }
+
       window.removeEventListener("message", handleWidgetEvent);
     };
   }, [showSnackbar, isApproved]);
+
+  const handleWidgetClose = () => {
+    const widget = new (window as any).Wayforpay();
+    console.log("try to close window");
+    widget.closeit();
+  };
 
   const closeModal = () => {
     setModalOpen(false);
