@@ -16,6 +16,7 @@ body {
 }
 
 main {
-  max-width: 1700;
+  width: 100%;
+  max-width: 1700px;
   margin: auto;
 }

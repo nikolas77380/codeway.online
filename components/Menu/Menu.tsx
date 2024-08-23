@@ -1,14 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
-import { Box, IconButton, Link, Modal, Typography } from "@mui/material";
-
-import CloseIcon from "@mui/icons-material/Close";
-import MenuIcon from "@mui/icons-material/Menu";
+import { Box, Link, Typography } from "@mui/material";
 
 import { useTranslation } from "@/app/i18n/client";
-import { usePathname } from "next/navigation";
 import style from "./Menu.style";
 
 interface IMenu {
@@ -16,34 +10,34 @@ interface IMenu {
 }
 
 const Menu = ({ lang }: IMenu) => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  // const [menuOpen, setMenuOpen] = useState(false);
 
-  const pathname = usePathname();
+  // const pathname = usePathname();
   // const router = useRouter();
   const { t } = useTranslation("Menu");
 
-  const menuRef = useRef<HTMLDivElement | null>(null);
+  // const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  // const toggleMenu = () => {
+  // setMenuOpen(!menuOpen);
+  // };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-      setMenuOpen(false);
-    }
-  };
+  // const handleClickOutside = (event: MouseEvent) => {
+  // if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+  // setMenuOpen(false);
+  // }
+  // };
 
-  useEffect(() => {
-    if (menuOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [menuOpen]);
+  // useEffect(() => {
+  // if (menuOpen) {
+  // document.addEventListener("mousedown", handleClickOutside);
+  // } else {
+  // document.removeEventListener("mousedown", handleClickOutside);
+  // }
+  // return () => {
+  // document.removeEventListener("mousedown", handleClickOutside);
+  // };
+  // }, [menuOpen]);
 
   // const handleLanguageChange = (e: SelectChangeEvent) => {
   //   router.push(`/${e.target.value}${pathname.slice(3)}`);
@@ -78,28 +72,28 @@ const Menu = ({ lang }: IMenu) => {
             ))}
           </Select> */}
           <Box sx={style.routeSectionDesktop}>
-            <Link href={"/courses"} sx={style.logoLink}>
+            {/* <Link href={"/courses"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("course")}</Typography>
-            </Link>
+            </Link> */}
             <Link href={"/contact-us"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("contact")}</Typography>
             </Link>
-            <Link href={"/about-us"} sx={style.logoLink}>
+            {/* <Link href={"/about-us"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("about")}</Typography>
-            </Link>
+            </Link> */}
           </Box>
 
-          <IconButton onClick={toggleMenu} sx={style.burgerIcon}>
+          {/* <IconButton onClick={toggleMenu} sx={style.burgerIcon}>
             {menuOpen ? (
               <CloseIcon sx={style.icon} />
             ) : (
               <MenuIcon sx={style.icon} />
             )}
-          </IconButton>
+          </IconButton> */}
         </Box>
       </Box>
 
-      <Modal open={menuOpen} onClose={() => setMenuOpen(false)}>
+      {/* <Modal open={menuOpen} onClose={() => setMenuOpen(false)}>
         <Box sx={style.modalContainer}>
           {menuOpen && (
             <Box sx={style.mobileMenu} ref={menuRef}>
@@ -115,7 +109,7 @@ const Menu = ({ lang }: IMenu) => {
             </Box>
           )}
         </Box>
-      </Modal>
+      </Modal> */}
     </Box>
   );
 };

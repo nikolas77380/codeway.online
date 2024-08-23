@@ -14,12 +14,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     gap: "25px",
     p: "50px",
     textAlign: "left",
-    "& span": {
-      pt: "5px",
-      ml: "25px",
-      mb: "25px",
-      fontSize: "0.8rem",
-    },
     "& p": {
       color: "#FFF",
     },
