@@ -18,7 +18,7 @@ const MySection = async ({ lang }: IMySection) => {
           width: 1,
           display: "flex",
           justifyContent: "center",
-          alignItems: "self-start",
+          alignItems: "center",
         }}
       >
         <Image
