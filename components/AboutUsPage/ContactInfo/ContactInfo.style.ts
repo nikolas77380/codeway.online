@@ -1,24 +1,12 @@
 import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
-  mainContainer: {
+  wrapperInfo: {
     width: 1,
     height: 1,
-    backgroundColor: '#12141d',
-    borderBottom: '1px solid rgba(66, 68, 78, 0.8)',
-    '@media (max-width: 600px)': {
-      borderBottom: 'none',
-    },
-  },
-
-  wrapper: {
-    width: 1,
-    height: 1,
-    p: '6rem 18rem',
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: 'start',
     gap: '20px',
     '& label': {
       textTransform: 'uppercase',
@@ -29,13 +17,10 @@ const style: { [key: string]: SxProps<Theme> } = {
         fontSize: '0.8rem',
       },
     },
-    '@media (max-width: 600px)': {
-      p: '1rem 1rem',
-    },
   },
 
-  cardContainer: {
-    width: '600px',
+  cardInfoContainer: {
+    width: 1,
     padding: '20px',
     color: 'white',
     background: 'linear-gradient(#181a25, #181a25) padding-box, linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box',
@@ -48,12 +33,11 @@ const style: { [key: string]: SxProps<Theme> } = {
     transition: 'all 0.6s cubic-bezier(0.23, 1, 0.320, 1)',
     gap: '10px',
     '@media (max-width: 600px)': {
-      width: '100%',
       padding: '10px',
     },
   },
 
-  textSection: {
+  textInfoSection: {
     display: 'flex',
     alignItems: 'center',
     width: 1,
@@ -77,7 +61,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
   },
 
-  separator: {
+  infoSeparator: {
     width: 1,
     height: '1px',
     backgroundColor: '#2c2e36',
