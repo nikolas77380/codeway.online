@@ -16,6 +16,9 @@ import { motion } from "framer-motion";
 
 import { contactUsZoomIn } from "@/utils/motionVariants";
 
+import Lottie from 'react-lottie-player';
+import chatBotAnimation from '@/public/animations/Animation - 1724415008072.json';
+
 import style from './ContactUs.style'
 
 const ContactUs = () => {
@@ -44,12 +47,12 @@ const ContactUs = () => {
       >
         <Box sx={style.backgroundOverlay}></Box>
         <Box sx={style.contentWrapper}>
-          <Box>
-            <Image
-              src={"/assets/contactUs/img_avatars.png"}
-              alt="avatars"
-              width={235}
-              height={70}
+          <Box sx={{ width: 160, height: 70, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Lottie
+              loop
+              animationData={chatBotAnimation}
+              play
+              style={{ width: '160px', height: '150px' }}
             />
           </Box>
           <Box sx={style.textWrapper}>
