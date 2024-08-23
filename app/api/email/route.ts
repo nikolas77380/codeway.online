@@ -2,8 +2,11 @@ import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 
+const CORP_EMAIL = process.env.CORP_EMAIL;
+const PASSWORD = process.env.APP_PASSWORD;
+
 export async function POST(request: NextRequest) {
-  const { email, name, message } = await request.json();
+  const { email, subject, message, recipient } = await request.json();
 
   const transport = nodemailer.createTransport({
     service: "gmail",
@@ -17,19 +20,21 @@ export async function POST(request: NextRequest) {
       https://github.com/nodemailer/nodemailer/blob/master/lib/well-known/services.json
   */
     auth: {
-      user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASSWORD,
+      user: CORP_EMAIL,
+      pass: PASSWORD,
     },
   });
 
   const mailOptions: Mail.Options = {
-    from: process.env.MY_EMAIL,
-    to: process.env.MY_EMAIL,
+    from: CORP_EMAIL,
+    to: recipient == "client" ? email : CORP_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
-    subject: `Message from ${name} (${email})`,
+    subject: subject,
     text: message,
     cc: email,
   };
+
+  console.log("mailoprions: ", mailOptions);
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {

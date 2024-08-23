@@ -3,6 +3,7 @@ import { SxProps, Theme } from "@mui/material";
 const style: { [key: string]: SxProps<Theme> } = {
   listWrapper: {
     pt: "40px",
+    m: "25px",
     display: "grid",
     gap: "20px",
     "@media (min-width: 600px)": {

@@ -1,95 +1,106 @@
 "use client";
 
-import { useEffect } from "react";
-
+import { useTranslation } from "@/app/i18n/client";
+import { MotionBox } from "@/utils/motionElements";
+import {
+  scrollDown,
+  scrollLeftToRight,
+  scrollRightToLeft,
+  scrollUp,
+} from "@/utils/motionVariants";
 import {
   CardMembership,
   Difference,
   Groups,
   LaptopChromebook,
 } from "@mui/icons-material/";
-
 import { Box, Typography } from "@mui/material";
-
+import style from "./ChooseUs.style";
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
 
-import AOS from "aos";
-
-import "aos/dist/aos.css";
-
-import { useTranslation } from "@/app/i18n/client";
-import style from "./ChooseUs.style";
-
-interface IChooseUs {
-  lang: string;
-}
-
-const ChooseUs = ({ lang }: IChooseUs) => {
-  const { t } = useTranslation(lang, "ChooseUs");
-  useEffect(() => {
-    AOS.init({
-      duration: 1500,
-      once: true,
-    });
-  }, []);
+const ChooseUs = () => {
+  const { t } = useTranslation("ChooseUs");
 
   return (
     <Box sx={style.mainSection}>
-      <Box
+      <MotionBox
         id="text-section"
         sx={style.textSection}
-        data-aos="fade-down"
-        data-aos-delay="200"
-        data-aos-duration="1200"
-        data-aos-anchor-placement="top"
+        component="div"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={scrollDown(0, 1)}
       >
-        <Typography variant="h6" component="span">
+        <Typography variant="body2" component="span">
           {t("title")}
         </Typography>
-        <Typography variant="h3" component="p" className="title">
+        <Typography variant="h2" component="p" className="title">
           {t("subtitle")}
         </Typography>
-        <Typography variant="body1" component="p" className="description">
+        <Typography variant="h6" component="p" className="description">
           {t("text")}
         </Typography>
-      </Box>
-      <Box
-        id="card-section"
-        sx={style.cardSection}
-        data-aos-anchor-placement="top"
-      >
-        <ChooseUsCard
-          IconComponent={Difference}
-          title={t("cards.0.title")}
-          description={t("cards.0.description")}
-          data-aos="zoom-in"
-          data-aos-delay={200}
-          data-aos-duration="1200"
-        />
-        <ChooseUsCard
-          IconComponent={Groups}
-          title={t("cards.1.title")}
-          description={t("cards.1.description")}
-          data-aos="zoom-in"
-          data-aos-delay={300}
-          data-aos-duration="1200"
-        />
-        <ChooseUsCard
-          IconComponent={LaptopChromebook}
-          title={t("cards.2.title")}
-          description={t("cards.2.description")}
-          data-aos="zoom-in"
-          data-aos-delay={400}
-          data-aos-duration="1200"
-        />
-        <ChooseUsCard
-          IconComponent={CardMembership}
-          title={t("cards.3.title")}
-          description={t("cards.3.description")}
-          data-aos="zoom-in"
-          data-aos-delay={500}
-          data-aos-duration="1200"
-        />
+      </MotionBox>
+
+      <Box sx={style.cardSection}>
+        <MotionBox
+          id="card-section"
+          component="div"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={scrollLeftToRight(0.3, 2)}
+        >
+          <ChooseUsCard
+            IconComponent={Difference}
+            title={t("cards.0.title")}
+            description={t("cards.0.description")}
+          />
+        </MotionBox>
+        <MotionBox
+          id="card-section"
+          component="div"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={scrollUp(0.3, 2)}
+        >
+          <ChooseUsCard
+            IconComponent={Groups}
+            title={t("cards.1.title")}
+            description={t("cards.1.description")}
+          />
+        </MotionBox>
+        <MotionBox
+          id="card-section"
+          component="div"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={scrollUp(0.3, 2)}
+        >
+          <ChooseUsCard
+            IconComponent={LaptopChromebook}
+            title={t("cards.2.title")}
+            description={t("cards.2.description")}
+          />
+        </MotionBox>
+
+        <MotionBox
+          id="card-section"
+          component="div"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={scrollRightToLeft(0.3, 2)}
+        >
+          <ChooseUsCard
+            IconComponent={CardMembership}
+            title={t("cards.3.title")}
+            description={t("cards.3.description")}
+          />
+        </MotionBox>
       </Box>
     </Box>
   );

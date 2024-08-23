@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Зв'язатися з нами",
+    "description": ""
+  },
+  "header": {
+    "title": "Зв'язатися з нами",
+    "subtitle": "Start the conversation to established good relationship and business."
+  },
+  "get-in-touch": {
+    "slogan": "Зв'яжіться з нами",
+    "title": "Зв'яжіться з нами та повідомте, чим ми можемо допомогти.",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    "address": {
+      "name": "Головний офіс",
+      "street": "Jln Cempaka Wangi No 22",
+      "country": "Jakarta - Indonesia"
+    },
+    "email": {
+      "name": "Напишіть нам",
+      "support1": "support@yourdomain.tld",
+      "support2": "hello@yourdomain.tld"
+    },
+    "phone": {
+      "name": "Давай поговоримо",
+      "number": "Phone : +6221.2002.2012"
+    }
+  }
+}

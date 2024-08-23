@@ -1,0 +1,29 @@
+{
+  "meta": {
+    "title": "Contact us",
+    "description": ""
+  },
+  "header": {
+    "title": "Contact us",
+    "subtitle": "Start the conversation to established good relationship and business."
+  },
+  "get-in-touch": {
+    "slogan": "Get in touch",
+    "title": "Get in touch and let us know how we can help.",
+    "subtitle": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.",
+    "address": {
+      "name": "Head Office",
+      "street": "Jln Cempaka Wangi No 22",
+      "country": "Jakarta - Indonesia"
+    },
+    "email": {
+      "name": "Email us",
+      "support1": "support@yourdomain.tld",
+      "support2": "hello@yourdomain.tld"
+    },
+    "phone": {
+      "name": "Let's Talk",
+      "number": "Phone : +6221.2002.2012"
+    }
+  }
+}

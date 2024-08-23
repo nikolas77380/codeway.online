@@ -1,13 +1,12 @@
 import ChooseUs from "@/components/ChooseUs/ChooseUs";
 import Faq from "@/components/Faq/Faq";
 import Testimonials from "@/components/Testimonials/Testimonials";
-import Video from "@/components/Video/Video";
 import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
 import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
-import { Box } from "@mui/material";
-import style from "./page.style";
+import MySection from "@/components/mySection/MySection";
+import OfferWay from "@/components/offerWay/OfferWay";
 
 interface IHome {
   params: {
@@ -18,18 +17,15 @@ interface IHome {
 export default function Home({ params: { lang } }: IHome) {
   return (
     <main>
-      <Box sx={style.mainSection}>
-        <Header lang={lang} />
-        <CoursesListBlock />
-      </Box>
-      <Box sx={style.chooseUs}>
-        <Video />
-        <ChooseUs lang={lang} />
-        <ContactUs lang={lang} />
-        <Testimonials lang={lang} />
-        <Faq lang={lang} />
-      </Box>
-      <CookieDialog lang={lang} />
+      <Header lang={lang} />
+      <MySection lang={lang} />
+      <OfferWay />
+      <CoursesListBlock lang={lang} />
+      <ChooseUs />
+      <Testimonials lang={lang} />
+      <Faq />
+      <ContactUs />
+      <CookieDialog />
     </main>
   );
 }

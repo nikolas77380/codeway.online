@@ -1,19 +1,12 @@
 "use client";
 
-import { useEffect } from "react";
-
-import { Box, Typography } from "@mui/material";
-
-import FaqCard from "./FaqCard/FaqCard";
-
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-
-import AOS from "aos";
-
-import "aos/dist/aos.css";
-
 import { useTranslation } from "@/app/i18n/client";
+import { MotionBox } from "@/utils/motionElements";
+import { scrollDown } from "@/utils/motionVariants";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
+import { Box, Typography } from "@mui/material";
 import style from "./Faq.style";
+import FaqCard from "./FaqCard/FaqCard";
 
 interface FaqCardData {
   id: number;
@@ -21,51 +14,33 @@ interface FaqCardData {
   answer: string;
 }
 
-interface IFaq {
-  lang: string;
-}
-
-const Faq = ({ lang }: IFaq) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1200,
-      once: true,
-    });
-  }, []);
-
-  const { t } = useTranslation(lang, "Faq");
+const Faq = () => {
+  const { t } = useTranslation("Faq");
 
   const dataFaqCard = t("questions", { returnObjects: true }) as FaqCardData[];
 
   return (
     <Box sx={style.mainSection}>
-      <Box
+      <MotionBox
         sx={style.textSection}
-        data-aos="fade-down"
-        data-aos-delay="200"
-        data-aos-anchor-placement="top"
-        data-aos-duration="1200"
+        component="div"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={scrollDown(0, 1)}
       >
-        <Typography variant="h6" component="span">
-          {t("slogan")}
-        </Typography>
-        <Typography variant="h3" component="p" className="title">
-          {t("title")}
-        </Typography>
-        <Typography variant="body1" component="p" className="description">
-          {t("subtitle")}
-        </Typography>
-      </Box>
-      <Box sx={style.faqCardContainer} data-aos-anchor-placement="top">
+        <Typography variant="body2">{t("slogan")}</Typography>
+        <Typography variant="h2">{t("title")}</Typography>
+        <Typography variant="h6">{t("subtitle")}</Typography>
+      </MotionBox>
+      <Box sx={style.faqCardContainer}>
         {dataFaqCard.map((card) => (
           <FaqCard
             key={card.id}
             title={card.question}
             description={card.answer}
             Icon={HelpOutlineIcon}
-            data-aos="zoom-in"
-            data-aos-delay={100 * (card.id + 1)}
-            data-aos-duration="1200"
+            delay={card.id * 0.2}
           />
         ))}
       </Box>

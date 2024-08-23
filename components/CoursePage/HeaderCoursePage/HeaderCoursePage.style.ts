@@ -6,10 +6,11 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: "600px",
     m: "auto",
     p: "10px 10px 0 10px",
-    width: "min(95%, 1700px)",
+    maxWidth: "1700px",
+    width: 1,
     borderRadius: "50px",
     backgroundImage:
-      'url("/header/bg_header_2_.png"), url("/header/bg_header_3_.png")',
+      'url("/assets/header/bg_header_2_.png"), url("/assets/header/bg_header_3_.png")',
     backgroundPosition: "bottom right",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",
@@ -33,37 +34,31 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
   },
   topic: {
-    ml: "15px",
     display: "inline-block",
-    p: "3px 21px",
+    p: "10px 31px",
+    color: "rgb(168,85,247)",
     textAlign: "center",
-    letterSpacing: "2px",
+    letterSpacing: "1.5px",
     textTransform: "uppercase",
-    textWrap: "nowrap",
     border: "1px solid rgba(168, 85, 247, 0.4)",
     borderRadius: "50px",
     boxShadow: "0px 0px 30px 0px rgba(255, 255, 255, 0.1)",
+    "@media (max-width: 600px)": {
+      fontSize: "0.7rem",
+    },
   },
 
   name: {
-    mt: "15px",
-    fontSize: "2.5rem",
-    color: "#FFF",
-    fontWeight: "bold",
-    "@media (max-width: 600px)": {
-      fontSize: "1.5rem",
-    },
+    mt: "25px",
+    textTransform: "uppercase",
   },
 
   subtitle: {
-    mt: "15px",
-    fontSize: "1rem",
-    "@media (max-width: 600px)": {
-      fontSize: "0.9rem",
-    },
+    mt: "25px",
   },
   rating: {
-    mt: "15px",
+    mt: "25px",
+    mb: "10px",
   },
   icon: {
     color: "#A855F7",

@@ -1,14 +1,10 @@
-import { Box } from "@mui/material";
-
 import HeaderCoursePage from "@/components/CoursePage/HeaderCoursePage/HeaderCoursePage";
 import MainBlock from "@/components/CoursePage/MainBlock/MainBlock";
 import RelatedCoursesBlock from "@/components/CoursePage/RelatedCoursesBlock/RelatedCoursesBlock";
 import Testimonials from "@/components/Testimonials/Testimonials";
-
-import { coursesInfoList } from "@/src/mocks/mocks";
-
 import { CourseProvider } from "@/src/context/CourseContext";
-
+import { coursesInfoList } from "@/src/mocks/mocks";
+import { Box } from "@mui/material";
 import style from "./CoursePage.style";
 
 interface CoursePageProps {
@@ -31,7 +27,7 @@ const CoursePage = ({ params }: CoursePageProps) => {
         <HeaderCoursePage />
         <MainBlock />
         <Testimonials lang={params.lang} />
-        <RelatedCoursesBlock />
+        <RelatedCoursesBlock lang={params.lang} />
       </Box>
     </CourseProvider>
   );

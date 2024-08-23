@@ -1,93 +1,102 @@
-import { Box, IconButton, Typography } from "@mui/material"
+import { Box, IconButton, Typography } from "@mui/material";
 
 import Image from "next/image";
 
-import VideoCameraFrontIcon from '@mui/icons-material/VideoCameraFront';
-import WorkHistoryOutlinedIcon from '@mui/icons-material/WorkHistoryOutlined';
-import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlined';
+import CardMembershipOutlinedIcon from "@mui/icons-material/CardMembershipOutlined";
+import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
+import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 
-import style from './WhoWeAre.style'
+import { TFunction } from "i18next";
 
-const WhoWeAre = () => {
-  return (
-    <Box sx={style.mainContainer}>
-      <Box sx={style.mainContent}>
-        <Typography component='label'>
-          Who We Are
-        </Typography>
-        <Typography variant="h3" component='span'>
-          Primary Instruction, Higher Department Of Education.
-        </Typography>
-        <Typography variant="body1" component='p'>
-          Leo phasellus platea pede dictum nisl felis enim. Potenti platea ultrices sed efficitur 
-          luctus per sagittis aptent netus non himenaeos. Aenean rutrum tempor aptent sociosqu nam 
-          vivamus id.
-        </Typography>
-        <Box sx={style.servicesContainer}>
-          
-          <Box sx={style.serviceSection}>
-            <IconButton sx={style.icon}>
-              <VideoCameraFrontIcon fontSize='large' />
-            </IconButton>
-            <Box sx={style.serviceTextSection}>
-              <Typography component='span'>
-                Online Course & Webinar
-              </Typography>
-              <Typography component='p'>
-                Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non
-              </Typography>
-            </Box>
-          </Box>
+import { MotionBox } from "@/utils/motionElements";
+import { aboutUsPageImageZoom, aboutUsPageScroLeftToRight } from "@/utils/motionVariants";
 
-          <Box sx={style.serviceSection}>
-            <IconButton sx={style.icon}>
-              <WorkHistoryOutlinedIcon fontSize='large' />
-            </IconButton>
-            <Box sx={style.serviceTextSection}>
-              <Typography component='span'>
-                Bootcamp Programs
-              </Typography>
-              <Typography component='p'>
-                Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non
-              </Typography>
-            </Box>
-          </Box>
+import style from "./WhoWeAre.style";
 
-          <Box sx={style.serviceSection}>
-            <IconButton sx={style.icon}>
-              <CardMembershipOutlinedIcon fontSize='large' />
-            </IconButton>
-            <Box sx={style.serviceTextSection}>
-              <Typography component='span'>
-                Certifications & Career Mentorship
-              </Typography>
-              <Typography component='p'>
-                Placerat vehicula ligula etiam quam hendrerit consectetur mattis nec non
-              </Typography>
-            </Box>
-          </Box>
-
-        </Box>
-      </Box>
-      <Box sx={style.mainContent2}>
-      <Box sx={style.mainWrapper}>
-        <Box sx={style.imageMainContainer}>
-          <Image src='/assets/aboutUs/hero.jpg' alt="hero" fill />
-        </Box>
-        <Box sx={style.memberContainer}>
-          <Box sx={style.memberWrapper}>
-            <Typography component='label'>
-              52k+
-            </Typography>
-            <Typography component='span'>
-              Member Active
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      </Box>
-    </Box>
-  )
+interface IHeaderAboutUs {
+  t: TFunction;
 }
 
-export default WhoWeAre
+const WhoWeAre = ({ t }: IHeaderAboutUs) => {
+  return (
+    <Box sx={style.mainContainer}>
+      <MotionBox 
+        sx={style.mainContent}
+        initial='hidden'
+        animate='visible'
+        variants={aboutUsPageScroLeftToRight(0.4, 1.1)}
+      >
+        <Typography component="label">{t("who-we-are.slogan")}</Typography>
+        <Typography variant="h3" component="span">
+          {t("who-we-are.title")}
+        </Typography>
+        <Typography variant="body1" component="p">
+          {t("who-we-are.subtitle")}
+        </Typography>
+        <Box sx={style.servicesContainer}>
+          <Box sx={style.serviceSection}>
+            <IconButton sx={style.icon}>
+              <VideoCameraFrontIcon fontSize="large" />
+            </IconButton>
+            <Box sx={style.serviceTextSection}>
+              <Typography component="span">
+                {t("who-we-are.service1-title")}
+              </Typography>
+              <Typography component="p">
+                {t("who-we-are.service1-desc")}
+              </Typography>
+            </Box>
+          </Box>
+
+          <Box sx={style.serviceSection}>
+            <IconButton sx={style.icon}>
+              <WorkHistoryOutlinedIcon fontSize="large" />
+            </IconButton>
+            <Box sx={style.serviceTextSection}>
+              <Typography component="span">
+                {t("who-we-are.service2-title")}
+              </Typography>
+              <Typography component="p">
+                {t("who-we-are.service2-desc")}
+              </Typography>
+            </Box>
+          </Box>
+
+          <Box sx={style.serviceSection}>
+            <IconButton sx={style.icon}>
+              <CardMembershipOutlinedIcon fontSize="large" />
+            </IconButton>
+            <Box sx={style.serviceTextSection}>
+              <Typography component="span">
+                {t("who-we-are.service3-title")}
+              </Typography>
+              <Typography component="p">
+                {t("who-we-are.service3-desc")}
+              </Typography>
+            </Box>
+          </Box>
+        </Box>
+      </MotionBox>
+      <Box sx={style.mainContent2}>
+        <Box sx={style.mainWrapper}>
+          <MotionBox 
+            sx={style.imageMainContainer}
+            initial='hidden'
+            animate='visible'
+            variants={aboutUsPageImageZoom()}
+          >
+            <Image src="/assets/aboutUs/hero.jpg" alt="hero" fill />
+          </MotionBox>
+          <Box sx={style.memberContainer}>
+            <Box sx={style.memberWrapper}>
+              <Typography component="label">52k+</Typography>
+              <Typography component="span">{t("who-we-are.badge")}</Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    </Box>
+  );
+};
+
+export default WhoWeAre;

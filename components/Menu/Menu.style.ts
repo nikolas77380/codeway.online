@@ -6,17 +6,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "auto",
     backgroundColor: "#12141d",
     color: "#fff",
-    height: "6rem",
     width: "100%",
-    p: "0 20px",
-    "@media (max-width: 600px)": {
-      paddingRight: "2rem",
-      paddingLeft: "2rem",
-    },
-    "@media (min-width: 601px) and (max-width: 1024px)": {
-      paddingRight: "2rem",
-      paddingLeft: "2rem",
-    },
+    p: "25px 50px 0 50px",
   },
   menuSection: {
     display: "flex",
@@ -40,86 +31,85 @@ const style: { [key: string]: SxProps<Theme> } = {
     display: "flex",
     gap: "4rem",
     alignItems: "center",
-    "@media (max-width: 600px)": {
-      display: "none",
-    },
-    "@media (min-width: 601px) and (max-width: 1024px)": {
-      display: "none",
-    },
+    // "@media (max-width: 600px)": {
+    //   display: "none",
+    // },
+    // "@media (min-width: 601px) and (max-width: 1024px)": {
+    //   display: "none",
+    // },
   },
 
   textRoute: {
     fontWeight: "500",
     textTransform: "uppercase",
-    fontSize: "18px",
     cursor: "pointer",
-    transition: "color 0.3s ease",
-    color: "white",
-    "&:hover": {
-      color: "#9333EA",
-    },
-  },
-
-  burgerIcon: {
-    display: "none",
-    "@media (max-width: 600px)": {
-      display: "block",
-    },
-    "@media (min-width: 601px) and (max-width: 1024px)": {
-      display: "block",
-    },
-  },
-
-  icon: {
-    color: "white",
-    fontSize: "30px",
+    color: "rgb(168,85,247)",
     transition: "color 0.3s ease",
     "&:hover": {
-      color: "#9333EA",
+      color: "#fff",
     },
   },
 
-  modalContainer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    height: "100vh",
-    backgroundColor: "rgba(0, 0, 0, 0.5)",
-  },
+  // burgerIcon: {
+  //   display: "none",
+  //   "@media (max-width: 600px)": {
+  //     display: "block",
+  //   },
+  //   "@media (min-width: 601px) and (max-width: 1024px)": {
+  //     display: "block",
+  //   },
+  // },
 
-  mobileMenu: {
-    position: "absolute",
-    top: "8rem",
-    left: "0",
-    width: 1,
-    backgroundColor: "#fff",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "start",
-    padding: "2rem",
-    gap: "0.2rem",
-    zIndex: 1000,
-    borderRadius: "10px",
-    "&:hover": {
-      color: "#9333EA",
-    },
-  },
-  mobileMenuItem: {
-    fontSize: "14px",
-    fontWeight: "500",
-    textTransform: "uppercase",
-    textDecoration: "none",
-    color: "#000000",
-    cursor: "pointer",
-    width: "100%",
-    padding: "1rem 1rem",
-    borderRadius: "5px",
-    transition: "color 0.3s ease",
-    "&:hover": {
-      backgroundColor: "#9333EA",
-      color: "white",
-    },
-  },
+  // icon: {
+  //   color: "white",
+  //   fontSize: "30px",
+  //   transition: "color 0.3s ease",
+  //   "&:hover": {
+  //     color: "#9333EA",
+  //   },
+  // },
+
+  // modalContainer: {
+  //   display: "flex",
+  //   alignItems: "center",
+  //   justifyContent: "center",
+  //   height: "100vh",
+  //   backgroundColor: "rgba(0, 0, 0, 0.5)",
+  // },
+
+  // mobileMenu: {
+  //   position: "absolute",
+  //   top: "8rem",
+  //   left: "0",
+  //   width: 1,
+  //   backgroundColor: "#fff",
+  //   display: "flex",
+  //   flexDirection: "column",
+  //   alignItems: "start",
+  //   padding: "2rem",
+  //   gap: "0.2rem",
+  //   zIndex: 1000,
+  //   borderRadius: "10px",
+  //   "&:hover": {
+  //     color: "#9333EA",
+  //   },
+  // },
+  // mobileMenuItem: {
+  //   fontSize: "14px",
+  //   fontWeight: "500",
+  //   textTransform: "uppercase",
+  //   textDecoration: "none",
+  //   color: "#000000",
+  //   cursor: "pointer",
+  //   width: "100%",
+  //   padding: "1rem 1rem",
+  //   borderRadius: "5px",
+  //   transition: "color 0.3s ease",
+  //   "&:hover": {
+  //     backgroundColor: "#9333EA",
+  //     color: "white",
+  //   },
+  // },
 };
 
 export default style;

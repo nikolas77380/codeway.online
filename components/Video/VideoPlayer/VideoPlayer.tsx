@@ -17,6 +17,7 @@ const VideoPlayer = ({ onClose, autoplay }: VideoPlayerProps) => (
       <CloseIcon fontSize="medium" sx={style.closeIconModal} />
     </IconButton>
     <iframe
+      loading="lazy"
       src={`${URL_VIDEO_YOUTUBE}&autoplay=${Number(autoplay)}`}
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen

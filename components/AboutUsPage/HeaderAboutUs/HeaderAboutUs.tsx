@@ -1,20 +1,40 @@
-import { Box, Typography } from '@mui/material';
+import { Box } from "@mui/material";
 
-import style from './HeaderAboutUs.style'
+import { TFunction } from "i18next";
 
-const HeaderAboutUs = () => {
+import { MotionTypography } from "@/utils/motionElements";
+import { aboutUsPageScrollUp } from "@/utils/motionVariants";
+
+import style from "./HeaderAboutUs.style";
+
+interface IHeaderAboutUs {
+  t: TFunction;
+}
+
+const HeaderAboutUs = ({ t }: IHeaderAboutUs) => {
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <Typography sx={style.name}>
-          About Us
-        </Typography>
-        <Typography  variant="h5" sx={style.subtitle}>
-          Join our community of learners and start your journey towards success.
-        </Typography>
+        <MotionTypography 
+          sx={style.name}
+          initial='hidden'
+          animate='visible'
+          variants={aboutUsPageScrollUp(0, 1)}
+        >
+          {t("header.title")}
+        </MotionTypography>
+        <MotionTypography 
+          variant="h5" 
+          sx={style.subtitle}
+          initial='hidden'
+          animate='visible'
+          variants={aboutUsPageScrollUp(0.3, 1)}
+        >
+          {t("header.subtitle")}
+        </MotionTypography>
       </Box>
     </Box>
   );
-}
+};
 
-export default HeaderAboutUs
+export default HeaderAboutUs;
