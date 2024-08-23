@@ -69,60 +69,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
   },
 
-  serviceSection: {
-    width: 1,
-    height: 1,
-    display: 'flex',
-    alignItems: 'center',
-    gap: '20px',
-    mb: '15px',
-    '@media (max-width: 600px)': {
-      mb: '10px',
-    },
-  },
-
-  icon: {
-    backgroundColor: '#1c1e2a',
-    p: '20px 20px',
-    '&:hover': {
-      backgroundColor: '#1c1e2a',
-      cursor: 'default'
-    },
-    '& svg': {
-      color: '#9333ea',
-      '@media (max-width: 600px)': {
-        fontSize: '25px'
-      },
-    },
-    '@media (max-width: 600px)': {
-      width: '20px',
-      height: '20px'
-    },
-  },
-
-  serviceTextSection: {
-    width: 1,
-    height: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    '& span': {
-      color: '#fff',
-      fontSize: '1.3rem',
-      mb: '5px',
-      '@media (max-width: 600px)': {
-        fontSize: '1.1rem',
-        fontWeight: '500'
-      },
-    },
-    '& p': {
-      color: '#94a3b8',
-      fontSize: '1rem',
-      '@media (max-width: 600px)': {
-        fontSize: '0.9rem',
-      },
-    },
-  },
-
   mainContent2: {
     width: 1, 
     height: 1, 

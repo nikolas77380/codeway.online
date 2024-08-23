@@ -1,12 +1,14 @@
+import { Box, Typography } from "@mui/material";
+
 import ContactUsForm from "@/components/contactUs/form/ContactUsForm";
-import LocationOnIcon from "@mui/icons-material/LocationOn";
-import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
-import PhoneIcon from "@mui/icons-material/Phone";
-import { Box, IconButton, Typography } from "@mui/material";
+
 import { TFunction } from "i18next";
-import style from "./GetInTouch.style";
+
 import { MotionBox } from "@/utils/motionElements";
 import { aboutUsPageScroLeftToRight, contactUPagesscrollRightToLeft } from "@/utils/motionVariants";
+
+import style from "./GetInTouch.style";
+import ContactInfo from "@/components/AboutUsPage/ContactInfo/ContactInfo";
 
 interface IGetInTouch {
   t: TFunction;
@@ -30,53 +32,7 @@ const GetInTouch = ({ t }: IGetInTouch) => {
         </Typography>
         <Box sx={style.separator} />
         <Box sx={style.servicesContainer}>
-          <Box sx={style.serviceSection}>
-            <IconButton sx={style.icon}>
-              <LocationOnIcon fontSize="large" />
-            </IconButton>
-            <Box sx={style.serviceTextSection}>
-              <Typography component="span">
-                {t("get-in-touch.address.name")}
-              </Typography>
-              <Typography component="p">
-                {t("get-in-touch.address.street")}
-              </Typography>
-              <Typography component="p">
-                {t("get-in-touch.address.country")}
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box sx={style.serviceSection}>
-            <IconButton sx={style.icon}>
-              <MarkEmailReadIcon fontSize="large" />
-            </IconButton>
-            <Box sx={style.serviceTextSection}>
-              <Typography component="span">
-                {t("get-in-touch.email.name")}
-              </Typography>
-              <Typography component="p">
-                {t("get-in-touch.email.support1")}
-              </Typography>
-              <Typography component="p">
-                {t("get-in-touch.email.support2")}
-              </Typography>
-            </Box>
-          </Box>
-
-          <Box sx={style.serviceSection}>
-            <IconButton sx={style.icon}>
-              <PhoneIcon fontSize="large" />
-            </IconButton>
-            <Box sx={style.serviceTextSection}>
-              <Typography component="span">
-                {t("get-in-touch.phone.name")}
-              </Typography>
-              <Typography component="p">
-                {t("get-in-touch.phone.number")}
-              </Typography>
-            </Box>
-          </Box>
+          <ContactInfo />
         </Box>
       </MotionBox>
       <Box sx={style.mainContent2}>
@@ -84,6 +40,7 @@ const GetInTouch = ({ t }: IGetInTouch) => {
           sx={style.container}
           initial='hidden'
           animate='visible'
+          viewport={{ once: true }}
           variants={contactUPagesscrollRightToLeft(0.7, 1.2)}
         >
           <ContactUsForm />
