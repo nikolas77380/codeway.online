@@ -20,6 +20,14 @@ let theme = createTheme({
         fontSize: "2rem",
       },
     },
+    h3: {
+      color: "#fff",
+      fontSize: "1.8rem",
+      fontWeight: "500",
+      "@media (max-width: 500px)": {
+        fontSize: "1.2rem",
+      },
+    },
     h6: {
       color: "#94A3B8",
       "@media (max-width: 700px)": {

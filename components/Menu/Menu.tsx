@@ -2,23 +2,13 @@
 
 import { useEffect, useRef, useState } from "react";
 
-import {
-  Box,
-  IconButton,
-  Link,
-  MenuItem,
-  Modal,
-  Select,
-  SelectChangeEvent,
-  Typography,
-} from "@mui/material";
+import { Box, IconButton, Link, Modal, Typography } from "@mui/material";
 
 import CloseIcon from "@mui/icons-material/Close";
 import MenuIcon from "@mui/icons-material/Menu";
 
 import { useTranslation } from "@/app/i18n/client";
-import { languages } from "@/app/i18n/settings";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import style from "./Menu.style";
 
 interface IMenu {
@@ -29,7 +19,7 @@ const Menu = ({ lang }: IMenu) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const pathname = usePathname();
-  const router = useRouter();
+  // const router = useRouter();
   const { t } = useTranslation("Menu");
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -55,9 +45,9 @@ const Menu = ({ lang }: IMenu) => {
     };
   }, [menuOpen]);
 
-  const handleLanguageChange = (e: SelectChangeEvent) => {
-    router.push(`/${e.target.value}${pathname.slice(3)}`);
-  };
+  // const handleLanguageChange = (e: SelectChangeEvent) => {
+  //   router.push(`/${e.target.value}${pathname.slice(3)}`);
+  // };
 
   return (
     <Box sx={style.mainSection}>
@@ -68,7 +58,7 @@ const Menu = ({ lang }: IMenu) => {
           </Link>
         </Box>
         <Box sx={{ display: "flex", gap: "20px" }}>
-          <Select
+          {/* <Select
             defaultValue={lang}
             displayEmpty
             onChange={handleLanguageChange}
@@ -86,7 +76,7 @@ const Menu = ({ lang }: IMenu) => {
                 {lng.toUpperCase()}
               </MenuItem>
             ))}
-          </Select>
+          </Select> */}
           <Box sx={style.routeSectionDesktop}>
             <Link href={"/courses"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("course")}</Typography>

@@ -1,7 +1,14 @@
-import { IInitialValues } from "@/components/contactUs/form/ContactUsForm";
+type TEmailData = {
+  email: string;
+  subject: string;
+  message: string;
+  recipient: "corp_email" | "client";
+};
 
-export async function sendEmail(data: IInitialValues) {
-  const apiEndpoint = "/api/email";
+const BASE_URL = process.env.BASE_URL;
+
+export async function sendEmail(data: TEmailData) {
+  const apiEndpoint = `http://localhost:3000/api/email`;
 
   try {
     const response = await fetch(apiEndpoint, {
@@ -19,6 +26,7 @@ export async function sendEmail(data: IInitialValues) {
     return await response.json();
   } catch (error) {
     if (error instanceof Error) {
+      console.log("error here");
       throw new Error(error.message);
     } else {
       throw new Error("An unknown error occurred");

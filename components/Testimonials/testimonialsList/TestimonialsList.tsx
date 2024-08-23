@@ -39,7 +39,12 @@ const TestimonialsList = () => {
       {feedbackArray.map((item, index) => (
         <SwiperSlide key={index} style={{ width: 450 }}>
           <Paper sx={style.item} data-swiper-parallax="-300">
-            <Image src={item} alt={"feedback"} width={350} />
+            <Image
+              src={item}
+              alt={"feedback"}
+              width={350}
+              style={{ height: "auto" }}
+            />
           </Paper>
         </SwiperSlide>
       ))}

@@ -82,15 +82,13 @@ const CourseLessons = () => {
               <Typography component="span">{lesson.lessonTopic}</Typography>
             </AccordionSummary>
             <AccordionDetails sx={style.accordionDetails}>
-              <Typography variant="body1" component="p">
-                {lesson.lessonsList.map((list, i) => (
-                  <Box key={i} sx={style.listLessonsContainer}>
-                    <Typography component="span">
-                      {i + 1 + ". " + list}
-                    </Typography>
-                  </Box>
-                ))}
-              </Typography>
+              {lesson.lessonsList.map((list, i) => (
+                <Box key={i} sx={style.listLessonsContainer}>
+                  <Typography component="span">
+                    {i + 1 + ". " + list}
+                  </Typography>
+                </Box>
+              ))}
             </AccordionDetails>
           </Accordion>
         </MotionBox>

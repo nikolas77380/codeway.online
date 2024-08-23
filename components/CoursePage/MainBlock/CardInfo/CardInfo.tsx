@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
+import WayForPayWidget from "@/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
 import { courseInstructor } from "@/src/mocks/mocks";
 import { MotionBox } from "@/utils/motionElements";
@@ -9,9 +10,9 @@ import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
-import { Avatar, Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
-import Link from "next/link";
+import Image from "next/image";
 import style from "./CardInfoItem.style";
 
 const CardInfoVideoPlayerWithNoSSR = dynamic(
@@ -40,10 +41,12 @@ const CardInfo = () => {
         </Typography>
         <Box sx={style.avatarMainContainer}>
           <Box sx={style.avatarWrapper}>
-            <Avatar
+            <Image
               alt={courseInstructor.name}
               src={courseInstructor.image}
-              component="image"
+              width={65}
+              height={65}
+              style={{ borderRadius: "50%" }}
             />
           </Box>
           <Box sx={style.avatarTextContainer}>
@@ -78,11 +81,15 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        <Link href={course.link}>
-          <Button variant="contained" sx={style.cardInfoButton}>
-            {t("cardInfo.button")}
-          </Button>
-        </Link>
+        <Typography variant="h6" sx={{ textAlign: "end" }}>
+          {course.price}
+          {"₴"}
+        </Typography>
+        <WayForPayWidget
+          text={t("cardInfo.button")}
+          invoiceUrl={course.invoiceUrl}
+          sx={{ width: "100%", mt: "15px" }}
+        />
       </Box>
     </MotionBox>
   );
