@@ -16,7 +16,7 @@ import { motion } from "framer-motion";
 
 import { contactUsZoomIn } from "@/utils/motionVariants";
 
-import Lottie from 'react-lottie-player';
+import Lottie from 'react-lottie-player/dist/LottiePlayerLight';
 import chatBotAnimation from '@/public/animations/Animation - 1724415008072.json';
 
 import style from './ContactUs.style'
