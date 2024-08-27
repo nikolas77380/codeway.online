@@ -69,6 +69,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     // "@media (min-width: 601px) and (max-width: 1024px)": {
     //   display: "none",
     // },
+    '& a': {
+      textDecoration: "none",
+    },
   },
 
   textRoute: {

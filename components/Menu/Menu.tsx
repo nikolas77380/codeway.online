@@ -1,6 +1,8 @@
 "use client";
 
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+
+import Link from "next/link";
 
 import { useTranslation } from "@/app/i18n/client";
 
@@ -74,7 +76,7 @@ const Menu = ({ lang }: IMenu) => {
             {/* <Link href={"/courses"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("course")}</Typography>
             </Link> */}
-            <Link href={"/contact-us"} sx={style.logoLink}>
+            <Link href={"/contact-us"}>
               <Typography sx={style.textRoute}>{t("contact")}</Typography>
             </Link>
             {/* <Link href={"/about-us"} sx={style.logoLink}>

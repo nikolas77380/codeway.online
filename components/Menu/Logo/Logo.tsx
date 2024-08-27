@@ -12,11 +12,11 @@ const Logo = () => {
     <Box sx={style.logoWrapper}>
       <Link href="/">
         <Box sx={style.rightBracket}>
-          <Image src='/assets/logo/left-50.webp' alt="" width={15} height={30} />
+          <Image src='/assets/logo/left-50.png' alt="" width={15} height={30} />
         </Box>
         <AnimatedText />
         <Box sx={style.leftBracket}>
-          <Image src='/assets/logo/right-50.webp' alt="" width={15} height={30} />
+          <Image src='/assets/logo/right-50.png' alt="" width={15} height={30} />
         </Box>
       </Link>
     </Box>

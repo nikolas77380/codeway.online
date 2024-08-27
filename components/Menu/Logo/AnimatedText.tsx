@@ -9,7 +9,7 @@ import style from "../Menu.style";
 export const AnimatedText = () => {
   const text = "Codeway";
   const [displayText, setDisplayText] = useState<string>("");
-  const [showCursor, setShowCursor] = useState(true);
+  const [showUnderscore, setShowUnderscore] = useState(true);
 
   useEffect(() => {
     let currentIndex = 0;
@@ -29,7 +29,7 @@ export const AnimatedText = () => {
     const intervalId = setInterval(typeText, 200);
 
     const cursorBlinking = setInterval(() => {
-      setShowCursor(prev => !prev);
+      setShowUnderscore(prev => !prev);
     }, 500);
   
     return () => {
@@ -45,7 +45,7 @@ export const AnimatedText = () => {
         component="span"
         className="cursor-blink"
       >
-        {showCursor ? "_" : ""}
+        {showUnderscore ? "_" : ""}
       </Typography>
     </Typography>
   );
