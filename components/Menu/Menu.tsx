@@ -1,8 +1,13 @@
 "use client";
 
-import { Box, Button, Link, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+
+import Link from "next/link";
 
 import { useTranslation } from "@/app/i18n/client";
+
+import Logo from "./Logo/Logo";
+
 import style from "./Menu.style";
 
 interface IMenu {
@@ -46,11 +51,7 @@ const Menu = ({ lang }: IMenu) => {
   return (
     <Box sx={style.mainSection}>
       <Box sx={style.menuSection}>
-        <Box>
-          <Link href="/" sx={style.logoLink}>
-            <Typography sx={style.logo}>Codeway</Typography>
-          </Link>
-        </Box>
+        <Logo />
         <Box sx={{ display: "flex", gap: "20px" }}>
           {/* <Select
             defaultValue={lang}
@@ -75,19 +76,8 @@ const Menu = ({ lang }: IMenu) => {
             {/* <Link href={"/courses"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("course")}</Typography>
             </Link> */}
-            <Link href={"/contact-us"} sx={style.logoLink}>
-              <Button
-                variant="outlined"
-                sx={{
-                  borderRadius: "30px",
-                  "&:hover": {
-                    color: "#FFF",
-                    backgroundColor: "rgb(168,85,247)",
-                  },
-                }}
-              >
-                <Typography sx={style.textRoute}>{t("contact")}</Typography>
-              </Button>
+            <Link href={"/contact-us"}>
+              <Typography sx={style.textRoute}>{t("contact")}</Typography>
             </Link>
             {/* <Link href={"/about-us"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("about")}</Typography>
