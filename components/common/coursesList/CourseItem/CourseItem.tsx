@@ -35,7 +35,7 @@ const CourseItem = async ({
         <Typography variant="h6" sx={style.name}>
           {name}
         </Typography>
-        <Typography variant="h6" sx={style.name}>
+        <Typography variant="h6" sx={style.description}>
           {shortDescription}
         </Typography>
         <Box>
