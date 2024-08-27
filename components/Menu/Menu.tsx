@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Link, Typography } from "@mui/material";
+import { Box, Button, Link, Typography } from "@mui/material";
 
 import { useTranslation } from "@/app/i18n/client";
 import style from "./Menu.style";
@@ -76,7 +76,18 @@ const Menu = ({ lang }: IMenu) => {
               <Typography sx={style.textRoute}>{t("course")}</Typography>
             </Link> */}
             <Link href={"/contact-us"} sx={style.logoLink}>
-              <Typography sx={style.textRoute}>{t("contact")}</Typography>
+              <Button
+                variant="outlined"
+                sx={{
+                  borderRadius: "30px",
+                  "&:hover": {
+                    color: "#FFF",
+                    backgroundColor: "rgb(168,85,247)",
+                  },
+                }}
+              >
+                <Typography sx={style.textRoute}>{t("contact")}</Typography>
+              </Button>
             </Link>
             {/* <Link href={"/about-us"} sx={style.logoLink}>
               <Typography sx={style.textRoute}>{t("about")}</Typography>

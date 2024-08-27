@@ -8,6 +8,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     color: "#fff",
     width: "100%",
     p: "25px 50px 0 50px",
+    "@media (max-width: 400px)": {
+      p: "25px 15px 0 15px",
+    },
   },
   menuSection: {
     display: "flex",
@@ -47,6 +50,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     transition: "color 0.3s ease",
     "&:hover": {
       color: "#fff",
+    },
+    "@media (max-width: 600px)": {
+      fontSize: "0.7rem",
     },
   },
 

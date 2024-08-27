@@ -134,7 +134,7 @@ export const coursesInfoList: TCourseInfo[] = [
     offerId: 116481,
     image: ReactLogo,
     topic: "Front-end",
-    name: "Повний Курс 2.0",
+    name: "Front-end 360°",
     shortDescription:
       "Отримайте всі необхідні навички для створення сучасних веб-сайтів і станьте професійним фронтенд-розробником.",
     students: 1378,

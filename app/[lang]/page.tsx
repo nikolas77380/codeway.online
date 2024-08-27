@@ -19,7 +19,7 @@ export default function Home({ params: { lang } }: IHome) {
     <main>
       <Header lang={lang} />
       <MySection lang={lang} />
-      <OfferWay />
+      <OfferWay lang={lang} />
       <CoursesListBlock lang={lang} />
       <ChooseUs />
       <Testimonials lang={lang} />
