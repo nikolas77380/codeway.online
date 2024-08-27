@@ -1,11 +1,11 @@
 import { getTranslation } from "@/app/i18n";
 import bgImage1 from "@/public/assets/header/bg_header_3_.png";
-import { Box, Typography } from "@mui/material";
+import { MotionTypography } from "@/utils/motionElements";
+import { courseIdHeaderScrollUp } from "@/utils/motionVariants";
+import { Box } from "@mui/material";
 import Image from "next/image";
 import style from "./Testimonials.style";
 import TestimonialsList from "./testimonialsList/TestimonialsList";
-import { MotionTypography } from "@/utils/motionElements";
-import { courseIdHeaderScrollUp } from "@/utils/motionVariants";
 
 interface ITestimonials {
   lang: string;
@@ -17,27 +17,27 @@ const Testimonials = async ({ lang }: ITestimonials) => {
   return (
     <Box sx={style.mainSection}>
       <Box sx={style.backgroundImage}>
-        <Image src={bgImage1} fill alt="Background Image 1" priority />
+        <Image src={bgImage1} fill alt="Background Image 1" />
       </Box>
       <Box sx={style.backgroundImage2}>
-        <Image src={bgImage1} fill alt="Background Image 1" priority />
+        <Image src={bgImage1} fill alt="Background Image 1" />
       </Box>
-      <MotionTypography 
-        variant="body2" 
+      <MotionTypography
+        variant="body2"
         component={"p"}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{once: true}}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         variants={courseIdHeaderScrollUp(50, 0.2, 0.7)}
       >
         {t("title")}
       </MotionTypography>
-      <MotionTypography 
-        variant="h2" 
+      <MotionTypography
+        variant="h2"
         component={"p"}
-        initial='hidden'
-        whileInView='visible'
-        viewport={{once: true}}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
         variants={courseIdHeaderScrollUp(80, 0, 1)}
       >
         {t("subtitle")}
