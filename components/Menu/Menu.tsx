@@ -3,6 +3,9 @@
 import { Box, Link, Typography } from "@mui/material";
 
 import { useTranslation } from "@/app/i18n/client";
+
+import Logo from "./Logo/Logo";
+
 import style from "./Menu.style";
 
 interface IMenu {
@@ -46,11 +49,7 @@ const Menu = ({ lang }: IMenu) => {
   return (
     <Box sx={style.mainSection}>
       <Box sx={style.menuSection}>
-        <Box>
-          <Link href="/" sx={style.logoLink}>
-            <Typography sx={style.logo}>Codeway</Typography>
-          </Link>
-        </Box>
+        <Logo />
         <Box sx={{ display: "flex", gap: "20px" }}>
           {/* <Select
             defaultValue={lang}
