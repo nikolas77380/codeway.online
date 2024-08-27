@@ -13,7 +13,7 @@ const AnimatedPath = () => {
   const DesktopPath = dynamic(() => import("./DesktopPath"));
 
   useEffect(() => {
-    if (width && width < 900) {
+    if (width && width < 600) {
       setIsMobile(true);
     }
   }, [width]);

@@ -69,7 +69,7 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClick} sx={sx}>
+      <Button variant="contained" onClick={handleClick} sx={sx}>
         {text}
       </Button>
       <OfferModal

@@ -15,13 +15,20 @@ const OfferWay = async ({ lang }: IOfferWay) => {
         width: "100%",
         maxWidth: "1300px",
         m: "auto",
-        height: "1200px",
+        height: "1650px",
         position: "relative",
+        mb: "50px",
         "& p": {
           m: "25px",
           "@media (max-width: 600px)": {
             m: "10px",
           },
+        },
+        "@media (max-width: 600px)": {
+          height: "1200px",
+        },
+        "@media (min-width:600px & max-width: 850px)": {
+          mb: "250px",
         },
       }}
     >
@@ -30,6 +37,7 @@ const OfferWay = async ({ lang }: IOfferWay) => {
       <Typography
         variant="h2"
         sx={{
+          position: "absolute",
           mt: "50px",
           p: "25px 25px 0 25px",
           mb: "100px",
@@ -45,7 +53,6 @@ const OfferWay = async ({ lang }: IOfferWay) => {
           },
           "@media (max-width: 600px)": {
             width: "95%",
-            position: "absolute",
             top: "30px",
             right: "15px",
             textAlign: "end",
@@ -59,13 +66,14 @@ const OfferWay = async ({ lang }: IOfferWay) => {
         id="stage1"
         sx={{
           position: "absolute",
+          mt: "250px",
           textAlign: "end",
           alignContent: "end",
           pt: "25px",
           mr: "150px",
+          ml: "20%",
           "@media (max-width: 900px)": {
             mr: "25px",
-            ml: "20%",
           },
           "@media (max-width: 600px)": {
             mt: "115px",
@@ -78,11 +86,7 @@ const OfferWay = async ({ lang }: IOfferWay) => {
         <Typography variant="h3" component={"p"}>
           {t("stage1.title")}
         </Typography>
-        <Typography
-          variant="h6"
-          component={"p"}
-          sx={{ mt: "15px ", ml: "30%" }}
-        >
+        <Typography variant="h6" component={"p"}>
           {t("stage1.text")}
         </Typography>
       </Box>
@@ -92,14 +96,11 @@ const OfferWay = async ({ lang }: IOfferWay) => {
         sx={{
           position: "absolute",
           textAlign: "left",
-          top: "225px",
-          left: "150px",
-          "@media (max-width: 1050px)": {
-            top: "150px",
-          },
+          top: "650px",
+          ml: "100px",
+          mr: "20%",
           "@media (max-width: 900px)": {
-            mr: "20%",
-            left: "25px",
+            ml: "25px",
           },
           "@media (max-width: 600px)": {
             top: "400px",
@@ -121,18 +122,17 @@ const OfferWay = async ({ lang }: IOfferWay) => {
         id="stage3"
         sx={{
           position: "absolute",
-          mt: "175px",
+          top: "1000px",
           textAlign: "end",
           pt: "50px",
           alignContent: "end",
           mr: "150px",
+          ml: "20%",
           "@media (max-width: 900px)": {
-            mt: "100px",
             mr: "25px",
-            ml: "20%",
           },
           "@media (max-width: 600px)": {
-            top: "500px",
+            top: "550px",
           },
         }}
       >
@@ -150,41 +150,42 @@ const OfferWay = async ({ lang }: IOfferWay) => {
       <Box
         sx={{
           position: "absolute",
-          mt: "200px",
+          top: "1400px",
           display: "flex",
           gap: "25px",
+          mr: "50px",
+          ml: "50px",
           justifyContent: "space-between",
-          "@media (max-width: 1000px)": {
-            mt: "170px",
-          },
-          "@media (max-width: 900px)": {
-            mt: "125px",
-          },
           "@media (max-width: 600px)": {
-            top: "800px",
+            mr: "5px",
+            ml: "5px",
+            top: "950px",
+          },
+          "@media (max-width: 400px)": {
+            wordWrap: "break-word",
           },
         }}
       >
         <Box id="stage4" sx={{ textAlign: "light", width: "50%" }}>
-          <Typography variant="body2" component={"p"} sx={{ m: "25px" }}>
+          <Typography variant="body2" component={"p"}>
             {t("stage4.name")}
           </Typography>
-          <Typography variant="h3" component={"p"} sx={{ m: "25px" }}>
+          <Typography variant="h3" component={"p"}>
             {t("stage4.title")}
           </Typography>
-          <Typography variant="h6" component={"p"} sx={{ m: "25px " }}>
+          <Typography variant="h6" component={"p"}>
             {t("stage4.text")}
           </Typography>
         </Box>
 
         <Box id="stage5" sx={{ textAlign: "right", width: "50%" }}>
-          <Typography variant="body2" component={"p"} sx={{ m: "25px" }}>
+          <Typography variant="body2" component={"p"}>
             {t("stage5.name")}
           </Typography>
-          <Typography variant="h3" component={"p"} sx={{ m: "25px" }}>
+          <Typography variant="h3" component={"p"}>
             {t("stage5.title")}
           </Typography>
-          <Typography variant="h6" component={"p"} sx={{ m: "25px " }}>
+          <Typography variant="h6" component={"p"}>
             {t("stage5.text")}
           </Typography>
         </Box>

@@ -30,7 +30,7 @@ const DesktopPath = () => {
       ref={pathRef}
       sx={{
         position: "absolute",
-        bottom: 0,
+        top: 100,
         left: 0,
         right: 0,
         width: 1,
@@ -40,9 +40,6 @@ const DesktopPath = () => {
           display: "inline-block",
           width: "100%",
           height: "100%",
-        },
-        "@media (max-width: 900px)": {
-          top: 110,
         },
       }}
     >

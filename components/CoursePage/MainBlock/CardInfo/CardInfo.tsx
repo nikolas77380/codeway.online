@@ -88,7 +88,16 @@ const CardInfo = () => {
         <WayForPayWidget
           text={t("cardInfo.button")}
           invoiceUrl={course.invoiceUrl}
-          sx={{ width: "100%", mt: "15px" }}
+          sx={{
+            width: "100%",
+            mt: "15px",
+            backgroundColor: "#FFF",
+            color: "#a855f7",
+            borderRadius: "15px",
+            "&:hover": {
+              color: "#FFF",
+            },
+          }}
         />
       </Box>
     </MotionBox>
