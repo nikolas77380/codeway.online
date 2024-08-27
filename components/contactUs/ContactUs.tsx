@@ -8,13 +8,14 @@ import { useTranslation } from "@/app/i18n/client";
 
 import { ArrowForward } from "@mui/icons-material";
 
-import Image from "next/image";
-
 import ContactUsModal from "./modal/ContactUsModal";
 
 import { motion } from "framer-motion";
 
 import { contactUsZoomIn } from "@/utils/motionVariants";
+
+import Lottie from 'react-lottie-player/dist/LottiePlayerLight';
+import chatBotAnimation from '@/public/animations/LottieRobot.json';
 
 import style from './ContactUs.style'
 
@@ -44,12 +45,12 @@ const ContactUs = () => {
       >
         <Box sx={style.backgroundOverlay}></Box>
         <Box sx={style.contentWrapper}>
-          <Box>
-            <Image
-              src={"/assets/contactUs/img_avatars.png"}
-              alt="avatars"
-              width={235}
-              height={70}
+          <Box sx={style.lottieContainer}>
+            <Lottie
+              loop
+              animationData={chatBotAnimation}
+              play
+              className="lottie-robot"
             />
           </Box>
           <Box sx={style.textWrapper}>

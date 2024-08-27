@@ -35,6 +35,21 @@ const style: { [key: string]: SxProps<Theme> } = {
       gap: "30px",
     },
   },
+  lottieContainer: {
+    width: 160, 
+    height: 70, 
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    mr: '40px',
+    '& .lottie-robot': {
+      width: '160px', 
+      height: '150px',
+    },
+    '@media (max-width: 900px)': {
+      mr: 0,
+    }
+  },
   textWrapper: {
     width: 1,
     p: "0 30px",
