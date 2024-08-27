@@ -15,9 +15,10 @@ const MySection = async ({ lang }: IMySection) => {
     <Box sx={style.container}>
       <Box
         sx={{
+          width: 1,
           display: "flex",
           justifyContent: "center",
-          alignItems: "self-start",
+          alignItems: "center",
         }}
       >
         <Image
@@ -25,8 +26,8 @@ const MySection = async ({ lang }: IMySection) => {
           alt={"author"}
           style={{ width: "49%", height: "auto" }}
         />
-        <Box sx={{ mt: "50px", textAlign: "center" }}>
-          <Typography variant="body2" sx={{ mb: "25px" }}>
+        <Box sx={{ width: "49%", mt: "50px", textAlign: "center" }}>
+          <Typography variant="body2" sx={{ fontSize: "1.2rem", mb: "25px" }}>
             {t("slogan")}
           </Typography>
           <Typography variant="h2" sx={{ textTransform: "uppercase" }}>
