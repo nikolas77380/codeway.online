@@ -9,10 +9,10 @@ const MobilePath = () => {
 
   const { scrollYProgress } = useScroll({
     target: pathRef,
-    offset: ["start 1.4", "end end"],
+    offset: ["start 0.7", "end end"],
   });
 
-  const pathLength = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const pointLength = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   const smoothPathLength = useSpring(pathLength, {
@@ -60,7 +60,7 @@ const MobilePath = () => {
         />
         <motion.path
           id="pointMobile"
-          d="M60.5 31.6781C59 54.7749 37.5 68.633 36 99.1208C33 67.2472 12 54.7749 11 31.6781C10 7.65743 28.5 3.5 36.5 3.5C44.5 3.5 62 7.65741 60.5 31.6781Z"
+          d="M58 28.6781C58 51.8562 37.5 65.633 36 96.1208C33 64.2472 13.5 52.3562 13.5 28.6781C13.5 5 33.5 4.50003 36 4.5C38.5 4.49997 58 5.5 58 28.6781Z"
           stroke="#A855F7"
           strokeWidth="2"
           strokeLinejoin="round"

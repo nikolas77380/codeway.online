@@ -12,9 +12,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "auto",
     p: "10px 10px 0 10px",
     maxWidth: "1700px",
-    maxHeight: "1500px",
-    height: `calc(100vh - 8rem)`,
-    minHeight: "900px",
+    maxHeight: "1000px",
+    height: `calc(100vh - 90px)`,
     borderRadius: "50px",
     background: "linear-gradient(to bottom right, transparent, 90% , #A853F6)",
     display: "flex",
@@ -23,9 +22,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     overflow: "hidden",
     "@media (max-width: 900px)": {
       m: 0,
-      // height: "auto",
+      height: "auto",
       maxHeight: "none",
       flexDirection: "column",
+      minHeight: "850px",
     },
   },
   backgroundImage: {
