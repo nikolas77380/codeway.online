@@ -1,29 +1,28 @@
 "use client";
 
-import { useWindowSize } from "@/hooks/useWindowSize";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 const AnimatedPath = () => {
-  const { width } = useWindowSize();
+  const MobilePath = dynamic(() => import("./MobilePath"), { ssr: false });
+  const DesktopPath = dynamic(() => import("./DesktopPath"), { ssr: false });
+
   const [isMobile, setIsMobile] = useState(false);
 
-  const MobilePath = dynamic(() => import("./MobilePath"));
-  const DesktopPath = dynamic(() => import("./DesktopPath"));
-
   useEffect(() => {
-    if (width && width < 600) {
-      setIsMobile(true);
-    }
-  }, [width]);
+    const checkWindowSize = () => {
+      setIsMobile(window.innerWidth < 600);
+    };
 
-  return (
-    <Box>
-      {isMobile && <MobilePath />}
-      {!isMobile && <DesktopPath />}
-    </Box>
-  );
+    checkWindowSize();
+
+    window.addEventListener("resize", checkWindowSize);
+
+    return () => window.removeEventListener("resize", checkWindowSize);
+  }, []);
+
+  return <Box>{isMobile ? <MobilePath /> : <DesktopPath />}</Box>;
 };
 
 export default AnimatedPath;

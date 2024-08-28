@@ -26,6 +26,7 @@ const OfferWay = async ({ lang }: IOfferWay) => {
         },
         "@media (max-width: 600px)": {
           height: "1200px",
+          mt: "50px",
         },
         "@media (min-width:600px & max-width: 850px)": {
           mb: "250px",
@@ -46,14 +47,11 @@ const OfferWay = async ({ lang }: IOfferWay) => {
             mb: "25px",
           },
           "@media (max-width: 900px)": {
-            mt: "0",
-            pt: "0",
-            width: 1,
-            mb: "25px",
+            width: "80%",
           },
           "@media (max-width: 600px)": {
+            mt: "10px",
             width: "95%",
-            top: "30px",
             right: "15px",
             textAlign: "end",
           },

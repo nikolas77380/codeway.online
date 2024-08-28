@@ -17,8 +17,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     textAlign: "left",
     "@media (max-width: 900px)": {
       gridTemplateColumns: "100px 1fr",
+      gap: "50px",
     },
-    "@media (max-width: 500px)": {
+    "@media (max-width: 600px)": {
       gridTemplateColumns: "60px 1fr",
     },
     "& span": {
