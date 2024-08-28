@@ -10,8 +10,6 @@ interface IHome {
   };
 }
 
-//TODO change header height, make header gradient for mobile, fix mobile cookies popup position, footer links
-
 export default function Home({ params: { lang } }: IHome) {
   const CoursesListBlock = lazy(
     () => import("@/components/coursesListBlock/CoursesListBlock")
