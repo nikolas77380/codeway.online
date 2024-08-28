@@ -9,10 +9,10 @@ const MobilePath = () => {
 
   const { scrollYProgress } = useScroll({
     target: pathRef,
-    offset: ["start 1.4", "end end"],
+    offset: ["start 0.7", "end end"],
   });
 
-  const pathLength = useTransform(scrollYProgress, [0, 0.7], [0, 1]);
+  const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
   const pointLength = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
 
   const smoothPathLength = useSpring(pathLength, {
@@ -65,11 +65,6 @@ const MobilePath = () => {
           strokeWidth="2"
           strokeLinejoin="round"
           style={{ pathLength: smoothPointLength }}
-        />
-        <path
-          id="centerPoint"
-          d="M35.5 17.5C30.5 17.5 26 22 26 27.5C26 33 29 37.5 35.5 37.5C42 37.5 45 32.5 45 27.5C45 22.5 40.5 17.5 35.5 17.5Z"
-          fill="#A855F7"
         />
         <path
           id="dashedMobile"

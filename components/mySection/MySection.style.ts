@@ -6,6 +6,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     maxWidth: "1700px",
     minHeight: "750px",
     p: "25px",
+    overflowX: "clip",
   },
   achievements: {
     mt: "50px",

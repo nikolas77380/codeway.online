@@ -9,7 +9,7 @@ const DesktopPath = () => {
 
   const { scrollYProgress } = useScroll({
     target: pathRef,
-    offset: ["start end", "end end"],
+    offset: ["start 0.7", "end end"],
   });
 
   const pathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
@@ -59,11 +59,6 @@ const DesktopPath = () => {
           strokeWidth="4"
           strokeLinejoin="round"
           style={{ pathLength: smoothPointLength }}
-        />
-        <path
-          id="pointCenter"
-          d="M1244 30C1239.5 30 1234 33.5 1234 40C1234 46.5 1239 50 1244 50C1249 50 1254 47 1254 40C1254 33 1248.5 30 1244 30Z"
-          fill="#A855F7"
         />
         <path
           id="dashedVector"

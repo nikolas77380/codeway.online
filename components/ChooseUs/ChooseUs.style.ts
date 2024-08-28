@@ -11,6 +11,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "contain",
+    overflow: "hidden",
   },
 
   textSection: {

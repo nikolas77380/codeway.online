@@ -25,6 +25,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       height: "auto",
       maxHeight: "none",
       flexDirection: "column",
+      minHeight: "850px",
     },
   },
   backgroundImage: {
