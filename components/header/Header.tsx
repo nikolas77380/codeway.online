@@ -45,11 +45,11 @@ const Header = async ({ lang }: IHeader) => {
                 src={bgImage}
                 alt="Background Image"
                 fill
-                quality={100}
+                quality={10}
                 priority
               />
             </Box>
-            <Image priority src={Person} alt="person" fill />
+            <Image priority src={Person} alt="person" fill sizes="50vw, 20vw" />
           </Box>
           <Box sx={style.imageCodeIcon}>
             <Image src={CodeIcon} alt="codeIcon" fill priority />

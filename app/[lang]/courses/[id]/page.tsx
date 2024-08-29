@@ -1,6 +1,5 @@
 import HeaderCoursePage from "@/components/CoursePage/HeaderCoursePage/HeaderCoursePage";
 import MainBlock from "@/components/CoursePage/MainBlock/MainBlock";
-import RelatedCoursesBlock from "@/components/CoursePage/RelatedCoursesBlock/RelatedCoursesBlock";
 import Testimonials from "@/components/Testimonials/Testimonials";
 import { CourseProvider } from "@/src/context/CourseContext";
 import { coursesInfoList } from "@/src/mocks/mocks";
@@ -27,7 +26,7 @@ const CoursePage = ({ params }: CoursePageProps) => {
         <HeaderCoursePage />
         <MainBlock />
         <Testimonials lang={params.lang} />
-        <RelatedCoursesBlock lang={params.lang} />
+        {/* <RelatedCoursesBlock lang={params.lang} /> */}
       </Box>
     </CourseProvider>
   );

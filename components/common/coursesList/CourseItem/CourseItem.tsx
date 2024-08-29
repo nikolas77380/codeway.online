@@ -7,6 +7,7 @@ import style from "./CourseItem.style";
 interface ICourseItem {
   id: number;
   image: StaticImageData;
+  shortDescription: string;
   name: string;
   price: string;
   rating: number;
@@ -16,6 +17,7 @@ const CourseItem = async ({
   id,
   image,
   name,
+  shortDescription,
   price,
   rating,
   lang,
@@ -32,6 +34,9 @@ const CourseItem = async ({
       <Box sx={style.contentWrapper}>
         <Typography variant="h6" sx={style.name}>
           {name}
+        </Typography>
+        <Typography variant="h6" sx={style.description}>
+          {shortDescription}
         </Typography>
         <Box>
           <Typography sx={style.price}>{price}</Typography>

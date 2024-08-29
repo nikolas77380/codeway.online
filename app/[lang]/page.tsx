@@ -1,12 +1,8 @@
-import ChooseUs from "@/components/ChooseUs/ChooseUs";
-import Faq from "@/components/Faq/Faq";
-import Testimonials from "@/components/Testimonials/Testimonials";
-import ContactUs from "@/components/contactUs/ContactUs";
 import CookieDialog from "@/components/cookieDialog/CookieDialog";
-import CoursesListBlock from "@/components/coursesListBlock/CoursesListBlock";
 import Header from "@/components/header/Header";
 import MySection from "@/components/mySection/MySection";
 import OfferWay from "@/components/offerWay/OfferWay";
+import { lazy } from "react";
 
 interface IHome {
   params: {
@@ -15,11 +11,21 @@ interface IHome {
 }
 
 export default function Home({ params: { lang } }: IHome) {
+  const CoursesListBlock = lazy(
+    () => import("@/components/coursesListBlock/CoursesListBlock")
+  );
+  const ChooseUs = lazy(() => import("@/components/ChooseUs/ChooseUs"));
+  const Testimonials = lazy(
+    () => import("@/components/Testimonials/Testimonials")
+  );
+  const Faq = lazy(() => import("@/components/Faq/Faq"));
+  const ContactUs = lazy(() => import("@/components/contactUs/ContactUs"));
+
   return (
     <main>
       <Header lang={lang} />
       <MySection lang={lang} />
-      <OfferWay />
+      <OfferWay lang={lang} />
       <CoursesListBlock lang={lang} />
       <ChooseUs />
       <Testimonials lang={lang} />

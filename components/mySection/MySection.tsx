@@ -15,19 +15,46 @@ const MySection = async ({ lang }: IMySection) => {
     <Box sx={style.container}>
       <Box
         sx={{
+          position: "relative",
           width: 1,
           display: "flex",
-          justifyContent: "center",
+          justifyContent: "flex-end",
           alignItems: "center",
         }}
       >
-        <Image
-          src={Author}
-          alt={"author"}
-          style={{ width: "49%", height: "auto" }}
-        />
-        <Box sx={{ width: "49%", mt: "50px", textAlign: "center" }}>
-          <Typography variant="body2" sx={{ fontSize: "1.2rem", mb: "25px" }}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "49%",
+            "@media (max-width: 900px)": {
+              left: "-450px",
+            },
+          }}
+        >
+          <Image src={Author} alt={"author"} priority />
+        </Box>
+        <Box
+          sx={{
+            width: "49%",
+            mt: "50px",
+            textAlign: "center",
+            position: "relative",
+            "@media (max-width: 900px)": {
+              width: "90%",
+            },
+          }}
+        >
+          <Typography
+            variant="body2"
+            sx={{
+              mb: "25px",
+              "@media (min-width: 600px)": {
+                fontSize: "1.2rem",
+              },
+            }}
+          >
             {t("slogan")}
           </Typography>
           <Typography variant="h2" sx={{ textTransform: "uppercase" }}>

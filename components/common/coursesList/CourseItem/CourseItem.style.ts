@@ -21,9 +21,15 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   name: {
+    color: "#fff",
     mt: "5px",
     p: "0 10px",
     maxHeight: "64px",
+  },
+
+  description: {
+    p: "0 10px",
+    fontSize: "0.8rem!important",
   },
 
   price: {
