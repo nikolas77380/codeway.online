@@ -21,7 +21,6 @@ const CoursesPage = async ({ params: { lang } }: ICoursesPage) => {
       <HeaderCoursesPage lang={lang} />
       <Box sx={style.courseContainer}>
         <MotionTypography
-          variant="h6"
           initial="hidden"
           animate="visible"
           variants={aboutUsPageScrollUp(0.3, 1)}
