@@ -1,5 +1,5 @@
 import { getTranslation } from "@/app/i18n";
-import Author from "@/public/assets/author.png";
+import Author from "@/public/assets/author6.png";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./MySection.style";
@@ -79,18 +79,6 @@ const MySection = async ({ lang }: IMySection) => {
             <Typography variant={"h6"} component={"p"}>
               {t("partners.text")}
             </Typography>
-            {/* <Typography variant={"h6"} component={"span"}>
-              Проєкти:
-            </Typography>
-            <Typography variant={"h6"} component={"p"}>
-              Мінімальна вартість сайту 100к грн
-            </Typography>
-            <Typography variant={"h6"} component={"span"}>
-              Рекорди:
-            </Typography>
-            <Typography variant={"h6"} component={"p"}>
-              Створення проєкту з чеком у 1.5 млн грн.
-            </Typography> */}
           </Box>
         </Box>
       </Box>

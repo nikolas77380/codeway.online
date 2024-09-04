@@ -134,9 +134,10 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   mainImage: {
     position: "relative",
+    right: "25px",
     objectFit: "cover",
     width: "580px",
-    height: "600px",
+    aspectRatio: "796 / 876",
     animation: `moveFromBottom 1.5s forwards`,
     "@keyframes moveFromBottom": {
       "0%": {
@@ -150,11 +151,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
     "@media (max-width: 1200px)": {
       width: "480px",
-      height: "500px",
     },
     "@media (max-width: 900px)": {
+      right: "0",
       width: "380px",
-      height: "400px",
     },
   },
   backgroundImageCenter: {
