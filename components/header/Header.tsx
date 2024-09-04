@@ -3,9 +3,9 @@ import { getTranslation } from "@/app/i18n";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./Header.style";
+import Person from "/public/assets/header/author_header.png";
 import bgImage from "/public/assets/header/bg_header_1_.png";
 import bgImage1 from "/public/assets/header/bg_header_3_.png";
-import Person from "/public/assets/header/img_2.png";
 import CodeIcon from "/public/assets/header/img_4.png";
 import VideoIcon from "/public/assets/header/img_5.png";
 
@@ -19,7 +19,13 @@ const Header = async ({ lang }: IHeader) => {
     <Box sx={style.headerContainer}>
       <Box sx={style.contentWrapper}>
         <Box sx={style.backgroundImage}>
-          <Image src={bgImage1} fill alt="Background Image 1" priority />
+          <Image
+            src={bgImage1}
+            fill
+            alt="Background Image 1"
+            priority
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
         </Box>
         <Box sx={style.leftContainer}>
           <Typography sx={style.slogan}>{t("slogan")}</Typography>
@@ -46,10 +52,17 @@ const Header = async ({ lang }: IHeader) => {
                 alt="Background Image"
                 fill
                 quality={10}
+                sizes="(max-width: 768px) 100vw, 33vw"
                 priority
               />
             </Box>
-            <Image priority src={Person} alt="person" fill sizes="50vw, 20vw" />
+            <Image
+              priority
+              src={Person}
+              alt="person"
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </Box>
           <Box sx={style.imageCodeIcon}>
             <Image src={CodeIcon} alt="codeIcon" fill priority />
