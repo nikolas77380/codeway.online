@@ -6,7 +6,7 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import { MotionBox, MotionTypography } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import { scrollLeftToRight, scrollUp } from "@/utils/motionVariants";
 
 import { useTranslation } from "@/app/i18n/client";
@@ -18,29 +18,30 @@ const KeyPointsItem = () => {
 
   return (
     <Box sx={style.keyPointsContainer}>
-      <MotionTypography
-        variant="h5"
-        component="span"
+      <MotionBox
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={scrollLeftToRight(0.2, 1.4)}
       >
-        {t("main.keyPoints")}
-      </MotionTypography>
+        <Typography variant="h5" component="span">
+          {t("main.keyPoints")}
+        </Typography>
+      </MotionBox>
       <Box sx={style.separator} />
       <Box sx={style.gridContainer}>
         {course.keyPoints.map((point, index) => (
           <MotionBox
-            sx={style.checkTextContainer}
             key={index}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={scrollUp(0.4, 1.4)}
           >
-            <CheckIcon fontSize="medium" />
-            <Typography component="p">{point}</Typography>
+            <Box sx={style.checkTextContainer}>
+              <CheckIcon fontSize="medium" />
+              <Typography component="p">{point}</Typography>
+            </Box>
           </MotionBox>
         ))}
       </Box>

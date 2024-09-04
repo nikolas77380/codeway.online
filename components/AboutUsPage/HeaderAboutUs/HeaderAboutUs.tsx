@@ -1,9 +1,10 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import { TFunction } from "i18next";
 
-import { MotionTypography } from "@/utils/motionElements";
 import { aboutUsPageScrollUp } from "@/utils/motionVariants";
+
+import MotionBox from "@/components/customComponents/MotionBox";
 
 import style from "./HeaderAboutUs.style";
 
@@ -15,23 +16,24 @@ const HeaderAboutUs = ({ t }: IHeaderAboutUs) => {
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <MotionTypography 
-          sx={style.name}
+        <MotionBox
           initial='hidden'
           animate='visible'
           variants={aboutUsPageScrollUp(0, 1)}
         >
-          {t("header.title")}
-        </MotionTypography>
-        <MotionTypography 
-          variant="h5" 
-          sx={style.subtitle}
+          <Typography sx={style.name}>
+            {t("header.title")}
+          </Typography>
+        </MotionBox>
+        <MotionBox
           initial='hidden'
           animate='visible'
           variants={aboutUsPageScrollUp(0.3, 1)}
         >
-          {t("header.subtitle")}
-        </MotionTypography>
+          <Typography variant="h5" sx={style.subtitle}>
+            {t("header.subtitle")}
+          </Typography>
+        </MotionBox>
       </Box>
     </Box>
   );

@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import { MotionBox, MotionTypography } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import { scrollLeftToRight } from "@/utils/motionVariants";
 
 import { useTranslation } from "@/app/i18n/client";
@@ -16,26 +16,27 @@ const DescriptionItem = () => {
 
   return (
     <Box sx={style.descriptionMainContainer}>
-      <MotionTypography
-        variant="h5"
-        component="span"
+      <MotionBox
         initial="hidden"
         whileInView="visible"
         variants={scrollLeftToRight(0, 1.2)}
         viewport={{ once: true }}
       >
-        {t("main.desc")}
-      </MotionTypography>
+        <Typography variant="h5" component="span">
+          {t("main.desc")}
+        </Typography>
+      </MotionBox>
       <MotionBox
-        sx={style.descriptionTextContainer}
         initial="hidden"
         whileInView="visible"
         variants={scrollLeftToRight(0.4, 1.4)}
         viewport={{ once: true }}
       >
-        <Typography variant="body1" component="p" sx={{ marginBottom: "25px" }}>
-          {course.description}
-        </Typography>
+        <Box sx={style.descriptionTextContainer}>
+          <Typography variant="body1" component="p" sx={{ marginBottom: "25px" }}>
+            {course.description}
+          </Typography>
+        </Box>
       </MotionBox>
       {/* <MotionBox
         sx={style.descriptionImage}

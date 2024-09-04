@@ -7,6 +7,7 @@ import GetInTouch from "@/components/ContactUsPage/GetInTouch/GetInTouch";
 
 import { getTranslation } from "@/app/i18n";
 import style from "./ContactUsPage.style";
+import { Suspense } from "react";
 
 const GoogleMapItemWithNoSSR = dynamic(
   () => import("@/components/ContactUsPage/GoogleMapItem/GoogleMapItem"),

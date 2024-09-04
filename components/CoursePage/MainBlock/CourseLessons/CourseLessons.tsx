@@ -14,7 +14,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import { MotionBox, MotionTypography } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import { scrollLeftToRight, scrollUp } from "@/utils/motionVariants";
 
 import { useTranslation } from "@/app/i18n/client";
@@ -34,63 +34,64 @@ const CourseLessons = () => {
 
   return (
     <Box sx={style.mainCourseLessonsContainer}>
-      <MotionTypography
-        variant="h5"
-        component="span"
+      <MotionBox
         initial="hidden"
         whileInView="visible"
         variants={scrollLeftToRight(0.6, 1.4)}
         viewport={{ once: true }}
       >
-        {t("main.courseLessons")}
-      </MotionTypography>
+        <Typography variant="h5" component="span">
+          {t("main.courseLessons")}
+        </Typography>
+      </MotionBox>
       {course.lessons.map((lesson, index) => (
         <MotionBox
           key={index}
-          sx={style.accordionMainContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={scrollUp(index * 0.1, 1)}
         >
-          <Accordion
-            sx={style.accordion}
-            expanded={expanded === `panel${index}`}
-            onChange={handleChange(`panel${index}`)}
-          >
-            <AccordionSummary
-              expandIcon={
-                <Box
-                  sx={{
-                    ...style.accordionArrowContainer,
-                    backgroundColor:
-                      expanded === `panel${index}` ? "#fff" : "#a855f7",
-                  }}
-                >
-                  <KeyboardArrowDownIcon
-                    sx={{
-                      ...style.accordionArrowColor,
-                      color: expanded === `panel${index}` ? "#a855f7" : "#fff",
-                    }}
-                  />
-                </Box>
-              }
-              aria-controls={`panel${index}-content`}
-              id={`panel${index}-header`}
-              sx={style.accordionSummary}
+          <Box sx={style.accordionMainContainer}>
+            <Accordion
+              sx={style.accordion}
+              expanded={expanded === `panel${index}`}
+              onChange={handleChange(`panel${index}`)}
             >
-              <Typography component="span">{lesson.lessonTopic}</Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={style.accordionDetails}>
-              {lesson.lessonsList.map((list, i) => (
-                <Box key={i} sx={style.listLessonsContainer}>
-                  <Typography component="span">
-                    {i + 1 + ". " + list}
-                  </Typography>
-                </Box>
-              ))}
-            </AccordionDetails>
-          </Accordion>
+              <AccordionSummary
+                expandIcon={
+                  <Box
+                    sx={{
+                      ...style.accordionArrowContainer,
+                      backgroundColor:
+                        expanded === `panel${index}` ? "#fff" : "#a855f7",
+                    }}
+                  >
+                    <KeyboardArrowDownIcon
+                      sx={{
+                        ...style.accordionArrowColor,
+                        color: expanded === `panel${index}` ? "#a855f7" : "#fff",
+                      }}
+                    />
+                  </Box>
+                }
+                aria-controls={`panel${index}-content`}
+                id={`panel${index}-header`}
+                sx={style.accordionSummary}
+              >
+                <Typography component="span">{lesson.lessonTopic}</Typography>
+              </AccordionSummary>
+              <AccordionDetails sx={style.accordionDetails}>
+                {lesson.lessonsList.map((list, i) => (
+                  <Box key={i} sx={style.listLessonsContainer}>
+                    <Typography component="span">
+                      {i + 1 + ". " + list}
+                    </Typography>
+                  </Box>
+                ))}
+              </AccordionDetails>
+            </Accordion>
+          </Box>
         </MotionBox>
       ))}
     </Box>

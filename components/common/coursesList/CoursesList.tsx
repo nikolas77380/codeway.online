@@ -1,5 +1,5 @@
 import { TCourseInfo } from "@/src/mocks/mocks";
-import { MotionBox } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import { Box } from "@mui/material";
 import CourseItem from "./CourseItem/CourseItem";
 import style from "./CoursesList.style";
