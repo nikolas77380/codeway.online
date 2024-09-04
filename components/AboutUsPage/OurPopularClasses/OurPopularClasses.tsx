@@ -6,11 +6,12 @@ import { classesData } from "@/src/mocks/AboutUsPage/dataPopularClasses";
 
 import { TFunction } from "i18next";
 
-import { MotionBox, MotionTypography } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import { scrollRightToLeft, textContainer } from "@/utils/motionVariants";
 
-import style from "./OurPopularClasses.style";
 import TextAnimation from "./TextAnimation";
+
+import style from "./OurPopularClasses.style";
 
 const ScrollAnimationWrapper = dynamic(
   () => import("@/hooks/useScrollAnimationWrapper").then((mod) => mod.ScrollAnimationWrapper),
@@ -44,54 +45,55 @@ const OurPopularClasses = ({ t }: IPopularClasses) => {
             key={rowIndex}
             threshold={0.5}
           >
-            <MotionBox 
-              sx={style.classesRow}     
+            <MotionBox
               initial='hidden'
               animate={'visible'}
               variants={scrollRightToLeft(rowIndex * 0.3, 1.6)}
             >
-              {classesData
-                .slice(rowIndex * 3, rowIndex * 3 + 3)
-                .map((item, index) => {
-                  const IconComponent = item.icon;
-                  const isLeftBorder = index === 0 || (index === 3 && rowIndex === 1);
-                  const isBottomBorder = rowIndex < numRows - 1;
+              <Box sx={style.classesRow}>
+                {classesData
+                  .slice(rowIndex * 3, rowIndex * 3 + 3)
+                  .map((item, index) => {
+                    const IconComponent = item.icon;
+                    const isLeftBorder = index === 0 || (index === 3 && rowIndex === 1);
+                    const isBottomBorder = rowIndex < numRows - 1;
 
-                  const leftBottomStyles = {
-                    ...style.classesDataWrapper,
-                    ...(isLeftBorder ? style.leftBorder : {}),
-                    ...(isBottomBorder ? style.bottomBorder : {}),
-                  };
+                    const leftBottomStyles = {
+                      ...style.classesDataWrapper,
+                      ...(isLeftBorder ? style.leftBorder : {}),
+                      ...(isBottomBorder ? style.bottomBorder : {}),
+                    };
 
-                  const gradientStyles = {
-                    ...style.gradientOverlay,
-                    ...(isBottomBorder
-                      ? style.gradientBottom
-                      : style.gradientTop),
-                  };
+                    const gradientStyles = {
+                      ...style.gradientOverlay,
+                      ...(isBottomBorder
+                        ? style.gradientBottom
+                        : style.gradientTop),
+                    };
 
-                  return (
-                    <Box key={index} sx={leftBottomStyles}>
-                      <Box sx={style.iconContainer} className="gradientOverlay">
-                        <IconComponent />
-                      </Box>
-                      <Box sx={style.titleContainer}>
-                        <Box sx={style.highlightBar} className="highlightBar" />
-                        <Typography
-                          component="span"
-                          sx={style.title}
-                          className="title-hover"
-                        >
-                          {item.title}
+                    return (
+                      <Box key={index} sx={leftBottomStyles}>
+                        <Box sx={style.iconContainer} className="gradientOverlay">
+                          <IconComponent />
+                        </Box>
+                        <Box sx={style.titleContainer}>
+                          <Box sx={style.highlightBar} className="highlightBar" />
+                          <Typography
+                            component="span"
+                            sx={style.title}
+                            className="title-hover"
+                          >
+                            {item.title}
+                          </Typography>
+                        </Box>
+                        <Typography component="p" sx={style.description}>
+                          {item.description}
                         </Typography>
+                        <Box sx={gradientStyles} />
                       </Box>
-                      <Typography component="p" sx={style.description}>
-                        {item.description}
-                      </Typography>
-                      <Box sx={gradientStyles} />
-                    </Box>
-                  );
-                })}
+                    );
+                  })}
+                </Box>
             </MotionBox>
           </ScrollAnimationWrapper>
         ))}

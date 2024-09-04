@@ -4,8 +4,6 @@ import { useTranslation } from "@/app/i18n/client";
 import WayForPayWidget from "@/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
 import { courseInstructor } from "@/src/mocks/mocks";
-import { MotionBox } from "@/utils/motionElements";
-import { scrollRightToLeft } from "@/utils/motionVariants";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
@@ -27,13 +25,7 @@ const CardInfo = () => {
   const { course } = useCourse();
 
   return (
-    <MotionBox
-      sx={style.cardInfoMainContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={scrollRightToLeft(0.4, 1.4)}
-    >
+    <Box sx={style.cardInfoMainContainer}>
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayerWithNoSSR />
         <Typography variant="h6" component="label">
@@ -100,7 +92,7 @@ const CardInfo = () => {
           }}
         />
       </Box>
-    </MotionBox>
+    </Box>
   );
 };
 

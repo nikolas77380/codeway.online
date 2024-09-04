@@ -6,12 +6,13 @@ const style: { [key: string]: SxProps<Theme> } = {
     backgroundColor: '#12141d',
     p: '3rem 18rem',
     width: 1,
-    gap: '80px',
+    gap: '100px',
     height: 'auto',
     position: 'relative',
     '@media (max-width: 600px)': {
       p: '0 2rem',
       flexDirection: 'column',
+      gap: '40px',
     },
   },
 
@@ -21,7 +22,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     gap: '15px',
     width: 1,
     height: 1,
-    flex: 1,
     p: '5rem 0',
     '& label': {
       textTransform: 'uppercase',
@@ -36,7 +36,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       color: '#fff',
       fontWeight: '600',
       fontSize: '2.5rem',
-      width: '75%',
+      width: '85%',
       '@media (max-width: 600px)': {
         fontSize: '1.6rem',
       },
@@ -70,10 +70,13 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   mainContent2: {
-    width: 1, 
+    width: '80%',
     height: 1, 
-    flex: 1, 
     m: 'auto',
+    '@media (max-width: 600px)': {
+      width: 1,
+      mt: '5px',
+    },
   },
 
   mainFormContainer: {
@@ -87,7 +90,8 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   container: {
     maxWidth: 600,
-    width: "90%",
+    width: 1,
+    height: 1,
     bgcolor: "rgb(28,30,42)",
     borderRadius: "10px",
     boxShadow: 24,

@@ -1,9 +1,11 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
-import { MotionTypography } from "@/utils/motionElements";
 import { aboutUsPageScrollUp } from "@/utils/motionVariants";
 
 import { getTranslation } from "@/app/i18n";
+
+import MotionBox from "../customComponents/MotionBox";
+
 import style from "./HeaderCoursesPage.style";
 
 interface IHeaderPage {
@@ -16,14 +18,15 @@ const HeaderCoursesPage = async ({ lang }: IHeaderPage) => {
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <MotionTypography
+        <MotionBox
           initial="hidden"
           animate="visible"
-          variant="h2"
           variants={aboutUsPageScrollUp(0, 1)}
         >
-          {t("title")}
-        </MotionTypography>
+          <Typography variant="h2">
+            {t("title")}
+          </Typography>
+        </MotionBox>
       </Box>
     </Box>
   );

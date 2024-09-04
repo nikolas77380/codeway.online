@@ -4,10 +4,6 @@ const style: { [key: string]: SxProps<Theme> } = {
   wrapperInfo: {
     width: 1,
     height: 1,
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'start',
-    gap: '20px',
     '& label': {
       textTransform: 'uppercase',
       color: '#a855f7',
@@ -32,6 +28,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     transformOrigin: 'right bottom',
     transition: 'all 0.6s cubic-bezier(0.23, 1, 0.320, 1)',
     gap: '10px',
+    mt: '20px',
     '@media (max-width: 600px)': {
       padding: '10px',
     },

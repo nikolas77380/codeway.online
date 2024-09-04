@@ -2,10 +2,10 @@ import { getTranslation } from "@/app/i18n";
 import HeaderCoursesPage from "@/components/CoursesPage/HeaderCoursesPage";
 import CoursesList from "@/components/common/coursesList/CoursesList";
 import { coursesInfoList } from "@/src/mocks/mocks";
-import { MotionTypography } from "@/utils/motionElements";
 import { aboutUsPageScrollUp } from "@/utils/motionVariants";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import style from "./CoursesPage.style";
+import MotionBox from "@/components/customComponents/MotionBox";
 
 interface ICoursesPage {
   params: {
@@ -20,14 +20,15 @@ const CoursesPage = async ({ params: { lang } }: ICoursesPage) => {
     <Box sx={style.mainPageContainer}>
       <HeaderCoursesPage lang={lang} />
       <Box sx={style.courseContainer}>
-        <MotionTypography
-          variant="h6"
+        <MotionBox
           initial="hidden"
           animate="visible"
           variants={aboutUsPageScrollUp(0.3, 1)}
         >
-          {t("subtitle")}
-        </MotionTypography>
+          <Typography variant="h6">
+            {t("subtitle")}
+          </Typography>
+        </MotionBox>
         <CoursesList coursesList={coursesInfoList} lang={lang} />
       </Box>
     </Box>
