@@ -129,9 +129,12 @@ const style: { [key: string]: SxProps<Theme> } = {
   listLessonsContainer: {
     paddingTop: "15px",
     width: 1,
-    borderBottom: "1px solid ",
-    borderColor: "rgba(168,85,247, 0.4)",
+    // borderBottom: "1px solid ",
+    // borderColor: "rgba(168,85,247, 0.4)",
     p: "10px 25px",
+    '& span': {
+      color: "rgba(255, 253, 254, 0.8)",
+    },
   },
 
   accordionList: {
