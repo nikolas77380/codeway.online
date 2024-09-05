@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Collapse, Typography } from "@mui/material";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
@@ -28,7 +28,11 @@ const FaqCard = ({ Icon, title, delay, description, ...rest }: FaqCardProps) => 
       >
         <Box sx={style.faqCardWrapper} {...rest}>
           {Icon && <Icon sx={style.iconSize} />}
-          <Accordion sx={style.accordion}>
+          <Accordion 
+            sx={style.accordion}
+            TransitionComponent={Collapse}
+            TransitionProps={{ unmountOnExit: true, timeout: 800, easing: 'easeInOut' }}
+          >
             <AccordionSummary
               expandIcon={<ArrowDropDownIcon sx={style.accordionArrowColor} />}
               sx={style.accordionSummary}

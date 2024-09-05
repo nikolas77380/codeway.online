@@ -5,6 +5,7 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  Collapse,
   Typography,
 } from "@mui/material";
 
@@ -57,6 +58,8 @@ const CourseLessons = () => {
               sx={style.accordion}
               expanded={expanded === `panel${index}`}
               onChange={handleChange(`panel${index}`)}
+              TransitionComponent={Collapse}
+              TransitionProps={{ unmountOnExit: true, timeout: 800, easing: 'easeInOut' }}
             >
               <AccordionSummary
                 expandIcon={
