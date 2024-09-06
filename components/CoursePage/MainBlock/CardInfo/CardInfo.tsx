@@ -12,7 +12,7 @@ import { Box, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import style from "./CardInfoItem.style";
-
+import AuthorImage from "/public/assets/header/author_header.webp";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import("@/components/CoursePage/MainBlock/CardInfo/CardInfoVideoPlayer"),
@@ -35,10 +35,10 @@ const CardInfo = () => {
           <Box sx={style.avatarWrapper}>
             <Image
               alt={courseInstructor.name}
-              src={courseInstructor.image}
-              width={65}
+              src={AuthorImage}
+              width={55}
               height={65}
-              style={{ borderRadius: "50%" }}
+              style={{ borderRadius: "40%" }}
             />
           </Box>
           <Box sx={style.avatarTextContainer}>

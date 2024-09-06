@@ -15,19 +15,31 @@ import {
   LaptopChromebook,
 } from "@mui/icons-material/";
 import { Box, Typography } from "@mui/material";
+import Image from "next/image";
 import style from "./ChooseUs.style";
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
+import bgImage from "/public/assets/header/bg_header_1_.webp";
 
 const ChooseUs = () => {
   const { t } = useTranslation("ChooseUs");
 
   return (
     <Box sx={style.mainSection}>
+      <Box sx={style.backgroundImage}>
+        <Image
+          src={bgImage}
+          alt="Background Image"
+          fill
+          quality={1}
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </Box>
       <MotionBox
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={scrollDown(0, 1)}
+        style={{ zIndex: 2 }}
       >
         <Box id="text-section" sx={style.textSection} component="div">
           <Typography variant="body2" component="span">
@@ -48,6 +60,7 @@ const ChooseUs = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={scrollLeftToRight(0.3, 2)}
+          style={{ zIndex: 2 }}
         >
           <Box id="card-section" component="div">
             <ChooseUsCard
@@ -62,6 +75,7 @@ const ChooseUs = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={scrollUp(0.3, 2)}
+          style={{ zIndex: 2 }}
         >
           <Box id="card-section" component="div">
             <ChooseUsCard
@@ -76,6 +90,7 @@ const ChooseUs = () => {
           whileInView="visible"
           viewport={{ once: true }}
           variants={scrollUp(0.3, 2)}
+          style={{ zIndex: 2 }}
         >
           <Box id="card-section" component="div">
             <ChooseUsCard
@@ -84,12 +99,13 @@ const ChooseUs = () => {
               description={t("cards.2.description")}
             />
           </Box>
-        </MotionBox> 
+        </MotionBox>
         <MotionBox
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={scrollRightToLeft(0.3, 2)}
+          style={{ zIndex: 2 }}
         >
           <Box id="card-section" component="div">
             <ChooseUsCard

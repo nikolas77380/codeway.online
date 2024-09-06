@@ -1,13 +1,12 @@
 import { getTranslation } from "@/app/i18n";
-import bgImage1 from "@/public/assets/header/bg_header_3_.png";
+import MotionBox from "@/components/customComponents/MotionBox";
+import { ScrollAnimationWrapper } from "@/hooks/useScrollAnimationWrapper";
+import bgImage1 from "@/public/assets/header/bg_header_3_.webp";
 import { courseIdHeaderScrollUp, scrollUp } from "@/utils/motionVariants";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import TestimonialsList from "./testimonialsList/TestimonialsList";
-import MotionBox from "@/components/customComponents/MotionBox";
 import style from "./Testimonials.style";
-import { ScrollAnimationWrapper } from "@/hooks/useScrollAnimationWrapper";
-
+import TestimonialsList from "./testimonialsList/TestimonialsList";
 
 interface ITestimonials {
   lang: string;
@@ -26,10 +25,20 @@ const Testimonials = async ({ lang }: ITestimonials) => {
       >
         <Box sx={style.mainSection}>
           <Box sx={style.backgroundImage}>
-            <Image src={bgImage1} fill alt="Background Image 1" />
+            <Image
+              src={bgImage1}
+              fill
+              alt="Background Image 1"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </Box>
           <Box sx={style.backgroundImage2}>
-            <Image src={bgImage1} fill alt="Background Image 1" />
+            <Image
+              src={bgImage1}
+              fill
+              alt="Background Image 1"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
           </Box>
           <MotionBox
             initial="hidden"
@@ -37,10 +46,7 @@ const Testimonials = async ({ lang }: ITestimonials) => {
             viewport={{ once: true }}
             variants={courseIdHeaderScrollUp(150, 0.1, 0.7)}
           >
-            <Typography
-              variant="body2"
-              component={"p"}
-            >
+            <Typography variant="body2" component={"p"}>
               {t("title")}
             </Typography>
           </MotionBox>
@@ -50,10 +56,7 @@ const Testimonials = async ({ lang }: ITestimonials) => {
             viewport={{ once: true }}
             variants={courseIdHeaderScrollUp(100, 0.2, 1)}
           >
-            <Typography
-              variant="h2"
-              component={"p"}
-            >
+            <Typography variant="h2" component={"p"}>
               {t("subtitle")}
             </Typography>
           </MotionBox>

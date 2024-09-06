@@ -3,11 +3,11 @@ import { getTranslation } from "@/app/i18n";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./Header.style";
-import Person from "/public/assets/header/author_header.png";
-import bgImage from "/public/assets/header/bg_header_1_.png";
-import bgImage1 from "/public/assets/header/bg_header_3_.png";
-import CodeIcon from "/public/assets/header/img_4.png";
-import VideoIcon from "/public/assets/header/img_5.png";
+import Person from "/public/assets/header/author_header.webp";
+import bgImage from "/public/assets/header/bg_header_1_.webp";
+import bgImage1 from "/public/assets/header/bg_header_3_.webp";
+import CodeIcon from "/public/assets/header/img_4.webp";
+import VideoIcon from "/public/assets/header/img_5.webp";
 
 interface IHeader {
   lang: string;
@@ -36,7 +36,7 @@ const Header = async ({ lang }: IHeader) => {
             </span>{" "}
             {` ${t("title-end")} `}
           </Typography>
-          <Typography variant="h6" sx={style.subtitle}>
+          <Typography variant="h6" sx={style.subtitle} component={"p"}>
             {t("subtitle")}
           </Typography>
           <Button variant="outlined" href="#courses" sx={style.button}>
@@ -51,7 +51,7 @@ const Header = async ({ lang }: IHeader) => {
                 src={bgImage}
                 alt="Background Image"
                 fill
-                quality={10}
+                quality={1}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 priority
               />
@@ -65,10 +65,22 @@ const Header = async ({ lang }: IHeader) => {
             />
           </Box>
           <Box sx={style.imageCodeIcon}>
-            <Image src={CodeIcon} alt="codeIcon" fill priority />
+            <Image
+              src={CodeIcon}
+              alt="codeIcon"
+              fill
+              sizes="(max-width: 768px) 50vw, 10vw"
+              priority
+            />
           </Box>
           <Box sx={style.imageCssIcon}>
-            <Image src={VideoIcon} alt="videoIcon" fill priority />
+            <Image
+              src={VideoIcon}
+              alt="videoIcon"
+              fill
+              priority
+              sizes="(max-width: 768px) 50vw, 10vw"
+            />
           </Box>
         </Box>
       </Box>
