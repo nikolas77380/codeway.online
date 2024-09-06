@@ -119,19 +119,19 @@ const Footer = () => {
           >
             <Grid item xs={12} sm={3}>
               <Stack direction={"row"}>
-                <Link href="">
+                <Link href="" aria-label="Facebook">
                   <Facebook sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="Instagram">
                   <Instagram sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="X">
                   <X sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="LinkedIn">
                   <LinkedIn sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="YouTube">
                   <YouTube sx={style.socialIcon} />
                 </Link>
               </Stack>
