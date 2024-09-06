@@ -32,10 +32,10 @@ const CourseItem = async ({
         // style={{ width: "100%", height: "200px" }}
       />
       <Box sx={style.contentWrapper}>
-        <Typography variant="h6" sx={style.name}>
+        <Typography variant="h6" sx={style.name} component={"p"}>
           {name}
         </Typography>
-        <Typography variant="h6" sx={style.description}>
+        <Typography variant="h6" sx={style.description} component={"p"}>
           {shortDescription}
         </Typography>
         <Box>

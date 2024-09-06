@@ -30,7 +30,9 @@ const Faq = () => {
         <Box sx={style.textSection} component="div">
           <Typography variant="body2">{t("slogan")}</Typography>
           <Typography variant="h2">{t("title")}</Typography>
-          <Typography variant="h6">{t("subtitle")}</Typography>
+          <Typography variant="h6" component={"p"}>
+            {t("subtitle")}
+          </Typography>
         </Box>
       </MotionBox>
       <Box sx={style.faqCardContainer}>

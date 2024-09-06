@@ -17,7 +17,7 @@ const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
         <Typography variant="h2" sx={style.title}>
           {t("title")}
         </Typography>
-        <Typography variant="h6" sx={style.subtitle}>
+        <Typography variant="h6" sx={style.subtitle} component={"p"}>
           {t("subtitle")}
         </Typography>
         <CoursesList coursesList={coursesInfoList} lang={lang} />
