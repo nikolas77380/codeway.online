@@ -57,13 +57,17 @@ const Footer = () => {
           <Grid container spacing={3} sx={style.mainSection}>
             <Grid item xs={12} sm={4} md={4}>
               <Typography fontSize={"1.5rem"}>[CodeWay]</Typography>
-              <Typography variant="subtitle2" sx={style.address}>
+              <Typography
+                variant="subtitle2"
+                component={"p"}
+                sx={style.address}
+              >
                 {t("address")}{" "}
               </Typography>
-              <Typography variant="subtitle2" sx={style.email}>
+              <Typography variant="subtitle2" component={"p"} sx={style.email}>
                 test@mail.com
               </Typography>
-              <Typography variant="subtitle2" sx={style.phone}>
+              <Typography variant="subtitle2" component={"p"} sx={style.phone}>
                 <Phone sx={style.phoneIcon} />
                 +380677773798
               </Typography>
@@ -87,8 +91,14 @@ const Footer = () => {
               />
             </Grid>
             <Grid item sm={12} md={4}>
-              <Typography variant="h5">{t("newsletter")}</Typography>
-              <Typography variant="subtitle2" sx={style.signUpText}>
+              <Typography variant="h5" component={"p"}>
+                {t("newsletter")}
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                component={"p"}
+                sx={style.signUpText}
+              >
                 {t("newsletter-sub")}
               </Typography>
               <Box sx={style.form}>
