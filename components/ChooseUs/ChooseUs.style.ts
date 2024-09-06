@@ -100,6 +100,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       whiteSpace: "pre-line",
       color: "#94a3b8",
       fontSize: "14px",
+      height: "100px",
     },
   },
 };
