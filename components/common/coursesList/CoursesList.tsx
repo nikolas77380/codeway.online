@@ -17,7 +17,6 @@ const CoursesList = ({ coursesList, lang }: ICoursesList) => {
         <Image
           src={bgImage}
           alt="Background Image"
-          fill
           quality={1}
           sizes="(max-width: 768px) 100vw, 33vw"
         />

@@ -11,15 +11,22 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
   backgroundImage: {
     position: "absolute",
-    top: 70,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    width: "1500px",
+    top: "30%",
+    left: "-70%",
     zIndex: 1,
-    transform: "rotate(180deg)",
-    "& img": {
-      width: 1,
-      aspectRatio: "750 / 533",
+    aspectRatio: "750 / 533",
+    transform: "rotate(90deg)",
+    "@media (min-width: 700px)": {
+      left: 0,
+    },
+    "@media (min-width: 900px)": {
+      width: "1000px",
+      top: 70,
+      transform: "rotate(180deg)",
+    },
+    "@media (min-width: 1400px)": {
+      top: 0,
     },
   },
   textSection: {

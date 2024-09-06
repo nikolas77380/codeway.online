@@ -4,23 +4,12 @@ const style: { [key: string]: SxProps<Theme> } = {
   container: {
     width: 1,
     m: "auto",
-    aspectRatio: "2016 / 2400",
     backgroundColor: "rgb(25,27,38,0.6)",
     maxWidth: "400px",
     minHeight: "460px",
     borderRadius: "10px",
     color: "white",
     overflow: "hidden",
-    "& img": {
-      width: 1,
-      maxHeight: "200px",
-    },
-    "@media (max-width: 500px)": {},
-  },
-
-  contentWrapper: {
-    width: 1,
-    height: "250px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "space-between",
@@ -28,7 +17,7 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   name: {
     color: "#fff",
-    mt: "5px",
+    mt: "15px",
     p: "0 10px",
     maxHeight: "64px",
   },
@@ -50,9 +39,10 @@ const style: { [key: string]: SxProps<Theme> } = {
   courseButton: {
     m: "10px",
     width: "95%",
-    borderRadius: "50px",
+    borderRadius: "10px",
     backgroundColor: "#A855F7",
     textTransform: "none",
+    mb: "10px",
   },
 };
 

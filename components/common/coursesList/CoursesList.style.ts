@@ -21,11 +21,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     right: 0,
     bottom: 0,
     height: "200%",
+    aspectRatio: "750 / 533",
     zIndex: 1,
-    "& img": {
-      width: 1,
-      aspectRatio: "750 / 533",
-    },
     "@media (max-width: 900px)": {
       top: 0,
       height: "100%",

@@ -26,27 +26,31 @@ const CourseItem = async ({
 
   return (
     <Paper sx={style.container}>
-      <Image
-        src={image}
-        alt={name}
-        // style={{ width: "100%", height: "200px" }}
-      />
-      <Box sx={style.contentWrapper}>
+      <Box>
+        <Image
+          src={image}
+          alt={name}
+          style={{
+            width: "100%",
+            height: "auto",
+            aspectRatio: "2016 / 1152",
+          }}
+        />
         <Typography variant="h6" sx={style.name} component={"p"}>
           {name}
         </Typography>
         <Typography variant="h6" sx={style.description} component={"p"}>
           {shortDescription}
         </Typography>
-        <Box>
-          <Typography sx={style.price}>{price}</Typography>
-          <Rating size="small" value={rating} readOnly sx={style.rating} />
-          <Link href={`/courses/${id}`}>
-            <Button variant="contained" size="medium" sx={style.courseButton}>
-              {t("button")}
-            </Button>
-          </Link>
-        </Box>
+      </Box>
+      <Box>
+        <Typography sx={style.price}>{price}</Typography>
+        <Rating size="small" value={rating} readOnly sx={style.rating} />
+        <Link href={`/courses/${id}`}>
+          <Button variant="contained" size="medium" sx={style.courseButton}>
+            {t("button")}
+          </Button>
+        </Link>
       </Box>
     </Paper>
   );
