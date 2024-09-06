@@ -4,12 +4,18 @@ const style: { [key: string]: SxProps<Theme> } = {
   container: {
     width: 1,
     m: "auto",
+    aspectRatio: "2016 / 2400",
     backgroundColor: "rgb(25,27,38,0.6)",
     maxWidth: "400px",
-    height: "460px",
+    minHeight: "460px",
     borderRadius: "10px",
     color: "white",
     overflow: "hidden",
+    "& img": {
+      width: 1,
+      maxHeight: "200px",
+    },
+    "@media (max-width: 500px)": {},
   },
 
   contentWrapper: {

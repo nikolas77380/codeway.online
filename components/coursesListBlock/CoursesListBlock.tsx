@@ -1,8 +1,6 @@
 import { getTranslation } from "@/app/i18n";
-
-import { Box, Typography } from "@mui/material";
-
 import { coursesInfoList } from "@/src/mocks/mocks";
+import { Box, Typography } from "@mui/material";
 import CoursesList from "../common/coursesList/CoursesList";
 import style from "./CoursesListBlock.style";
 

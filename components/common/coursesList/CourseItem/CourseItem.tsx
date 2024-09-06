@@ -29,7 +29,7 @@ const CourseItem = async ({
       <Image
         src={image}
         alt={name}
-        style={{ width: "100%", height: "200px" }}
+        // style={{ width: "100%", height: "200px" }}
       />
       <Box sx={style.contentWrapper}>
         <Typography variant="h6" sx={style.name}>
