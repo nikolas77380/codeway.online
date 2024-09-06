@@ -1,7 +1,6 @@
 "use client";
 
 import { useSnackbar } from "@/context/SnackbarContext";
-import validationSchema from "@/schemas/form.schema";
 import { sendEmail } from "@/utils/send-email";
 import { ArrowForward } from "@mui/icons-material";
 import { Box, Button, TextField, Typography } from "@mui/material";
@@ -9,6 +8,7 @@ import { useFormik } from "formik";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import style from "./ContactUsForm.style";
+import { getValidationSchema } from "./form.schema";
 
 export interface IInitialValues {
   name: string;
@@ -63,7 +63,7 @@ const ContactUsForm = ({ handleClose }: IContactUsForm) => {
 
   const formik = useFormik({
     initialValues,
-    validationSchema,
+    validationSchema: getValidationSchema(t),
     onSubmit,
   });
   return (

@@ -125,7 +125,7 @@ const Footer = () => {
             container
             spacing={2}
             justifyContent={"space-between"}
-            sx={{ mt: "20px" }}
+            sx={{ mt: "20px", zIndex: 2 }}
           >
             <Grid item xs={12} sm={3}>
               <Stack direction={"row"}>
