@@ -7,18 +7,34 @@ const style: { [key: string]: SxProps<Theme> } = {
     color: "#fff",
     pt: "20px",
     backgroundColor: "#12141D",
-    backgroundImage: "url('/assets/footer/bg_footer.png')",
-    backgroundPosition: "top center",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "contain",
+    position: "relative",
+  },
+
+  backgroundImage: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 0,
+    height: "350px",
+    width: "100%",
+    transform: "rotate(180deg)",
+    zIndex: 0,
+
+    "@media (max-width: 599px)": {
+      width: "200%",
+      left: "-50%",
+    },
   },
 
   contentWrapper: {
     maxWidth: "1280px",
     m: "auto",
     p: "30px",
+    zIndex: 1,
   },
-  mainSection: {},
+  mainSection: {
+    zIndex: 1,
+  },
   address: {
     mt: "10px",
     p: "10px",

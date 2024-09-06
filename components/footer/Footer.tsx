@@ -18,10 +18,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
+import bgImage1 from "/public/assets/header/bg_header_3_.png";
 
 interface IListLinkItem {
   name: string;
@@ -43,6 +45,14 @@ const Footer = () => {
     <>
       <Divider sx={style.divider} />
       <Box sx={style.container}>
+        <Box sx={style.backgroundImage}>
+          <Image
+            src={bgImage1}
+            alt="Background Image 1"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </Box>
         <Stack sx={style.contentWrapper}>
           <Grid container spacing={3} sx={style.mainSection}>
             <Grid item xs={12} sm={4} md={4}>
