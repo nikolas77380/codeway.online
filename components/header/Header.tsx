@@ -36,7 +36,7 @@ const Header = async ({ lang }: IHeader) => {
             </span>{" "}
             {` ${t("title-end")} `}
           </Typography>
-          <Typography variant="h6" sx={style.subtitle}>
+          <Typography variant="h6" sx={style.subtitle} component={"p"}>
             {t("subtitle")}
           </Typography>
           <Button variant="outlined" href="#courses" sx={style.button}>
@@ -51,7 +51,7 @@ const Header = async ({ lang }: IHeader) => {
                 src={bgImage}
                 alt="Background Image"
                 fill
-                quality={10}
+                quality={1}
                 sizes="(max-width: 768px) 100vw, 33vw"
                 priority
               />
