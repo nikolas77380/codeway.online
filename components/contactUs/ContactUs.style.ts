@@ -13,7 +13,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   backgroundOverlay: {
     width: 1,
     height: 1,
-    backgroundImage: "url('/assets/header/bg_header_2_.png')",
+    backgroundImage: "url('/assets/header/bg_header_2_.webp')",
     backgroundPosition: "bottom right",
     backgroundRepeat: "no-repeat",
     backgroundSize: "300%",
@@ -36,19 +36,19 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
   },
   lottieContainer: {
-    width: 160, 
-    height: 70, 
-    display: 'flex', 
-    justifyContent: 'center', 
-    alignItems: 'center',
-    mr: '40px',
-    '& .lottie-robot': {
-      width: '160px', 
-      height: '150px',
+    width: 160,
+    height: 70,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    mr: "40px",
+    "& .lottie-robot": {
+      width: "160px",
+      height: "150px",
     },
-    '@media (max-width: 900px)': {
+    "@media (max-width: 900px)": {
       mr: 0,
-    }
+    },
   },
   textWrapper: {
     width: 1,

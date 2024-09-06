@@ -3,11 +3,11 @@ import { getTranslation } from "@/app/i18n";
 import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./Header.style";
-import Person from "/public/assets/header/author_header.png";
-import bgImage from "/public/assets/header/bg_header_1_.png";
-import bgImage1 from "/public/assets/header/bg_header_3_.png";
-import CodeIcon from "/public/assets/header/img_4.png";
-import VideoIcon from "/public/assets/header/img_5.png";
+import Person from "/public/assets/header/author_header.webp";
+import bgImage from "/public/assets/header/bg_header_1_.webp";
+import bgImage1 from "/public/assets/header/bg_header_3_.webp";
+import CodeIcon from "/public/assets/header/img_4.webp";
+import VideoIcon from "/public/assets/header/img_5.webp";
 
 interface IHeader {
   lang: string;

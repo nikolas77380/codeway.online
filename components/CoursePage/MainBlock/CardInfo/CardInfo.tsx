@@ -12,7 +12,7 @@ import { Box, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import style from "./CardInfoItem.style";
-import AuthorImage from "/public/assets/header/author_header.png";
+import AuthorImage from "/public/assets/header/author_header.webp";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import("@/components/CoursePage/MainBlock/CardInfo/CardInfoVideoPlayer"),

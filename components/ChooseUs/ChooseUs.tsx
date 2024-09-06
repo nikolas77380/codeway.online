@@ -18,7 +18,7 @@ import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./ChooseUs.style";
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
-import bgImage from "/public/assets/header/bg_header_1_.png";
+import bgImage from "/public/assets/header/bg_header_1_.webp";
 
 const ChooseUs = () => {
   const { t } = useTranslation("ChooseUs");

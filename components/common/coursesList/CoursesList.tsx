@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import Image from "next/image";
 import CourseItem from "./CourseItem/CourseItem";
 import style from "./CoursesList.style";
-import bgImage from "/public/assets/header/bg_header_1_.png";
+import bgImage from "/public/assets/header/bg_header_1_.webp";
 interface ICoursesList {
   coursesList: TCourseInfo[];
   lang: string;

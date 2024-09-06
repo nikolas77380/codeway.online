@@ -23,7 +23,7 @@ import Link from "next/link";
 import { useMemo, useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
-import bgImage1 from "/public/assets/header/bg_header_3_.png";
+import bgImage1 from "/public/assets/header/bg_header_3_.webp";
 
 interface IListLinkItem {
   name: string;
