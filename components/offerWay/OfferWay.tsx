@@ -7,8 +7,6 @@ interface IOfferWay {
   lang: string;
 }
 
-//TODO: decrease fontSize beetwee 600 and 800px
-
 const OfferWay = async ({ lang }: IOfferWay) => {
   const { t } = await getTranslation(lang, "OfferWay");
 

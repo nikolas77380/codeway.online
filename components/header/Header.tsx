@@ -65,10 +65,22 @@ const Header = async ({ lang }: IHeader) => {
             />
           </Box>
           <Box sx={style.imageCodeIcon}>
-            <Image src={CodeIcon} alt="codeIcon" fill priority />
+            <Image
+              src={CodeIcon}
+              alt="codeIcon"
+              fill
+              sizes="(max-width: 768px) 50vw, 10vw"
+              priority
+            />
           </Box>
           <Box sx={style.imageCssIcon}>
-            <Image src={VideoIcon} alt="videoIcon" fill priority />
+            <Image
+              src={VideoIcon}
+              alt="videoIcon"
+              fill
+              priority
+              sizes="(max-width: 768px) 50vw, 10vw"
+            />
           </Box>
         </Box>
       </Box>
