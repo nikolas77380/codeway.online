@@ -2,92 +2,98 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   mainContainer: {
-    display: 'flex',
-    backgroundColor: '#12141d',
-    p: '3rem 18rem',
+    maxWidth: "1500px",
+    m: "auto",
+    mb: "50px",
     width: 1,
-    gap: '80px',
-    height: 'auto',
-    position: 'relative',
-    '@media (max-width: 600px)': {
-      p: '0 2rem',
-      flexDirection: 'column',
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#12141d",
+    p: "25px",
+    gap: "50px",
+    height: "auto",
+    position: "relative",
+    "@media (max-width: 800px)": {
+      flexDirection: "column",
+      gap: "40px",
     },
   },
 
   mainContent: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '15px',
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    gap: "15px",
     width: 1,
     height: 1,
-    flex: 1,
-    p: '5rem 0',
-    '& label': {
-      textTransform: 'uppercase',
-      color: '#a855f7',
-      fontSize: '1rem',
-      fontWeight: '500',
-      '@media (max-width: 600px)': {
-        fontSize: '0.8rem',
+    "& label": {
+      textTransform: "uppercase",
+      color: "#a855f7",
+      fontSize: "1rem",
+      fontWeight: "500",
+      "@media (max-width: 600px)": {
+        fontSize: "0.8rem",
       },
     },
-    '& span': {
-      color: '#fff',
-      fontWeight: '600',
-      fontSize: '2.5rem',
-      width: '75%',
-      '@media (max-width: 600px)': {
-        fontSize: '1.6rem',
+    "& span": {
+      color: "#fff",
+      fontWeight: "600",
+      fontSize: "2.5rem",
+      width: "85%",
+      "@media (max-width: 600px)": {
+        fontSize: "1.6rem",
       },
     },
-    '& p': {
-      color: '#94a3b8',
-      fontSize: '1.1rem',
-      '@media (max-width: 600px)': {
-        fontSize: '0.9rem',
+    "& p": {
+      color: "#94a3b8",
+      fontSize: "1.1rem",
+      "@media (max-width: 600px)": {
+        fontSize: "0.9rem",
       },
     },
-    '@media (max-width: 600px)': {
+    "@media (max-width: 600px)": {
       p: 0,
-      paddingTop: '2rem',
+      paddingTop: "2rem",
     },
   },
 
   separator: {
     width: 1,
-    height: '1px',
-    backgroundColor: '#42444e',
+    height: "1px",
+    backgroundColor: "#42444e",
   },
 
   servicesContainer: {
     width: 1,
     height: 1,
-    mt: '15px',
-    '@media (max-width: 600px)': {
-      mt: '5px',
+    mt: "15px",
+    "@media (max-width: 600px)": {
+      mt: "5px",
     },
   },
 
   mainContent2: {
-    width: 1, 
-    height: 1, 
-    flex: 1, 
-    m: 'auto',
+    height: 1,
+    m: "auto",
+    "@media (max-width: 600px)": {
+      width: 1,
+      mt: "5px",
+    },
   },
 
   mainFormContainer: {
-    display: 'flex',
+    display: "flex",
     flex: 1,
     width: 1,
     height: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
+    alignItems: "center",
+    justifyContent: "center",
   },
 
   container: {
-    maxWidth: 600,
-    width: "90%",
+    width: 1,
+    height: 1,
     bgcolor: "rgb(28,30,42)",
     borderRadius: "10px",
     boxShadow: 24,

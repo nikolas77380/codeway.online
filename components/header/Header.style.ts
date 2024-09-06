@@ -5,6 +5,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     backgroundColor: "#12141D",
     p: "10px",
+    "@media (max-width: 600px)": {
+      mb: "50px",
+    },
   },
 
   contentWrapper: {
@@ -164,11 +167,23 @@ const style: { [key: string]: SxProps<Theme> } = {
     right: 0,
     bottom: 0,
     zIndex: -1,
+    "@media (max-width: 600px)": {
+      "& img": {
+        display: "none",
+      },
+      backgroundImage:
+        "radial-gradient(ellipse  at 50% 49%, rgba(209,165,252,0.49)  0%,rgba(209,165,252,0.79)  20.330962052582002%,rgba(186,118,255,0.33)  45.86287694619902%,rgba(186,118,255,0)  67.8486925490359%), radial-gradient(ellipse  at 49% 51%, rgb(197,140,251)  0%,rgba(188,122,255,0.48)  32.387699641234484%,rgba(188,122,255,0)  70.68557198166002%)",
+      backgroundPosition:
+        "28.285714285714285% 70.4%, 56.285714285714285% 35.2%",
+      backgroundSize: "70% 65%, 38% 51%",
+      backgroundRepeat: "no-repeat, no-repeat",
+      backgroundBlendMode: "normal, normal",
+    },
   },
   imageCodeIcon: {
     position: "absolute",
-    width: "108px",
-    height: "108px",
+    width: "100px",
+    height: "100px",
     top: "40px",
     right: "30px",
     rotate: "15deg",
@@ -191,8 +206,8 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   imageCssIcon: {
     position: "absolute",
-    width: "108px",
-    height: "108px",
+    width: "100px",
+    height: "100px",
     bottom: "50%",
     right: "300px",
     animation: `fadeInScaleRight 1s forwards`,
@@ -212,6 +227,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     "@media (max-width: 900px)": {
       right: "200px",
       bottom: "45%",
+      width: "75px",
+      height: "75px",
     },
   },
   imageReactIcon: {

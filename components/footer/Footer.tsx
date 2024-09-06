@@ -18,10 +18,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
+import bgImage1 from "/public/assets/header/bg_header_3_.webp";
 
 interface IListLinkItem {
   name: string;
@@ -43,17 +45,29 @@ const Footer = () => {
     <>
       <Divider sx={style.divider} />
       <Box sx={style.container}>
+        <Box sx={style.backgroundImage}>
+          <Image
+            src={bgImage1}
+            alt="Background Image 1"
+            fill
+            sizes="(max-width: 768px) 100vw, 33vw"
+          />
+        </Box>
         <Stack sx={style.contentWrapper}>
           <Grid container spacing={3} sx={style.mainSection}>
             <Grid item xs={12} sm={4} md={4}>
               <Typography fontSize={"1.5rem"}>[CodeWay]</Typography>
-              <Typography variant="subtitle2" sx={style.address}>
+              <Typography
+                variant="subtitle2"
+                component={"p"}
+                sx={style.address}
+              >
                 {t("address")}{" "}
               </Typography>
-              <Typography variant="subtitle2" sx={style.email}>
+              <Typography variant="subtitle2" component={"p"} sx={style.email}>
                 test@mail.com
               </Typography>
-              <Typography variant="subtitle2" sx={style.phone}>
+              <Typography variant="subtitle2" component={"p"} sx={style.phone}>
                 <Phone sx={style.phoneIcon} />
                 +380677773798
               </Typography>
@@ -77,8 +91,14 @@ const Footer = () => {
               />
             </Grid>
             <Grid item sm={12} md={4}>
-              <Typography variant="h5">{t("newsletter")}</Typography>
-              <Typography variant="subtitle2" sx={style.signUpText}>
+              <Typography variant="h5" component={"p"}>
+                {t("newsletter")}
+              </Typography>
+              <Typography
+                variant="subtitle2"
+                component={"p"}
+                sx={style.signUpText}
+              >
                 {t("newsletter-sub")}
               </Typography>
               <Box sx={style.form}>
@@ -105,23 +125,23 @@ const Footer = () => {
             container
             spacing={2}
             justifyContent={"space-between"}
-            sx={{ mt: "20px" }}
+            sx={{ mt: "20px", zIndex: 2 }}
           >
             <Grid item xs={12} sm={3}>
               <Stack direction={"row"}>
-                <Link href="">
+                <Link href="" aria-label="Facebook">
                   <Facebook sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="Instagram">
                   <Instagram sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="X">
                   <X sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="LinkedIn">
                   <LinkedIn sx={style.socialIcon} />
                 </Link>
-                <Link href="">
+                <Link href="" aria-label="YouTube">
                   <YouTube sx={style.socialIcon} />
                 </Link>
               </Stack>

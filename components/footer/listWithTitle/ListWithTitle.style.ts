@@ -17,6 +17,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     "&:hover": {
       color: "#9333EA",
     },
+    "@media (max-width: 600px)": {
+      m: "5px",
+    },
   },
 };
 

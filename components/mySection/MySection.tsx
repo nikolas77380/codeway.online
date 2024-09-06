@@ -1,5 +1,5 @@
 import { getTranslation } from "@/app/i18n";
-import Author from "@/public/assets/author6.png";
+import Author from "@/public/assets/author6.webp";
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./MySection.style";

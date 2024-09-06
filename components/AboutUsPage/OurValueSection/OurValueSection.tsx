@@ -24,9 +24,9 @@ import {
   ourValuescrollUpv2
 } from "@/utils/motionVariants";
 
-import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import MotionBox from "@/components/customComponents/MotionBox";
 
-import { motion } from "framer-motion";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import style from "./OurValueSection.style";
 
@@ -43,8 +43,6 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
 
   const { t } = useTranslation("AboutUsPage");
 
-  const MotionBox = motion(Box);
-
   const { ref } = useScrollAnimation({
     delay: 0,
     duration: 2,
@@ -55,57 +53,57 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
     <Box sx={style.mainContainer} ref={ref}>
       <Box sx={style.valueContainer}>
         <MotionBox
-          data-testid="main-content"
-          sx={style.mainContent}
           initial='hidden'
           animate='visible'
           variants={aboutUsPageScroLeftToRight(0,1)}
         >
-          <Typography component="label">{t("our-value.slogan")}</Typography>
-          <Typography variant="h3" component="span">
-            {t("our-value.title")}
-          </Typography>
-          <Box sx={style.separator} />
-          <Box sx={style.valueSection}>
-            <Box sx={style.valueWrapper}>
-              <IconButton sx={style.icon}>
-                <VisibilityIcon fontSize="large" />
-              </IconButton>
-              <Box sx={style.valueTextSection}>
-                <Typography component="span">
-                  {t("our-value.item1-title")}
-                </Typography>
-                <Typography component="p">
-                  {t("our-value.item1-desc")}
-                </Typography>
+          <Box data-testid="main-content" sx={style.mainContent}>
+            <Typography component="label">{t("our-value.slogan")}</Typography>
+            <Typography variant="h3" component="span">
+              {t("our-value.title")}
+            </Typography>
+            <Box sx={style.separator} />
+            <Box sx={style.valueSection}>
+              <Box sx={style.valueWrapper}>
+                <IconButton sx={style.icon}>
+                  <VisibilityIcon fontSize="large" />
+                </IconButton>
+                <Box sx={style.valueTextSection}>
+                  <Typography component="span">
+                    {t("our-value.item1-title")}
+                  </Typography>
+                  <Typography component="p">
+                    {t("our-value.item1-desc")}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
 
-            <Box sx={style.valueWrapper}>
-              <IconButton sx={style.icon}>
-                <AdsClickIcon fontSize="large" />
-              </IconButton>
-              <Box sx={style.valueTextSection}>
-                <Typography component="span">
-                  {t("our-value.item2-title")}
-                </Typography>
-                <Typography component="p">
-                  {t("our-value.item2-desc")}
-                </Typography>
+              <Box sx={style.valueWrapper}>
+                <IconButton sx={style.icon}>
+                  <AdsClickIcon fontSize="large" />
+                </IconButton>
+                <Box sx={style.valueTextSection}>
+                  <Typography component="span">
+                    {t("our-value.item2-title")}
+                  </Typography>
+                  <Typography component="p">
+                    {t("our-value.item2-desc")}
+                  </Typography>
+                </Box>
               </Box>
-            </Box>
 
-            <Box sx={style.valueWrapper}>
-              <IconButton sx={style.icon}>
-                <FileCopyIcon fontSize="large" />
-              </IconButton>
-              <Box sx={style.valueTextSection}>
-                <Typography component="span">
-                  {t("our-value.item3-title")}
-                </Typography>
-                <Typography component="p">
-                  {t("our-value.item3-desc")}
-                </Typography>
+              <Box sx={style.valueWrapper}>
+                <IconButton sx={style.icon}>
+                  <FileCopyIcon fontSize="large" />
+                </IconButton>
+                <Box sx={style.valueTextSection}>
+                  <Typography component="span">
+                    {t("our-value.item3-title")}
+                  </Typography>
+                  <Typography component="p">
+                    {t("our-value.item3-desc")}
+                  </Typography>
+                </Box>
               </Box>
             </Box>
           </Box>
@@ -118,60 +116,64 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
             </IconButton>
           </Box>
             <MotionBox 
-              sx={style.imgContainer}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
               variants={ourValueScrollRightToLeft(300, 0, 0.4, 1)}
             >
-              <Image
-                src="/assets/aboutUs/team-of-innovators.jpg"
-                alt=""
-                width={300}
-                height={300}
-              />
+              <Box sx={style.imgContainer}>
+                <Image
+                  src="/assets/aboutUs/team-of-innovators.jpg"
+                  alt=""
+                  width={300}
+                  height={300}
+                />
+              </Box>
             </MotionBox>
             <MotionBox 
-              sx={style.imgContainer2}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
               variants={ourValuescrollUpv2()}
             >
-              <Image
-                src="/assets/aboutUs/creative-team.jpg"
-                alt=""
-                width={600}
-                height={600}
-              />
+              <Box sx={style.imgContainer2}>
+                <Image
+                  src="/assets/aboutUs/creative-team.jpg"
+                  alt=""
+                  width={600}
+                  height={600}
+                />
+              </Box>
             </MotionBox>
             <MotionBox 
-              sx={style.imgContainer3}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
               variants={ourValueScrollLeftToRight(-810, 0, 0.4, 1)}
             >
-              <Image
-                src="/assets/aboutUs/business-team.jpg"
-                alt=""
-                width={300}
-                height={300}
-              />
+              <Box sx={style.imgContainer3}>
+                <Image
+                  src="/assets/aboutUs/business-team.jpg"
+                  alt=""
+                  width={300}
+                  height={300}
+                />
+              </Box>
             </MotionBox>
             <MotionBox 
-              sx={style.imgContainer4}
               initial='hidden'
               whileInView='visible'
               viewport={{ once: true }}
               variants={ourValuescrollDown()}
             >
-              <Image
-                src="/assets/aboutUs/unity-and-teamwork.jpg"
-                alt=""
-                width={600}
-                height={600}
-              />
+              <Box sx={style.imgContainer4}>
+                <Image
+                  src="/assets/aboutUs/unity-and-teamwork.jpg"
+                  alt=""
+                  width={600}
+                  height={600}
+                />
+              </Box>
             </MotionBox>
           <Modal
             open={open}

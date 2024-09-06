@@ -10,7 +10,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     width: 1,
     borderRadius: "50px",
     backgroundImage:
-      'url("/assets/header/bg_header_2_.png"), url("/assets/header/bg_header_3_.png")',
+      'url("/assets/header/bg_header_2_.webp"), url("/assets/header/bg_header_3_.webp")',
     backgroundPosition: "bottom right",
     backgroundRepeat: "no-repeat",
     backgroundSize: "contain",

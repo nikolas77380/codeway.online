@@ -4,8 +4,6 @@ import { useTranslation } from "@/app/i18n/client";
 import WayForPayWidget from "@/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
 import { courseInstructor } from "@/src/mocks/mocks";
-import { MotionBox } from "@/utils/motionElements";
-import { scrollRightToLeft } from "@/utils/motionVariants";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
@@ -14,7 +12,7 @@ import { Box, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import style from "./CardInfoItem.style";
-
+import AuthorImage from "/public/assets/header/author_header.webp";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import("@/components/CoursePage/MainBlock/CardInfo/CardInfoVideoPlayer"),
@@ -27,13 +25,7 @@ const CardInfo = () => {
   const { course } = useCourse();
 
   return (
-    <MotionBox
-      sx={style.cardInfoMainContainer}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      variants={scrollRightToLeft(0.4, 1.4)}
-    >
+    <Box sx={style.cardInfoMainContainer}>
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayerWithNoSSR />
         <Typography variant="h6" component="label">
@@ -43,10 +35,10 @@ const CardInfo = () => {
           <Box sx={style.avatarWrapper}>
             <Image
               alt={courseInstructor.name}
-              src={courseInstructor.image}
-              width={65}
+              src={AuthorImage}
+              width={55}
               height={65}
-              style={{ borderRadius: "50%" }}
+              style={{ borderRadius: "40%" }}
             />
           </Box>
           <Box sx={style.avatarTextContainer}>
@@ -100,7 +92,7 @@ const CardInfo = () => {
           }}
         />
       </Box>
-    </MotionBox>
+    </Box>
   );
 };
 

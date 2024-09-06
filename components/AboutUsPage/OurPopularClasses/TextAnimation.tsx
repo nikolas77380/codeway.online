@@ -1,7 +1,8 @@
 import { Box, Typography } from '@mui/material';
 
-import { MotionTypography } from '@/utils/motionElements';
 import { textAnimationItem } from '@/utils/motionVariants';
+
+import MotionBox from '@/components/customComponents/MotionBox';
 
 interface TextAnimationProps {
   text: string;
@@ -22,13 +23,11 @@ const TextAnimation = ({ text, className }: TextAnimationProps) => {
         <Typography component='span' key={index} sx={{ whiteSpace: 'nowrap', overflow: 'hidden' }}>
           {word.map((element, charIndex) => (
             <Typography key={charIndex} sx={{ display: 'inline-block' }} component='span'>
-              <MotionTypography
-                variants={textAnimationItem()}
-                sx={{ display: 'inline-block' }}
-                component='span'
-              >
-                {element}
-              </MotionTypography>
+              <MotionBox variants={textAnimationItem()}>
+                <Typography sx={{ display: 'inline-block' }} component='span'>
+                  {element}
+                </Typography>
+              </MotionBox>
             </Typography>
           ))}
         </Typography>

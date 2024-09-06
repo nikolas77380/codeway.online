@@ -22,7 +22,7 @@ export default function Home({ params: { lang } }: IHome) {
   const ContactUs = lazy(() => import("@/components/contactUs/ContactUs"));
 
   return (
-    <main>
+    <main style={{ overflow: "hidden" }}>
       <Header lang={lang} />
       <MySection lang={lang} />
       <OfferWay lang={lang} />

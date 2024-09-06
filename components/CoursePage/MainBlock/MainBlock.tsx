@@ -9,7 +9,7 @@ import KeyPointsItem from "./KeyPointsItem/KeyPointsItem";
 
 import { useWindowSize } from "@/hooks/useWindowSize";
 
-import { MotionBox } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import CardInfo from "./CardInfo/CardInfo";
 import DescriptionItem from "./DescriptionItem/DescriptionItem";
 import style from "./MainBlock.style";
@@ -34,7 +34,6 @@ const MainBlock = () => {
   return (
     <Box sx={style.mainContainer}>
       <MotionBox
-        sx={style.mobileCardInfoBlock}
         initial={{ opacity: 0, y: 300 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

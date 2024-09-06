@@ -1,5 +1,5 @@
+import { permanent } from "@/app/fonts";
 import { SxProps, Theme } from "@mui/material";
-import { permanent } from '@/app/fonts';
 
 const style: { [key: string]: SxProps<Theme> } = {
   mainSection: {
@@ -20,46 +20,50 @@ const style: { [key: string]: SxProps<Theme> } = {
     height: 1,
     width: 1,
   },
-
+  squareBracket: {
+    color: "#A855F7",
+    fontWeight: "bold",
+    fontSize: "1.5rem",
+  },
   logo: {
     textTransform: "uppercase",
     color: "white",
     fontSize: "20px",
     fontWeight: "600",
-    textAlign: 'center',
-    display: 'flex',
-    alignItems: 'center',
+    textAlign: "center",
+    display: "flex",
+    alignItems: "center",
     fontFamily: permanent.style.fontFamily,
-    '& .cursor-blink': {
+    "& .cursor-blink": {
       marginLeft: "2px",
       marginTop: "4px",
       minWidth: "10px",
       display: "inline-block",
-      animationName:'blink',
-      animationDration: '0.8s',
-      animationIterationCount: 'infinite',
-      '@keyframes blink': {
-        '0%, 100%': {
+      animationName: "blink",
+      animationDration: "0.8s",
+      animationIterationCount: "infinite",
+      "@keyframes blink": {
+        "0%, 100%": {
           opacity: 1,
-        } ,
-        '50%': {
-          opacity: 0
+        },
+        "50%": {
+          opacity: 0,
         },
       },
     },
   },
   logoWrapper: {
-    '& a': {
+    "& a": {
       textDecoration: "none",
-      display: 'flex',
-      alignItems: 'center',
+      display: "flex",
+      alignItems: "center",
     },
   },
   rightBracket: {
-    marginRight: '5px'
+    marginRight: "5px",
   },
   leftBracket: {
-    marginLeft: '5px'
+    marginLeft: "5px",
   },
 
   routeSectionDesktop: {
@@ -72,7 +76,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     // "@media (min-width: 601px) and (max-width: 1024px)": {
     //   display: "none",
     // },
-    '& a': {
+    "& a": {
       textDecoration: "none",
     },
   },

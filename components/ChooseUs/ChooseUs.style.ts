@@ -7,13 +7,28 @@ const style: { [key: string]: SxProps<Theme> } = {
     m: "25px auto",
     p: "25px 25px",
     position: "relative",
-    backgroundImage: "url(/assets/header/bg_header_1_.png)",
-    backgroundRepeat: "no-repeat",
-    backgroundPosition: "center",
-    backgroundSize: "contain",
     overflow: "hidden",
   },
-
+  backgroundImage: {
+    position: "absolute",
+    width: "1500px",
+    top: "30%",
+    left: "-70%",
+    zIndex: 1,
+    aspectRatio: "750 / 533",
+    transform: "rotate(90deg)",
+    "@media (min-width: 700px)": {
+      left: 0,
+    },
+    "@media (min-width: 900px)": {
+      width: "1000px",
+      top: 70,
+      transform: "rotate(180deg)",
+    },
+    "@media (min-width: 1400px)": {
+      top: 0,
+    },
+  },
   textSection: {
     m: "25px 0",
     display: "flex",
@@ -21,6 +36,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     gap: "25px",
     textAlign: "center",
     width: 1,
+    "& p": {
+      zIndex: 2,
+    },
   },
   cardSection: {
     m: "50px 0",
@@ -82,6 +100,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       whiteSpace: "pre-line",
       color: "#94a3b8",
       fontSize: "14px",
+      height: "100px",
     },
   },
 };

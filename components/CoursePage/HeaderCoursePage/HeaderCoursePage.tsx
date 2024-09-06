@@ -7,51 +7,52 @@ import {
   Rating,
   Stack,
   Typography,
-  TypographyProps,
 } from "@mui/material";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import style from "./HeaderCoursePage.style";
-
 import { useTranslation } from "@/app/i18n/client";
+
 import { courseIdHeaderScrollUp } from "@/utils/motionVariants";
-import { motion, MotionProps } from "framer-motion";
+
+import MotionBox from "@/components/customComponents/MotionBox";
+
+import style from "./HeaderCoursePage.style";
 
 const HeaderCoursePage = () => {
   const { course } = useCourse();
   const { t } = useTranslation("CourseIdPage");
-  const MotionTypography = motion<TypographyProps & MotionProps>(Typography);
 
   return (
     <Box sx={style.container}>
       <Box sx={style.contentWrapper}>
-        <MotionTypography
-          sx={style.topic}
+        <MotionBox
           initial="hidden"
           animate="visible"
           variants={courseIdHeaderScrollUp(50, 0.2, 0.7)}
         >
-          {course.topic}
-        </MotionTypography>
-        <MotionTypography
-          sx={style.name}
+          <Typography sx={style.topic}>
+            {course.topic}
+          </Typography>
+        </MotionBox>
+        <MotionBox
           initial="hidden"
           animate="visible"
-          variant="h2"
           variants={courseIdHeaderScrollUp(80, 0, 1)}
         >
-          {course.name}
-        </MotionTypography>
-        <MotionTypography
-          variant="h6"
-          sx={style.subtitle}
+          <Typography sx={style.name} variant="h2">
+            {course.name}
+          </Typography>
+        </MotionBox>
+        <MotionBox
           initial="hidden"
           animate="visible"
           variants={courseIdHeaderScrollUp(50, 0.2, 0.7)}
         >
-          {course.shortDescription}
-        </MotionTypography>
+          <Typography sx={style.subtitle} variant="h6">
+            {course.shortDescription}
+          </Typography>
+        </MotionBox>
         <Rating
           size="medium"
           value={course.rating}

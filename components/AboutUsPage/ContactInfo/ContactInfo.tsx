@@ -6,7 +6,7 @@ import { contactData } from '@/src/mocks/AboutUsPage/contactData';
 
 import { ScrollAnimationWrapper } from '@/hooks/useScrollAnimationWrapper';
 
-import { MotionBox } from '@/utils/motionElements';
+import MotionBox from '@/components/customComponents/MotionBox';
 import { contactInfoContainer, teamScrollDown } from '@/utils/motionVariants';
 
 import style from './ContactInfo.style'
@@ -26,20 +26,21 @@ const ContactInfo = () => {
           </Typography>
         </MotionBox>
         <MotionBox 
-          sx={style.cardInfoContainer}
           initial="hidden"
           whileInView='visible'
           variants={contactInfoContainer()}
         >
-          {contactData.map((item, index) => (
-            <Box key={index}>
-              <Box sx={style.textInfoSection}>
-                <Typography className='title'>{item.title}</Typography>
-                <Typography className='subtitle'>{item.subtitle}</Typography>
+          <Box sx={style.cardInfoContainer}>
+            {contactData.map((item, index) => (
+              <Box key={index}>
+                <Box sx={style.textInfoSection}>
+                  <Typography className='title'>{item.title}</Typography>
+                  <Typography className='subtitle'>{item.subtitle}</Typography>
+                </Box>
+                {index < contactData.length - 1 && <Box sx={style.infoSeparator}></Box>}
               </Box>
-              {index < contactData.length - 1 && <Box sx={style.infoSeparator}></Box>}
-            </Box>
-          ))}
+            ))}
+          </Box>
         </MotionBox>
       </Box>
     </ScrollAnimationWrapper>

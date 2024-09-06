@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
-import { MotionBox } from "@/utils/motionElements";
+import MotionBox from "@/components/customComponents/MotionBox";
 import { scrollDown } from "@/utils/motionVariants";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Box, Typography } from "@mui/material";
@@ -22,16 +22,18 @@ const Faq = () => {
   return (
     <Box sx={style.mainSection}>
       <MotionBox
-        sx={style.textSection}
-        component="div"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={scrollDown(0, 1)}
       >
-        <Typography variant="body2">{t("slogan")}</Typography>
-        <Typography variant="h2">{t("title")}</Typography>
-        <Typography variant="h6">{t("subtitle")}</Typography>
+        <Box sx={style.textSection} component="div">
+          <Typography variant="body2">{t("slogan")}</Typography>
+          <Typography variant="h2">{t("title")}</Typography>
+          <Typography variant="h6" component={"p"}>
+            {t("subtitle")}
+          </Typography>
+        </Box>
       </MotionBox>
       <Box sx={style.faqCardContainer}>
         {dataFaqCard.map((card) => (

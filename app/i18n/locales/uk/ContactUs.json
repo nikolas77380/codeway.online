@@ -9,5 +9,15 @@
     "emailInputLabel": "Email",
     "messageInputLabel": "Повідомлення",
     "button": "Звернутись"
+  },
+  "validation": {
+    "nameRequired": "Будь-ласка, введіть ім'я!",
+    "nameMin": "Ім'я занадто коротке!",
+    "nameMax": "Ім'я занадто довге!",
+    "emailInvalid": "Будь ласка, введіть дійсну електронну адресу",
+    "emailRequired": "Електронна адреса обов'язкова",
+    "messageRequired": "Повідлмлення обов'язкове",
+    "messageMin": "Повідомлення занадто коротке!",
+    "messageMax": "Повідомлення занадто довге!"
   }
 }
