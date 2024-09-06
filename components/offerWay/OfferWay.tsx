@@ -64,7 +64,7 @@ const OfferWay = async ({ lang }: IOfferWay) => {
             variant="h6"
             component={"p"}
             sx={{
-              "@media (max-width: 800px)": {
+              "@media (min-width: 600px) and (max-width: 800px)": {
                 fontSize: "1rem",
               },
             }}
@@ -84,7 +84,7 @@ const OfferWay = async ({ lang }: IOfferWay) => {
             variant="h6"
             component={"p"}
             sx={{
-              "@media (max-width: 800px)": {
+              "@media (min-width: 600px) and (max-width: 800px)": {
                 fontSize: "1rem",
               },
             }}
