@@ -1,26 +1,18 @@
-import { Box } from '@mui/material';
-
-import Link from 'next/link';
-import Image from 'next/image';
-
-import { AnimatedText } from './AnimatedText';
-
-import style from '../Menu.style'
+import { Box, Typography } from "@mui/material";
+import Link from "next/link";
+import style from "../Menu.style";
+import { AnimatedText } from "./AnimatedText";
 
 const Logo = () => {
   return (
     <Box sx={style.logoWrapper}>
       <Link href="/">
-        <Box sx={style.rightBracket}>
-          <Image src='/assets/logo/left-50.png' alt="" width={15} height={30} />
-        </Box>
+        <Typography sx={style.squareBracket}>{"[ "}</Typography>
         <AnimatedText />
-        <Box sx={style.leftBracket}>
-          <Image src='/assets/logo/right-50.png' alt="" width={15} height={30} />
-        </Box>
+        <Typography sx={style.squareBracket}>{"]"}</Typography>
       </Link>
     </Box>
-  )
+  );
 };
 
 export default Logo;

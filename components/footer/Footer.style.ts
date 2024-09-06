@@ -8,6 +8,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     pt: "20px",
     backgroundColor: "#12141D",
     position: "relative",
+    overflow: "hidden",
   },
 
   backgroundImage: {
@@ -15,11 +16,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     top: 0,
     left: 0,
     right: 0,
-    height: "350px",
     width: "100%",
     transform: "rotate(180deg)",
     zIndex: 0,
-
+    aspectRatio: "750 / 260",
     "@media (max-width: 599px)": {
       width: "200%",
       left: "-50%",
