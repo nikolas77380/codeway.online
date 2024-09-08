@@ -9,7 +9,7 @@ interface IListWithTitle {
 
 const ListWithTitle = ({ title, items }: IListWithTitle) => {
   return (
-    <Stack>
+    <Stack sx={style.container}>
       {title ?? <Typography sx={style.title}>{title}</Typography>}
       {items.map((item, i) => (
         <Typography key={i} component="div" sx={style.link}>

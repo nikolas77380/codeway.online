@@ -1,6 +1,9 @@
 import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
+  container: {
+    mt: '10px',
+  },
   title: {
     fontWeight: "bold",
     m: "20px",
