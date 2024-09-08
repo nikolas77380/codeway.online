@@ -4,7 +4,7 @@ import theme from "@/src/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import { dir } from "i18next";
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { RedHatText } from "../fonts";
 import { getTranslation } from "../i18n";
 import { languages } from "../i18n/settings";
@@ -44,7 +44,9 @@ export default function RootLayout({
             <SnackbarProvider>
               <Menu lang={lang} />
               {children}
-              <Footer />
+              <Suspense>
+                <Footer />
+              </Suspense>
             </SnackbarProvider>
           </ThemeProvider>
         </AppRouterCacheProvider>
