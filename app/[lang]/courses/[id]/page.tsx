@@ -1,6 +1,6 @@
-import HeaderCoursePage from "@/components/CoursePage/HeaderCoursePage/HeaderCoursePage";
-import MainBlock from "@/components/CoursePage/MainBlock/MainBlock";
-import Testimonials from "@/components/Testimonials/Testimonials";
+import HeaderCoursePage from "@/src/components/CoursePage/HeaderCoursePage/HeaderCoursePage";
+import MainBlock from "@/src/components/CoursePage/MainBlock/MainBlock";
+import Testimonials from "@/src/components/Testimonials/Testimonials";
 import { CourseProvider } from "@/src/context/CourseContext";
 import { coursesInfoList } from "@/src/mocks/mocks";
 import { Box } from "@mui/material";

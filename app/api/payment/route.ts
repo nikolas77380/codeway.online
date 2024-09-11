@@ -1,6 +1,6 @@
 import { getTranslation } from "@/app/i18n";
-import { generateSignature } from "@/utils/generateSignature";
-import { sendEmail } from "@/utils/send-email";
+import { generateSignature } from "@/src/utils/generateSignature";
+import { sendEmail } from "@/src/utils/send-email";
 import { NextResponse } from "next/server";
 
 const SECRET_KEY = process.env.SECRET_KEY;
