@@ -1,5 +1,5 @@
-import Menu from "@/components/Menu/Menu";
-import { SnackbarProvider } from "@/context/SnackbarContext";
+import Menu from "@/src/components/Menu/Menu";
+import { SnackbarProvider } from "@/src/context/SnackbarContext";
 import theme from "@/src/theme";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
@@ -34,7 +34,7 @@ export default function RootLayout({
   children,
   params: { lang },
 }: IRootLayout) {
-  const Footer = lazy(() => import("@/components/footer/Footer"));
+  const Footer = lazy(() => import("@/src/components/footer/Footer"));
 
   return (
     <html lang={lang} dir={dir(lang)} className={RedHatText.className}>
