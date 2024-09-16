@@ -34,6 +34,7 @@ const CourseItem = async ({
             width: "100%",
             height: "auto",
             aspectRatio: "2016 / 1152",
+            objectFit: "cover",
           }}
         />
         <Typography variant="h6" sx={style.name} component={"p"}>
