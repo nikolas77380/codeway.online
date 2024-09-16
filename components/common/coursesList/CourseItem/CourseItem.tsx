@@ -5,7 +5,7 @@ import Link from "next/link";
 import style from "./CourseItem.style";
 
 interface ICourseItem {
-  id: number;
+  id: number | string;
   image: StaticImageData;
   shortDescription: string;
   name: string;
