@@ -6,10 +6,9 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import MotionBox from "@/components/customComponents/MotionBox";
-import { scrollLeftToRight, scrollUp } from "@/utils/motionVariants";
-
 import { useTranslation } from "@/app/i18n/client";
+import MotionBox from "@/src/components/customComponents/MotionBox";
+import { scrollLeftToRight, scrollUp } from "@/src/utils/motionVariants";
 import style from "./Expectations.style";
 
 const ExpectationsItem = () => {
