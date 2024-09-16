@@ -14,7 +14,7 @@ interface CoursePageProps {
 }
 
 const CoursePage = ({ params }: CoursePageProps) => {
-  const course = coursesInfoList[params.id];
+  const course = coursesInfoList.find((el) => el.id === params.id);
 
   if (!course) {
     return <Box>Course Not Found</Box>;

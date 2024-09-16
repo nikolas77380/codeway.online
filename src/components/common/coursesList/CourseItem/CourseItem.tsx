@@ -5,7 +5,7 @@ import Link from "next/link";
 import style from "./CourseItem.style";
 
 interface ICourseItem {
-  id: number;
+  id: number | string;
   image: StaticImageData;
   shortDescription: string;
   name: string;
@@ -34,6 +34,7 @@ const CourseItem = async ({
             width: "100%",
             height: "auto",
             aspectRatio: "2016 / 1152",
+            objectFit: "cover",
           }}
         />
         <Typography variant="h6" sx={style.name} component={"p"}>
