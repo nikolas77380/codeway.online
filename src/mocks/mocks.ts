@@ -10,7 +10,7 @@ export type TInstructor = {
 };
 
 export type TCourseInfo = {
-  id: number;
+  id: number | string;
   topic: string;
   name: string;
   shortDescription: string;
@@ -42,7 +42,7 @@ export const courseInstructor: TInstructor = {
 
 export const coursesInfoList: TCourseInfo[] = [
   {
-    id: 0,
+    id: "easy-start-1-0",
     link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-start",
     invoiceUrl: "https://secure.wayforpay.com/button/b0a9d2b9ac6f5",
     videoLink: "",
@@ -138,7 +138,7 @@ export const coursesInfoList: TCourseInfo[] = [
   },
 
   {
-    id: 2,
+    id: "front-end-360",
     link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-pro",
     invoiceUrl: "https://secure.wayforpay.com/button/b1e10642d077f",
     videoLink: "",
@@ -327,7 +327,7 @@ export const coursesInfoList: TCourseInfo[] = [
     ],
   },
   {
-    id: 2,
+    id: "tviy-mentor",
     link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-start",
     invoiceUrl: "https://secure.wayforpay.com/button/b0a9d2b9ac6f5",
     videoLink: "",
