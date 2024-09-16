@@ -13,6 +13,7 @@ import MotionBox from "@/components/customComponents/MotionBox";
 import CardInfo from "./CardInfo/CardInfo";
 import DescriptionItem from "./DescriptionItem/DescriptionItem";
 import style from "./MainBlock.style";
+import ExpectationsItem from "./ExpectationsItem/ExpectationsItem";
 
 const MainBlock = () => {
   const { width } = useWindowSize();
@@ -44,6 +45,7 @@ const MainBlock = () => {
       <Box sx={style.mainContent}>
         <DescriptionItem />
         <KeyPointsItem />
+        <ExpectationsItem />
         <CourseLessons />
       </Box>
     </Box>
