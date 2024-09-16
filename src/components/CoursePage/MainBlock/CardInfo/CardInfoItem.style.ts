@@ -165,11 +165,18 @@ const style: { [key: string]: SxProps<Theme> } = {
     '& .discount-price': {
       color: "rgba(255, 0, 0, 0.9)",
       fontWeight: "bold",
+      fontSize: "20px",
+      "@media (max-width: 600px)": {
+        fontSize: "16px",
+      },
     },
-
     '& .original-price': {
       textDecoration: "line-through",
       color: "gray",
+      fontSize: "20px",
+      "@media (max-width: 600px)": {
+        fontSize: "16px",
+      },
     },
   },
 
