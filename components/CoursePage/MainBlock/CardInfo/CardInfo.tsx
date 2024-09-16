@@ -75,9 +75,9 @@ const CardInfo = () => {
         </Box>
         <Typography variant="h6" sx={{ textAlign: "end" }}>
           {course.price}
-          {"₴"}
         </Typography>
-        <WayForPayWidget
+        {/* <WayForPayWidget
+
           text={t("cardInfo.button")}
           invoiceUrl={course.invoiceUrl}
           sx={{
@@ -90,7 +90,7 @@ const CardInfo = () => {
               color: "#FFF",
             },
           }}
-        />
+        /> */}
       </Box>
     </Box>
   );
