@@ -4,7 +4,6 @@ import { Box, Button, Typography } from "@mui/material";
 import Image from "next/image";
 import style from "./Header.style";
 import Person from "/public/assets/header/author_header.webp";
-import bgImage from "/public/assets/header/bg_header_1_.webp";
 import bgImage1 from "/public/assets/header/bg_header_3_.webp";
 import CodeIcon from "/public/assets/header/img_4.webp";
 import VideoIcon from "/public/assets/header/img_5.webp";
@@ -23,6 +22,7 @@ const Header = async ({ lang }: IHeader) => {
             src={bgImage1}
             fill
             alt="Background Image 1"
+            quality={1}
             priority
             sizes="(max-width: 768px) 100vw, 33vw"
           />
@@ -46,16 +46,6 @@ const Header = async ({ lang }: IHeader) => {
 
         <Box sx={style.rightContainer}>
           <Box sx={style.mainImage}>
-            <Box sx={style.backgroundImageCenter}>
-              <Image
-                src={bgImage}
-                alt="Background Image"
-                fill
-                quality={1}
-                sizes="(max-width: 768px) 100vw, 33vw"
-                priority
-              />
-            </Box>
             <Image
               priority
               src={Person}

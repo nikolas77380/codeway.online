@@ -1,8 +1,7 @@
-import CookieDialog from "@/components/cookieDialog/CookieDialog";
+import DynamicProvider from "@/components/common/dynamicProvider/DynamicProvider";
 import Header from "@/components/header/Header";
 import MySection from "@/components/mySection/MySection";
-import OfferWay from "@/components/offerWay/OfferWay";
-import { lazy } from "react";
+import dynamic from "next/dynamic";
 
 interface IHome {
   params: {
@@ -11,27 +10,33 @@ interface IHome {
 }
 
 export default function Home({ params: { lang } }: IHome) {
-  const CoursesListBlock = lazy(
+  const OfferWay = dynamic(() => import("@/components/offerWay/OfferWay"));
+  const CoursesListBlock = dynamic(
     () => import("@/components/coursesListBlock/CoursesListBlock")
   );
-  const ChooseUs = lazy(() => import("@/components/ChooseUs/ChooseUs"));
-  const Testimonials = lazy(
+  const ChooseUs = dynamic(() => import("@/components/ChooseUs/ChooseUs"));
+  const Testimonials = dynamic(
     () => import("@/components/Testimonials/Testimonials")
   );
-  const Faq = lazy(() => import("@/components/Faq/Faq"));
-  const ContactUs = lazy(() => import("@/components/contactUs/ContactUs"));
+  const Faq = dynamic(() => import("@/components/Faq/Faq"));
+  const ContactUs = dynamic(() => import("@/components/contactUs/ContactUs"));
+  const CookieDialog = dynamic(
+    () => import("@/components/cookieDialog/CookieDialog")
+  );
 
   return (
     <main style={{ overflow: "hidden" }}>
       <Header lang={lang} />
       <MySection lang={lang} />
-      <OfferWay lang={lang} />
-      <CoursesListBlock lang={lang} />
-      <ChooseUs />
-      <Testimonials lang={lang} />
-      <Faq />
-      <ContactUs />
-      <CookieDialog />
+      <DynamicProvider>
+        <OfferWay lang={lang} />
+        <CoursesListBlock lang={lang} />
+        <ChooseUs />
+        <Testimonials lang={lang} />
+        <Faq />
+        <ContactUs />
+        <CookieDialog />
+      </DynamicProvider>
     </main>
   );
 }
