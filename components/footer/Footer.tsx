@@ -65,11 +65,11 @@ const Footer = () => {
                 {t("address")}{" "}
               </Typography>
               <Typography variant="subtitle2" component={"p"} sx={style.email}>
-                test@mail.com
+                info@codeway.online
               </Typography>
               <Typography variant="subtitle2" component={"p"} sx={style.phone}>
                 <Phone sx={style.phoneIcon} />
-                +380677773798
+                +380632881111
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4} md={2}>
