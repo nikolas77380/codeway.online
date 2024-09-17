@@ -34,7 +34,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     display: "flex",
     alignItems: "center",
     "& .discount-price": {
-      color: "rgba(255, 0, 0, 0.8)",
+      color: "#A855F7",
       fontWeight: "bold",
       fontSize: "20px",
       ml: "15px",
@@ -44,7 +44,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
     "& .original-price": {
       textDecoration: "line-through",
-      color: "#A855F7",
+      color: "#747474",
       ml: "15px",
       fontSize: "20px",
       "@media (max-width: 600px)": {
@@ -56,6 +56,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   price: {
     color: "#A855F7",
     ml: "15px",
+    fontWeight: "bold",
   },
 
   rating: {

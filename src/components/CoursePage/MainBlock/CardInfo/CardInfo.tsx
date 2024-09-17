@@ -86,7 +86,7 @@ const CardInfo = () => {
             </Typography>
           </Box>
         ) : (
-          <Typography variant="h6" sx={{ textAlign: "end" }}>
+          <Typography variant="h6" sx={style.price}>
             {course.price}
           </Typography>
         )}
