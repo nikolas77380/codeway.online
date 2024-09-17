@@ -1,10 +1,10 @@
 import { Box } from "@mui/material";
 
-import HeaderAboutUs from "@/components/AboutUsPage/HeaderAboutUs/HeaderAboutUs";
-import MeetOurTeam from "@/components/AboutUsPage/MeetOurTeam/MeetOurTeam";
-import OurPopularClasses from "@/components/AboutUsPage/OurPopularClasses/OurPopularClasses";
-import OurValueSection from "@/components/AboutUsPage/OurValueSection/OurValueSection";
-import WhoWeAre from "@/components/AboutUsPage/WhoWeAre/WhoWeAre";
+import HeaderAboutUs from "@/src/components/AboutUsPage/HeaderAboutUs/HeaderAboutUs";
+import MeetOurTeam from "@/src/components/AboutUsPage/MeetOurTeam/MeetOurTeam";
+import OurPopularClasses from "@/src/components/AboutUsPage/OurPopularClasses/OurPopularClasses";
+import OurValueSection from "@/src/components/AboutUsPage/OurValueSection/OurValueSection";
+import WhoWeAre from "@/src/components/AboutUsPage/WhoWeAre/WhoWeAre";
 
 import { getTranslation } from "@/app/i18n";
 
@@ -24,8 +24,7 @@ export async function generateMetadata({ params: { lang } }: IAboutUs) {
   };
 }
 
-const  AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
-
+const AboutUsPage = async ({ params: { lang } }: IAboutUs) => {
   const { t } = await getTranslation(lang, "AboutUsPage");
 
   return (

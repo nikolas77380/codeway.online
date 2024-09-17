@@ -1,6 +1,6 @@
 import Html_Css from "@/public/assets/coursesListBlock/html_css.webp";
-import ReactLogo from "@/public/assets/coursesListBlock/Reactjs.webp";
 import MentorLogo from "@/public/assets/coursesListBlock/mentor.webp";
+import ReactLogo from "@/public/assets/coursesListBlock/Reactjs.webp";
 import { StaticImageData } from "next/image";
 
 export type TInstructor = {
@@ -10,13 +10,16 @@ export type TInstructor = {
 };
 
 export type TCourseInfo = {
-  id: number | string;
+  id: string;
   topic: string;
   name: string;
+  title: string;
+  seo_description: string;
   shortDescription: string;
   students: number;
   lastUpdated: string;
   price: string;
+  discountPrice?: string;
   invoiceUrl: string;
   offerId: number;
   rating: number;
@@ -52,10 +55,14 @@ export const coursesInfoList: TCourseInfo[] = [
     name: "Легкий старт 1.0",
     shortDescription:
       "Зробіть свій перший крок у світ веб-розробки та дізнайтесь, чи це ваше покликання.",
+    title: "Легкий старт 1.0 | Курс програмування для початківців | Codeway",
+    seo_description:
+      "Почніть шлях в IT з курсу Легкий старт 1.0 від Codeway. Вивчайте основи Front-end розробки з нуля: HTML, CSS, JavaScript.",
     students: 378,
     lastUpdated: "10/08/24",
     rating: 5,
     price: "13$",
+    discountPrice: "10$",
     courseDuration: 38,
     description:
       "«ЛЕГКИЙ СТАРТ 1.0» — це базовий курс для тих, хто хоче зробити перші кроки у веб-розробці та зрозуміти, чи підходить їм ця сфера. Курс допоможе освоїти основи HTML і CSS, створити свій перший простий веб-сайт, і визначити, чи є у вас здібності та інтерес до розробки. Ви отримаєте базові знання про те, як працює інтернет, веб-сайти, а також як правильно структуризувати та стилізувати контент. Курс розділений на чотири модулі, кожен з яких поступово занурює вас у різні аспекти веб-розробки, від основ до більш просунутих тем. Цей курс є ідеальним вибором для початківців, які бажають отримати уявлення про веб-розробку та зробити перший крок у цій захоплюючій сфері.",
@@ -148,10 +155,15 @@ export const coursesInfoList: TCourseInfo[] = [
     name: "Front-end 360°",
     shortDescription:
       "Отримайте всі необхідні навички для створення сучасних веб-сайтів і станьте професійним фронтенд-розробником.",
+    title:
+      "Front-end 360° | Комплексний курс для майбутніх фронтенд-розробників від Codeway",
+    seo_description:
+      "Започніть свій шлях у Front-end розробці з курсом «Front-end 360°» від Codeway. Опануйте всі ключові навички для створення сучасних веб-сайтів, від основ HTML, CSS та JavaScript до просунутих концепцій React.",
     students: 1378,
     lastUpdated: "10/09/24",
     rating: 5,
     price: "100$",
+    discountPrice: "80$",
     courseDuration: 144,
     description:
       "«Front-end 360°» — це комплексна програма, що охоплює всі аспекти фронтенд-розробки, починаючи з системи контролю версій і закінчуючи основами React. Курс призначений для тих, хто хоче отримати глибокі знання у веб-розробці та навички, необхідні для створення сучасних веб-сайтів. Ви дізнаєтеся про основи JavaScript, обробку подій, асинхронне програмування, об’єктно-орієнтоване програмування та багато іншого.",
@@ -337,6 +349,9 @@ export const coursesInfoList: TCourseInfo[] = [
     name: "Твій Ментор",
     shortDescription:
       "Стань фронт-енд розробником из підтримкою професионала: крок за кроком до успіху у Веб-розробці",
+    title: "Твій Ментор | Комплексний курс Front-end з професійною підтримкою",
+    seo_description:
+      "Стартуй кар'єру фронтенд-розробника з курсом «Твій Ментор». Отримай глибоке знання HTML, CSS, JavaScript та React під керівництвом досвідченого ментора. Запишись на курс вже сьогодні!",
     students: 4,
     lastUpdated: "16/09/24",
     rating: 5,

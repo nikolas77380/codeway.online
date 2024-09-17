@@ -1,6 +1,6 @@
-import DynamicProvider from "@/components/common/dynamicProvider/DynamicProvider";
-import Header from "@/components/header/Header";
-import MySection from "@/components/mySection/MySection";
+import DynamicProvider from "@/src/components/common/dynamicProvider/DynamicProvider";
+import Header from "@/src/components/header/Header";
+import MySection from "@/src/components/mySection/MySection";
 import dynamic from "next/dynamic";
 
 interface IHome {
@@ -10,18 +10,20 @@ interface IHome {
 }
 
 export default function Home({ params: { lang } }: IHome) {
-  const OfferWay = dynamic(() => import("@/components/offerWay/OfferWay"));
+  const OfferWay = dynamic(() => import("@/src/components/offerWay/OfferWay"));
   const CoursesListBlock = dynamic(
-    () => import("@/components/coursesListBlock/CoursesListBlock")
+    () => import("@/src/components/coursesListBlock/CoursesListBlock")
   );
-  const ChooseUs = dynamic(() => import("@/components/ChooseUs/ChooseUs"));
+  const ChooseUs = dynamic(() => import("@/src/components/ChooseUs/ChooseUs"));
   const Testimonials = dynamic(
-    () => import("@/components/Testimonials/Testimonials")
+    () => import("@/src/components/Testimonials/Testimonials")
   );
-  const Faq = dynamic(() => import("@/components/Faq/Faq"));
-  const ContactUs = dynamic(() => import("@/components/contactUs/ContactUs"));
+  const Faq = dynamic(() => import("@/src/components/Faq/Faq"));
+  const ContactUs = dynamic(
+    () => import("@/src/components/contactUs/ContactUs")
+  );
   const CookieDialog = dynamic(
-    () => import("@/components/cookieDialog/CookieDialog")
+    () => import("@/src/components/cookieDialog/CookieDialog")
   );
 
   return (
