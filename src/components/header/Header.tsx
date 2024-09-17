@@ -29,7 +29,7 @@ const Header = async ({ lang }: IHeader) => {
         </Box>
         <Box sx={style.leftContainer}>
           <Typography sx={style.slogan}>{t("slogan")}</Typography>
-          <Typography variant="h2" sx={style.title}>
+          <Typography variant="h2" component={"h1"} sx={style.title}>
             {`${t("title")} `}{" "}
             <span style={{ fontFamily: permanent.style.fontFamily }}>
               CODEWAY
@@ -49,7 +49,7 @@ const Header = async ({ lang }: IHeader) => {
             <Image
               priority
               src={Person}
-              alt="person"
+              alt="Викладач курсу та ментор"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
             />

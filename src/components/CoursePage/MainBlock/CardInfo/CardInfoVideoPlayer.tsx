@@ -34,7 +34,7 @@ const CardInfoVideoPlayer = () => {
         <>
           <Image
             src={course.image}
-            alt="imgLesson"
+            alt="Курси з Front-end розробки від Codeway"
             style={{
               width: "100%",
               maxWidth: "380px",
