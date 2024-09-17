@@ -160,6 +160,26 @@ const style: { [key: string]: SxProps<Theme> } = {
     marginBottom: "10px",
   },
 
+  discountPriceContainer: {
+    textAlign: "end",
+    "& .discount-price": {
+      color: "rgba(255, 0, 0, 0.9)",
+      fontWeight: "bold",
+      fontSize: "20px",
+      "@media (max-width: 600px)": {
+        fontSize: "16px",
+      },
+    },
+    "& .original-price": {
+      textDecoration: "line-through",
+      color: "gray",
+      fontSize: "20px",
+      "@media (max-width: 600px)": {
+        fontSize: "16px",
+      },
+    },
+  },
+
   cardInfoButton: {
     width: 1,
     height: "40px",

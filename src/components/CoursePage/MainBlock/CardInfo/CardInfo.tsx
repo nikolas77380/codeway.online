@@ -75,11 +75,23 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        <Typography variant="h6" sx={{ textAlign: "end" }}>
-          {course.price}
-          {"₴"}
-        </Typography>
-        <WayForPayWidget
+        {course.discountPrice 
+          ? (
+          <Box sx={style.discountPriceContainer}>
+            <Typography variant="h6" className="discount-price">
+              {course.discountPrice}
+            </Typography>
+            <Typography variant="body1" className="original-price">
+              {course.price}
+            </Typography>
+          </Box>
+        ) : (
+          <Typography variant="h6" sx={{ textAlign: "end" }}>
+            {course.price}
+          </Typography>
+        )}
+        {/* <WayForPayWidget
+
           text={t("cardInfo.button")}
           invoiceUrl={course.invoiceUrl}
           sx={{
@@ -92,7 +104,7 @@ const CardInfo = () => {
               color: "#FFF",
             },
           }}
-        />
+        /> */}
       </Box>
     </Box>
   );
