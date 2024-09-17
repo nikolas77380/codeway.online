@@ -12,6 +12,7 @@ interface ICourseItem {
   price: string;
   rating: number;
   lang: string;
+  discountPrice?: string;
 }
 const CourseItem = async ({
   id,
@@ -21,6 +22,7 @@ const CourseItem = async ({
   price,
   rating,
   lang,
+  discountPrice,
 }: ICourseItem) => {
   const { t } = await getTranslation(lang, "CoursesList");
 
@@ -45,7 +47,19 @@ const CourseItem = async ({
         </Typography>
       </Box>
       <Box>
-        <Typography sx={style.price}>{price}</Typography>
+        {discountPrice 
+          ? (
+          <Box sx={style.discountPriceContainer}>
+            <Typography variant="body1" className="original-price">
+              {price}
+            </Typography>
+            <Typography variant="h6" className="discount-price">
+              {discountPrice}
+            </Typography>
+          </Box>
+        ) : (
+          <Typography sx={style.price}>{price}</Typography>
+        )}
         <Rating size="small" value={rating} readOnly sx={style.rating} />
         <Link href={`/courses/${id}`}>
           <Button variant="contained" size="medium" sx={style.courseButton}>

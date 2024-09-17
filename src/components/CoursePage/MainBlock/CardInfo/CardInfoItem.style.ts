@@ -162,7 +162,7 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   discountPriceContainer: {
     textAlign: "end",
-    '& .discount-price': {
+    "& .discount-price": {
       color: "rgba(255, 0, 0, 0.9)",
       fontWeight: "bold",
       fontSize: "20px",
@@ -170,7 +170,7 @@ const style: { [key: string]: SxProps<Theme> } = {
         fontSize: "16px",
       },
     },
-    '& .original-price': {
+    "& .original-price": {
       textDecoration: "line-through",
       color: "gray",
       fontSize: "20px",
