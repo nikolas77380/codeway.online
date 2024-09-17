@@ -1,7 +1,8 @@
 import { permanent } from "@/app/fonts";
 import { getTranslation } from "@/app/i18n";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
+import HeaderButton from "../common/headerButton/HeaderButton";
 import style from "./Header.style";
 import Person from "/public/assets/header/author_header.webp";
 import CodeIcon from "/public/assets/header/img_4.webp";
@@ -28,9 +29,7 @@ const Header = async ({ lang }: IHeader) => {
           <Typography variant="h6" sx={style.subtitle} component={"p"}>
             {t("subtitle")}
           </Typography>
-          <Button variant="outlined" href="#courses" sx={style.button}>
-            {t("button")}
-          </Button>
+          <HeaderButton label={t("button")} sx={style.button} />
         </Box>
 
         <Box sx={style.rightContainer}>
