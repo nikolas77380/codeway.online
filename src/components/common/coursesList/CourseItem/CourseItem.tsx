@@ -39,21 +39,24 @@ const CourseItem = async ({
             objectFit: "cover",
           }}
         />
-        <Typography variant="h6" sx={style.name} component={"p"}>
+        <Typography variant="h6" sx={style.name} component={"h3"}>
           {name}
         </Typography>
-        <Typography variant="h6" sx={style.description} component={"p"}>
+        <Typography variant="h6" sx={style.description} component={"h4"}>
           {shortDescription}
         </Typography>
       </Box>
       <Box>
-        {discountPrice 
-          ? (
+        {discountPrice ? (
           <Box sx={style.discountPriceContainer}>
-            <Typography variant="body1" className="original-price">
+            <Typography
+              variant="body1"
+              className="original-price"
+              component={"p"}
+            >
               {price}
             </Typography>
-            <Typography variant="h6" className="discount-price">
+            <Typography variant="h6" className="discount-price" component={"p"}>
               {discountPrice}
             </Typography>
           </Box>

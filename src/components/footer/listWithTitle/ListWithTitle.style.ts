@@ -2,7 +2,7 @@ import { SxProps, Theme } from "@mui/material";
 
 const style: { [key: string]: SxProps<Theme> } = {
   container: {
-    mt: '10px',
+    mt: "10px",
   },
   title: {
     fontWeight: "bold",
@@ -10,6 +10,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
   link: {
     p: "3px 3px 3px 0",
+    m: "5px",
     color: "#94A3B8",
     fontSize: "0.8rem",
     lineHeight: "1rem",
@@ -19,9 +20,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
     "&:hover": {
       color: "#9333EA",
-    },
-    "@media (max-width: 600px)": {
-      m: "5px",
     },
   },
 };
