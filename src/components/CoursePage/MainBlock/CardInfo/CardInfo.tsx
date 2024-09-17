@@ -1,7 +1,6 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
-import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
 import { courseInstructor } from "@/src/mocks/mocks";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
@@ -36,7 +35,7 @@ const CardInfo = () => {
         <Box sx={style.avatarMainContainer}>
           <Box sx={style.avatarWrapper}>
             <Image
-              alt={courseInstructor.name}
+              alt="Викладач курсу та ментор"
               src={AuthorImage}
               width={55}
               height={65}
@@ -75,8 +74,7 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        {course.discountPrice 
-          ? (
+        {course.discountPrice ? (
           <Box sx={style.discountPriceContainer}>
             <Typography variant="h6" className="discount-price">
               {course.discountPrice}

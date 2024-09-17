@@ -33,7 +33,7 @@ const MySection = async ({ lang }: IMySection) => {
             },
           }}
         >
-          <Image src={Author} alt={"author"} priority />
+          <Image src={Author} alt={"Автор курсу"} priority />
         </Box>
         <Box
           sx={{

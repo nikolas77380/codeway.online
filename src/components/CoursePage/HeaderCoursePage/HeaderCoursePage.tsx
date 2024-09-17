@@ -32,7 +32,7 @@ const HeaderCoursePage = () => {
           animate="visible"
           variants={courseIdHeaderScrollUp(80, 0, 1)}
         >
-          <Typography sx={style.name} variant="h2">
+          <Typography sx={style.name} component={"h1"} variant="h2">
             {course.name}
           </Typography>
         </MotionBox>
@@ -41,7 +41,7 @@ const HeaderCoursePage = () => {
           animate="visible"
           variants={courseIdHeaderScrollUp(50, 0.2, 0.7)}
         >
-          <Typography sx={style.subtitle} variant="h6">
+          <Typography sx={style.subtitle} component={"h2"} variant="h6">
             {course.shortDescription}
           </Typography>
         </MotionBox>

@@ -49,7 +49,7 @@ const Header = async ({ lang }: IHeader) => {
             <Image
               priority
               src={Person}
-              alt="person"
+              alt="Викладач курсу та ментор"
               fill
               sizes="(max-width: 768px) 100vw, 33vw"
             />
