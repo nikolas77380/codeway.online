@@ -163,7 +163,7 @@ const style: { [key: string]: SxProps<Theme> } = {
   discountPriceContainer: {
     textAlign: "end",
     "& .discount-price": {
-      color: "rgba(255, 0, 0, 0.9)",
+      color: "#A855F7",
       fontWeight: "bold",
       fontSize: "20px",
       "@media (max-width: 600px)": {
@@ -172,12 +172,22 @@ const style: { [key: string]: SxProps<Theme> } = {
     },
     "& .original-price": {
       textDecoration: "line-through",
-      color: "gray",
+      color: "#747474",
       fontSize: "20px",
       "@media (max-width: 600px)": {
         fontSize: "16px",
       },
     },
+  },
+
+  price: {
+    textAlign: "end",
+    color: "#A855F7",
+    fontWeight: "bold",
+    fontSize: "20px",
+    "@media (max-width: 600px)": {
+        fontSize: "16px",
+      },
   },
 
   cardInfoButton: {
