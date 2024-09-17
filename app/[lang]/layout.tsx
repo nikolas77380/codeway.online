@@ -28,6 +28,7 @@ export async function generateMetadata({ params: { lang } }: IRootLayout) {
     title: t("meta.title"),
     description: t("meta.description"),
     keywords: t("meta.keywords"),
+    robots: "index, follow",
   };
 }
 
