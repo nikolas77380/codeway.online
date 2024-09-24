@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 
-const CORP_EMAIL = process.env.CORP_EMAIL;
+const CORP_EMAIL = "info@codeway.online";
 const PASSWORD = process.env.APP_PASSWORD;
 
 export async function POST(request: NextRequest) {
