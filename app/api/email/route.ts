@@ -9,9 +9,8 @@ export async function POST(request: NextRequest) {
   const { email, subject, message, recipient } = await request.json();
 
   const transport = nodemailer.createTransport({
-    host: "smtp.hostinger.com",
-    port: 465,
-    secure: true,
+    service: "gmail",
+
     auth: {
       user: CORP_EMAIL,
       pass: PASSWORD,
@@ -20,11 +19,10 @@ export async function POST(request: NextRequest) {
 
   const mailOptions: Mail.Options = {
     from: CORP_EMAIL,
-    to: recipient == "client" ? email : CORP_EMAIL,
+    to: recipient == "client" ? email : "info@codeway.online",
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: subject,
     text: message,
-    cc: email,
   };
 
   const sendMailPromise = () =>
