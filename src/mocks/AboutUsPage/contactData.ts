@@ -1,8 +1,7 @@
 export const contactData = [
-  { title: 'Brand name:', subtitle: 'Codeways' },
-  { title: 'TIN:', subtitle: '1234 1234 99' },
-  { title: 'Legal address:', subtitle: 'NY, Time Avenue, 6' },
-  { title: 'Physical address:', subtitle: 'NY, Time Avenue, 6' },
-  { title: 'Phone Company:', subtitle: '(093) 1234 666' },
-  { title: 'Email Company:', subtitle: 'example@gmail.test' },
+  { title: "Brand name:", subtitle: "Codeway" },
+  { title: "Legal address:", subtitle: "Mykolaiv, Lazurna 50, 52" },
+  { title: "Physical address:", subtitle: "Mykolaiv, Lazurna 50, 52" },
+  { title: "Phone Company:", subtitle: "(063) 288 1111" },
+  { title: "Email Company:", subtitle: "info@codeway.online" },
 ];
