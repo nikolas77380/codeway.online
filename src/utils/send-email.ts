@@ -5,7 +5,7 @@ type TEmailData = {
   recipient: "corp_email" | "client";
 };
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function sendEmail(data: TEmailData) {
   const apiEndpoint = `${BASE_URL}/api/email`;
