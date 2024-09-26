@@ -5,6 +5,7 @@ import { sendEmail } from "@/src/utils/send-email";
 import { ArrowForward } from "@mui/icons-material";
 import { Box, Button, TextField, Typography } from "@mui/material";
 import { useFormik } from "formik";
+import Script from "next/script";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import style from "./ContactUsForm.style";
@@ -26,38 +27,52 @@ interface IContactUsForm {
   handleClose?: () => void;
 }
 
+const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
+
 const ContactUsForm = ({ handleClose }: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
-
   const { showSnackbar } = useSnackbar();
 
   const { t } = useTranslation("ContactUs");
 
   const onSubmit = async (values: IInitialValues) => {
     setIsSending(true);
-    showSnackbar({ message: "Sending...", severity: "info", duration: 10000 });
+    showSnackbar({
+      message: t("feedback.sending"),
+      severity: "info",
+      duration: 10000,
+    });
     try {
-      const response = await sendEmail({
-        email: values.email,
-        subject: `Message from ${values.name} (${values.email})`,
-        message: values.message,
-        recipient: "corp_email",
-      });
-      showSnackbar({ message: response.message, severity: "success" });
-      if (handleClose) {
-        handleClose();
-      }
-    } catch (error) {
-      if (error instanceof Error) {
-        showSnackbar({ message: error.message, severity: "error" });
-      } else {
-        showSnackbar({
-          message: "An unknown error occurred",
-          severity: "error",
+      window.grecaptcha.enterprise.ready(async () => {
+        const token = await window.grecaptcha.enterprise.execute(SITE_KEY, {
+          action: "LOGIN",
         });
-      }
-    } finally {
-      setIsSending(false);
+
+        await sendEmail({
+          email: values.email,
+          subject: `${t("feedback.message")} ${values.name} (${values.email})`,
+          message: values.message,
+          recipient: "corp_email",
+          reCaptchaToken: token,
+        })
+          .then((response) => {
+            showSnackbar({
+              message: t(`feedback.${response.message}`),
+              severity: response.message,
+              duration: 3000,
+            });
+
+            if (handleClose) {
+              handleClose();
+            }
+          })
+          .then(() => setIsSending(false));
+      });
+    } catch (error) {
+      showSnackbar({
+        message: t("feedback.error"),
+        severity: "error",
+      });
     }
   };
 
@@ -68,12 +83,18 @@ const ContactUsForm = ({ handleClose }: IContactUsForm) => {
   });
   return (
     <Box sx={{ display: "grid", alignContent: "center", gap: "30px" }}>
+      <Script
+        src={`https://www.google.com/recaptcha/enterprise.js?render=${SITE_KEY}&hl=uk`}
+        async
+        defer
+      />
       <Typography variant="h5" sx={style.title}>
         {t("modal.title")}
       </Typography>
       <Typography variant="subtitle2" sx={style.subtitle}>
         {t("modal.subtitle")}
       </Typography>
+
       <Box component={"form"} autoComplete="off" onSubmit={formik.handleSubmit}>
         <Box sx={style.inputWrapper}>
           <TextField

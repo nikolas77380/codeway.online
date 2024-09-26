@@ -22,8 +22,20 @@ const ContactUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const handleOpenModal = () => setModalOpen(true);
-  const handleCloseModal = () => setModalOpen(false);
+  const handleOpenModal = () => {
+    const nodeBadge = document.querySelector(".grecaptcha-badge");
+    if (nodeBadge && nodeBadge.parentNode) {
+      (nodeBadge.parentNode as HTMLElement).style.display = "block";
+    }
+    setModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setModalOpen(false);
+    const nodeBadge = document.querySelector(".grecaptcha-badge");
+    if (nodeBadge && nodeBadge.parentNode) {
+      (nodeBadge.parentNode as HTMLElement).style.display = "none";
+    }
+  };
 
   const { t } = useTranslation("ContactUs");
 
