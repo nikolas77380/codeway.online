@@ -1,11 +1,7 @@
 export const contactData = [
-  { title: "Назва компанії:", subtitle: "Codeways" },
-  { title: "TIN:", subtitle: "1234 1234 99" },
-  {
-    title: "Юридична адреса:",
-    subtitle: "вул. Лазурна 50, Миколаїв - Україна",
-  },
-  { title: "Фізична адреса:", subtitle: "вул. Лазурна 50, Миколаїв - Україна" },
-  { title: "Номер телефону компанії:", subtitle: "(093) 1234 666" },
-  { title: "Email компанії:", subtitle: "info@codeway.online" },
+  { title: "Brand name:", subtitle: "Codeway" },
+  { title: "Legal address:", subtitle: "Mykolaiv, Lazurna 50, 52" },
+  { title: "Physical address:", subtitle: "Mykolaiv, Lazurna 50, 52" },
+  { title: "Phone Company:", subtitle: "(063) 288 1111" },
+  { title: "Email Company:", subtitle: "info@codeway.online" },
 ];
