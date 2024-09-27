@@ -16,6 +16,16 @@ const style: { [key: string]: SxProps<Theme> } = {
 
     "@media (max-width: 600px)": {},
   },
+
+  closeButton: {
+    position: "absolute",
+    top: 25,
+    right: 25,
+    "& svg": {
+      transition: "all 0.3s",
+      ":hover": { color: "#FFF" },
+    },
+  },
 };
 
 export default style;

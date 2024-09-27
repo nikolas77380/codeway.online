@@ -20,3 +20,10 @@ main {
   max-width: 1700px;
   margin: auto;
 }
+
+.grecaptcha-badge {
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  bottom: 70px !important;
+}
