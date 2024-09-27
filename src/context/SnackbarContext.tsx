@@ -56,11 +56,23 @@ const SnackbarProvider = ({ children }: ISnackbarContextProvider) => {
         open={open}
         autoHideDuration={data.duration}
         TransitionComponent={SlideTransition}
-        anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-        sx={{ zIndex: 2001 }}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        sx={{
+          zIndex: 2001,
+          right: "-5px",
+          "@media (min-width: 600px)": {
+            bottom: "8px",
+            right: "-5px",
+            left: "8px",
+          },
+        }}
         onClose={handleClose}
       >
-        <Alert onClose={handleClose} severity={`${data.severity}`}>
+        <Alert
+          onClose={handleClose}
+          severity={`${data.severity}`}
+          sx={{ fontSize: { xs: "0.8rem", sm: "1rem" } }}
+        >
           {data.message}
         </Alert>
       </Snackbar>

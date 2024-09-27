@@ -23,5 +23,7 @@ main {
 
 .grecaptcha-badge {
   z-index: 2000;
-  display: block !important;
+  opacity: 0;
+  visibility: hidden;
+  bottom: 70px !important;
 }

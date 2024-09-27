@@ -32,7 +32,6 @@ const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
 const ContactUsForm = ({ handleClose }: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
   const { showSnackbar } = useSnackbar();
-
   const { t } = useTranslation("ContactUs");
 
   const onSubmit = async (values: IInitialValues) => {
@@ -47,7 +46,11 @@ const ContactUsForm = ({ handleClose }: IContactUsForm) => {
         const token = await window.grecaptcha.enterprise.execute(SITE_KEY, {
           action: "LOGIN",
         });
-
+        const nodeBadge = document.querySelector(".grecaptcha-badge");
+        if (nodeBadge) {
+          (nodeBadge as HTMLElement).style.opacity = "1";
+          (nodeBadge as HTMLElement).style.visibility = "visible";
+        }
         await sendEmail({
           email: values.email,
           subject: `${t("feedback.message")} ${values.name} (${values.email})`,
@@ -61,18 +64,32 @@ const ContactUsForm = ({ handleClose }: IContactUsForm) => {
               severity: response.message,
               duration: 3000,
             });
-
+          })
+          .finally(() => {
             if (handleClose) {
               handleClose();
+            } else {
+              formik.resetForm();
             }
-          })
-          .then(() => setIsSending(false));
+            setTimeout(() => {
+              const nodeBadge = document.querySelector(".grecaptcha-badge");
+              if (nodeBadge) {
+                (nodeBadge as HTMLElement).style.opacity = "0";
+                (nodeBadge as HTMLElement).style.visibility = "hidden";
+              }
+            }, 3000);
+            setIsSending(false);
+          });
       });
     } catch (error) {
       showSnackbar({
         message: t("feedback.error"),
         severity: "error",
       });
+      const nodeBadge = document.querySelector(".grecaptcha-badge");
+      if (nodeBadge) {
+        (nodeBadge as HTMLElement).style.display = "none";
+      }
     }
   };
 
