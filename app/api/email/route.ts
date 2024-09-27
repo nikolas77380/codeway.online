@@ -2,7 +2,8 @@ import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 
-const CORP_EMAIL = "info@codeway.online";
+const CORP_EMAIL_RECIPIENT = "info@codeway.online";
+const CORP_EMAIL = process.env.CORP_EMAIL;
 const PASSWORD = process.env.APP_PASSWORD;
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
@@ -44,7 +45,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptions: Mail.Options = {
       from: CORP_EMAIL,
-      to: recipient == "client" ? email : "info@codeway.online",
+      to: recipient == "client" ? email : CORP_EMAIL_RECIPIENT,
       // cc: email, (uncomment this line if you want to send a copy to the sender)
       subject: subject,
       text: message,
