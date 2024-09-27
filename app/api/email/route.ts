@@ -44,8 +44,7 @@ export async function POST(request: NextRequest) {
 
     const mailOptions: Mail.Options = {
       from: CORP_EMAIL,
-      to: recipient == "client" ? email : "cepuii13@gmail.com",
-      // to: recipient == "client" ? email : "info@codeway.online",
+      to: recipient == "client" ? email : "info@codeway.online",
       // cc: email, (uncomment this line if you want to send a copy to the sender)
       subject: subject,
       text: message,
