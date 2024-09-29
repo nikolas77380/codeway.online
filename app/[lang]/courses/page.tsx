@@ -1,11 +1,11 @@
 import { getTranslation } from "@/app/i18n";
-import HeaderCoursesPage from "@/components/CoursesPage/HeaderCoursesPage";
-import CoursesList from "@/components/common/coursesList/CoursesList";
+import HeaderCoursesPage from "@/src/components/CoursesPage/HeaderCoursesPage";
+import CoursesList from "@/src/components/common/coursesList/CoursesList";
+import MotionBox from "@/src/components/customComponents/MotionBox";
 import { coursesInfoList } from "@/src/mocks/mocks";
-import { aboutUsPageScrollUp } from "@/utils/motionVariants";
+import { aboutUsPageScrollUp } from "@/src/utils/motionVariants";
 import { Box, Typography } from "@mui/material";
 import style from "./CoursesPage.style";
-import MotionBox from "@/components/customComponents/MotionBox";
 
 interface ICoursesPage {
   params: {
@@ -25,9 +25,7 @@ const CoursesPage = async ({ params: { lang } }: ICoursesPage) => {
           animate="visible"
           variants={aboutUsPageScrollUp(0.3, 1)}
         >
-          <Typography variant="h6">
-            {t("subtitle")}
-          </Typography>
+          <Typography variant="h6">{t("subtitle")}</Typography>
         </MotionBox>
         <CoursesList coursesList={coursesInfoList} lang={lang} />
       </Box>
