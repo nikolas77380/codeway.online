@@ -17,6 +17,7 @@
     "@mui/icons-material": "^5.16.0",
     "@mui/material": "latest",
     "@mui/material-nextjs": "^5.15.11",
+    "@next/third-parties": "^14.2.13",
     "formik": "^2.4.6",
     "framer-motion": "^11.3.17",
     "i18next": "^23.12.2",

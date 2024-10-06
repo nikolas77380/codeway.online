@@ -13,7 +13,7 @@ const CookieDialog = () => {
     if (!localStorage.getItem("cookiesAccepted")) {
       const timer = setTimeout(() => {
         setOpen(true);
-      }, 1500);
+      }, 500);
 
       return () => clearTimeout(timer);
     }
@@ -22,6 +22,9 @@ const CookieDialog = () => {
   const handleClose = () => {
     setOpen(false);
     localStorage.setItem("cookiesAccepted", "true");
+    window.gtag("consent", "update", {
+      analytics_storage: "granted",
+    });
   };
 
   return (
