@@ -3,12 +3,13 @@ type TEmailData = {
   subject: string;
   message: string;
   recipient: "corp_email" | "client";
+  reCaptchaToken?: string;
 };
 
-const BASE_URL = process.env.BASE_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 export async function sendEmail(data: TEmailData) {
-  const apiEndpoint = `http://localhost:3000/api/email`;
+  const apiEndpoint = `${BASE_URL}/api/email`;
 
   try {
     const response = await fetch(apiEndpoint, {
@@ -18,18 +19,8 @@ export async function sendEmail(data: TEmailData) {
       },
       body: JSON.stringify(data),
     });
-
-    if (!response.ok) {
-      throw new Error("Failed to send email");
-    }
-
     return await response.json();
   } catch (error) {
-    if (error instanceof Error) {
-      console.log("error here");
-      throw new Error(error.message);
-    } else {
-      throw new Error("An unknown error occurred");
-    }
+    console.error(error);
   }
 }

@@ -22,8 +22,12 @@ const ContactUs = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const handleOpenModal = () => setModalOpen(true);
-  const handleCloseModal = () => setModalOpen(false);
+  const handleOpenModal = () => {
+    setModalOpen(true);
+  };
+  const handleCloseModal = () => {
+    setModalOpen(false);
+  };
 
   const { t } = useTranslation("ContactUs");
 

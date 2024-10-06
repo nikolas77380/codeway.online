@@ -1,15 +1,12 @@
-import { Box, Typography } from "@mui/material";
-
 import ContactInfo from "@/src/components/AboutUsPage/ContactInfo/ContactInfo";
 import ContactUsForm from "@/src/components/contactUs/form/ContactUsForm";
-
-import { TFunction } from "i18next";
-
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import {
   aboutUsPageScroLeftToRight,
   contactUPagesscrollRightToLeft,
 } from "@/src/utils/motionVariants";
+import { Box, Typography } from "@mui/material";
+import { TFunction } from "i18next";
 
 import style from "./GetInTouch.style";
 
@@ -26,12 +23,8 @@ const GetInTouch = ({ t }: IGetInTouch) => {
         variants={aboutUsPageScroLeftToRight(0.7, 1.2)}
       >
         <Box sx={style.mainContent}>
-          <Typography component="label">{t("get-in-touch.slogan")}</Typography>
           <Typography variant="h3" component="span">
             {t("get-in-touch.title")}
-          </Typography>
-          <Typography variant="body1" component="p">
-            {t("get-in-touch.subtitle")}
           </Typography>
           <Box sx={style.separator} />
           <Box sx={style.servicesContainer}>
