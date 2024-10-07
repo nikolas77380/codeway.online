@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { useCourse } from "@/src/context/CourseContext";
 import { courseInstructor } from "@/src/mocks/mocks";
@@ -12,6 +13,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import style from "./CardInfoItem.style";
 import AuthorImage from "/public/assets/header/author_header.webp";
+import { CountdownTimer } from "./CountdownTimer";
+import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import(
@@ -21,12 +24,21 @@ const CardInfoVideoPlayerWithNoSSR = dynamic(
 );
 
 const CardInfo = () => {
+
   const { t } = useTranslation("CourseIdPage");
+
+  const [isDiscountActive, setIsDiscountActive] = useState<boolean>(true);
 
   const { course } = useCourse();
 
   return (
-    <Box sx={style.cardInfoMainContainer}>
+    <Box
+      sx={{
+        ...style.cardInfoMainContainer,
+        height: isDiscountActive ? "860px" : "750px",
+        transition: "height 0.3s ease",
+      }}
+    >
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayerWithNoSSR />
         <Typography variant="h6" component="label">
@@ -75,20 +87,41 @@ const CardInfo = () => {
           <Box sx={style.dashSeparator} />
         </Box>
         {course.discountPrice ? (
-          <Box sx={style.discountPriceContainer}>
-            <Typography variant="h6" className="discount-price">
-              {course.discountPrice}
-            </Typography>
-            <Typography variant="body1" className="original-price">
-              {course.price}
-            </Typography>
+          <Box sx={style.discountPriceBlock}>
+            {isDiscountActive && (
+              <Box sx={style.timerCard}>
+                <Box sx={style.discountTimerContainer}>
+                  <Typography sx={style.timerCardTitle}>
+                    {t("cardInfo.timerTitle")} - <span>{"09.10.2024"}</span>
+                  </Typography>
+                  <CountdownTimer 
+                    endDate={new Date('2024-10-07T22:45:00')}
+                    onDiscountChange={setIsDiscountActive}
+                  />
+                </Box>
+              </Box>
+            )}
+            {isDiscountActive ? (
+              <Box sx={style.discountPriceContainer}>
+                <Typography variant="h6" className="discount-price">
+                  {course.discountPrice}
+                </Typography>
+                <Typography variant="body1" className="original-price">
+                  {course.price}
+                </Typography>
+              </Box>
+            ) : (
+              <Typography variant="h6" sx={style.price}>
+                {course.price}
+              </Typography>
+            )}
           </Box>
         ) : (
           <Typography variant="h6" sx={style.price}>
             {course.price}
           </Typography>
         )}
-        {/* <WayForPayWidget
+        <WayForPayWidget
 
           text={t("cardInfo.button")}
           invoiceUrl={course.invoiceUrl}
@@ -102,7 +135,7 @@ const CardInfo = () => {
               color: "#FFF",
             },
           }}
-        /> */}
+        />
       </Box>
     </Box>
   );
