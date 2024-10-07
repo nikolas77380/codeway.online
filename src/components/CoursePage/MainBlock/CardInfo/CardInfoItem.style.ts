@@ -234,7 +234,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontWeight: "bold",
     fontSize: "20px",
     "@media (max-width: 600px)": {
-        fontSize: "16px",
+        fontSize: "18px",
       },
   },
 

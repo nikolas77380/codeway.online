@@ -1,71 +1,36 @@
 import { useEffect, useState } from "react";
 
+import style from "./CountdownTimer.style";
 import { Box, Typography } from "@mui/material";
 
-import style from "./CountdownTimer.style";
-
 interface CountdownTimerProps {
-  endDate: Date;
-  onDiscountChange: (isActive: boolean) => void;
+  endDate: string;
 }
 
-export const CountdownTimer = ({ endDate, onDiscountChange }: CountdownTimerProps) => {
-
-  const calculateTimeLeft = () => Math.floor((endDate.getTime() - Date.now()) / 1000);
-
-  const [timeLeft, setTimeLeft] = useState<number>(calculateTimeLeft());
+const CountdownTimer = ({ endDate }: CountdownTimerProps) => {
+  const [timeRemaining, setTimeRemaining] = useState<string>("");
 
   useEffect(() => {
-    const storedDiscountStatus = localStorage.getItem('discount');
-    
-    if (storedDiscountStatus === 'off') {
-      onDiscountChange(false);
-    } else if (storedDiscountStatus === 'on') {
-      onDiscountChange(true);
-    } else {
-
-      const isActive = timeLeft > 0;
-      onDiscountChange(isActive);
-      localStorage.setItem('discount', isActive ? 'on' : 'off');
-    }
-  }, [onDiscountChange, timeLeft]);
-
-  useEffect(() => {
-
+    const endTime = new Date(endDate).getTime();
     const timer = setInterval(() => {
-      setTimeLeft(calculateTimeLeft());
+      const now = new Date().getTime();
+      const distance = endTime - now;
+
+      if (distance <= 0) {
+        clearInterval(timer);
+      } else {
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        setTimeRemaining(`${days}д ${hours.toString().padStart(2, "0")}:${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`);
+      }
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [endDate, onDiscountChange]);
+  }, [endDate]);
 
-  useEffect(() => {
-    if (timeLeft <= 0) {
-      setTimeout(() => {
-        localStorage.setItem('discount', 'off');
-        onDiscountChange(false);
-      }, 0);
-    } else {
-      localStorage.setItem('discount', 'on');
-      onDiscountChange(true);
-    }
-  }, [timeLeft, onDiscountChange]);
+  return <Box sx={style.countdownTimerContainer}><Typography variant="body1" component="span">{timeRemaining}</Typography></Box>;
+};
 
-  const formatTime = (seconds: number) => {
-    const days = Math.floor(seconds / (3600 * 24));
-    const hrs = Math.floor((seconds % (3600 * 24)) / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
-    return `${days}д ${hrs.toString().padStart(2, "0")}:${mins
-      .toString()
-      .padStart(2, "0")}:${secs.toString().padStart(2, "0")}`;
-  };
-
-  return (
-    <Box sx={style.countdownTimerContainer}>
-        <Typography variant="body1" component="span">
-          {formatTime(timeLeft)}
-        </Typography>
-    </Box>
-  );
-}
+export default CountdownTimer;
