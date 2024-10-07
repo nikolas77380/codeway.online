@@ -57,6 +57,10 @@ const style: { [key: string]: SxProps<Theme> } = {
     color: "#A855F7",
     ml: "15px",
     fontWeight: "bold",
+    fontSize: "20px",
+    "@media (max-width: 600px)": {
+      fontSize: "16px",
+    },
   },
 
   rating: {
