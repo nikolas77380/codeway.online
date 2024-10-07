@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
 import { useCourse } from "@/src/context/CourseContext";
 import { courseInstructor } from "@/src/mocks/mocks";
@@ -13,8 +13,8 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import style from "./CardInfoItem.style";
 import AuthorImage from "/public/assets/header/author_header.webp";
-import { CountdownTimer } from "./CountdownTimer";
 import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
+import CountdownTimer from "./CountdownTimer";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import(
@@ -27,15 +27,36 @@ const CardInfo = () => {
 
   const { t } = useTranslation("CourseIdPage");
 
-  const [isDiscountActive, setIsDiscountActive] = useState<boolean>(true);
-
   const { course } = useCourse();
+
+  const [timerExpired, setTimerExpired] = useState(false);
+
+  useEffect(() => {
+
+    localStorage.setItem("discountActive", "true");
+
+    const endDate = course.discountEndDateTimer ? new Date(course.discountEndDateTimer) : null;
+
+    const timer = setInterval(() => {
+      const now = new Date();
+      if (endDate && now >= endDate) {
+        setTimerExpired(true);
+        localStorage.setItem("discountActive", "false");
+        clearInterval(timer);
+      }
+
+      return () => clearInterval(timer);
+    }, 1000);
+
+    return () => clearInterval(timer);
+
+  }, [course.discountEndDateTimer]);
 
   return (
     <Box
       sx={{
         ...style.cardInfoMainContainer,
-        height: isDiscountActive ? "860px" : "750px",
+        height: timerExpired ? "750px" : "860px",
         transition: "height 0.3s ease",
       }}
     >
@@ -86,35 +107,24 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        {course.discountPrice ? (
+        {!timerExpired && course.discountPrice ? (
           <Box sx={style.discountPriceBlock}>
-            {isDiscountActive && (
-              <Box sx={style.timerCard}>
-                <Box sx={style.discountTimerContainer}>
-                  <Typography sx={style.timerCardTitle}>
-                    {t("cardInfo.timerTitle")} - <span>{"09.10.2024"}</span>
-                  </Typography>
-                  <CountdownTimer 
-                    endDate={new Date('2024-10-07T22:45:00')}
-                    onDiscountChange={setIsDiscountActive}
-                  />
-                </Box>
-              </Box>
-            )}
-            {isDiscountActive ? (
-              <Box sx={style.discountPriceContainer}>
-                <Typography variant="h6" className="discount-price">
-                  {course.discountPrice}
+            <Box sx={style.timerCard}>
+              <Box sx={style.discountTimerContainer}>
+                <Typography sx={style.timerCardTitle}>
+                  {t("cardInfo.timerTitle")} - <span>{course.discountEndDate}</span>
                 </Typography>
-                <Typography variant="body1" className="original-price">
-                  {course.price}
-                </Typography>
+                <CountdownTimer endDate={course.discountEndDateTimer as string} />
               </Box>
-            ) : (
-              <Typography variant="h6" sx={style.price}>
+            </Box>
+            <Box sx={style.discountPriceContainer}>
+              <Typography variant="h6" className="discount-price">
+                {course.discountPrice}
+              </Typography>
+              <Typography variant="body1" className="original-price">
                 {course.price}
               </Typography>
-            )}
+            </Box>
           </Box>
         ) : (
           <Typography variant="h6" sx={style.price}>
@@ -122,7 +132,6 @@ const CardInfo = () => {
           </Typography>
         )}
         <WayForPayWidget
-
           text={t("cardInfo.button")}
           invoiceUrl={course.invoiceUrl}
           sx={{
