@@ -51,9 +51,8 @@ const CourseItem = ({
       }
     };
 
-    checkDiscount(); // Проверяем скидку при загрузке
+    checkDiscount();
 
-    // Логика для последующего обновления
     const discountStatus = localStorage.getItem("discountActive");
     if (discountStatus === null) {
       localStorage.setItem("discountActive", "false");
