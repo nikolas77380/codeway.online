@@ -25,14 +25,26 @@ const initialValues: IInitialValues = {
 
 interface IContactUsForm {
   handleClose?: () => void;
+  title?: string;
+  subtitle?: string;
+  messageTemplate?: string;
 }
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
 
-const ContactUsForm = ({ handleClose }: IContactUsForm) => {
+const ContactUsForm = ({
+  handleClose,
+  title,
+  subtitle,
+  messageTemplate,
+}: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
   const { showSnackbar } = useSnackbar();
   const { t } = useTranslation("ContactUs");
+
+  if (messageTemplate) {
+    initialValues.message = messageTemplate;
+  }
 
   const onSubmit = async (values: IInitialValues) => {
     setIsSending(true);
@@ -106,10 +118,10 @@ const ContactUsForm = ({ handleClose }: IContactUsForm) => {
         defer
       />
       <Typography variant="h5" sx={style.title}>
-        {t("modal.title")}
+        {title ? title : t("modal.title")}
       </Typography>
       <Typography variant="subtitle2" sx={style.subtitle}>
-        {t("modal.subtitle")}
+        {subtitle ? subtitle : t("modal.subtitle")}
       </Typography>
 
       <Box component={"form"} autoComplete="off" onSubmit={formik.handleSubmit}>

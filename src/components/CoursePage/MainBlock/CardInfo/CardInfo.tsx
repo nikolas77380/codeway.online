@@ -1,20 +1,23 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useTranslation } from "@/app/i18n/client";
+import ContactUsForm from "@/src/components/contactUs/form/ContactUsForm";
+import ContactUsModal from "@/src/components/contactUs/modal/ContactUsModal";
+import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
+import { useModal } from "@/src/hooks/useModal";
 import { courseInstructor } from "@/src/mocks/mocks";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import style from "./CardInfoItem.style";
-import AuthorImage from "/public/assets/header/author_header.webp";
-import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 import CountdownTimer from "./CountdownTimer";
+import AuthorImage from "/public/assets/header/author_header.webp";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import(
@@ -24,18 +27,18 @@ const CardInfoVideoPlayerWithNoSSR = dynamic(
 );
 
 const CardInfo = () => {
-
-  const { t } = useTranslation("CourseIdPage");
-
-  const { course } = useCourse();
-
   const [timerExpired, setTimerExpired] = useState(false);
 
-  useEffect(() => {
+  const { isOpen, openModal, closeModal } = useModal();
+  const { t } = useTranslation("CourseIdPage");
+  const { course } = useCourse();
 
+  useEffect(() => {
     localStorage.setItem("discountActive", "true");
 
-    const endDate = course.discountEndDateTimer ? new Date(course.discountEndDateTimer) : null;
+    const endDate = course.discountEndDateTimer
+      ? new Date(course.discountEndDateTimer)
+      : null;
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -49,7 +52,6 @@ const CardInfo = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-
   }, [course.discountEndDateTimer]);
 
   return (
@@ -112,9 +114,12 @@ const CardInfo = () => {
             <Box sx={style.timerCard}>
               <Box sx={style.discountTimerContainer}>
                 <Typography sx={style.timerCardTitle}>
-                  {t("cardInfo.timerTitle")} - <span>{course.discountEndDate}</span>
+                  {t("cardInfo.timerTitle")} -{" "}
+                  <span>{course.discountEndDate}</span>
                 </Typography>
-                <CountdownTimer endDate={course.discountEndDateTimer as string} />
+                <CountdownTimer
+                  endDate={course.discountEndDateTimer as string}
+                />
               </Box>
             </Box>
             <Box sx={style.discountPriceContainer}>
@@ -131,20 +136,32 @@ const CardInfo = () => {
             {course.price}
           </Typography>
         )}
-        <WayForPayWidget
-          text={t("cardInfo.button")}
-          invoiceUrl={course.invoiceUrl}
-          sx={{
-            width: "100%",
-            mt: "15px",
-            backgroundColor: "#FFF",
-            color: "#a855f7",
-            borderRadius: "15px",
-            "&:hover": {
-              color: "#FFF",
-            },
-          }}
-        />
+
+        {course.id === "tviy-mentor" ? (
+          <>
+            <Button
+              variant="contained"
+              onClick={openModal}
+              sx={style.cardInfoButton}
+            >
+              {t("cardInfo.buttonMentor")}
+            </Button>
+            <ContactUsModal open={isOpen} handleClose={closeModal}>
+              <ContactUsForm
+                handleClose={closeModal}
+                title={t("modal.title")}
+                subtitle={t("modal.subtitle")}
+                messageTemplate={t("modal.messageTemplate")}
+              />
+            </ContactUsModal>
+          </>
+        ) : (
+          <WayForPayWidget
+            text={t("cardInfo.button")}
+            invoiceUrl={course.invoiceUrl}
+            sx={style.cardInfoButton}
+          />
+        )}
       </Box>
     </Box>
   );
