@@ -2,35 +2,18 @@
 
 import { Box } from "@mui/material";
 
-import { useEffect, useRef, useState } from "react";
-
 import CourseLessons from "./CourseLessons/CourseLessons";
 import KeyPointsItem from "./KeyPointsItem/KeyPointsItem";
 
-import { useWindowSize } from "@/src/hooks/useWindowSize";
-
 import MotionBox from "@/src/components/customComponents/MotionBox";
+import { useCourse } from "@/src/context/CourseContext";
 import CardInfo from "./CardInfo/CardInfo";
 import DescriptionItem from "./DescriptionItem/DescriptionItem";
-import style from "./MainBlock.style";
 import ExpectationsItem from "./ExpectationsItem/ExpectationsItem";
+import style from "./MainBlock.style";
 
 const MainBlock = () => {
-  const { width } = useWindowSize();
-
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
-
-  const scrollRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setIsMobile(width !== undefined && width < 900);
-    setIsMounted(true);
-  }, [width]);
-
-  if (!isMounted) {
-    return null;
-  }
+  const { course } = useCourse();
 
   return (
     <Box sx={style.mainContainer}>
@@ -45,7 +28,7 @@ const MainBlock = () => {
       <Box sx={style.mainContent}>
         <DescriptionItem />
         <KeyPointsItem />
-        <ExpectationsItem />
+        {course.expectations && <ExpectationsItem />}
         <CourseLessons />
       </Box>
     </Box>
