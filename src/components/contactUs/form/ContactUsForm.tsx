@@ -2,8 +2,15 @@
 
 import { useSnackbar } from "@/src/context/SnackbarContext";
 import { sendEmail } from "@/src/utils/send-email";
-import { ArrowForward } from "@mui/icons-material";
-import { Box, Button, TextField, Typography } from "@mui/material";
+import { ArrowForward, Email, Telegram } from "@mui/icons-material";
+import {
+  Box,
+  Button,
+  TextField,
+  ToggleButton,
+  ToggleButtonGroup,
+  Typography,
+} from "@mui/material";
 import { useFormik } from "formik";
 import Script from "next/script";
 import { useState } from "react";
@@ -39,8 +46,17 @@ const ContactUsForm = ({
   messageTemplate,
 }: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
+  const [contactMethod, setContactMethod] = useState("telegram");
+
   const { showSnackbar } = useSnackbar();
   const { t } = useTranslation("ContactUs");
+
+  const handleContactMethodChange = (
+    event: React.MouseEvent<HTMLElement>,
+    newMethod: string
+  ) => {
+    setContactMethod(newMethod);
+  };
 
   if (messageTemplate) {
     initialValues.message = messageTemplate;
@@ -107,7 +123,7 @@ const ContactUsForm = ({
 
   const formik = useFormik({
     initialValues,
-    validationSchema: getValidationSchema(t),
+    validationSchema: getValidationSchema(t, contactMethod),
     onSubmit,
   });
   return (
@@ -125,6 +141,35 @@ const ContactUsForm = ({
       </Typography>
 
       <Box component={"form"} autoComplete="off" onSubmit={formik.handleSubmit}>
+        <ToggleButtonGroup
+          color="primary"
+          value={contactMethod}
+          exclusive
+          onChange={handleContactMethodChange}
+          aria-label="contact method"
+          sx={style.toggleGroup}
+        >
+          <ToggleButton
+            color="primary"
+            value="telegram"
+            aria-label="telegram"
+            sx={
+              contactMethod === "telegram" ? style.selectedButton : style.button
+            }
+          >
+            <Telegram sx={{ marginRight: "8px" }} />
+            telegram
+          </ToggleButton>
+          <ToggleButton
+            value="email"
+            aria-label="email"
+            sx={contactMethod === "email" ? style.selectedButton : style.button}
+          >
+            <Email sx={{ marginRight: "8px" }} />
+            e-mail
+          </ToggleButton>
+        </ToggleButtonGroup>
+
         <Box sx={style.inputWrapper}>
           <TextField
             name="name"
@@ -140,7 +185,7 @@ const ContactUsForm = ({
           />
           <TextField
             name="email"
-            label={t("modal.emailInputLabel")}
+            label={t(`modal.${contactMethod}InputLabel`)}
             type="email"
             variant="outlined"
             sx={style.input}
@@ -167,7 +212,7 @@ const ContactUsForm = ({
         <Button
           variant="contained"
           endIcon={<ArrowForward />}
-          sx={style.button}
+          sx={style.buttonSubmit}
           type="submit"
           disabled={!formik.isValid || isSending}
         >

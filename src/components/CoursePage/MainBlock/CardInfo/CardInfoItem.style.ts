@@ -191,6 +191,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontSize: "14px",
     color: "#92a1b6",
     fontWeight: "bold",
+    whiteSpace: "nowrap",
     textAlign: "center",
     mb: "1rem",
     "& span": {

@@ -14,7 +14,7 @@ import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
 import { Box, Button, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import style from "./CardInfoItem.style";
 import CountdownTimer from "./CountdownTimer";
 import AuthorImage from "/public/assets/header/author_header.webp";
@@ -33,12 +33,14 @@ const CardInfo = () => {
   const { t } = useTranslation("CourseIdPage");
   const { course } = useCourse();
 
-  useEffect(() => {
-    localStorage.setItem("discountActive", "true");
-
-    const endDate = course.discountEndDateTimer
+  const endDate = useMemo(() => {
+    return course.discountEndDateTimer
       ? new Date(course.discountEndDateTimer)
       : null;
+  }, [course.discountEndDateTimer]);
+
+  useEffect(() => {
+    localStorage.setItem("discountActive", "true");
 
     const timer = setInterval(() => {
       const now = new Date();
@@ -52,14 +54,14 @@ const CardInfo = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [course.discountEndDateTimer]);
+  }, [endDate]);
 
   return (
     <Box
       sx={{
         ...style.cardInfoMainContainer,
-        height: timerExpired ? "750px" : "860px",
-        transition: "height 0.3s ease",
+        // height: timerExpired ? "750px" : "860px",
+        // transition: "height 0.3s ease",
       }}
     >
       <Box sx={style.cardInfoContainer}>
@@ -114,8 +116,15 @@ const CardInfo = () => {
             <Box sx={style.timerCard}>
               <Box sx={style.discountTimerContainer}>
                 <Typography sx={style.timerCardTitle}>
-                  {t("cardInfo.timerTitle")} -{" "}
-                  <span>{course.discountEndDate}</span>
+                  {t("cardInfo.timerTitle")}
+                  <br />
+                  <span>
+                    {endDate?.toLocaleDateString("uk", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                    })}
+                  </span>
                 </Typography>
                 <CountdownTimer
                   endDate={course.discountEndDateTimer as string}
