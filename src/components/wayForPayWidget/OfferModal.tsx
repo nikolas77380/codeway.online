@@ -3,7 +3,7 @@ import { Box, Button, Fade, IconButton, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import style from "./OfferModal.style";
 
-interface IContactUsModal {
+interface IOfferModal {
   title: string;
   message: string;
   button: string;
@@ -11,13 +11,13 @@ interface IContactUsModal {
   handleClose: () => void;
 }
 
-export default function ContactUsModal({
+export default function OfferModal({
   title,
   message,
   button,
   open,
   handleClose,
-}: IContactUsModal) {
+}: IOfferModal) {
   const Modal = dynamic(() => import("@mui/material/Modal"));
   return (
     <>
