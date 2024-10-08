@@ -8,7 +8,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     position: "sticky",
     top: "25px",
     width: "400px",
-    height: "850px",
     borderRadius: "15px",
     backgroundColor: "#191b26",
     wordWrap: "break-word",
@@ -161,10 +160,10 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   discountPriceBlock: {
-    display: "flex", 
-    justifyContent: "space-between", 
+    display: "flex",
+    justifyContent: "space-between",
     alignItems: "center",
-    height: 'screen',
+    height: "screen",
     width: 1,
     mb: "10px",
     "@media (max-width: 600px)": {
@@ -183,15 +182,16 @@ const style: { [key: string]: SxProps<Theme> } = {
   },
 
   discountTimerContainer: {
-    display: "flex", 
-    alignItems: "center", 
+    display: "flex",
+    alignItems: "center",
     flexDirection: "column",
   },
 
   timerCardTitle: {
-    fontSize: "14px", 
-    color: "#92a1b6", 
-    fontWeight: "bold", 
+    fontSize: "14px",
+    color: "#92a1b6",
+    fontWeight: "bold",
+    whiteSpace: "nowrap",
     textAlign: "center",
     mb: "1rem",
     "& span": {
@@ -234,16 +234,19 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontWeight: "bold",
     fontSize: "20px",
     "@media (max-width: 600px)": {
-        fontSize: "18px",
-      },
+      fontSize: "18px",
+    },
   },
 
   cardInfoButton: {
-    width: 1,
-    height: "40px",
-    borderRadius: "50px",
-    backgroundColor: "#A855F7",
-    textTransform: "none",
+    width: "100%",
+    mt: "15px",
+    backgroundColor: "#FFF",
+    color: "#a855f7",
+    borderRadius: "15px",
+    "&:hover": {
+      color: "#FFF",
+    },
   },
 };
 

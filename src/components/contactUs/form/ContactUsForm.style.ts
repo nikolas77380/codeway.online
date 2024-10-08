@@ -18,6 +18,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     gap: "25px",
     "@media (max-width: 900px)": {
       display: "grid",
+      gap: 0,
     },
   },
   input: {
@@ -52,7 +53,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       display: "inline",
     },
   },
-  button: {
+  buttonSubmit: {
     width: "90%",
     mt: "70px",
     ml: "5%",
@@ -61,6 +62,32 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontSize: "1.2rem",
     textTransform: "none",
     color: "#fff!important",
+  },
+  button: {
+    flex: "1",
+    justifyContent: "center",
+    padding: "10px",
+    borderRadius: "8px",
+    color: "#fff!important",
+    border: "1px solid rgba(0, 0, 0, 0.52)",
+    "@media (max-width: 600px)": {
+      fontSize: "0.7rem",
+    },
+  },
+  selectedButton: {
+    flex: "1",
+    justifyContent: "center",
+    padding: "10px",
+    borderRadius: "8px",
+    border: "1px solid rgba(0, 0, 0, 0.52)",
+    "@media (max-width: 600px)": {
+      fontSize: "0.7rem",
+    },
+  },
+  toggleGroup: {
+    display: "flex",
+    justifyContent: "space-between",
+    marginBottom: "16px",
   },
 };
 

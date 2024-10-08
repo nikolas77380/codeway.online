@@ -15,19 +15,15 @@ import { contactUsZoomIn } from "@/src/utils/motionVariants";
 import chatBotAnimation from "@/public/animations/LottieRobot.json";
 import Lottie from "react-lottie-player/dist/LottiePlayerLight";
 
+import { useModal } from "@/src/hooks/useModal";
 import MotionBox from "../customComponents/MotionBox";
 import style from "./ContactUs.style";
+import ContactUsForm from "./form/ContactUsForm";
 
 const ContactUs = () => {
-  const [modalOpen, setModalOpen] = useState(false);
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const handleOpenModal = () => {
-    setModalOpen(true);
-  };
-  const handleCloseModal = () => {
-    setModalOpen(false);
-  };
+  const { isOpen, openModal, closeModal } = useModal();
 
   const { t } = useTranslation("ContactUs");
 
@@ -62,12 +58,14 @@ const ContactUs = () => {
             variant="contained"
             endIcon={<ArrowForward />}
             sx={style.button}
-            onClick={handleOpenModal}
+            onClick={openModal}
           >
             {t("button")}
           </Button>
         </Box>
-        <ContactUsModal open={modalOpen} handleClose={handleCloseModal} />
+        <ContactUsModal open={isOpen} handleClose={closeModal}>
+          <ContactUsForm handleClose={closeModal} />
+        </ContactUsModal>
       </Box>
     </MotionBox>
   );
