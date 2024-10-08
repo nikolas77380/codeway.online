@@ -30,7 +30,7 @@ const CoursesList = ({ coursesList, lang }: ICoursesList) => {
           style={{ zIndex: 2 }}
           key={i}
         >
-          <CourseItem {...item} lang={lang} />
+          <CourseItem {...item} />
         </MotionBox>
       ))}
     </Box>
