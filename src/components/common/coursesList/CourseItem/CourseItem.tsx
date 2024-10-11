@@ -1,8 +1,11 @@
-import { getTranslation } from "@/app/i18n";
+'use client'
+
 import { Box, Button, Paper, Rating, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
 import style from "./CourseItem.style";
+import { useTranslation } from "@/app/i18n/client";
+import { useEffect, useState } from "react";
 
 interface ICourseItem {
   id: number | string;
@@ -11,20 +14,51 @@ interface ICourseItem {
   name: string;
   price: string;
   rating: number;
-  lang: string;
   discountPrice?: string;
+  discountEndDateTimer?: string;
 }
-const CourseItem = async ({
+const CourseItem = ({
   id,
   image,
   name,
   shortDescription,
   price,
   rating,
-  lang,
   discountPrice,
+  discountEndDateTimer
 }: ICourseItem) => {
-  const { t } = await getTranslation(lang, "CoursesList");
+
+  const { t } = useTranslation("CoursesList");
+
+  const [isDiscountActive, setIsDiscountActive] = useState(false);
+
+  useEffect(() => {
+    const checkDiscount = () => {
+      if (discountPrice && discountEndDateTimer) {
+        const endDate = new Date(discountEndDateTimer);
+        const now = new Date();
+
+        if (now < endDate) {
+          setIsDiscountActive(true);
+          localStorage.setItem("discountActive", "true");
+        } else {
+          setIsDiscountActive(false);
+          localStorage.setItem("discountActive", "false");
+        }
+      } else {
+        setIsDiscountActive(false);
+        localStorage.setItem("discountActive", "false");
+      }
+    };
+
+    checkDiscount();
+
+    const discountStatus = localStorage.getItem("discountActive");
+    if (discountStatus === null) {
+      localStorage.setItem("discountActive", "false");
+    }
+
+  }, [discountPrice, discountEndDateTimer]); 
 
   return (
     <Paper sx={style.container}>
@@ -47,7 +81,7 @@ const CourseItem = async ({
         </Typography>
       </Box>
       <Box>
-        {discountPrice ? (
+        {isDiscountActive && discountPrice ? (
           <Box sx={style.discountPriceContainer}>
             <Typography
               variant="body1"

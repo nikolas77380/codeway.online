@@ -1,16 +1,22 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
+import ContactUsForm from "@/src/components/contactUs/form/ContactUsForm";
+import ContactUsModal from "@/src/components/contactUs/modal/ContactUsModal";
+import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
+import { useModal } from "@/src/hooks/useModal";
 import { courseInstructor } from "@/src/mocks/mocks";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
-import { Box, Typography } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import dynamic from "next/dynamic";
 import Image from "next/image";
+import { useEffect, useMemo, useState } from "react";
 import style from "./CardInfoItem.style";
+import CountdownTimer from "./CountdownTimer";
 import AuthorImage from "/public/assets/header/author_header.webp";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
@@ -21,12 +27,43 @@ const CardInfoVideoPlayerWithNoSSR = dynamic(
 );
 
 const CardInfo = () => {
-  const { t } = useTranslation("CourseIdPage");
+  const [timerExpired, setTimerExpired] = useState(false);
 
+  const { isOpen, openModal, closeModal } = useModal();
+  const { t } = useTranslation("CourseIdPage");
   const { course } = useCourse();
 
+  const endDate = useMemo(() => {
+    return course.discountEndDateTimer
+      ? new Date(course.discountEndDateTimer)
+      : null;
+  }, [course.discountEndDateTimer]);
+
+  useEffect(() => {
+    localStorage.setItem("discountActive", "true");
+
+    const timer = setInterval(() => {
+      const now = new Date();
+      if (endDate && now >= endDate) {
+        setTimerExpired(true);
+        localStorage.setItem("discountActive", "false");
+        clearInterval(timer);
+      }
+
+      return () => clearInterval(timer);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [endDate]);
+
   return (
-    <Box sx={style.cardInfoMainContainer}>
+    <Box
+      sx={{
+        ...style.cardInfoMainContainer,
+        // height: timerExpired ? "750px" : "860px",
+        // transition: "height 0.3s ease",
+      }}
+    >
       <Box sx={style.cardInfoContainer}>
         <CardInfoVideoPlayerWithNoSSR />
         <Typography variant="h6" component="label">
@@ -74,35 +111,66 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        {course.discountPrice ? (
-          <Box sx={style.discountPriceContainer}>
-            <Typography variant="h6" className="discount-price">
-              {course.discountPrice}
-            </Typography>
-            <Typography variant="body1" className="original-price">
-              {course.price}
-            </Typography>
+        {!timerExpired && course.discountPrice ? (
+          <Box sx={style.discountPriceBlock}>
+            <Box sx={style.timerCard}>
+              <Box sx={style.discountTimerContainer}>
+                <Typography sx={style.timerCardTitle}>
+                  {t("cardInfo.timerTitle")}
+                  <br />
+                  <span>
+                    {endDate?.toLocaleDateString("uk", {
+                      day: "2-digit",
+                      month: "2-digit",
+                      year: "numeric",
+                    })}
+                  </span>
+                </Typography>
+                <CountdownTimer
+                  endDate={course.discountEndDateTimer as string}
+                />
+              </Box>
+            </Box>
+            <Box sx={style.discountPriceContainer}>
+              <Typography variant="h6" className="discount-price">
+                {course.discountPrice}
+              </Typography>
+              <Typography variant="body1" className="original-price">
+                {course.price}
+              </Typography>
+            </Box>
           </Box>
         ) : (
           <Typography variant="h6" sx={style.price}>
             {course.price}
           </Typography>
         )}
-        {/* <WayForPayWidget
 
-          text={t("cardInfo.button")}
-          invoiceUrl={course.invoiceUrl}
-          sx={{
-            width: "100%",
-            mt: "15px",
-            backgroundColor: "#FFF",
-            color: "#a855f7",
-            borderRadius: "15px",
-            "&:hover": {
-              color: "#FFF",
-            },
-          }}
-        /> */}
+        {course.id === "tviy-mentor" ? (
+          <>
+            <Button
+              variant="contained"
+              onClick={openModal}
+              sx={style.cardInfoButton}
+            >
+              {t("cardInfo.buttonMentor")}
+            </Button>
+            <ContactUsModal open={isOpen} handleClose={closeModal}>
+              <ContactUsForm
+                handleClose={closeModal}
+                title={t("modal.title")}
+                subtitle={t("modal.subtitle")}
+                messageTemplate={t("modal.messageTemplate")}
+              />
+            </ContactUsModal>
+          </>
+        ) : (
+          <WayForPayWidget
+            text={t("cardInfo.button")}
+            invoiceUrl={course.invoiceUrl}
+            sx={style.cardInfoButton}
+          />
+        )}
       </Box>
     </Box>
   );
