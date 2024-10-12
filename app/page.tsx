@@ -43,8 +43,8 @@ export default function Home() {
         <Testimonials />
         <Faq />
         <ContactUs />
-        <CookieDialog />
       </DynamicProvider>
+      <CookieDialog />
     </main>
   );
 }
