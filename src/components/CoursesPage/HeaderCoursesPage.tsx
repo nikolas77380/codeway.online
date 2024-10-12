@@ -1,19 +1,11 @@
-import { Box, Typography } from "@mui/material";
-
 import { aboutUsPageScrollUp } from "@/src/utils/motionVariants";
-
-import { getTranslation } from "@/app/i18n";
-
+import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import MotionBox from "../customComponents/MotionBox";
-
 import style from "./HeaderCoursesPage.style";
 
-interface IHeaderPage {
-  lang: string;
-}
-
-const HeaderCoursesPage = async ({ lang }: IHeaderPage) => {
-  const { t } = await getTranslation(lang, "CoursesPage");
+const HeaderCoursesPage = () => {
+  const t = useTranslations("CoursesPage");
 
   return (
     <Box sx={style.container}>

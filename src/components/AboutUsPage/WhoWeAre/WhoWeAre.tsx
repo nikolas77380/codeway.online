@@ -6,18 +6,17 @@ import CardMembershipOutlinedIcon from "@mui/icons-material/CardMembershipOutlin
 import VideoCameraFrontIcon from "@mui/icons-material/VideoCameraFront";
 import WorkHistoryOutlinedIcon from "@mui/icons-material/WorkHistoryOutlined";
 
-import { TFunction } from "i18next";
-
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import {
   aboutUsPageImageZoom,
   aboutUsPageScroLeftToRight,
 } from "@/src/utils/motionVariants";
 
+import { useTranslations } from "next-intl";
 import style from "./WhoWeAre.style";
 
 interface IHeaderAboutUs {
-  t: TFunction;
+  t: ReturnType<typeof useTranslations>;
 }
 
 const WhoWeAre = ({ t }: IHeaderAboutUs) => {

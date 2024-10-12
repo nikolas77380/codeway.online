@@ -1,16 +1,11 @@
-import { getTranslation } from "@/app/i18n";
 import { coursesInfoList } from "@/src/mocks/mocks";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import CoursesList from "../common/coursesList/CoursesList";
 import style from "./CoursesListBlock.style";
 
-interface ICoursesListBlock {
-  lang: string;
-}
-
-const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
-  const { t } = await getTranslation(lang, "CoursesList");
-
+const CoursesListBlock = () => {
+  const t = useTranslations("CoursesList");
   return (
     <Box id="courses" sx={style.container}>
       <Box sx={style.contentWrapper}>
@@ -20,7 +15,7 @@ const CoursesListBlock = async ({ lang }: ICoursesListBlock) => {
         <Typography variant="h6" sx={style.subtitle} component={"p"}>
           {t("subtitle")}
         </Typography>
-        <CoursesList coursesList={coursesInfoList} lang={lang} />
+        <CoursesList coursesList={coursesInfoList} />
       </Box>
     </Box>
   );

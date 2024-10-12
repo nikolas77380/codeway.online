@@ -1,7 +1,10 @@
-import { TFunction } from "i18next";
+import { useTranslations } from "next-intl";
 import * as Yup from "yup";
 
-export const getValidationSchema = (t: TFunction, contactMethod: string) => {
+export const getValidationSchema = (
+  t: ReturnType<typeof useTranslations>,
+  contactMethod: string
+) => {
   return Yup.object({
     name: Yup.string()
       .strict(true)

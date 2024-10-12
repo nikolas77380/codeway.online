@@ -1,18 +1,15 @@
 "use client";
 
-import { Box, Typography } from "@mui/material";
-
-import { useCourse } from "@/src/context/CourseContext";
-
 import MotionBox from "@/src/components/customComponents/MotionBox";
+import { useCourse } from "@/src/context/CourseContext";
 import { scrollLeftToRight } from "@/src/utils/motionVariants";
-
-import { useTranslation } from "@/app/i18n/client";
+import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import style from "./DescriptionItem.style";
 
 const DescriptionItem = () => {
   const { course } = useCourse();
-  const { t } = useTranslation("CourseIdPage");
+  const t = useTranslations("CourseIdPage");
 
   return (
     <Box sx={style.descriptionMainContainer}>

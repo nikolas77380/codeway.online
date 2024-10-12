@@ -7,10 +7,9 @@ import style from "./CoursesList.style";
 import bgImage from "/public/assets/header/bg_header_1_.webp";
 interface ICoursesList {
   coursesList: TCourseInfo[];
-  lang: string;
 }
 
-const CoursesList = ({ coursesList, lang }: ICoursesList) => {
+const CoursesList = ({ coursesList }: ICoursesList) => {
   return (
     <Box sx={style.listWrapper}>
       <Box sx={style.backgroundImage}>

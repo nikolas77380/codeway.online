@@ -1,6 +1,6 @@
 import { permanent } from "@/app/fonts";
-import { getTranslation } from "@/app/i18n";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import HeaderButton from "../common/headerButton/HeaderButton";
 import style from "./Header.style";
@@ -8,12 +8,9 @@ import Person from "/public/assets/header/author_header.webp";
 import CodeIcon from "/public/assets/header/img_4.webp";
 import VideoIcon from "/public/assets/header/img_5.webp";
 
-interface IHeader {
-  lang: string;
-}
+const Header = () => {
+  const t = useTranslations("Header");
 
-const Header = async ({ lang }: IHeader) => {
-  const { t } = await getTranslation(lang, "Header");
   return (
     <Box sx={style.headerContainer}>
       <Box sx={style.contentWrapper}>
