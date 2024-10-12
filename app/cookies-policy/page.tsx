@@ -1,4 +1,5 @@
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import style from "./page.style";
 
@@ -10,8 +11,8 @@ export async function generateMetadata() {
   };
 }
 
-export default async function CookiesPolicyPage() {
-  const t = await getTranslations("CookiesPolicyPage");
+export default function CookiesPolicyPage() {
+  const t = useTranslations("CookiesPolicyPage");
 
   return (
     <Box sx={style.container}>
@@ -23,8 +24,6 @@ export default async function CookiesPolicyPage() {
       <Typography sx={style.subtitle}>{t("paragraph1")}</Typography>
 
       <Typography sx={style.subtitle}>{t("paragraph2")}</Typography>
-
-      <Typography sx={style.subtitle}>{t("paragraph3")}</Typography>
     </Box>
   );
 }
