@@ -1,15 +1,14 @@
 import { Box, Typography } from "@mui/material";
 
-import { TFunction } from "i18next";
-
 import { aboutUsPageScrollUp } from "@/src/utils/motionVariants";
 
 import MotionBox from "@/src/components/customComponents/MotionBox";
 
+import { useTranslations } from "next-intl";
 import style from "./HeaderAboutUs.style";
 
 interface IHeaderAboutUs {
-  t: TFunction;
+  t: ReturnType<typeof useTranslations>;
 }
 
 const HeaderAboutUs = ({ t }: IHeaderAboutUs) => {

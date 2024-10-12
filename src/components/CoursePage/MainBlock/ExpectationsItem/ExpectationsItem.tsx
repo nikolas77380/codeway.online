@@ -6,14 +6,14 @@ import CheckIcon from "@mui/icons-material/Check";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import { useTranslation } from "@/app/i18n/client";
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import { scrollLeftToRight, scrollUp } from "@/src/utils/motionVariants";
+import { useTranslations } from "next-intl";
 import style from "./Expectations.style";
 
 const ExpectationsItem = () => {
   const { course } = useCourse();
-  const { t } = useTranslation("CourseIdPage");
+  const t = useTranslations("CourseIdPage");
 
   return (
     <Box sx={style.container}>

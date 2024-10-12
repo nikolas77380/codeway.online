@@ -6,12 +6,12 @@ import {
   contactUPagesscrollRightToLeft,
 } from "@/src/utils/motionVariants";
 import { Box, Typography } from "@mui/material";
-import { TFunction } from "i18next";
 
+import { useTranslations } from "next-intl";
 import style from "./GetInTouch.style";
 
 interface IGetInTouch {
-  t: TFunction;
+  t: ReturnType<typeof useTranslations>;
 }
 
 const GetInTouch = ({ t }: IGetInTouch) => {

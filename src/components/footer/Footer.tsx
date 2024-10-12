@@ -1,5 +1,4 @@
 "use client";
-import { useTranslation } from "@/app/i18n/client";
 import {
   EmailOutlined,
   Facebook,
@@ -18,6 +17,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
@@ -29,12 +29,27 @@ interface IListLinkItem {
   name: string;
   href: string;
 }
-
 const Footer = () => {
   const [email, setEmail] = useState("");
 
-  const { t } = useTranslation("Footer");
-
+  const t = useTranslations("Footer");
+  const messages = useMessages();
+  const servicesList = Object.keys((messages.Footer as any).services.list).map(
+    (key) => {
+      return {
+        name: t(`services.list.${key}.name`),
+        href: t(`services.list.${key}.href`),
+      };
+    }
+  ) as IListLinkItem[];
+  const companiesList = Object.keys(
+    (messages.Footer as any).companies.list
+  ).map((key) => {
+    return {
+      name: t(`companies.list.${key}.name`),
+      href: t(`companies.list.${key}.href`),
+    };
+  }) as IListLinkItem[];
   const currentYear = useMemo(() => new Date().getFullYear(), []);
 
   const handleClick = () => {
@@ -83,21 +98,12 @@ const Footer = () => {
               </Typography>
             </Grid>
             <Grid item xs={6} sm={4} md={2}>
-              <ListWithTitle
-                title={t("services.title")}
-                items={
-                  t("services.list", { returnObjects: true }) as IListLinkItem[]
-                }
-              />
+              <ListWithTitle title={t("services.title")} items={servicesList} />
             </Grid>
             <Grid item xs={6} sm={4} md={2}>
               <ListWithTitle
                 title={t("companies.title")}
-                items={
-                  t("companies.list", {
-                    returnObjects: true,
-                  }) as IListLinkItem[]
-                }
+                items={companiesList}
               />
             </Grid>
             <Grid item sm={12} md={4}>

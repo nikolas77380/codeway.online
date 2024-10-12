@@ -5,17 +5,16 @@ import { Box, Divider, Rating, Stack, Typography } from "@mui/material";
 
 import { useCourse } from "@/src/context/CourseContext";
 
-import { useTranslation } from "@/app/i18n/client";
-
 import { courseIdHeaderScrollUp } from "@/src/utils/motionVariants";
 
 import MotionBox from "@/src/components/customComponents/MotionBox";
 
+import { useTranslations } from "next-intl";
 import style from "./HeaderCoursePage.style";
 
 const HeaderCoursePage = () => {
   const { course } = useCourse();
-  const { t } = useTranslation("CourseIdPage");
+  const t = useTranslations("CourseIdPage");
 
   return (
     <Box sx={style.container}>

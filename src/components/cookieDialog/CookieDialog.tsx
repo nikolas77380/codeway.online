@@ -1,13 +1,13 @@
 "use client";
-import { useTranslation } from "@/app/i18n/client";
 import { Box, Button, Link, Popper, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import style from "./CookieDialog.style";
 
 const CookieDialog = () => {
   const [open, setOpen] = useState(false);
 
-  const { t } = useTranslation("CookieDialog");
+  const t = useTranslations("CookieDialog");
 
   useEffect(() => {
     if (!localStorage.getItem("cookiesAccepted")) {

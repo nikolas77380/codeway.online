@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslation } from "@/app/i18n/client";
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import { scrollDown } from "@/src/utils/motionVariants";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { Box, Typography } from "@mui/material";
+import { useMessages, useTranslations } from "next-intl";
 import style from "./Faq.style";
 import FaqCard from "./FaqCard/FaqCard";
 
@@ -15,9 +15,18 @@ interface FaqCardData {
 }
 
 const Faq = () => {
-  const { t } = useTranslation("Faq");
+  const t = useTranslations("Faq");
 
-  const dataFaqCard = t("questions", { returnObjects: true }) as FaqCardData[];
+  const messages = useMessages();
+  const dataFaqCard = Object.keys((messages.Faq as any).questions).map(
+    (key) => {
+      return {
+        id: Number.parseInt(key),
+        question: t(`questions.${key}.question`),
+        answer: t(`questions.${key}.answer`),
+      };
+    }
+  ) as FaqCardData[];
 
   return (
     <Box sx={style.mainSection}>

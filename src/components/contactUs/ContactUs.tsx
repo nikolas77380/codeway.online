@@ -4,8 +4,6 @@ import { Box, Button, Typography } from "@mui/material";
 
 import { useState } from "react";
 
-import { useTranslation } from "@/app/i18n/client";
-
 import { ArrowForward } from "@mui/icons-material";
 
 import ContactUsModal from "./modal/ContactUsModal";
@@ -16,6 +14,7 @@ import chatBotAnimation from "@/public/animations/LottieRobot.json";
 import Lottie from "react-lottie-player/dist/LottiePlayerLight";
 
 import { useModal } from "@/src/hooks/useModal";
+import { useTranslations } from "next-intl";
 import MotionBox from "../customComponents/MotionBox";
 import style from "./ContactUs.style";
 import ContactUsForm from "./form/ContactUsForm";
@@ -25,7 +24,7 @@ const ContactUs = () => {
 
   const { isOpen, openModal, closeModal } = useModal();
 
-  const { t } = useTranslation("ContactUs");
+  const t = useTranslations("ContactUs");
 
   const handleAnimationComplete = () => {
     setHasAnimated(true);

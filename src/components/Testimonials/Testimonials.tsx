@@ -1,19 +1,15 @@
-import { getTranslation } from "@/app/i18n";
 import bgImage1 from "@/public/assets/header/bg_header_3_.webp";
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import { ScrollAnimationWrapper } from "@/src/hooks/useScrollAnimationWrapper";
 import { courseIdHeaderScrollUp, scrollUp } from "@/src/utils/motionVariants";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import style from "./Testimonials.style";
 import TestimonialsList from "./testimonialsList/TestimonialsList";
 
-interface ITestimonials {
-  lang: string;
-}
-
-const Testimonials = async ({ lang }: ITestimonials) => {
-  const { t } = await getTranslation(lang, "Testimonials");
+const Testimonials = () => {
+  const t = useTranslations("Testimonials");
 
   return (
     <ScrollAnimationWrapper threshold={0.2}>

@@ -1,6 +1,6 @@
-import { getTranslation } from "@/app/i18n";
 import { generateSignature } from "@/src/utils/generateSignature";
 import { sendEmail } from "@/src/utils/send-email";
+import { getTranslations } from "next-intl/server";
 import { NextResponse } from "next/server";
 
 const SECRET_KEY = process.env.SECRET_KEY;
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
     const refundResponseText = await refundResponse.text();
     console.log("Refunded: ", refundResponseText);
 
-    const { t } = await getTranslation("ua", "messages");
+    const t = await getTranslations("messages");
 
     const response = await sendEmail({
       email: email,
