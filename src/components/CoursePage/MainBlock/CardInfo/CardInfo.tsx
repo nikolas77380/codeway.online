@@ -18,7 +18,6 @@ import { useEffect, useMemo, useState } from "react";
 import style from "./CardInfoItem.style";
 import CountdownTimer from "./CountdownTimer";
 import AuthorImage from "/public/assets/header/author_header.webp";
-import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import(
