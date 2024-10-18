@@ -28,6 +28,8 @@ const CardInfoVideoPlayerWithNoSSR = dynamic(
 
 const CardInfo = () => {
   const [timerExpired, setTimerExpired] = useState(false);
+  const [discountActive, setDiscountActive] = useState<boolean | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const { isOpen, openModal, closeModal } = useModal();
   const t = useTranslations("CourseIdPage");
@@ -40,22 +42,36 @@ const CardInfo = () => {
   }, [course.discountEndDateTimer]);
 
   useEffect(() => {
-    localStorage.setItem("discountActive", "true");
+    const storedDiscountActive = localStorage.getItem("discountActive") === "true";
+    setDiscountActive(storedDiscountActive);
+    
+    if (endDate && new Date() >= endDate) {
+      setTimerExpired(true);
+      setDiscountActive(false);
+      localStorage.setItem("discountActive", "false");
+    } else {
+      setTimerExpired(false);
+      setDiscountActive(true);
+      localStorage.setItem("discountActive", "true");
+    }
+    
+    setLoading(false);
 
-    const timer = setInterval(() => {
+    const interval = setInterval(() => {
       const now = new Date();
       if (endDate && now >= endDate) {
         setTimerExpired(true);
+        setDiscountActive(false);
         localStorage.setItem("discountActive", "false");
-        clearInterval(timer);
+        clearInterval(interval);
       }
-
-      return () => clearInterval(timer);
     }, 1000);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, [endDate]);
 
+  if (loading) return null;
+  
   return (
     <Box
       sx={{
@@ -111,7 +127,7 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        {!timerExpired && course.discountPrice ? (
+        {!timerExpired && discountActive && course.discountPrice ? (
           <Box sx={style.discountPriceBlock}>
             <Box sx={style.timerCard}>
               <Box sx={style.discountTimerContainer}>
