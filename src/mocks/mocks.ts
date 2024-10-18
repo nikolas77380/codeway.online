@@ -47,7 +47,7 @@ export const coursesInfoList: TCourseInfo[] = [
   {
     id: "easy-start-1-0",
     link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-start",
-    invoiceUrl: "https://secure.wayforpay.com/button/b0a9d2b9ac6f5",
+    invoiceUrl: "https://secure.wayforpay.com/button/bf498bc400faa",
     videoLink: "",
     offerId: 116480,
     image: Html_Css,
