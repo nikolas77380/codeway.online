@@ -12,6 +12,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import style from "./CardInfoItem.style";
 import AuthorImage from "/public/assets/header/author_header.webp";
+import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import(
@@ -88,8 +89,7 @@ const CardInfo = () => {
             {course.price}
           </Typography>
         )}
-        {/* <WayForPayWidget
-
+        <WayForPayWidget
           text={t("cardInfo.button")}
           invoiceUrl={course.invoiceUrl}
           sx={{
@@ -102,7 +102,7 @@ const CardInfo = () => {
               color: "#FFF",
             },
           }}
-        /> */}
+        />
       </Box>
     </Box>
   );
