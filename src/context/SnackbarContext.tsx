@@ -27,17 +27,21 @@ const SnackbarProvider = ({ children }: ISnackbarContextProvider) => {
   const [data, setData] = useState<ISnackbarData>({
     message: "",
     severity: "info",
-    duration: 6000,
+    duration: 3000,
   });
-  const showSnackBar = ({ message, severity }: ISnackbarData) => {
+  const showSnackBar = ({
+    message,
+    severity,
+    duration = 3000,
+  }: ISnackbarData) => {
     if (open) {
       setOpen(false);
       setTimeout(() => {
-        setData({ message, severity });
+        setData({ message, severity, duration });
         setOpen(true);
       }, 400);
     } else {
-      setData({ message, severity });
+      setData({ message, severity, duration });
       setOpen(true);
     }
   };
@@ -53,10 +57,22 @@ const SnackbarProvider = ({ children }: ISnackbarContextProvider) => {
         autoHideDuration={data.duration}
         TransitionComponent={SlideTransition}
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-        sx={{ zIndex: 11 }}
+        sx={{
+          zIndex: 2001,
+          right: "-5px",
+          "@media (min-width: 600px)": {
+            bottom: "8px",
+            right: "-5px",
+            left: "8px",
+          },
+        }}
         onClose={handleClose}
       >
-        <Alert onClose={handleClose} severity={`${data.severity}`}>
+        <Alert
+          onClose={handleClose}
+          severity={`${data.severity}`}
+          sx={{ fontSize: { xs: "0.8rem", sm: "1rem" } }}
+        >
           {data.message}
         </Alert>
       </Snackbar>

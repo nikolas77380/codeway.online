@@ -3,7 +3,6 @@ import { SxProps } from "@mui/material";
 const style: { [key: string]: SxProps } = {
   headerContainer: {
     width: 1,
-    backgroundColor: "#12141D",
     p: "10px",
     "@media (max-width: 600px)": {
       mb: "50px",
@@ -29,23 +28,26 @@ const style: { [key: string]: SxProps } = {
       flexDirection: "column",
       minHeight: "850px",
     },
-  },
-  backgroundImage: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
-    height: "35vh",
-    width: "100%",
-    overflow: "hidden",
-    zIndex: 0,
-    "@media (max-width: 1050px)": {
-      display: "none",
+
+    "&::after": {
+      content: '""',
+      position: "absolute",
+      bottom: "-60px",
+      left: "50%",
+      width: "70px",
+      height: "1px",
+      background:
+        "radial-gradient( ellipse at center, #A853F6  0%, rgba(168, 83, 246, 0.3) 100% )",
+      borderRadius: "100%",
+      boxShadow: "0 0 150px 150px rgba(168, 83, 246, 0.5)",
+      zIndex: "0",
     },
   },
+
   leftContainer: {
     pr: "15px",
     pl: "5px",
+    zIndex: "2",
     "@media (max-width: 900px)": {
       margin: "auto",
       textAlign: "center",
@@ -129,6 +131,7 @@ const style: { [key: string]: SxProps } = {
   rightContainer: {
     position: "relative",
     alignSelf: "flex-end",
+    zIndex: "2",
   },
   mainImage: {
     position: "relative",

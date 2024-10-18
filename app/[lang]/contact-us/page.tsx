@@ -6,7 +6,12 @@ import ContactUsHeader from "@/src/components/ContactUsPage/ContactUsHeader/Cont
 import GetInTouch from "@/src/components/ContactUsPage/GetInTouch/GetInTouch";
 
 import { getTranslation } from "@/app/i18n";
+import { languages } from "@/app/i18n/settings";
 import style from "./ContactUsPage.style";
+
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }));
+}
 
 const GoogleMapItemWithNoSSR = dynamic(
   () => import("@/src/components/ContactUsPage/GoogleMapItem/GoogleMapItem"),

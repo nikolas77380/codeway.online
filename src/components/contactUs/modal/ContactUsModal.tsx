@@ -1,14 +1,18 @@
-import { Box, Fade } from "@mui/material";
+import Close from "@mui/icons-material/Close";
+import { Box, Fade, IconButton } from "@mui/material";
 import dynamic from "next/dynamic";
-import ContactUsForm from "../form/ContactUsForm";
 import style from "./ContactUsModal.style";
 
 interface IContactUsModal {
   open: boolean;
   handleClose: () => void;
+  children: React.ReactNode;
 }
-
-export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
+export default function ContactUsModal({
+  open,
+  handleClose,
+  children,
+}: IContactUsModal) {
   const Modal = dynamic(() => import("@mui/material/Modal"));
   return (
     <>
@@ -25,9 +29,12 @@ export default function ContactUsModal({ open, handleClose }: IContactUsModal) {
               },
             }}
           >
-            <Fade in={open}>
+            <Fade in={open} timeout={500}>
               <Box sx={style.container}>
-                <ContactUsForm />
+                <IconButton sx={style.closeButton} onClick={handleClose}>
+                  <Close />
+                </IconButton>
+                {children}
               </Box>
             </Fade>
           </Modal>

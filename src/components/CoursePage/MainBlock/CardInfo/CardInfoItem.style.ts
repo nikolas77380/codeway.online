@@ -8,7 +8,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     position: "sticky",
     top: "25px",
     width: "400px",
-    height: "760px",
     borderRadius: "15px",
     backgroundColor: "#191b26",
     wordWrap: "break-word",
@@ -131,7 +130,7 @@ const style: { [key: string]: SxProps<Theme> } = {
     marginTop: "10px",
     display: "flex",
     flexDirection: "column",
-    marginBottom: "40px",
+    marginBottom: "20px",
     "@media (max-width: 600px)": {
       marginTop: "10px",
       marginBottom: "30px",
@@ -160,14 +159,58 @@ const style: { [key: string]: SxProps<Theme> } = {
     marginBottom: "10px",
   },
 
+  discountPriceBlock: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    height: "screen",
+    width: 1,
+    mb: "10px",
+    "@media (max-width: 600px)": {
+      flexDirection: "column",
+    },
+  },
+
+  timerCard: {
+    position: "relative",
+    display: "flex",
+    p: "1rem",
+    width: "16rem",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: "1rem",
+  },
+
+  discountTimerContainer: {
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+  },
+
+  timerCardTitle: {
+    fontSize: "14px",
+    color: "#92a1b6",
+    fontWeight: "bold",
+    whiteSpace: "nowrap",
+    textAlign: "center",
+    mb: "1rem",
+    "& span": {
+      color: "#fff",
+      fontSize: "18px",
+    },
+  },
+
   discountPriceContainer: {
-    textAlign: "end",
+    display: "flex",
+    width: "fit-content",
+    flexDirection: "column",
+    alignItems: "flex-end",
     "& .discount-price": {
       color: "#A855F7",
       fontWeight: "bold",
       fontSize: "20px",
       "@media (max-width: 600px)": {
-        fontSize: "16px",
+        fontSize: "22px",
       },
     },
     "& .original-price": {
@@ -175,8 +218,13 @@ const style: { [key: string]: SxProps<Theme> } = {
       color: "#747474",
       fontSize: "20px",
       "@media (max-width: 600px)": {
-        fontSize: "16px",
+        fontSize: "18px",
       },
+    },
+    "@media (max-width: 600px)": {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: "14px",
     },
   },
 
@@ -186,16 +234,19 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontWeight: "bold",
     fontSize: "20px",
     "@media (max-width: 600px)": {
-        fontSize: "16px",
-      },
+      fontSize: "18px",
+    },
   },
 
   cardInfoButton: {
-    width: 1,
-    height: "40px",
-    borderRadius: "50px",
-    backgroundColor: "#A855F7",
-    textTransform: "none",
+    width: "100%",
+    mt: "15px",
+    backgroundColor: "#FFF",
+    color: "#a855f7",
+    borderRadius: "15px",
+    "&:hover": {
+      color: "#FFF",
+    },
   },
 };
 

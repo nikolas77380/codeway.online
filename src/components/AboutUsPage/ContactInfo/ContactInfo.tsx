@@ -22,7 +22,7 @@ const ContactInfo = () => {
           viewport={{ once: true }}
           variants={teamScrollDown(0.2, 1.5)}
         >
-          <Typography component="label">Contact Information</Typography>
+          <Typography component="label">Контактна інформація</Typography>
         </MotionBox>
         <MotionBox
           initial="hidden"
