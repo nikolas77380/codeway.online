@@ -44,9 +44,6 @@ const CourseItem = ({
           setIsDiscountActive(false);
           localStorage.setItem("discountActive", "false");
         }
-      } else {
-        setIsDiscountActive(false);
-        localStorage.setItem("discountActive", "false");
       }
     };
 
