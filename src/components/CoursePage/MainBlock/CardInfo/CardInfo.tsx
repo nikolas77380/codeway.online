@@ -145,7 +145,6 @@ const CardInfo = () => {
             {course.price}
           </Typography>
         )}
-
         {course.id === "tviy-mentor" ? (
           <>
             <Button
