@@ -31,7 +31,6 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
       } else if (event.data === "WfpWidgetEventClose") {
         handleWidgetClose();
         if (isApproved) {
-          console.log("event close and isApproved");
           setModalOpen(true);
         }
 
@@ -54,7 +53,6 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
 
   const handleWidgetClose = () => {
     const widget = new (window as any).Wayforpay();
-    console.log("try to close window");
     widget.closeit();
   };
 
@@ -69,8 +67,7 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
 
   return (
     <>
-      {/* <Button variant="contained" onClick={handleClick} sx={sx}> */}
-      <Button variant="contained" sx={sx}>
+      <Button variant="contained" onClick={handleClick} sx={sx}>
         {text}
       </Button>
       <OfferModal
