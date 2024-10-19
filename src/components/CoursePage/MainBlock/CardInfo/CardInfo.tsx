@@ -41,34 +41,68 @@ const CardInfo = () => {
       : null;
   }, [course.discountEndDateTimer]);
 
-  useEffect(() => {
-    const storedDiscountActive = localStorage.getItem("discountActive") === "true";
-    setDiscountActive(storedDiscountActive);
+  // useEffect(() => {
+  //   const storedDiscountActive = localStorage.getItem("discountActive") === "true";
+  //   setDiscountActive(storedDiscountActive);
     
-    if (endDate && new Date() >= endDate) {
-      setTimerExpired(true);
+  //   if (endDate && new Date() >= endDate) {
+  //     setTimerExpired(true);
+  //     setDiscountActive(false);
+  //     localStorage.setItem("discountActive", "false");
+  //   } else {
+  //     setTimerExpired(false);
+  //     setDiscountActive(true);
+  //     localStorage.setItem("discountActive", "true");
+  //   }
+    
+  //   setLoading(false);
+
+  //   const interval = setInterval(() => {
+  //     const now = new Date();
+  //     if (endDate && now >= endDate) {
+  //       setTimerExpired(true);
+  //       setDiscountActive(false);
+  //       localStorage.setItem("discountActive", "false");
+  //       clearInterval(interval);
+  //     }
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, [endDate]);
+
+  useEffect(() => {
+    
+    if (course.discountEndDateTimer) {
+      const endDate = new Date(course.discountEndDateTimer);
+      
+      if (new Date() >= endDate) {
+        setTimerExpired(true);
+        setDiscountActive(false);
+        localStorage.setItem("discountActive", "false");
+      } else {
+        setTimerExpired(false);
+        setDiscountActive(true);
+        localStorage.setItem("discountActive", "true");
+      }
+    } else {
       setDiscountActive(false);
       localStorage.setItem("discountActive", "false");
-    } else {
-      setTimerExpired(false);
-      setDiscountActive(true);
-      localStorage.setItem("discountActive", "true");
     }
-    
+  
     setLoading(false);
-
+  
     const interval = setInterval(() => {
       const now = new Date();
-      if (endDate && now >= endDate) {
+      if (course.discountEndDateTimer && now >= new Date(course.discountEndDateTimer)) {
         setTimerExpired(true);
         setDiscountActive(false);
         localStorage.setItem("discountActive", "false");
         clearInterval(interval);
       }
     }, 1000);
-
+  
     return () => clearInterval(interval);
-  }, [endDate]);
+  }, [course.discountEndDateTimer]);
 
   if (loading) return null;
   
