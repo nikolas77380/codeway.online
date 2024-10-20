@@ -6,11 +6,10 @@ import TeamCard from "./TeamCard/TeamCard";
 
 import { teamData } from "@/src/mocks/AboutUsPage/dataOurTeam";
 
-import { TFunction } from "i18next";
-
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import { teamCardsZoomIn, teamScrollDown } from "@/src/utils/motionVariants";
 
+import { useTranslations } from "next-intl";
 import style from "./MeetOurTeam.style";
 
 const ScrollAnimationWrapper = dynamic(
@@ -22,7 +21,7 @@ const ScrollAnimationWrapper = dynamic(
 );
 
 interface IMeetOurTeam {
-  t: TFunction;
+  t: ReturnType<typeof useTranslations>;
 }
 
 const MeetOurTeam = ({ t }: IMeetOurTeam) => {

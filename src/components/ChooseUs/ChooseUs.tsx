@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslation } from "@/app/i18n/client";
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import {
   scrollDown,
@@ -15,13 +14,14 @@ import {
   LaptopChromebook,
 } from "@mui/icons-material/";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import style from "./ChooseUs.style";
 import ChooseUsCard from "./ChoseUsCard/ChooseUsCard";
 import bgImage from "/public/assets/header/bg_header_1_.webp";
 
 const ChooseUs = () => {
-  const { t } = useTranslation("ChooseUs");
+  const t = useTranslations("ChooseUs");
 
   return (
     <Box sx={style.mainSection}>

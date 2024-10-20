@@ -33,7 +33,7 @@ const CountdownTimer = ({ endDate }: CountdownTimerProps) => {
             .padStart(2, "0")}`
         );
       }
-    }, 1000);
+    },);
 
     return () => clearInterval(timer);
   }, [endDate]);

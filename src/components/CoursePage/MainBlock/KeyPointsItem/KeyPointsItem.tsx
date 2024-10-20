@@ -9,12 +9,12 @@ import { useCourse } from "@/src/context/CourseContext";
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import { scrollLeftToRight, scrollUp } from "@/src/utils/motionVariants";
 
-import { useTranslation } from "@/app/i18n/client";
+import { useTranslations } from "next-intl";
 import style from "./KeyPointsItem.style";
 
 const KeyPointsItem = () => {
   const { course } = useCourse();
-  const { t } = useTranslation("CourseIdPage");
+  const t = useTranslations("CourseIdPage");
 
   return (
     <Box sx={style.keyPointsContainer}>

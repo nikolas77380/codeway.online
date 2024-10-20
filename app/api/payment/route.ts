@@ -1,6 +1,6 @@
-import { getTranslation } from "@/app/i18n";
 import { generateSignature } from "@/src/utils/generateSignature";
 import { sendEmail } from "@/src/utils/send-email";
+import { getTranslations } from "next-intl/server";
 import { NextResponse } from "next/server";
 
 const SECRET_KEY = process.env.SECRET_KEY;
@@ -28,6 +28,7 @@ interface WayForPayRequest {
   reasonCode: string;
   fee: number;
   paymentSystem: string;
+  clientFields: { name: string; value: string }[];
 }
 
 export async function POST(request: Request) {
@@ -35,7 +36,9 @@ export async function POST(request: Request) {
   const offer_id = url.searchParams.get("offer_id");
 
   const body: WayForPayRequest = await request.json();
-  const email = body.email;
+  const email = body.clientFields.find((el) =>
+    el.name.includes("Email")
+  )?.value;
   // Create a string for HMAC_MD5 generation
   const stringToSign = [
     body.merchantAccount,
@@ -111,19 +114,15 @@ export async function POST(request: Request) {
       body: JSON.stringify(refundParams),
     });
 
-    const refundResponseText = await refundResponse.text();
-    console.log("Refunded: ", refundResponseText);
+    await refundResponse.text();
+    const t = await getTranslations("messages");
 
-    const { t } = await getTranslation("ua", "messages");
-
-    const response = await sendEmail({
-      email: email,
+    await sendEmail({
+      email: email ?? "",
       subject: `Message from CODEWAY`,
       message: t("integration_error.message"),
       recipient: "client",
     });
-
-    console.log("Email send: ", response);
   } finally {
     let status = "accept";
     const time = new Date().getTime();

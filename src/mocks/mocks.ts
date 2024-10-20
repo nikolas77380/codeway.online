@@ -167,7 +167,7 @@ export const coursesInfoList: TCourseInfo[] = [
     rating: 5,
     price: "100$",
     discountPrice: "80$",
-    discountEndDateTimer: "2024-10-11T00:00:00",
+    discountEndDateTimer: "2024-10-19T00:00:00",
     discountEndDate: "11.10.2024",
     courseDuration: 144,
     description:

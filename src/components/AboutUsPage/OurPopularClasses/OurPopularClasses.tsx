@@ -4,13 +4,12 @@ import dynamic from "next/dynamic";
 
 import { classesData } from "@/src/mocks/AboutUsPage/dataPopularClasses";
 
-import { TFunction } from "i18next";
-
 import MotionBox from "@/src/components/customComponents/MotionBox";
 import { scrollRightToLeft, textContainer } from "@/src/utils/motionVariants";
 
 import TextAnimation from "./TextAnimation";
 
+import { useTranslations } from "next-intl";
 import style from "./OurPopularClasses.style";
 
 const ScrollAnimationWrapper = dynamic(
@@ -22,7 +21,7 @@ const ScrollAnimationWrapper = dynamic(
 );
 
 interface IPopularClasses {
-  t: TFunction;
+  t: ReturnType<typeof useTranslations>;
 }
 
 const OurPopularClasses = ({ t }: IPopularClasses) => {

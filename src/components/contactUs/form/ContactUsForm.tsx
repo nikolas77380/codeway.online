@@ -12,9 +12,9 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
+import { useTranslations } from "next-intl";
 import Script from "next/script";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import style from "./ContactUsForm.style";
 import { getValidationSchema } from "./form.schema";
 
@@ -49,7 +49,7 @@ const ContactUsForm = ({
   const [contactMethod, setContactMethod] = useState("telegram");
 
   const { showSnackbar } = useSnackbar();
-  const { t } = useTranslation("ContactUs");
+  const t = useTranslations("ContactUs");
 
   const handleContactMethodChange = (
     event: React.MouseEvent<HTMLElement>,

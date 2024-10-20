@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
 import { Box, Button, Paper, Rating, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import style from "./CourseItem.style";
-import { useTranslation } from "@/app/i18n/client";
 import { useEffect, useState } from "react";
+import style from "./CourseItem.style";
 
 interface ICourseItem {
   id: number | string;
@@ -25,10 +25,9 @@ const CourseItem = ({
   price,
   rating,
   discountPrice,
-  discountEndDateTimer
+  discountEndDateTimer,
 }: ICourseItem) => {
-
-  const { t } = useTranslation("CoursesList");
+  const t = useTranslations("CoursesList");
 
   const [isDiscountActive, setIsDiscountActive] = useState(false);
 
@@ -45,9 +44,6 @@ const CourseItem = ({
           setIsDiscountActive(false);
           localStorage.setItem("discountActive", "false");
         }
-      } else {
-        setIsDiscountActive(false);
-        localStorage.setItem("discountActive", "false");
       }
     };
 
@@ -57,8 +53,7 @@ const CourseItem = ({
     if (discountStatus === null) {
       localStorage.setItem("discountActive", "false");
     }
-
-  }, [discountPrice, discountEndDateTimer]); 
+  }, [discountPrice, discountEndDateTimer]);
 
   return (
     <Paper sx={style.container}>

@@ -1,15 +1,11 @@
-import { getTranslation } from "@/app/i18n";
 import Author from "@/public/assets/author6.webp";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import style from "./MySection.style";
 
-interface IMySection {
-  lang: string;
-}
-
-const MySection = async ({ lang }: IMySection) => {
-  const { t } = await getTranslation(lang, "MySection");
+const MySection = () => {
+  const t = useTranslations("MySection");
 
   return (
     <Box sx={style.container}>

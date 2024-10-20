@@ -3,11 +3,7 @@ import { coursesInfoList } from "@/src/mocks/mocks";
 import { Box, Typography } from "@mui/material";
 import style from "./RelatedCoursesBlock.style";
 
-interface IRelatedCoursesBlock {
-  lang: string;
-}
-
-const RelatedCoursesBlock = ({ lang }: IRelatedCoursesBlock) => {
+const RelatedCoursesBlock = () => {
   return (
     <Box sx={style.container}>
       <Box sx={style.headContainer}>
@@ -20,7 +16,7 @@ const RelatedCoursesBlock = ({ lang }: IRelatedCoursesBlock) => {
           </Button>
         </Link> */}
       </Box>
-      <CoursesList coursesList={coursesInfoList} lang={lang} />
+      <CoursesList coursesList={coursesInfoList} />
     </Box>
   );
 };

@@ -13,8 +13,6 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 
 import OurValueVideoPlayer from "./OurValueVideoPlayer/OurValueVideoPlayer";
 
-import { useTranslation } from "@/app/i18n/client";
-
 import {
   aboutUsPageScroLeftToRight,
   ourValuescrollDown,
@@ -27,6 +25,7 @@ import MotionBox from "@/src/components/customComponents/MotionBox";
 
 import { useScrollAnimation } from "@/src/hooks/useScrollAnimation";
 
+import { useTranslations } from "next-intl";
 import style from "./OurValueSection.style";
 
 interface OurValueSectionProps {
@@ -39,7 +38,7 @@ const OurValueSection = ({ autoplay = false }: OurValueSectionProps) => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const { t } = useTranslation("AboutUsPage");
+  const t = useTranslations("AboutUsPage");
 
   const { ref } = useScrollAnimation({
     delay: 0,

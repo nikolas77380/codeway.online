@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslation } from "@/app/i18n/client";
 import ContactUsForm from "@/src/components/contactUs/form/ContactUsForm";
 import ContactUsModal from "@/src/components/contactUs/modal/ContactUsModal";
 import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
@@ -12,6 +11,7 @@ import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
 import { Box, Button, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
@@ -28,9 +28,11 @@ const CardInfoVideoPlayerWithNoSSR = dynamic(
 
 const CardInfo = () => {
   const [timerExpired, setTimerExpired] = useState(false);
+  const [discountActive, setDiscountActive] = useState<boolean | null>(null);
+  const [loading, setLoading] = useState(true);
 
   const { isOpen, openModal, closeModal } = useModal();
-  const { t } = useTranslation("CourseIdPage");
+  const t = useTranslations("CourseIdPage");
   const { course } = useCourse();
 
   const endDate = useMemo(() => {
@@ -39,23 +41,71 @@ const CardInfo = () => {
       : null;
   }, [course.discountEndDateTimer]);
 
+  // useEffect(() => {
+  //   const storedDiscountActive = localStorage.getItem("discountActive") === "true";
+  //   setDiscountActive(storedDiscountActive);
+    
+  //   if (endDate && new Date() >= endDate) {
+  //     setTimerExpired(true);
+  //     setDiscountActive(false);
+  //     localStorage.setItem("discountActive", "false");
+  //   } else {
+  //     setTimerExpired(false);
+  //     setDiscountActive(true);
+  //     localStorage.setItem("discountActive", "true");
+  //   }
+    
+  //   setLoading(false);
+
+  //   const interval = setInterval(() => {
+  //     const now = new Date();
+  //     if (endDate && now >= endDate) {
+  //       setTimerExpired(true);
+  //       setDiscountActive(false);
+  //       localStorage.setItem("discountActive", "false");
+  //       clearInterval(interval);
+  //     }
+  //   }, 1000);
+
+  //   return () => clearInterval(interval);
+  // }, [endDate]);
+
   useEffect(() => {
-    localStorage.setItem("discountActive", "true");
-
-    const timer = setInterval(() => {
-      const now = new Date();
-      if (endDate && now >= endDate) {
+    
+    if (course.discountEndDateTimer) {
+      const endDate = new Date(course.discountEndDateTimer);
+      
+      if (new Date() >= endDate) {
         setTimerExpired(true);
+        setDiscountActive(false);
         localStorage.setItem("discountActive", "false");
-        clearInterval(timer);
+      } else {
+        setTimerExpired(false);
+        setDiscountActive(true);
+        localStorage.setItem("discountActive", "true");
       }
-
-      return () => clearInterval(timer);
+    } else {
+      setDiscountActive(false);
+      localStorage.setItem("discountActive", "false");
+    }
+  
+    setLoading(false);
+  
+    const interval = setInterval(() => {
+      const now = new Date();
+      if (course.discountEndDateTimer && now >= new Date(course.discountEndDateTimer)) {
+        setTimerExpired(true);
+        setDiscountActive(false);
+        localStorage.setItem("discountActive", "false");
+        clearInterval(interval);
+      }
     }, 1000);
+  
+    return () => clearInterval(interval);
+  }, [course.discountEndDateTimer]);
 
-    return () => clearInterval(timer);
-  }, [endDate]);
-
+  if (loading) return null;
+  
   return (
     <Box
       sx={{
@@ -111,7 +161,7 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        {!timerExpired && course.discountPrice ? (
+        {!timerExpired && discountActive && course.discountPrice ? (
           <Box sx={style.discountPriceBlock}>
             <Box sx={style.timerCard}>
               <Box sx={style.discountTimerContainer}>

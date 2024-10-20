@@ -1,15 +1,11 @@
-import { getTranslation } from "@/app/i18n";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import Logo from "./Logo/Logo";
 import style from "./Menu.style";
 
-interface IMenu {
-  lang: string;
-}
-
-const Menu = async ({ lang }: IMenu) => {
-  const { t } = await getTranslation(lang, "Menu");
+const Menu = async () => {
+  const t = useTranslations("Menu");
 
   return (
     <Box sx={style.mainSection}>

@@ -1,14 +1,10 @@
-import { getTranslation } from "@/app/i18n";
 import { Box, Typography } from "@mui/material";
+import { useTranslations } from "next-intl";
 import AnimatedPath from "./animatedPath/AnimatedPath";
 import style from "./OfferWay.style";
 
-interface IOfferWay {
-  lang: string;
-}
-
-const OfferWay = async ({ lang }: IOfferWay) => {
-  const { t } = await getTranslation(lang, "OfferWay");
+const OfferWay = () => {
+  const t = useTranslations("OfferWay");
 
   return (
     <Box sx={style.container}>

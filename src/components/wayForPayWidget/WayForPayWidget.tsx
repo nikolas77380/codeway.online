@@ -1,7 +1,7 @@
 "use client";
-import { useTranslation } from "@/app/i18n/client";
 import { useSnackbar } from "@/src/context/SnackbarContext";
 import { Button, SxProps, Theme } from "@mui/material";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import OfferModal from "./OfferModal";
 
@@ -15,7 +15,7 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
   const { showSnackbar } = useSnackbar();
   const [modalOpen, setModalOpen] = useState(false);
   const [isApproved, setIsApproved] = useState(false);
-  const { t } = useTranslation("messages");
+  const t = useTranslations("messages");
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -31,7 +31,6 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
       } else if (event.data === "WfpWidgetEventClose") {
         handleWidgetClose();
         if (isApproved) {
-          console.log("event close and isApproved");
           setModalOpen(true);
         }
 
@@ -54,7 +53,6 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
 
   const handleWidgetClose = () => {
     const widget = new (window as any).Wayforpay();
-    console.log("try to close window");
     widget.closeit();
   };
 
