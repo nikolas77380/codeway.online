@@ -186,7 +186,7 @@ const ContactUsForm = ({
           <TextField
             name="email"
             label={t(`modal.${contactMethod}InputLabel`)}
-            type="email"
+            type="text"
             variant="outlined"
             sx={style.input}
             value={formik.values.email}
