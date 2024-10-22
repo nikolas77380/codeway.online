@@ -68,7 +68,6 @@ export async function POST(request: Request) {
     if (body.transactionStatus == "Approved") {
       const kwigaParams = {
         email,
-        phone: body.phone,
         send_activation_email: true,
         offer_id,
       };
