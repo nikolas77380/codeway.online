@@ -36,6 +36,7 @@ export async function POST(request: Request) {
   const offer_id = url.searchParams.get("offer_id");
 
   const body: WayForPayRequest = await request.json();
+  console.log(body);
   const email = body.clientFields.find((el) =>
     el.name.includes("Email")
   )?.value;
@@ -78,7 +79,7 @@ export async function POST(request: Request) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "Token": kwigaToken,
+            Token: kwigaToken,
             "Cabinet-Hash": cabinetHash,
           },
           body: JSON.stringify(kwigaParams),
