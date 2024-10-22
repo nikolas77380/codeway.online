@@ -36,7 +36,6 @@ export async function POST(request: Request) {
   const offer_id = url.searchParams.get("offer_id");
 
   const body: WayForPayRequest = await request.json();
-  console.log(body);
   const email = body.clientFields.find((el) =>
     el.name.includes("Email")
   )?.value;
@@ -58,12 +57,10 @@ export async function POST(request: Request) {
 
   // Generate HMAC_MD5 signature
   const generatedSignature = generateSignature(stringToSign, SECRET_KEY);
-
   // Check if the signature matches
   if (generatedSignature !== body.merchantSignature) {
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
   }
-
   try {
     if (body.transactionStatus == "Approved") {
       const kwigaParams = {
