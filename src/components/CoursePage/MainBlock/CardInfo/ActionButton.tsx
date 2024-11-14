@@ -58,6 +58,7 @@ const ActionButton = () => {
             messageTemplate={t("modalContact.messageTemplate", {
               courseName: course.name,
             })}
+            hideMessageInput={true}
           />
         </ContactUsModal>
       </>
