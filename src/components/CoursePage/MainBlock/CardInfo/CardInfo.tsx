@@ -1,8 +1,5 @@
 "use client";
 
-import ContactUsForm from "@/src/components/contactUs/form/ContactUsForm";
-import ContactUsModal from "@/src/components/contactUs/modal/ContactUsModal";
-import WayForPayWidget from "@/src/components/wayForPayWidget/WayForPayWidget";
 import { useCourse } from "@/src/context/CourseContext";
 import { useModal } from "@/src/hooks/useModal";
 import { courseInstructor } from "@/src/mocks/mocks";
@@ -10,11 +7,12 @@ import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
+import ActionButton from "./ActionButton";
 import style from "./CardInfoItem.style";
 import CountdownTimer from "./CountdownTimer";
 import AuthorImage from "/public/assets/header/author_header.webp";
@@ -44,7 +42,7 @@ const CardInfo = () => {
   // useEffect(() => {
   //   const storedDiscountActive = localStorage.getItem("discountActive") === "true";
   //   setDiscountActive(storedDiscountActive);
-    
+
   //   if (endDate && new Date() >= endDate) {
   //     setTimerExpired(true);
   //     setDiscountActive(false);
@@ -54,7 +52,7 @@ const CardInfo = () => {
   //     setDiscountActive(true);
   //     localStorage.setItem("discountActive", "true");
   //   }
-    
+
   //   setLoading(false);
 
   //   const interval = setInterval(() => {
@@ -71,10 +69,9 @@ const CardInfo = () => {
   // }, [endDate]);
 
   useEffect(() => {
-    
     if (course.discountEndDateTimer) {
       const endDate = new Date(course.discountEndDateTimer);
-      
+
       if (new Date() >= endDate) {
         setTimerExpired(true);
         setDiscountActive(false);
@@ -88,24 +85,27 @@ const CardInfo = () => {
       setDiscountActive(false);
       localStorage.setItem("discountActive", "false");
     }
-  
+
     setLoading(false);
-  
+
     const interval = setInterval(() => {
       const now = new Date();
-      if (course.discountEndDateTimer && now >= new Date(course.discountEndDateTimer)) {
+      if (
+        course.discountEndDateTimer &&
+        now >= new Date(course.discountEndDateTimer)
+      ) {
         setTimerExpired(true);
         setDiscountActive(false);
         localStorage.setItem("discountActive", "false");
         clearInterval(interval);
       }
     }, 1000);
-  
+
     return () => clearInterval(interval);
   }, [course.discountEndDateTimer]);
 
   if (loading) return null;
-  
+
   return (
     <Box
       sx={{
@@ -195,31 +195,7 @@ const CardInfo = () => {
             {course.price}
           </Typography>
         )}
-        {course.id === "tviy-mentor" ? (
-          <>
-            <Button
-              variant="contained"
-              onClick={openModal}
-              sx={style.cardInfoButton}
-            >
-              {t("cardInfo.buttonMentor")}
-            </Button>
-            <ContactUsModal open={isOpen} handleClose={closeModal}>
-              <ContactUsForm
-                handleClose={closeModal}
-                title={t("modal.title")}
-                subtitle={t("modal.subtitle")}
-                messageTemplate={t("modal.messageTemplate")}
-              />
-            </ContactUsModal>
-          </>
-        ) : (
-          <WayForPayWidget
-            text={t("cardInfo.button")}
-            invoiceUrl={course.invoiceUrl}
-            sx={style.cardInfoButton}
-          />
-        )}
+        <ActionButton />
       </Box>
     </Box>
   );
