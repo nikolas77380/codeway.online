@@ -24,6 +24,9 @@ import { useMemo, useState } from "react";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
 import bgImage1 from "/public/assets/header/bg_header_3_.webp";
+import { useModal } from "@/src/hooks/useModal";
+import ContactUsModal from "../contactUs/modal/ContactUsModal";
+import OfferContractText from "@/src/mocks/OfferContractText";
 
 interface IListLinkItem {
   name: string;
@@ -32,13 +35,18 @@ interface IListLinkItem {
 const Footer = () => {
   const [email, setEmail] = useState("");
 
+  const { isOpen, openModal, closeModal } = useModal();
+
   const t = useTranslations("Footer");
   const messages = useMessages();
   const servicesList = Object.keys((messages.Footer as any).services.list).map(
     (key) => {
+      const name = t(`services.list.${key}.name`);
+      const href = t(`services.list.${key}.href`);
       return {
-        name: t(`services.list.${key}.name`),
-        href: t(`services.list.${key}.href`),
+        name,
+        href: name === "Договір оферти" ? undefined : href,
+        onClick: name === "Договір оферти" ? openModal : undefined,
       };
     }
   ) as IListLinkItem[];
@@ -100,6 +108,13 @@ const Footer = () => {
             <Grid item xs={6} sm={4} md={2}>
               <ListWithTitle title={t("services.title")} items={servicesList} />
             </Grid>
+            <ContactUsModal open={isOpen} handleClose={closeModal}>
+              <Box
+                sx={style.offerContractTextContainer}
+              >
+                <OfferContractText />
+              </Box>
+            </ContactUsModal>
             <Grid item xs={6} sm={4} md={2}>
               <ListWithTitle
                 title={t("companies.title")}

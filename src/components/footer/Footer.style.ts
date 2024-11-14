@@ -145,6 +145,21 @@ const style: { [key: string]: SxProps<Theme> } = {
       fontSize: "0.6rem",
     },
   },
+
+  offerContractTextContainer: {
+    maxHeight: "80vh",
+    overflowY: "auto",
+    "&::-webkit-scrollbar": {
+      width: "6px",
+    },
+    "&::-webkit-scrollbar-thumb": {
+      backgroundColor: "#7d3dba",
+      borderRadius: "10px",
+    },
+    "&::-webkit-scrollbar-track": {
+      backgroundColor: "transparent",
+    },
+  },
 };
 
 export default style;
