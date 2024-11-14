@@ -17,6 +17,7 @@ export type TCourseInfo = {
   seo_description: string;
   shortDescription: string;
   students: number;
+  isComingSoon?: boolean;
   lastUpdated: string;
   price: string;
   discountPrice?: string;
@@ -153,6 +154,7 @@ export const coursesInfoList: TCourseInfo[] = [
     invoiceUrl: "https://secure.wayforpay.com/button/b1e10642d077f",
     videoLink: "",
     offerId: 16585,
+    isComingSoon: true,
     image: ReactLogo,
     topic: "Front-end",
     name: "Front-end 360°",
