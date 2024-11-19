@@ -57,7 +57,9 @@ const ContactUsForm = ({
     event: React.MouseEvent<HTMLElement>,
     newMethod: string
   ) => {
-    setContactMethod(newMethod);
+    if (newMethod !== null) {
+      setContactMethod(newMethod);
+    }
   };
 
   if (messageTemplate) {
