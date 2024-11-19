@@ -20,7 +20,8 @@ const ActionButton = () => {
     () => import("@/src/components/wayForPayWidget/WayForPayWidget")
   );
 
-  if (course.id === "tviy-mentor") {
+  if (course.id === "tviy-mentor" || course.isComingSoon) {
+    const messagesSource = course.isComingSoon ? "modalContact" : "modalMentor";
     return (
       <>
         <Button
@@ -28,37 +29,15 @@ const ActionButton = () => {
           onClick={openModal}
           sx={style.cardInfoButton}
         >
-          {t("cardInfo.buttonMentor")}
+          {t(`${messagesSource}.button`)}
         </Button>
         <ContactUsModal open={isOpen} handleClose={closeModal}>
           <ContactUsForm
             handleClose={closeModal}
-            title={t("modalMentor.title")}
-            subtitle={t("modalMentor.subtitle")}
-            messageTemplate={t("modalMentor.messageTemplate")}
-          />
-        </ContactUsModal>
-      </>
-    );
-  } else if (course.isComingSoon) {
-    return (
-      <>
-        <Button
-          variant="contained"
-          onClick={openModal}
-          sx={style.cardInfoButton}
-        >
-          {t("cardInfo.buttonContact")}
-        </Button>
-        <ContactUsModal open={isOpen} handleClose={closeModal}>
-          <ContactUsForm
-            handleClose={closeModal}
-            title={t("modalContact.title")}
-            subtitle={t("modalContact.subtitle")}
-            messageTemplate={t("modalContact.messageTemplate", {
-              courseName: course.name,
-            })}
-            hideMessageInput={true}
+            title={t(`${messagesSource}.title`)}
+            subtitle={t(`${messagesSource}.subtitle`)}
+            messageTemplate={t(`${messagesSource}.messageTemplate`)}
+            hideMessageInput={course.isComingSoon}
           />
         </ContactUsModal>
       </>
