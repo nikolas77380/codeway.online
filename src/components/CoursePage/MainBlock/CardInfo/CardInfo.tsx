@@ -11,11 +11,11 @@ import { Box, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
 import ActionButton from "./ActionButton";
 import style from "./CardInfoItem.style";
 import CountdownTimer from "./CountdownTimer";
 import AuthorImage from "/public/assets/header/author_header.webp";
+import { useDiscountTimer } from "@/src/hooks/useDiscountTimer";
 const CardInfoVideoPlayerWithNoSSR = dynamic(
   () =>
     import(
@@ -25,84 +25,12 @@ const CardInfoVideoPlayerWithNoSSR = dynamic(
 );
 
 const CardInfo = () => {
-  const [timerExpired, setTimerExpired] = useState(false);
-  const [discountActive, setDiscountActive] = useState<boolean | null>(null);
-  const [loading, setLoading] = useState(true);
+
+  const { course } = useCourse();
+  const { timerExpired, discountActive, loading, endDate } = useDiscountTimer();
 
   const { isOpen, openModal, closeModal } = useModal();
   const t = useTranslations("CourseIdPage");
-  const { course } = useCourse();
-
-  const endDate = useMemo(() => {
-    return course.discountEndDateTimer
-      ? new Date(course.discountEndDateTimer)
-      : null;
-  }, [course.discountEndDateTimer]);
-
-  // useEffect(() => {
-  //   const storedDiscountActive = localStorage.getItem("discountActive") === "true";
-  //   setDiscountActive(storedDiscountActive);
-
-  //   if (endDate && new Date() >= endDate) {
-  //     setTimerExpired(true);
-  //     setDiscountActive(false);
-  //     localStorage.setItem("discountActive", "false");
-  //   } else {
-  //     setTimerExpired(false);
-  //     setDiscountActive(true);
-  //     localStorage.setItem("discountActive", "true");
-  //   }
-
-  //   setLoading(false);
-
-  //   const interval = setInterval(() => {
-  //     const now = new Date();
-  //     if (endDate && now >= endDate) {
-  //       setTimerExpired(true);
-  //       setDiscountActive(false);
-  //       localStorage.setItem("discountActive", "false");
-  //       clearInterval(interval);
-  //     }
-  //   }, 1000);
-
-  //   return () => clearInterval(interval);
-  // }, [endDate]);
-
-  useEffect(() => {
-    if (course.discountEndDateTimer) {
-      const endDate = new Date(course.discountEndDateTimer);
-
-      if (new Date() >= endDate) {
-        setTimerExpired(true);
-        setDiscountActive(false);
-        localStorage.setItem("discountActive", "false");
-      } else {
-        setTimerExpired(false);
-        setDiscountActive(true);
-        localStorage.setItem("discountActive", "true");
-      }
-    } else {
-      setDiscountActive(false);
-      localStorage.setItem("discountActive", "false");
-    }
-
-    setLoading(false);
-
-    const interval = setInterval(() => {
-      const now = new Date();
-      if (
-        course.discountEndDateTimer &&
-        now >= new Date(course.discountEndDateTimer)
-      ) {
-        setTimerExpired(true);
-        setDiscountActive(false);
-        localStorage.setItem("discountActive", "false");
-        clearInterval(interval);
-      }
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [course.discountEndDateTimer]);
 
   if (loading) return null;
 
@@ -190,7 +118,7 @@ const CardInfo = () => {
               </Typography>
             </Box>
           </Box>
-        ) : (
+          ) : (
           <Typography variant="h6" sx={style.price}>
             {course.price}
           </Typography>
