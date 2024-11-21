@@ -38,7 +38,7 @@ interface IContactUsForm {
   hideMessageInput?: boolean;
 }
 
-type ContactMethod = "telegram" | "email";
+type ContactMethod = "text" | "email";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
 
@@ -50,7 +50,7 @@ const ContactUsForm = ({
   hideMessageInput = false,
 }: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
-  const [contactMethod, setContactMethod] = useState<ContactMethod>("telegram");
+  const [contactMethod, setContactMethod] = useState<ContactMethod>("text");
 
   const { showSnackbar } = useSnackbar();
   const t = useTranslations("ContactUs");
@@ -136,8 +136,8 @@ const ContactUsForm = ({
   });
 
   useEffect(() => {
-    formik.setFieldTouched("email", false);
-    formik.setFieldError("email", "");
+    formik.setFieldTouched(contactMethod, false);
+    formik.setFieldError(contactMethod, "");
   }, [contactMethod]);
 
   return (
@@ -165,11 +165,9 @@ const ContactUsForm = ({
         >
           <ToggleButton
             color="primary"
-            value="telegram"
-            aria-label="telegram"
-            sx={
-              contactMethod === "telegram" ? style.selectedButton : style.button
-            }
+            value="text"
+            aria-label="text"
+            sx={contactMethod === "text" ? style.selectedButton : style.button}
           >
             <Telegram sx={{ marginRight: "8px" }} />
             telegram
@@ -200,7 +198,7 @@ const ContactUsForm = ({
           <TextField
             name="email"
             label={t(`modal.${contactMethod}InputLabel`)}
-            type={contactMethod === "email" ? "email" : "text"}
+            type={contactMethod}
             variant="outlined"
             sx={style.input}
             value={formik.values.email}
