@@ -38,6 +38,8 @@ interface IContactUsForm {
   hideMessageInput?: boolean;
 }
 
+type ContactMethod = "telegram" | "email";
+
 const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
 
 const ContactUsForm = ({
@@ -48,16 +50,18 @@ const ContactUsForm = ({
   hideMessageInput = false,
 }: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
-  const [contactMethod, setContactMethod] = useState("telegram");
+  const [contactMethod, setContactMethod] = useState<ContactMethod>("telegram");
 
   const { showSnackbar } = useSnackbar();
   const t = useTranslations("ContactUs");
 
   const handleContactMethodChange = (
     event: React.MouseEvent<HTMLElement>,
-    newMethod: string
+    newMethod: ContactMethod | null
   ) => {
-    setContactMethod(newMethod);
+    if (newMethod !== null) {
+      setContactMethod(newMethod);
+    }
   };
 
   if (messageTemplate) {

@@ -122,7 +122,7 @@ const style: { [key: string]: SxProps } = {
     letterSpacing: "1.5px",
     boxShadow: "0px 0px 30px 0px rgba(255, 255, 255, 0.1)",
     borderRadius: "50px",
-    transition: "all 0.3s easy",
+    transition: "all 0.3s ease-in-out",
     "&:hover": {
       color: "#FFF",
       backgroundColor: "rgb(168,85,247)",
@@ -173,7 +173,7 @@ const style: { [key: string]: SxProps } = {
     height: "100px",
     top: "40px",
     right: "30px",
-    rotate: "15deg",
+    transform: "rotate(15deg)",
     willChange: "opacity, transform",
     animation: `fadeInScale 1s forwards`,
     "@keyframes fadeInScale": {
@@ -225,7 +225,7 @@ const style: { [key: string]: SxProps } = {
     height: "108px",
     top: "50%",
     right: "150px",
-    rotate: "-15deg",
+    transform: "rotate(-15deg)",
     willChange: "opacity, transform",
     animation: `fadeInScale 1s forwards`,
     "@keyframes fadeInScale": {

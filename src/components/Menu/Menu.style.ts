@@ -40,7 +40,7 @@ const style: { [key: string]: SxProps<Theme> } = {
       minWidth: "10px",
       display: "inline-block",
       animationName: "blink",
-      animationDration: "0.8s",
+      animationDuration: "0.8s",
       animationIterationCount: "infinite",
       "@keyframes blink": {
         "0%, 100%": {
