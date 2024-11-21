@@ -224,8 +224,6 @@
     "services": {
       "title": "Послуги",
       "list": [
-        { "name": "Електронне навчання", "href": "" },
-        { "name": "Сертифікати", "href": "" },
         { "name": "Наставництво", "href": "/courses/tviy-mentor" },
         { "name": "Договір оферти", "href": "" }
       ]
