@@ -1,4 +1,6 @@
 "use client";
+import { useModal } from "@/src/hooks/useModal";
+import OfferContractText from "@/src/mocks/OfferContractText";
 import {
   EmailOutlined,
   Facebook,
@@ -21,6 +23,7 @@ import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
+import ContactUsModal from "../contactUs/modal/ContactUsModal";
 import style from "./Footer.style";
 import ListWithTitle from "./listWithTitle/ListWithTitle";
 import bgImage1 from "/public/assets/header/bg_header_3_.webp";
@@ -32,13 +35,18 @@ interface IListLinkItem {
 const Footer = () => {
   const [email, setEmail] = useState("");
 
+  const { isOpen, openModal, closeModal } = useModal();
+
   const t = useTranslations("Footer");
   const messages = useMessages();
   const servicesList = Object.keys((messages.Footer as any).services.list).map(
     (key) => {
+      const name = t(`services.list.${key}.name`);
+      const href = t(`services.list.${key}.href`);
       return {
-        name: t(`services.list.${key}.name`),
-        href: t(`services.list.${key}.href`),
+        name,
+        href: name === "Договір оферти" ? undefined : href,
+        onClick: name === "Договір оферти" ? openModal : undefined,
       };
     }
   ) as IListLinkItem[];
@@ -69,7 +77,13 @@ const Footer = () => {
           />
         </Box>
         <Stack sx={style.contentWrapper}>
-          <Grid container spacing={3} sx={style.mainSection}>
+          <Grid
+            container
+            spacing={3}
+            alignContent={"center"}
+            justifyContent={"space-between"}
+            sx={style.mainSection}
+          >
             <Grid item xs={12} sm={4} md={4}>
               <Typography fontSize={"1.5rem"}>[CodeWay]</Typography>
               <Typography
@@ -100,12 +114,17 @@ const Footer = () => {
             <Grid item xs={6} sm={4} md={2}>
               <ListWithTitle title={t("services.title")} items={servicesList} />
             </Grid>
-            <Grid item xs={6} sm={4} md={2}>
+            <ContactUsModal open={isOpen} handleClose={closeModal}>
+              <Box sx={style.offerContractTextContainer}>
+                <OfferContractText />
+              </Box>
+            </ContactUsModal>
+            {/*<Grid item xs={6} sm={4} md={2}>
               <ListWithTitle
                 title={t("companies.title")}
                 items={companiesList}
               />
-            </Grid>
+            </Grid>*/}
             <Grid item sm={12} md={4}>
               <Typography variant="h5" component={"p"}>
                 {t("newsletter")}
