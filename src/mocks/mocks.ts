@@ -41,8 +41,8 @@ export type TCourseInfo = {
 };
 
 export const courseInstructor: TInstructor = {
-  name: "Nik",
-  rank: "senior",
+  name: "Mykola Kipniak",
+  rank: "Lead Fron-End engineer",
   image: "/assets/header/img_2.png",
 };
 
@@ -64,8 +64,8 @@ export const coursesInfoList: TCourseInfo[] = [
     students: 378,
     lastUpdated: "10/08/24",
     rating: 5,
-    price: "50$",
-    discountPrice: "10$",
+    price: "3000 грн",
+    discountPrice: "599 грн",
     discountEndDateTimer: "2024-10-09T00:00:00",
     courseDuration: 38,
     description:
@@ -167,8 +167,8 @@ export const coursesInfoList: TCourseInfo[] = [
     students: 1378,
     lastUpdated: "10/09/24",
     rating: 5,
-    price: "200$",
-    discountPrice: "80$",
+    price: "8000 грн",
+    discountPrice: "5500грн",
     discountEndDateTimer: "2024-10-19T00:00:00",
     discountEndDate: "11.10.2024",
     courseDuration: 144,
