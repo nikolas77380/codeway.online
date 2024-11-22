@@ -164,12 +164,17 @@ const Footer = () => {
             <Grid item xs={12} sm={3}>
               <Stack direction={"row"}>
                 <Link
+                  target="_blank"
                   href="https://www.instagram.com/nik.kipniak"
                   aria-label="Instagram"
                 >
                   <Instagram sx={style.socialIcon} />
                 </Link>
-                <Link href="t.me/kipniak_channel" aria-label="LinkedIn">
+                <Link
+                  target="_blank"
+                  href="https://t.me/kipniak_channel"
+                  aria-label="LinkedIn"
+                >
                   <Telegram sx={style.socialIcon} />
                 </Link>
                 <Link
