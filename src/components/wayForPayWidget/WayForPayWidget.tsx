@@ -32,6 +32,7 @@ const WayForPayWidget = ({ text, invoiceUrl, sx }: IWidgetProps) => {
         handleWidgetClose();
         if (isApproved) {
           setModalOpen(true);
+          setIsApproved(false);
         }
 
         const widgetContainer = document.getElementById("wfp-container");
