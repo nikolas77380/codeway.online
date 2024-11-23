@@ -19,6 +19,7 @@ import MotionBox from "@/src/components/customComponents/MotionBox";
 import { scrollLeftToRight, scrollUp } from "@/src/utils/motionVariants";
 
 import { useTranslations } from "next-intl";
+import CardInfoVideoPlayer from "../CardInfo/CardInfoVideoPlayer";
 import style from "./CourseLessons.style";
 
 const CourseLessons = () => {
@@ -90,17 +91,11 @@ const CourseLessons = () => {
                 <Typography component="span">{lesson.lessonTopic}</Typography>
               </AccordionSummary>
               <AccordionDetails sx={style.accordionDetails}>
-                {/* {lesson.lessonsDescription.map((list, i) => (
-                  <Box key={i} sx={style.listLessonsContainer}>
-                    <Typography component="span">
-                      {i + 1 + ". " + list}
-                    </Typography>
-                  </Box>
-                ))} */}
                 <Box sx={style.listLessonsContainer}>
                   <Typography component="span">
                     {lesson.lessonsDescription}
                   </Typography>
+                  {index === 0 && <CardInfoVideoPlayer />}
                 </Box>
               </AccordionDetails>
             </Accordion>
