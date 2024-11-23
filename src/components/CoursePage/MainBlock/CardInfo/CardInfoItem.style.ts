@@ -41,13 +41,27 @@ const style: { [key: string]: SxProps<Theme> } = {
 
   cardInfoWrapper: {
     width: 1,
-    height: "200px",
-    position: "relative",
     display: "flex",
     justifyContent: "center",
-    marginBottom: "20px",
+    mt: "20px",
     "& iframe": {
+      maxWidth: "700px",
+      width: "100%",
+      aspectRatio: "16 / 9",
       border: "none",
+      borderRadius: "5px",
+    },
+  },
+
+  courseImageWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    mb: "20px",
+    "& img": {
+      width: "100%",
+      height: "220px",
+      maxWidth: "380px",
+      borderRadius: "15px",
     },
   },
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCourse } from "@/src/context/CourseContext";
+import { useDiscountTimer } from "@/src/hooks/useDiscountTimer";
 import { useModal } from "@/src/hooks/useModal";
 import { courseInstructor } from "@/src/mocks/mocks";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
@@ -9,23 +10,13 @@ import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import TapAndPlayIcon from "@mui/icons-material/TapAndPlay";
 import { Box, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
-import dynamic from "next/dynamic";
 import Image from "next/image";
 import ActionButton from "./ActionButton";
 import style from "./CardInfoItem.style";
 import CountdownTimer from "./CountdownTimer";
 import AuthorImage from "/public/assets/header/author_header.webp";
-import { useDiscountTimer } from "@/src/hooks/useDiscountTimer";
-const CardInfoVideoPlayerWithNoSSR = dynamic(
-  () =>
-    import(
-      "@/src/components/CoursePage/MainBlock/CardInfo/CardInfoVideoPlayer"
-    ),
-  { ssr: false }
-);
 
 const CardInfo = () => {
-
   const { course } = useCourse();
   const { timerExpired, discountActive, loading, endDate } = useDiscountTimer();
 
@@ -35,15 +26,14 @@ const CardInfo = () => {
   if (loading) return null;
 
   return (
-    <Box
-      sx={{
-        ...style.cardInfoMainContainer,
-        // height: timerExpired ? "750px" : "860px",
-        // transition: "height 0.3s ease",
-      }}
-    >
+    <Box sx={style.cardInfoMainContainer}>
       <Box sx={style.cardInfoContainer}>
-        <CardInfoVideoPlayerWithNoSSR />
+        <Box sx={style.courseImageWrapper}>
+          <Image
+            src={course.image}
+            alt="Курси з Front-end розробки від Codeway"
+          />
+        </Box>
         <Typography variant="h6" component="label">
           {t("cardInfo.title")}
         </Typography>
@@ -118,7 +108,7 @@ const CardInfo = () => {
               </Typography>
             </Box>
           </Box>
-          ) : (
+        ) : (
           <Typography variant="h6" sx={style.price}>
             {course.price}
           </Typography>
