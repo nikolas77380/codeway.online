@@ -3,9 +3,7 @@ import { useModal } from "@/src/hooks/useModal";
 import OfferContractText from "@/src/mocks/OfferContractText";
 import {
   EmailOutlined,
-  Facebook,
   Instagram,
-  Phone,
   Telegram,
   YouTube,
 } from "@mui/icons-material";
@@ -98,15 +96,6 @@ const Footer = () => {
                   href="mailto:info@codeway.online"
                 >
                   info@codeway.online
-                </a>
-              </Typography>
-              <Typography variant="subtitle2" component={"p"} sx={style.phone}>
-                <Phone sx={style.phoneIcon} />
-                <a
-                  style={{ textDecoration: "none", color: "#FFF" }}
-                  href="tel:+380632881111"
-                >
-                  +380632881111
                 </a>
               </Typography>
             </Grid>
