@@ -5,9 +5,8 @@ import {
   EmailOutlined,
   Facebook,
   Instagram,
-  LinkedIn,
   Phone,
-  X,
+  Telegram,
   YouTube,
 } from "@mui/icons-material";
 import {
@@ -164,19 +163,25 @@ const Footer = () => {
           >
             <Grid item xs={12} sm={3}>
               <Stack direction={"row"}>
-                <Link href="" aria-label="Facebook">
-                  <Facebook sx={style.socialIcon} />
-                </Link>
-                <Link href="" aria-label="Instagram">
+                <Link
+                  target="_blank"
+                  href="https://www.instagram.com/nik.kipniak"
+                  aria-label="Instagram"
+                >
                   <Instagram sx={style.socialIcon} />
                 </Link>
-                <Link href="" aria-label="X">
-                  <X sx={style.socialIcon} />
+                <Link
+                  target="_blank"
+                  href="https://t.me/kipniak_channel"
+                  aria-label="LinkedIn"
+                >
+                  <Telegram sx={style.socialIcon} />
                 </Link>
-                <Link href="" aria-label="LinkedIn">
-                  <LinkedIn sx={style.socialIcon} />
-                </Link>
-                <Link href="" aria-label="YouTube">
+                <Link
+                  target="_blank"
+                  href="https://www.youtube.com/@nik.kipniak"
+                  aria-label="YouTube"
+                >
                   <YouTube sx={style.socialIcon} />
                 </Link>
               </Stack>

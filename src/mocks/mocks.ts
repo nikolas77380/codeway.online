@@ -41,8 +41,8 @@ export type TCourseInfo = {
 };
 
 export const courseInstructor: TInstructor = {
-  name: "Nik",
-  rank: "senior",
+  name: "Mykola Kipniak",
+  rank: "Lead Fron-End engineer",
   image: "/assets/header/img_2.png",
 };
 
@@ -64,9 +64,9 @@ export const coursesInfoList: TCourseInfo[] = [
     students: 378,
     lastUpdated: "10/08/24",
     rating: 5,
-    price: "50$",
-    discountPrice: "10$",
-    discountEndDateTimer: "2024-10-09T00:00:00",
+    price: "3000 грн",
+    discountPrice: "599 грн",
+    discountEndDateTimer: "2024-11-27T00:00:00",
     courseDuration: 38,
     description:
       "«ЛЕГКИЙ СТАРТ 1.0» — це базовий курс для тих, хто хоче зробити перші кроки у веб-розробці та зрозуміти, чи підходить їм ця сфера. Курс допоможе освоїти основи HTML і CSS, створити свій перший простий веб-сайт, і визначити, чи є у вас здібності та інтерес до розробки. Ви отримаєте базові знання про те, як працює інтернет, веб-сайти, а також як правильно структуризувати та стилізувати контент. Курс розділений на чотири модулі, кожен з яких поступово занурює вас у різні аспекти веб-розробки, від основ до більш просунутих тем. Цей курс є ідеальним вибором для початківців, які бажають отримати уявлення про веб-розробку та зробити перший крок у цій захоплюючій сфері.",
@@ -154,7 +154,7 @@ export const coursesInfoList: TCourseInfo[] = [
     invoiceUrl: "https://secure.wayforpay.com/button/b1e10642d077f",
     videoLink: "",
     offerId: 16585,
-    isComingSoon: true,
+    isComingSoon: false,
     image: ReactLogo,
     topic: "Front-end",
     name: "Front-end 360°",
@@ -167,9 +167,9 @@ export const coursesInfoList: TCourseInfo[] = [
     students: 1378,
     lastUpdated: "10/09/24",
     rating: 5,
-    price: "200$",
-    discountPrice: "80$",
-    discountEndDateTimer: "2024-10-19T00:00:00",
+    price: "8000 грн",
+    discountPrice: "5500грн",
+    discountEndDateTimer: "2024-11-27T00:00:00",
     discountEndDate: "11.10.2024",
     courseDuration: 144,
     description:
