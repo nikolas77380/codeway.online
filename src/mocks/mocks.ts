@@ -151,7 +151,7 @@ export const coursesInfoList: TCourseInfo[] = [
   {
     id: "front-end-360",
     link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-pro",
-    invoiceUrl: "https://secure.wayforpay.com/button/b1e10642d077f",
+    invoiceUrl: "https://secure.wayforpay.com/button/bf2cd076d531b",
     videoLink: "https://www.youtube.com/embed/NRH4_MWe270?si=S63CGU2gBR9-lwXl",
     offerId: 16585,
     image: ReactLogo,
