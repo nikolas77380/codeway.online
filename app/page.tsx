@@ -28,9 +28,6 @@ export default function Home() {
   const ContactUs = dynamic(
     () => import("@/src/components/contactUs/ContactUs")
   );
-  const CookieDialog = dynamic(
-    () => import("@/src/components/cookieDialog/CookieDialog")
-  );
 
   return (
     <main style={{ overflow: "hidden" }}>
@@ -44,7 +41,6 @@ export default function Home() {
         <Faq />
         <ContactUs />
       </DynamicProvider>
-      <CookieDialog />
     </main>
   );
 }
