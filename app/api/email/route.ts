@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import Mail from "nodemailer/lib/mailer";
 
-const CORP_EMAIL_RECIPIENT = "info@codeway.online";
+const CORP_EMAIL_RECIPIENT = "info.codeway.online@gmail.com";
 const CORP_EMAIL = process.env.CORP_EMAIL;
 const PASSWORD = process.env.APP_PASSWORD;
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY;
