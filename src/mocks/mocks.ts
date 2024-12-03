@@ -66,7 +66,7 @@ export const coursesInfoList: TCourseInfo[] = [
     rating: 5,
     price: "3000 грн",
     discountPrice: "599 грн",
-    discountEndDateTimer: "2024-11-27T00:00:00",
+    discountEndDateTimer: "2024-12-10T00:00:00",
     courseDuration: 38,
     description:
       "«ЛЕГКИЙ СТАРТ 1.0» — це базовий курс для тих, хто хоче зробити перші кроки у веб-розробці та зрозуміти, чи підходить їм ця сфера. Курс допоможе освоїти основи HTML і CSS, створити свій перший простий веб-сайт, і визначити, чи є у вас здібності та інтерес до розробки. Ви отримаєте базові знання про те, як працює інтернет, веб-сайти, а також як правильно структуризувати та стилізувати контент. Курс розділений на чотири модулі, кожен з яких поступово занурює вас у різні аспекти веб-розробки, від основ до більш просунутих тем. Цей курс є ідеальним вибором для початківців, які бажають отримати уявлення про веб-розробку та зробити перший крок у цій захоплюючій сфері.",
@@ -151,7 +151,7 @@ export const coursesInfoList: TCourseInfo[] = [
   {
     id: "front-end-360",
     link: "https://mii-proekt-testovyi.kwiga.com/courses/front-end-pro",
-    invoiceUrl: "https://secure.wayforpay.com/button/b1e10642d077f",
+    invoiceUrl: "https://secure.wayforpay.com/button/bf2cd076d531b",
     videoLink: "https://www.youtube.com/embed/NRH4_MWe270?si=S63CGU2gBR9-lwXl",
     offerId: 16585,
     image: ReactLogo,
@@ -168,7 +168,7 @@ export const coursesInfoList: TCourseInfo[] = [
     rating: 5,
     price: "8000 грн",
     discountPrice: "5500грн",
-    discountEndDateTimer: "2024-11-27T00:00:00",
+    discountEndDateTimer: "2024-12-10T00:00:00",
     discountEndDate: "11.10.2024",
     courseDuration: 144,
     description:
@@ -354,8 +354,8 @@ export const coursesInfoList: TCourseInfo[] = [
     topic: "Front-end",
     name: "Твій Ментор",
     shortDescription:
-      "Стань фронт-енд розробником из підтримкою професионала: крок за кроком до успіху у Веб-розробці",
-    title: "Твій Ментор | Комплексний курс Front-end з професійною підтримкою",
+      "Стань фронт-енд розробником за підтримки спеціаліста: крок за кроком до успіху у Веб-розробці",
+    title: "Твій Ментор | Комплексний курс Front-end із професійною підтримкою",
     seo_description:
       "Стартуй кар'єру фронтенд-розробника з курсом «Твій Ментор». Отримай глибоке знання HTML, CSS, JavaScript та React під керівництвом досвідченого ментора. Запишись на курс вже сьогодні!",
     students: 4,

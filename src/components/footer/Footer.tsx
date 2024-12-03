@@ -93,9 +93,9 @@ const Footer = () => {
               <Typography variant="subtitle2" component={"p"} sx={style.email}>
                 <a
                   style={{ textDecoration: "none", color: "#FFF" }}
-                  href="mailto:info@codeway.online"
+                  href="mailto:info.codeway.online@gmail.com"
                 >
-                  info@codeway.online
+                  info.codeway.online@gmail.com
                 </a>
               </Typography>
             </Grid>
