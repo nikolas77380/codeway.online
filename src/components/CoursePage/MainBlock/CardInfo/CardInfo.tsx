@@ -1,8 +1,8 @@
 "use client";
 
+import PriceDisplay from "@/src/components/common/coursesList/CourseItem/PriceDisplay";
 import { useCourse } from "@/src/context/CourseContext";
 import { useDiscountTimer } from "@/src/hooks/useDiscountTimer";
-import { useModal } from "@/src/hooks/useModal";
 import { courseInstructor } from "@/src/mocks/mocks";
 import CardMembershipIcon from "@mui/icons-material/CardMembership";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -19,9 +19,22 @@ import AuthorImage from "/public/assets/header/author_header.webp";
 const CardInfo = () => {
   const { course } = useCourse();
   const { timerExpired, discountActive, loading, endDate } = useDiscountTimer();
-
-  const { isOpen, openModal, closeModal } = useModal();
+  const {
+    image,
+    courseDuration,
+    price,
+    discountPrice,
+    isFree,
+    discountEndDateTimer,
+  } = course;
   const t = useTranslations("CourseIdPage");
+
+  const formatDate = (date: Date) =>
+    date.toLocaleDateString("uk", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+    });
 
   if (loading) return null;
 
@@ -29,10 +42,7 @@ const CardInfo = () => {
     <Box sx={style.cardInfoMainContainer}>
       <Box sx={style.cardInfoContainer}>
         <Box sx={style.courseImageWrapper}>
-          <Image
-            src={course.image}
-            alt="Курси з Front-end розробки від Codeway"
-          />
+          <Image src={image} alt="Курси з Front-end розробки від Codeway" />
         </Box>
         <Typography variant="h6" component="label">
           {t("cardInfo.title")}
@@ -79,40 +89,21 @@ const CardInfo = () => {
           </Box>
           <Box sx={style.dashSeparator} />
         </Box>
-        {!timerExpired && discountActive && course.discountPrice ? (
-          <Box sx={style.discountPriceBlock}>
-            <Box sx={style.timerCard}>
-              <Box sx={style.discountTimerContainer}>
-                <Typography sx={style.timerCardTitle}>
-                  {t("cardInfo.timerTitle")}
-                  <br />
-                  <span>
-                    {endDate?.toLocaleDateString("uk", {
-                      day: "2-digit",
-                      month: "2-digit",
-                      year: "numeric",
-                    })}
-                  </span>
-                </Typography>
-                <CountdownTimer
-                  endDate={course.discountEndDateTimer as string}
-                />
-              </Box>
-            </Box>
-            <Box sx={style.discountPriceContainer}>
-              <Typography variant="h6" className="discount-price">
-                {course.discountPrice}
-              </Typography>
-              <Typography variant="body1" className="original-price">
-                {course.price}
-              </Typography>
-            </Box>
+        {!timerExpired && discountActive && discountPrice && (
+          <Box sx={style.discountTimerContainer}>
+            <Typography sx={style.timerCardTitle}>
+              {t("cardInfo.timerTitle")}
+              <br />
+              <span>{endDate && formatDate(endDate)}</span>
+            </Typography>
+            <CountdownTimer endDate={discountEndDateTimer as string} />
           </Box>
-        ) : (
-          <Typography variant="h6" sx={style.price}>
-            {course.price}
-          </Typography>
         )}
+        <PriceDisplay
+          price={price}
+          discountPrice={discountPrice}
+          isFree={isFree}
+        />
         <ActionButton />
       </Box>
     </Box>

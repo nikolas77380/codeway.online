@@ -27,15 +27,12 @@ const style: { [key: string]: SxProps<Theme> } = {
   cardInfoContainer: {
     width: 1,
     height: 1,
-    padding: "2rem 2rem",
+    p: "15px",
     "& label": {
       color: "#fff",
       "@media (max-width: 600px)": {
         fontSize: "18px",
       },
-    },
-    "@media (max-width: 600px)": {
-      padding: "1.5rem",
     },
   },
 
@@ -59,7 +56,9 @@ const style: { [key: string]: SxProps<Theme> } = {
     mb: "20px",
     "& img": {
       width: "100%",
-      height: "220px",
+      height: "auto",
+      objectFit: "cover",
+      maxHeight: "212px",
       maxWidth: "380px",
       borderRadius: "15px",
     },
@@ -173,28 +172,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     marginBottom: "10px",
   },
 
-  discountPriceBlock: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: "screen",
-    width: 1,
-    mb: "10px",
-    "@media (max-width: 600px)": {
-      flexDirection: "column",
-    },
-  },
-
-  timerCard: {
-    position: "relative",
-    display: "flex",
-    p: "1rem",
-    width: "16rem",
-    alignItems: "center",
-    justifyContent: "center",
-    borderRadius: "1rem",
-  },
-
   discountTimerContainer: {
     display: "flex",
     alignItems: "center",
@@ -207,47 +184,8 @@ const style: { [key: string]: SxProps<Theme> } = {
     fontWeight: "bold",
     whiteSpace: "nowrap",
     textAlign: "center",
-    mb: "1rem",
     "& span": {
       color: "#fff",
-      fontSize: "18px",
-    },
-  },
-
-  discountPriceContainer: {
-    display: "flex",
-    width: "fit-content",
-    flexDirection: "column",
-    alignItems: "flex-end",
-    "& .discount-price": {
-      color: "#A855F7",
-      fontWeight: "bold",
-      fontSize: "20px",
-      "@media (max-width: 600px)": {
-        fontSize: "22px",
-      },
-    },
-    "& .original-price": {
-      textDecoration: "line-through",
-      color: "#747474",
-      fontSize: "20px",
-      "@media (max-width: 600px)": {
-        fontSize: "18px",
-      },
-    },
-    "@media (max-width: 600px)": {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: "14px",
-    },
-  },
-
-  price: {
-    textAlign: "end",
-    color: "#A855F7",
-    fontWeight: "bold",
-    fontSize: "20px",
-    "@media (max-width: 600px)": {
       fontSize: "18px",
     },
   },

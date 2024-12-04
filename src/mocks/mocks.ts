@@ -255,6 +255,7 @@ export const coursesInfoList: TCourseInfo[] = [
     videoLink: "https://www.youtube.com/embed/NRH4_MWe270?si=S63CGU2gBR9-lwXl",
     offerId: 16585,
     image: ReactLogo,
+    isComingSoon: true,
     topic: "Front-end",
     name: "Front-end 360°",
     shortDescription:
