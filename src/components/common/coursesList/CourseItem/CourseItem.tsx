@@ -1,17 +1,19 @@
 "use client";
 
+import { useDiscountStatus } from "@/src/hooks/useDiscountStatus";
 import { Box, Button, Paper, Rating, Typography } from "@mui/material";
 import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import style from "./CourseItem.style";
+import PriceDisplay from "./PriceDisplay";
 
 interface ICourseItem {
   id: number | string;
   image: StaticImageData;
   shortDescription: string;
   name: string;
+  isFree?: boolean;
   price: string;
   rating: number;
   discountPrice?: string;
@@ -22,6 +24,7 @@ const CourseItem = ({
   image,
   name,
   shortDescription,
+  isFree = false,
   price,
   rating,
   discountPrice,
@@ -29,31 +32,10 @@ const CourseItem = ({
 }: ICourseItem) => {
   const t = useTranslations("CoursesList");
 
-  const [isDiscountActive, setIsDiscountActive] = useState(false);
-
-  useEffect(() => {
-    const checkDiscount = () => {
-      if (discountPrice && discountEndDateTimer) {
-        const endDate = new Date(discountEndDateTimer);
-        const now = new Date();
-
-        if (now < endDate) {
-          setIsDiscountActive(true);
-          localStorage.setItem("discountActive", "true");
-        } else {
-          setIsDiscountActive(false);
-          localStorage.setItem("discountActive", "false");
-        }
-      }
-    };
-
-    checkDiscount();
-
-    const discountStatus = localStorage.getItem("discountActive");
-    if (discountStatus === null) {
-      localStorage.setItem("discountActive", "false");
-    }
-  }, [discountPrice, discountEndDateTimer]);
+  const isDiscountActive = useDiscountStatus(
+    discountPrice,
+    discountEndDateTimer
+  );
 
   return (
     <Paper sx={style.container}>
@@ -76,22 +58,11 @@ const CourseItem = ({
         </Typography>
       </Box>
       <Box>
-        {isDiscountActive && discountPrice ? (
-          <Box sx={style.discountPriceContainer}>
-            <Typography
-              variant="body1"
-              className="original-price"
-              component={"p"}
-            >
-              {price}
-            </Typography>
-            <Typography variant="h6" className="discount-price" component={"p"}>
-              {discountPrice}
-            </Typography>
-          </Box>
-        ) : (
-          <Typography sx={style.price}>{price}</Typography>
-        )}
+        <PriceDisplay
+          isFree={isFree}
+          price={price}
+          discountPrice={isDiscountActive ? discountPrice : undefined}
+        />
         <Rating size="small" value={rating} readOnly sx={style.rating} />
         <Link href={`/courses/${id}`}>
           <Button variant="contained" size="medium" sx={style.courseButton}>

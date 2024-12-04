@@ -33,11 +33,12 @@ const style: { [key: string]: SxProps<Theme> } = {
   discountPriceContainer: {
     display: "flex",
     alignItems: "center",
+    m: "0 15px",
+    justifyContent: "space-between",
     "& .discount-price": {
       color: "#A855F7",
       fontWeight: "bold",
       fontSize: "20px",
-      ml: "15px",
       "@media (max-width: 600px)": {
         fontSize: "16px",
       },
@@ -45,7 +46,6 @@ const style: { [key: string]: SxProps<Theme> } = {
     "& .original-price": {
       textDecoration: "line-through",
       color: "#747474",
-      ml: "15px",
       fontSize: "20px",
       "@media (max-width: 600px)": {
         fontSize: "16px",
