@@ -13,7 +13,7 @@ interface ICourseItem {
   image: StaticImageData;
   shortDescription: string;
   name: string;
-  isFree: boolean;
+  isFree?: boolean;
   price: string;
   rating: number;
   discountPrice?: string;
@@ -24,7 +24,7 @@ const CourseItem = ({
   image,
   name,
   shortDescription,
-  isFree,
+  isFree = false,
   price,
   rating,
   discountPrice,
