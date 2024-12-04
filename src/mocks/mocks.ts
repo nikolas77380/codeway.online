@@ -67,7 +67,6 @@ export const coursesInfoList: TCourseInfo[] = [
     rating: 5,
     price: "3000 грн",
     isFree: true,
-    discountPrice: "599 грн",
     discountEndDateTimer: "2024-12-10T00:00:00",
     courseDuration: 38,
     description:
