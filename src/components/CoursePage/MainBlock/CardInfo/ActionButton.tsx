@@ -1,3 +1,4 @@
+import OfferModal from "@/src/components/wayForPayWidget/OfferModal";
 import { useCourse } from "@/src/context/CourseContext";
 import { useModal } from "@/src/hooks/useModal";
 import { TCourseInfo } from "@/src/mocks/mocks";
@@ -23,6 +24,12 @@ const getMessagesSource = (course: TCourseInfo): string => {
 
 const ActionButton = () => {
   const { isOpen, openModal, closeModal } = useModal();
+  const {
+    isOpen: feedbackModal,
+    openModal: openFeedbackModal,
+    closeModal: closeFeedbackModal,
+  } = useModal();
+
   const t = useTranslations("CourseIdPage");
   const { course } = useCourse();
 
@@ -58,14 +65,25 @@ const ActionButton = () => {
           <ContactUsModal open={isOpen} handleClose={closeModal}>
             <ContactUsForm
               handleClose={closeModal}
+              openFeedbackModal={openFeedbackModal}
               title={t(`${messagesSource}.title`)}
               subtitle={t(`${messagesSource}.subtitle`)}
-              messageTemplate={t(`${messagesSource}.messageTemplate`)} // TODO where courseName
+              button={t(`${messagesSource}.button`)}
+              messageTemplate={t(`${messagesSource}.messageTemplate`, {
+                courseName: course.name,
+              })}
               hideMessageInput={course.isComingSoon || course.isFree}
               isRegisterContact={course.isFree}
               offerId={course.isFree ? course.offerId : undefined}
             />
           </ContactUsModal>
+          <OfferModal
+            title={t("successful_free_registration.title")}
+            message={t("successful_free_registration.message")}
+            button={t("successful_free_registration.button")}
+            open={feedbackModal}
+            handleClose={closeFeedbackModal}
+          />
         </>
       )}
     </>
