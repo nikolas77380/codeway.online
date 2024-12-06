@@ -17,8 +17,8 @@ const ContactMethodToggle = ({
   handleContactMethodChange,
   isRegisterContact,
 }: Props) => {
-  const getToggleButtonStyle = () => ({
-    ...(contactMethod === "text" ? style.selectedButton : style.button),
+  const getGroupStyle = () => ({
+    ...style.toggleGroup,
     ...(isRegisterContact && { display: "none" }),
   });
   return (
@@ -28,13 +28,15 @@ const ContactMethodToggle = ({
       exclusive
       onChange={handleContactMethodChange}
       aria-label="contact method"
-      sx={style.toggleGroup}
+      sx={getGroupStyle()}
     >
       <ToggleButton
         color="primary"
         value="text"
         aria-label="text"
-        sx={getToggleButtonStyle()}
+        sx={{
+          ...(contactMethod === "text" ? style.selectedButton : style.button),
+        }}
       >
         <Telegram sx={{ marginRight: "8px" }} />
         telegram

@@ -31,7 +31,7 @@ const CustomTextField = ({
   const { values, handleChange, handleBlur, touched, errors } = formik;
   return (
     <TextField
-      name={name}
+      name={name === "text" ? "email" : name}
       label={t(`modal.${name}InputLabel`)}
       type={type}
       variant="outlined"

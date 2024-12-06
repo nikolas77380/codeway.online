@@ -194,7 +194,7 @@ const ContactUsForm = ({
         <Box sx={style.inputWrapper}>
           <CustomTextField name="name" formik={formik} sx={style.input} />
           <CustomTextField
-            name="email"
+            name={contactMethod}
             type={contactMethod}
             formik={formik}
             sx={style.input}
