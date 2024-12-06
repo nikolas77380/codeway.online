@@ -1,21 +1,17 @@
 "use client";
 
 import { useSnackbar } from "@/src/context/SnackbarContext";
+import { useKwigaRegistration } from "@/src/hooks/useKwigaRegistration";
+import useReCaptcha from "@/src/hooks/useReCaptcha";
 import { sendEmail } from "@/src/utils/send-email";
-import { ArrowForward, Email, Telegram } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  TextField,
-  ToggleButton,
-  ToggleButtonGroup,
-  Typography,
-} from "@mui/material";
+import { ArrowForward } from "@mui/icons-material";
+import { Box, Button, Typography } from "@mui/material";
 import { useFormik } from "formik";
 import { useTranslations } from "next-intl";
-import Script from "next/script";
 import { useEffect, useState } from "react";
+import ContactMethodToggle from "./ContactMethodToggle";
 import style from "./ContactUsForm.style";
+import CustomTextField from "./CustomTextField";
 import { getValidationSchema } from "./form.schema";
 
 export interface IInitialValues {
@@ -34,26 +30,37 @@ interface IContactUsForm {
   handleClose?: () => void;
   title?: string;
   subtitle?: string;
+  button?: string;
+  offerId?: number;
   messageTemplate?: string;
   hideMessageInput?: boolean;
+  isRegisterContact?: boolean;
+  openFeedbackModal?: () => void;
 }
 
-type ContactMethod = "text" | "email";
-
-const SITE_KEY = process.env.NEXT_PUBLIC_RECAPTCHA_SITEKEY;
+export type ContactMethod = "text" | "email";
 
 const ContactUsForm = ({
   handleClose,
   title,
   subtitle,
+  button,
   messageTemplate,
+  offerId,
   hideMessageInput = false,
+  isRegisterContact,
+  openFeedbackModal,
 }: IContactUsForm) => {
   const [isSending, setIsSending] = useState(false);
-  const [contactMethod, setContactMethod] = useState<ContactMethod>("text");
 
+  const [contactMethod, setContactMethod] = useState<ContactMethod>(
+    isRegisterContact ? "email" : "text"
+  );
+  const { getReCAPTCHAToken, hideReCAPTCHABadge, showReCAPTCHABadge } =
+    useReCaptcha();
   const { showSnackbar } = useSnackbar();
   const t = useTranslations("ContactUs");
+  const { sendKwigaResponse } = useKwigaRegistration();
 
   const handleContactMethodChange = (
     event: React.MouseEvent<HTMLElement>,
@@ -64,12 +71,6 @@ const ContactUsForm = ({
     }
   };
 
-  if (messageTemplate) {
-    initialValues.message = messageTemplate;
-  } else {
-    initialValues.message = "";
-  }
-
   const onSubmit = async (values: IInitialValues) => {
     setIsSending(true);
     showSnackbar({
@@ -77,57 +78,91 @@ const ContactUsForm = ({
       severity: "info",
       duration: 10000,
     });
+
     try {
-      window.grecaptcha.enterprise.ready(async () => {
-        const token = await window.grecaptcha.enterprise.execute(SITE_KEY, {
-          action: "LOGIN",
-        });
-        const nodeBadge = document.querySelector(".grecaptcha-badge");
-        if (nodeBadge) {
-          (nodeBadge as HTMLElement).style.opacity = "1";
-          (nodeBadge as HTMLElement).style.visibility = "visible";
-        }
-        await sendEmail({
-          email: values.email,
-          subject: `${t("feedback.message")} ${values.name} (${values.email})`,
-          message: values.message,
-          recipient: "corp_email",
-          reCaptchaToken: token,
-        })
-          .then((response) => {
-            showSnackbar({
-              message: t(`feedback.${response.message}`),
-              severity: response.message,
-              duration: 3000,
-            });
-          })
-          .finally(() => {
-            if (handleClose) {
-              handleClose();
-            } else {
-              formik.resetForm();
-            }
-            setTimeout(() => {
-              const nodeBadge = document.querySelector(".grecaptcha-badge");
-              if (nodeBadge) {
-                (nodeBadge as HTMLElement).style.opacity = "0";
-                (nodeBadge as HTMLElement).style.visibility = "hidden";
-              }
-            }, 3000);
-            setIsSending(false);
-          });
-      });
+      const token = await getReCAPTCHAToken();
+      showReCAPTCHABadge();
+
+      // Send email and handle response
+      const emailResponse = await handleSendEmail(values, token);
+
+      if (isRegisterContact && offerId) {
+        await handleKwigaResponse(values.email);
+      } else {
+        handleGeneralFeedback(emailResponse.message);
+        // Reset form or close modal
+      }
+
+      handleFormCloseOrReset();
     } catch (error) {
+      console.error("Error in form submission:", error);
       showSnackbar({
         message: t("feedback.error"),
         severity: "error",
       });
-      const nodeBadge = document.querySelector(".grecaptcha-badge");
-      if (nodeBadge) {
-        (nodeBadge as HTMLElement).style.display = "none";
-      }
+    } finally {
+      handleFinalCleanup();
     }
   };
+
+  // Helper function to send email
+  const handleSendEmail = async (values: IInitialValues, token: string) => {
+    return await sendEmail({
+      email: values.email,
+      subject: `${t("feedback.message")} ${values.name} (${values.email})`,
+      message: values.message,
+      recipient: "corp_email",
+      reCaptchaToken: token,
+    });
+  };
+
+  // Helper function to handle Kwiga response
+  const handleKwigaResponse = async (email: string) => {
+    const kwigaResult = await sendKwigaResponse(email, offerId!);
+
+    if (!kwigaResult?.success) {
+      showSnackbar({
+        message: t("registration.error"),
+        severity: "error",
+        duration: 3000,
+      });
+    } else {
+      openFeedbackModal?.();
+      handleClose?.();
+    }
+  };
+
+  // Helper function to show general feedback
+  const handleGeneralFeedback = (
+    responseMessage: "error" | "warning" | "success" | "info"
+  ) => {
+    showSnackbar({
+      message: t(`feedback.${responseMessage}`),
+      severity: responseMessage,
+      duration: 3000,
+    });
+  };
+
+  // Helper function to handle form reset or modal close
+  const handleFormCloseOrReset = () => {
+    if (handleClose) {
+      handleClose();
+    } else {
+      formik.resetForm();
+    }
+  };
+
+  // Helper function to handle cleanup
+  const handleFinalCleanup = () => {
+    setTimeout(hideReCAPTCHABadge, 3000);
+    setIsSending(false);
+  };
+
+  if (messageTemplate) {
+    initialValues.message = messageTemplate;
+  } else {
+    initialValues.message = "";
+  }
 
   const formik = useFormik({
     initialValues,
@@ -142,11 +177,6 @@ const ContactUsForm = ({
 
   return (
     <Box sx={{ display: "grid", alignContent: "center", gap: "30px" }}>
-      <Script
-        src={`https://www.google.com/recaptcha/enterprise.js?render=${SITE_KEY}&hl=uk`}
-        async
-        defer
-      />
       <Typography variant="h5" sx={style.title}>
         {title ? title : t("modal.title")}
       </Typography>
@@ -155,74 +185,30 @@ const ContactUsForm = ({
       </Typography>
 
       <Box component={"form"} autoComplete="off" onSubmit={formik.handleSubmit}>
-        <ToggleButtonGroup
-          color="primary"
-          value={contactMethod}
-          exclusive
-          onChange={handleContactMethodChange}
-          aria-label="contact method"
-          sx={style.toggleGroup}
-        >
-          <ToggleButton
-            color="primary"
-            value="text"
-            aria-label="text"
-            sx={contactMethod === "text" ? style.selectedButton : style.button}
-          >
-            <Telegram sx={{ marginRight: "8px" }} />
-            telegram
-          </ToggleButton>
-          <ToggleButton
-            value="email"
-            aria-label="email"
-            sx={contactMethod === "email" ? style.selectedButton : style.button}
-          >
-            <Email sx={{ marginRight: "8px" }} />
-            e-mail
-          </ToggleButton>
-        </ToggleButtonGroup>
+        <ContactMethodToggle
+          contactMethod={contactMethod}
+          handleContactMethodChange={handleContactMethodChange}
+          isRegisterContact={isRegisterContact}
+        />
 
         <Box sx={style.inputWrapper}>
-          <TextField
-            name="name"
-            label={t("modal.nameInputLabel")}
-            type="text"
-            variant="outlined"
-            sx={style.input}
-            value={formik.values.name}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.name && Boolean(formik.errors.name)}
-            helperText={formik.touched.name && formik.errors.name}
-          />
-          <TextField
-            name="email"
-            label={t(`modal.${contactMethod}InputLabel`)}
+          <CustomTextField name="name" formik={formik} sx={style.input} />
+          <CustomTextField
+            name={contactMethod}
             type={contactMethod}
-            variant="outlined"
+            formik={formik}
             sx={style.input}
-            value={formik.values.email}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.email && Boolean(formik.errors.email)}
-            helperText={formik.touched.email && formik.errors.email}
           />
         </Box>
-        <TextField
+        <CustomTextField
           name="message"
-          label={t("modal.messageInputLabel")}
-          variant="outlined"
+          formik={formik}
           sx={{
             ...style.input,
             display: hideMessageInput ? "none" : "inline-flex",
           }}
           multiline
           rows={4}
-          value={formik.values.message}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          error={formik.touched.message && Boolean(formik.errors.message)}
-          helperText={formik.touched.message && formik.errors.message}
         />
         <Button
           variant="contained"
@@ -231,7 +217,7 @@ const ContactUsForm = ({
           type="submit"
           disabled={!formik.isValid || isSending}
         >
-          {t("modal.button")}
+          {button ?? t("modal.button")}
         </Button>
       </Box>
     </Box>

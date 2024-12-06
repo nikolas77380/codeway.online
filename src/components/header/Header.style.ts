@@ -15,6 +15,7 @@ const style: { [key: string]: SxProps } = {
     maxWidth: "1700px",
     maxHeight: "1000px",
     height: `calc(100vh - 90px)`,
+    minHeight: "750px",
     borderRadius: "50px",
     background: "linear-gradient(to bottom right, transparent, 90% , #A853F6)",
     display: "flex",
