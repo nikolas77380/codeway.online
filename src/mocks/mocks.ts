@@ -18,6 +18,7 @@ export type TCourseInfo = {
   shortDescription: string;
   students: number;
   isComingSoon?: boolean;
+  isFree?: boolean;
   lastUpdated: string;
   price: string;
   discountPrice?: string;
@@ -42,7 +43,7 @@ export type TCourseInfo = {
 
 export const courseInstructor: TInstructor = {
   name: "Mykola Kipniak",
-  rank: "Lead Fron-End engineer",
+  rank: "Lead Front-End engineer",
   image: "/assets/header/img_2.png",
 };
 
@@ -65,7 +66,7 @@ export const coursesInfoList: TCourseInfo[] = [
     lastUpdated: "10/08/24",
     rating: 5,
     price: "3000 грн",
-    discountPrice: "599 грн",
+    isFree: true,
     discountEndDateTimer: "2024-12-10T00:00:00",
     courseDuration: 38,
     description:

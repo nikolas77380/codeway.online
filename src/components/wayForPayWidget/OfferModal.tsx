@@ -5,7 +5,7 @@ import style from "./OfferModal.style";
 
 interface IOfferModal {
   title: string;
-  message: string;
+  messages: string[];
   button: string;
   open: boolean;
   handleClose: () => void;
@@ -13,7 +13,7 @@ interface IOfferModal {
 
 export default function OfferModal({
   title,
-  message,
+  messages,
   button,
   open,
   handleClose,
@@ -48,13 +48,15 @@ export default function OfferModal({
                     <CloseIcon />
                   </IconButton>
                 </Box>
-
-                <Typography
-                  variant="body1"
-                  sx={{ color: "#94A3B8", textIndent: "2rem", mb: "25px" }}
-                >
-                  {message}
-                </Typography>
+                {messages.map((message, index) => (
+                  <Typography
+                    key={index}
+                    variant="body1"
+                    sx={{ color: "#94A3B8", textIndent: "2rem", mb: "25px" }}
+                  >
+                    {message}
+                  </Typography>
+                ))}
                 <Button onClick={handleClose} sx={style.button}>
                   {button}
                 </Button>

@@ -1,4 +1,5 @@
 import DynamicProvider from "@/src/components/common/dynamicProvider/DynamicProvider";
+import ContactUsDialog from "@/src/components/contactUs/dialog/ContactUsDialog";
 import Header from "@/src/components/header/Header";
 import MySection from "@/src/components/mySection/MySection";
 import { getTranslations } from "next-intl/server";
@@ -41,6 +42,7 @@ export default function Home() {
         <Faq />
         <ContactUs />
       </DynamicProvider>
+      <ContactUsDialog />
     </main>
   );
 }
