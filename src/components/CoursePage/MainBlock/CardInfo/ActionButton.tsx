@@ -79,7 +79,10 @@ const ActionButton = () => {
           </ContactUsModal>
           <OfferModal
             title={t("successful_free_registration.title")}
-            message={t("successful_free_registration.message")}
+            messages={[
+              t("successful_free_registration.message"),
+              t("successful_free_registration.message-end"),
+            ]}
             button={t("successful_free_registration.button")}
             open={feedbackModal}
             handleClose={closeFeedbackModal}

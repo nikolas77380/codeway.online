@@ -1,3 +1,4 @@
+import { coursesInfoList } from "@/src/mocks/mocks";
 import { generateSignature } from "@/src/utils/generateSignature";
 import { sendEmail } from "@/src/utils/send-email";
 import { getTranslations } from "next-intl/server";
@@ -6,6 +7,9 @@ import { NextResponse } from "next/server";
 const SECRET_KEY = process.env.SECRET_KEY;
 const kwigaToken = process.env.KWIGA_TOKEN;
 const cabinetHash = process.env.CABINET_HASH;
+
+const FRONT_END_360_ID = "front-end-360";
+const EASY_START_ID = "easy-start-1-0";
 
 interface WayForPayRequest {
   merchantAccount: string;
@@ -86,6 +90,28 @@ export async function POST(request: Request) {
       const responseData = JSON.parse(responseText);
       if (!kwigaResponse.ok) {
         throw new Error(responseData);
+      } else {
+        const frontEnd360OfferId = coursesInfoList
+          .find((el) => el.id === FRONT_END_360_ID)
+          ?.offerId.toString();
+        const easyStartOfferId = coursesInfoList.find(
+          (el) => el.id === EASY_START_ID
+        )?.offerId;
+        if (offer_id === frontEnd360OfferId) {
+          await fetch("https://api.kwiga.com/contacts/purchases", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Token: kwigaToken,
+              "Cabinet-Hash": cabinetHash,
+            },
+            body: JSON.stringify({
+              email,
+              send_activation_email: true,
+              offer_id: easyStartOfferId,
+            }),
+          });
+        }
       }
     }
   } catch (error) {
