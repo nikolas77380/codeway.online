@@ -15,27 +15,14 @@ const PriceDisplay = ({
 }: IPriceDisplay) => {
   const t = useTranslations("CoursesList");
 
-  if (discountPrice) {
+  if (isFree || discountPrice) {
     return (
       <Box sx={style.discountPriceContainer}>
         <Typography variant="body1" className="original-price" component={"p"}>
           {price}
         </Typography>
         <Typography variant="h6" className="discount-price" component={"p"}>
-          {discountPrice}
-        </Typography>
-      </Box>
-    );
-  }
-
-  if (isFree) {
-    return (
-      <Box sx={style.discountPriceContainer}>
-        <Typography variant="body1" className="original-price" component={"p"}>
-          {price}
-        </Typography>
-        <Typography variant="h6" className="discount-price" component={"p"}>
-          {t("freeCoursePrice")}
+          {isFree ? t("freeCoursePrice") : discountPrice}
         </Typography>
       </Box>
     );
