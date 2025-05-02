@@ -10,6 +10,7 @@ import style from "./CardInfoItem.style";
 
 enum CourseType {
   MENTOR = "tviy-mentor",
+  FRONT_END_360 = "front-end-360",
   COMING_SOON = "coming_soon",
   FREE = "free",
   DEFAULT = "default",
@@ -19,6 +20,7 @@ const getMessagesSource = (course: TCourseInfo): string => {
   if (course.isComingSoon) return "modalContact";
   if (course.isFree) return "modalFree";
   if (course.id === CourseType.MENTOR) return "modalMentor";
+  if (course.id === CourseType.FRONT_END_360) return "modalFrontEnd360";
   return CourseType.DEFAULT;
 };
 
@@ -34,13 +36,13 @@ const ActionButton = () => {
   const { course } = useCourse();
 
   const ContactUsModal = dynamic(
-    () => import("@/src/components/contactUs/modal/ContactUsModal")
+    () => import("@/src/components/contactUs/modal/ContactUsModal"),
   );
   const ContactUsForm = dynamic(
-    () => import("@/src/components/contactUs/form/ContactUsForm")
+    () => import("@/src/components/contactUs/form/ContactUsForm"),
   );
   const WayForPayWidget = dynamic(
-    () => import("@/src/components/wayForPayWidget/WayForPayWidget")
+    () => import("@/src/components/wayForPayWidget/WayForPayWidget"),
   );
 
   const messagesSource = useMemo(() => getMessagesSource(course), [course]);
@@ -62,7 +64,10 @@ const ActionButton = () => {
           >
             {t(`${messagesSource}.button`)}
           </Button>
-          <ContactUsModal open={isOpen} handleClose={closeModal}>
+          <ContactUsModal
+            open={isOpen}
+            handleClose={closeModal}
+          >
             <ContactUsForm
               handleClose={closeModal}
               openFeedbackModal={openFeedbackModal}
